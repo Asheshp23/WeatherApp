@@ -9,24 +9,11 @@ struct ListOfCitiesView: View {
     ZStack {
       SkyImageView()
       VStack(alignment: .center) {
-        HStack{
-          Spacer()
-          Button(action: {
-            showCityList.toggle()
-          }){
-            Image(systemName: "xmark")
-              .foregroundColor(.white)
-          }
-        }
-        .padding(.all)
-        Text(selectedCity)
-          .foregroundColor(.white)
-          .font(.title)
-          .fontWeight(.bold)
         //city list
-        ForEach(cityNames,id:\.self) {city in
+        ForEach(cityNames,id:\.self) { city in
           HStack{
             Image(systemName: "building")
+              .font(.headline)
             Text(city)
               .fontWeight(.bold)
             Spacer()
@@ -42,7 +29,6 @@ struct ListOfCitiesView: View {
           Divider()
             .foregroundColor(.white)
         }
-        Spacer()
       }
     }
   }

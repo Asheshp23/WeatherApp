@@ -5,6 +5,10 @@ class WeatherDetailVM: ObservableObject {
 
   @Published var weather = WeatherModel()
   @Published var isLoading = false
+  @Published var selectedCity = "Toronto"
+  @Published var showCityList = false
+  @Published var showSettings = false
+  @Published var tempUnit : temperatureUnit = .celcius
 
   // fetch city code from city name
   func getCityNameAssosiatedWithCityCode(city : String) -> String {
@@ -24,12 +28,11 @@ class WeatherDetailVM: ObservableObject {
 
   // fetch weather data
   @MainActor
-  func fetchWeather(by city: String, unit: temperatureUnit) async {
+  func fetchWeather() async {
     self.isLoading = true
-    let selectedCity    = getCityNameAssosiatedWithCityCode(city: city)
-    let temperatureUnit = unit.rawValue
-    if let weatherData = await self.weatherService.getWeather(city: selectedCity,
-                                                              tempUnit: temperatureUnit) {
+    let city = getCityNameAssosiatedWithCityCode(city: self.selectedCity)
+    if let weatherData = await self.weatherService.getWeather(city: city,
+                                                              tempUnit: self.tempUnit.rawValue) {
       self.weather = weatherData
       self.isLoading.toggle()
 

@@ -8,23 +8,13 @@ struct SettingsView: View {
     ZStack {
       SkyImageView()
       VStack(alignment: .center) {
-        HStack {
-          Spacer()
-          Button(action: {
-            showSettings.toggle()
-          }){
-            Image(systemName: "xmark")
-              .foregroundColor(.white)
-          }
-        }
-        .padding(.all)
         Text("Choose the Temperature Unit")
           .font(.title)
           .padding(.all)
+          .fontWeight(.bold)
         Picker("Temperature Unit", selection: $tempUnit) {
           ForEach(temperatureUnit.allCases) { unit in
             Text("°\(unit.rawValue.capitalized)")
-              .font(.headline)
               .fontWeight(.bold)
               .tag(unit)
           }
