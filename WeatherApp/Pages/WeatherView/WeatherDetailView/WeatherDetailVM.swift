@@ -1,7 +1,8 @@
 import Foundation
+import CoreLocation
 
 class WeatherDetailVM: ObservableObject {
-  private let weatherService = WeatherService.shared
+  private let weatherService = WeatherData.shared
 
   @Published var weather = WeatherModel()
   @Published var isLoading = false
@@ -10,32 +11,14 @@ class WeatherDetailVM: ObservableObject {
   @Published var showSettings = false
   @Published var tempUnit : temperatureUnit = .celcius
 
-  // fetch city code from city name
-  func getCityNameAssosiatedWithCityCode(city : String) -> String {
-    switch city {
-    case "Calgary":
-      return "CAAB0049"
-    case "Montreal":
-      return "CAON0423"
-    case "Ottawa":
-      return "CAON0512"
-    case "Vancouver":
-      return "CABC0308"
-    default:
-      return "CAON0696"
-    }
-  }
-
   // fetch weather data
   @MainActor
   func fetchWeather() async {
     self.isLoading = true
-    let city = getCityNameAssosiatedWithCityCode(city: self.selectedCity)
-    if let weatherData = await self.weatherService.getWeather(city: city,
+    if let weatherData = await self.weatherService.getWeather(city: self.selectedCity,
                                                               tempUnit: self.tempUnit.rawValue) {
       self.weather = weatherData
       self.isLoading.toggle()
-
     }
   }
 }

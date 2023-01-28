@@ -8,7 +8,7 @@ class WeatherServiceTests: XCTestCase {
     let city = "Toronto"
     let tempUnit = "c"
     Task {
-      let weatherService = WeatherService.shared
+      let weatherService = WeatherData.shared
       let weather =  await weatherService.getWeather(city: city, tempUnit: tempUnit)
       XCTAssertNotNil(weather)
     }
@@ -16,7 +16,7 @@ class WeatherServiceTests: XCTestCase {
     Task {
       // Test invalid city
       let invalidCity = "InvalidCity"
-      let weatherService = WeatherService.shared
+      let weatherService = WeatherData.shared
       let weather =  await weatherService.getWeather(city: invalidCity, tempUnit: tempUnit)
       XCTAssertNil(weather)
     }
@@ -24,7 +24,7 @@ class WeatherServiceTests: XCTestCase {
     Task {
       // Test invalid temperature unit
       let invalidTempUnit = "F"
-      let invalidTempWeather = await WeatherService.shared.getWeather(city: city, tempUnit: invalidTempUnit)
+      let invalidTempWeather = await WeatherData.shared.getWeather(city: city, tempUnit: invalidTempUnit)
       XCTAssertNil(invalidTempWeather)
     }
   }

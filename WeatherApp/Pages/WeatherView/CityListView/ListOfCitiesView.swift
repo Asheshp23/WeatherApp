@@ -3,13 +3,12 @@ import SwiftUI
 struct ListOfCitiesView: View {
   @Binding var selectedCity : String
   @Binding var showCityList : Bool
-  let cityNames = ["Toronto", "Montreal", "Ottawa", "Vancouver", "Calgary"]
+  let cityNames = ["London", "Paris", "New York City", "Tokyo", "Rome", "Sydney", "Bangkok", "Istanbul", "Dubai", "Hong Kong", "Barcelona", "Madrid", "Moscow", "Beijing", "Los Angeles", "Chicago", "Shanghai", "Toronto", "Singapore", "Berlin"]
 
   var body: some View {
-    ZStack {
-      SkyImageView()
-      VStack(alignment: .center) {
-        //city list
+    VStack(alignment: .center) {
+      //city list
+      List {
         ForEach(cityNames,id:\.self) { city in
           HStack{
             Image(systemName: "building")
@@ -18,7 +17,6 @@ struct ListOfCitiesView: View {
               .fontWeight(.bold)
             Spacer()
           }
-          .foregroundColor(.white)
           .padding(.all)
           .onTapGesture {
             DispatchQueue.main.async {
@@ -26,10 +24,9 @@ struct ListOfCitiesView: View {
               showCityList.toggle()
             }
           }
-          Divider()
-            .foregroundColor(.white)
         }
       }
+      .background(Image("SKY"))
     }
   }
 }

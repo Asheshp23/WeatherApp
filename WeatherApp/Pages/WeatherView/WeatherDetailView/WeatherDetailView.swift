@@ -37,14 +37,14 @@ struct WeatherDetailView: View {
     .sheet(isPresented: $vm.showCityList) {
       ListOfCitiesView(selectedCity: $vm.selectedCity,
                        showCityList: $vm.showCityList)
-      .presentationDetents([.medium, .large])
+      .presentationDetents([.large])
     }
   }
 
   var temperatureDetailView: some View {
     VStack {
       HStack(alignment: .top) {
-        Text(self.vm.weather.temperature ?? "")
+        Text("\(vm.tempUnit == .celcius ? self.vm.weather.current.tempC : self.vm.weather.current.tempF)")
           .font(.system(size : 45))
           .fontWeight(.black)
           .foregroundColor(.white)
@@ -53,11 +53,11 @@ struct WeatherDetailView: View {
           .foregroundColor(.white)
           .shadow(radius: 5)
       }
-      Text("Feels like \(self.vm.weather.feelsLike ?? "")")
+      Text("Feels like \(vm.tempUnit == .celcius ? self.vm.weather.current.feelslikeC : self.vm.weather.current.feelslikeF)")
         .font(.title2)
         .foregroundColor(.white)
         .shadow(radius: 5)
-      Text(self.vm.weather.weatherCondition ?? "")
+      Text(self.vm.weather.current.condition.text)
         .font(.title2)
         .fontWeight(.heavy)
         .foregroundColor(.white)
@@ -68,7 +68,7 @@ struct WeatherDetailView: View {
   var lastUpdatedTimeView: some View {
     HStack {
       Spacer()
-      Text("Updated \(self.vm.weather.lastUpdatedTimeStampGmt ?? "")")
+      Text("Updated \(self.vm.weather.current.lastUpdated)")
         .font(.caption)
         .fontWeight(.light)
         .foregroundColor(.white)
@@ -127,7 +127,7 @@ struct WeatherDetailView: View {
   // main view
   var body: some View {
     ZStack {
-      SkyImageView()
+      SkyImageView(weatherCondition: vm.weather.current.condition.text)
       if vm.isLoading {
         progressView
       }
@@ -151,13 +151,11 @@ struct WeatherDetailView: View {
             return
           } else if let city = placemarks?.first?.locality {
             self.vm.selectedCity = city
+            Task {
+              await self.vm.fetchWeather()
+            }
           }
         })
-      })
-      .onChange(of: vm.tempUnit, perform: { newValue in
-        Task {
-          await self.vm.fetchWeather()
-        }
       })
       .task {
         Task {
