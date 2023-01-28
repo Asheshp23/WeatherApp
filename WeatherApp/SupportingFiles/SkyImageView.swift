@@ -6,6 +6,7 @@ struct SkyImageView: View {
   var body: some View {
     GeometryReader{
       proxy in
+      Image("SKY")
         SpriteView(scene: SnowFall(), options: [.allowsTransparency])
           .ignoresSafeArea()
     }
@@ -25,6 +26,7 @@ class RainFall: SKScene {
     scaleMode = .resizeFill
     anchorPoint = CGPoint(x: 0.5, y: 1)
     backgroundColor = .clear
+    zPosition = 1
 
     let node = SKEmitterNode(fileNamed: "RainFall.sks")!
     addChild(node)

@@ -6,6 +6,7 @@ import os
 open class WeatherData: ObservableObject {
   public static let shared = WeatherData()
   private let service = WeatherService.shared
+
   @Published private var currentWeathers = [CurrentWeather]()
   @Published private var dailyForecasts = [ Forecast<DayWeather>]()
   @Published private var hourlyForecasts = [Forecast<HourWeather>]()
@@ -13,7 +14,7 @@ open class WeatherData: ObservableObject {
   //api call
   func getWeather(city: String, tempUnit: String) async -> WeatherModel? {
     let aqi = "no"
-    let key = "4276de9c52c141b180081734232701"
+    let key = Helper.getApiKey()
     let cityName = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     let endpoint = "http://api.weatherapi.com/v1/current.json?key=\(key)&q=\(cityName)&aqi=\(aqi)"
     guard let url = URL(string: endpoint) else { return nil }

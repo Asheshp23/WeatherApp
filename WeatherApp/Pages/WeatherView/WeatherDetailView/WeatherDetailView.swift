@@ -13,38 +13,41 @@ struct WeatherDetailView: View {
   }
 
   var cityNameView: some View {
-    HStack {
-      Image(systemName: "location")
-        .onTapGesture {
-          DispatchQueue.main.async {
-            locationManager.requestLocation()
-          }
-        }
+    HStack(alignment: .center) {
+      Button(action: {
+          locationManager.requestLocation()
+      }){
+        Image(systemName: "location")
+          .resizable()
+          .foregroundColor(.white)
+          .frame(width: 24.0, height: 24.0)
+          .font(.headline)
+          .padding(.leading)
+      }
       Text(vm.selectedCity)
-        .font(.system(size : 35))
+        .font(.largeTitle)
         .foregroundColor(.white)
         .shadow(radius: 5)
         .fontWeight(.bold)
+
       Button(action: {
         vm.showCityList.toggle()
       }){
-        Image(systemName: "chevron.down")
-          .foregroundColor(.white)
-          .font(.headline)
+        HStack {
+          Image(systemName: "chevron.down")
+            .foregroundColor(.white)
+            .font(.headline)
+            .padding([.top, .bottom, .trailing])
+        }
       }
       .accessibilityIdentifier("goToCityList")
-    }
-    .sheet(isPresented: $vm.showCityList) {
-      ListOfCitiesView(selectedCity: $vm.selectedCity,
-                       showCityList: $vm.showCityList)
-      .presentationDetents([.large])
     }
   }
 
   var temperatureDetailView: some View {
     VStack {
       HStack(alignment: .top) {
-        Text("\(vm.tempUnit == .celcius ? self.vm.weather.current.tempC : self.vm.weather.current.tempF)")
+        Text("\(vm.temperature)")
           .font(.system(size : 45))
           .fontWeight(.black)
           .foregroundColor(.white)
@@ -53,7 +56,7 @@ struct WeatherDetailView: View {
           .foregroundColor(.white)
           .shadow(radius: 5)
       }
-      Text("Feels like \(vm.tempUnit == .celcius ? self.vm.weather.current.feelslikeC : self.vm.weather.current.feelslikeF)")
+      Text("Feels like \(vm.feelslike)")
         .font(.title2)
         .foregroundColor(.white)
         .shadow(radius: 5)
@@ -68,7 +71,7 @@ struct WeatherDetailView: View {
   var lastUpdatedTimeView: some View {
     HStack {
       Spacer()
-      Text("Updated \(self.vm.weather.current.lastUpdated)")
+      Text("Updated \(self.vm.lastUpdatedAt)")
         .font(.caption)
         .fontWeight(.light)
         .foregroundColor(.white)
@@ -136,11 +139,17 @@ struct WeatherDetailView: View {
       }
       VStack(alignment: .center) {
         cityNameView
+          .padding(.bottom, -12.0)
         temperatureDetailView
         lastUpdatedTimeView
         Spacer()
         photoGalleryView
         contactUsView
+      }
+      .sheet(isPresented: $vm.showCityList) {
+        ListOfCitiesView(selectedCity: $vm.selectedCity,
+                         showCityList: $vm.showCityList)
+        .presentationDetents([.medium, .large])
       }
       .toolbar { settingsView }
       .onChange(of: vm.selectedCity, perform: { newValue  in

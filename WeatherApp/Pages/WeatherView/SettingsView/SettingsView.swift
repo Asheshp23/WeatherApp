@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @Binding var tempUnit: temperatureUnit
+  @Binding var tempUnit: TemperatureUnit
   @Binding var showSettings: Bool
 
   var body: some View {
@@ -13,7 +13,7 @@ struct SettingsView: View {
           .padding(.all)
           .fontWeight(.bold)
         Picker("Temperature Unit", selection: $tempUnit) {
-          ForEach(temperatureUnit.allCases) { unit in
+          ForEach(TemperatureUnit.allCases) { unit in
             Text("°\(unit.rawValue.capitalized)")
               .fontWeight(.bold)
               .tag(unit)
@@ -36,7 +36,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    let unit : temperatureUnit = .celcius
+    let unit : TemperatureUnit = .celcius
     SettingsView(tempUnit: .constant(unit), showSettings: .constant(false))
   }
 }

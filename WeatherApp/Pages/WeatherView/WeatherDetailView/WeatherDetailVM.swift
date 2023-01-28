@@ -9,7 +9,19 @@ class WeatherDetailVM: ObservableObject {
   @Published var selectedCity = "Toronto"
   @Published var showCityList = false
   @Published var showSettings = false
-  @Published var tempUnit : temperatureUnit = .celcius
+  @Published var tempUnit : TemperatureUnit = .celcius
+
+  var temperature: String {
+    return Helper.formatTemperature(tempUnit == .celcius ? self.weather.current.tempC : self.weather.current.tempF, unit: tempUnit)
+  }
+
+  var feelslike: String {
+    return Helper.formatTemperature(tempUnit == .celcius ? self.weather.current.feelslikeC : self.weather.current.feelslikeF, unit: tempUnit)
+  }
+
+  var lastUpdatedAt: String {
+   return Helper.decodeDate(dateAsString: self.weather.current.lastUpdated) ?? "Not available"
+  }
 
   // fetch weather data
   @MainActor

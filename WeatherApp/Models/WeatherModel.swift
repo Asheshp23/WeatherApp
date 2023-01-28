@@ -1,6 +1,6 @@
 import Foundation
 
-enum temperatureUnit  : String, CaseIterable, Identifiable {
+enum TemperatureUnit  : String, CaseIterable, Identifiable {
   var id: String { self.rawValue }
   case celcius = "c"
   case fahrenheit = "f"

@@ -6,7 +6,7 @@ class WeatherViewModelTests: XCTestCase {
     func testNotNilData() {
         let viewModel = WeatherDetailVM()
       Task {
-        await viewModel.fetchWeather(by: "Toronto", unit: temperatureUnit.celcius)
+        await viewModel.fetchWeather(by: "Toronto", unit: TemperatureUnit.celcius)
       }
         XCTAssertNotNil(viewModel.weather)
     }
