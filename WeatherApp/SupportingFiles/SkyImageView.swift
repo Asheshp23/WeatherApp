@@ -1,23 +1,13 @@
 import SwiftUI
+import SpriteKit
 
 struct SkyImageView: View {
   var weatherCondition: String = ""
   var body: some View {
     GeometryReader{
       proxy in
-      if weatherCondition == "Overcast" {
-        Image("IMG1")
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: proxy.size.width, height: proxy.size.height)
-      }
-      else {
-        Image("SKY")
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: proxy.size.width, height: proxy.size.height)
-      }
-
+        SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+          .ignoresSafeArea()
     }
     .ignoresSafeArea()
   }
@@ -26,5 +16,33 @@ struct SkyImageView: View {
 struct SkyImageView_Previews: PreviewProvider {
   static var previews: some View {
     SkyImageView()
+  }
+}
+
+class RainFall: SKScene {
+  override func sceneDidLoad() {
+    size = UIScreen.main.bounds.size
+    scaleMode = .resizeFill
+    anchorPoint = CGPoint(x: 0.5, y: 1)
+    backgroundColor = .clear
+
+    let node = SKEmitterNode(fileNamed: "RainFall.sks")!
+    addChild(node)
+    node.particlePositionRange.dx = UIScreen.main.bounds.width
+
+  }
+}
+
+class SnowFall: SKScene {
+  override func sceneDidLoad() {
+    size = UIScreen.main.bounds.size
+    scaleMode = .resizeFill
+    anchorPoint = CGPoint(x: 0.5, y: 1)
+    backgroundColor = .clear
+
+    let node = SKEmitterNode(fileNamed: "SnowFall.sks")!
+    addChild(node)
+    node.particlePositionRange.dx = UIScreen.main.bounds.width
+
   }
 }

@@ -43,6 +43,10 @@
 		BE193972297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BE19396D297F6ED600E20C9D /* WeatherWidget.intentdefinition */; };
 		BE193975297F6ED800E20C9D /* WeatherWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE193960297F6ED600E20C9D /* WeatherWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193969297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift */; };
+		BE6F11A92984A5BF001A0C4D /* RainFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11A72984A5BF001A0C4D /* RainFall.sks */; };
+		BE6F11AA2984A5BF001A0C4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11A82984A5BF001A0C4D /* Assets.xcassets */; };
+		BE6F11AC2984AB57001A0C4D /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11AB2984AB57001A0C4D /* SnowFall.sks */; };
+		BE6F11AE2984ABC7001A0C4D /* FireFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11AD2984ABC7001A0C4D /* FireFlies.sks */; };
 		BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
 		BED490D029848C1600C2BB49 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490CF29848C1600C2BB49 /* LocationModel.swift */; };
 		BED490D229848EDE00C2BB49 /* ConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490D129848EDE00C2BB49 /* ConditionModel.swift */; };
@@ -126,6 +130,10 @@
 		BE19396D297F6ED600E20C9D /* WeatherWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WeatherWidget.intentdefinition; sourceTree = "<group>"; };
 		BE19396E297F6ED800E20C9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE193970297F6ED800E20C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE6F11A72984A5BF001A0C4D /* RainFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall.sks; sourceTree = "<group>"; };
+		BE6F11A82984A5BF001A0C4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE6F11AB2984AB57001A0C4D /* SnowFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall.sks; sourceTree = "<group>"; };
+		BE6F11AD2984ABC7001A0C4D /* FireFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireFlies.sks; sourceTree = "<group>"; };
 		BE86AE942980E8B200652BB5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BE86AE962980F04600652BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BED490CF29848C1600C2BB49 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -256,6 +264,7 @@
 		BE193926297F5AAB00E20C9D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BE6F11A62984A53F001A0C4D /* SpriteFiles */,
 				BE19392F297F5CCA00E20C9D /* PhotoDetailView */,
 				BE19392E297F5BDC00E20C9D /* ContactUsView */,
 				BE19392D297F5BB600E20C9D /* PhotoGalleryView */,
@@ -374,6 +383,17 @@
 				BE193970297F6ED800E20C9D /* Info.plist */,
 			);
 			path = WeatherWidget;
+			sourceTree = "<group>";
+		};
+		BE6F11A62984A53F001A0C4D /* SpriteFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BE6F11A72984A5BF001A0C4D /* RainFall.sks */,
+				BE6F11A82984A5BF001A0C4D /* Assets.xcassets */,
+				BE6F11AB2984AB57001A0C4D /* SnowFall.sks */,
+				BE6F11AD2984ABC7001A0C4D /* FireFlies.sks */,
+			);
+			path = SpriteFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,8 +523,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6F11AC2984AB57001A0C4D /* SnowFall.sks in Resources */,
 				BE0030A0297F59B900A0896C /* Preview Assets.xcassets in Resources */,
 				BE00309D297F59B900A0896C /* Assets.xcassets in Resources */,
+				BE6F11AE2984ABC7001A0C4D /* FireFlies.sks in Resources */,
+				BE6F11AA2984A5BF001A0C4D /* Assets.xcassets in Resources */,
+				BE6F11A92984A5BF001A0C4D /* RainFall.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

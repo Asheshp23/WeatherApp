@@ -127,7 +127,10 @@ struct WeatherDetailView: View {
   // main view
   var body: some View {
     ZStack {
-      SkyImageView(weatherCondition: vm.weather.current.condition.text)
+      GeometryReader { _ in
+        SkyImageView(weatherCondition: vm.weather.current.condition.text)
+      }
+      .ignoresSafeArea()
       if vm.isLoading {
         progressView
       }
