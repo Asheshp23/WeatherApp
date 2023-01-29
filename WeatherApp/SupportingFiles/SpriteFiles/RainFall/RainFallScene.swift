@@ -7,7 +7,6 @@ class RainFallScene: SKScene {
     scaleMode = .resizeFill
     anchorPoint = CGPoint(x: 0.5, y: 1)
     backgroundColor = .clear
-    zPosition = 1
     let node = SKEmitterNode(fileNamed: "RainFall.sks")!
     addChild(node)
     node.particlePositionRange.dx = UIScreen.main.bounds.width
