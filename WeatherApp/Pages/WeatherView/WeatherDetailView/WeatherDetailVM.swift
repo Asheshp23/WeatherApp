@@ -31,7 +31,7 @@ class WeatherDetailVM: ObservableObject {
     if let weatherData = await self.weatherService.getWeather(city: self.selectedCity,
                                                               tempUnit: self.tempUnit.rawValue) {
       self.weather = weatherData
-      self.isLoading.toggle()
+      self.isLoading = false
     }
   }
 }

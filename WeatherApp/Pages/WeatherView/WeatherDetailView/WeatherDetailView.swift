@@ -32,7 +32,9 @@ struct WeatherDetailView: View {
         .fontWeight(.bold)
 
       Button(action: {
-        vm.isLocationButtonTapped.toggle()
+        if vm.isLocationButtonTapped {
+          vm.isLocationButtonTapped.toggle()
+        }
         vm.showCityList.toggle()
       }){
         HStack {
