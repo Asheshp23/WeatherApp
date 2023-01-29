@@ -131,7 +131,6 @@ struct WeatherDetailView: View {
     )
   }
 
-  // main view
   var body: some View {
     ZStack {
       GeometryReader { _ in
