@@ -15,9 +15,10 @@ struct WeatherDetailView: View {
   var cityNameView: some View {
     HStack(alignment: .center) {
       Button(action: {
-          locationManager.requestLocation()
+        vm.isLocationButtonTapped.toggle()
+        locationManager.requestLocation()
       }){
-        Image(systemName: "location")
+        Image(systemName: vm.isLocationButtonTapped ? "location.fill" :"location")
           .resizable()
           .foregroundColor(.white)
           .frame(width: 24.0, height: 24.0)
@@ -31,6 +32,7 @@ struct WeatherDetailView: View {
         .fontWeight(.bold)
 
       Button(action: {
+        vm.isLocationButtonTapped.toggle()
         vm.showCityList.toggle()
       }){
         HStack {
@@ -131,7 +133,7 @@ struct WeatherDetailView: View {
   var body: some View {
     ZStack {
       GeometryReader { _ in
-        SkyImageView(weatherCondition: vm.weather.current.condition.text)
+        SkyImageView(weatherCondition: vm.weather.current.condition.weatherCondition)
       }
       .ignoresSafeArea()
       if vm.isLoading {
