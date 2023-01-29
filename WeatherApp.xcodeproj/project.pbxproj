@@ -253,6 +253,7 @@
 		BE0030C2297F59C900A0896C /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BE6F11A62984A53F001A0C4D /* SpriteFiles */,
 				BE193937297F611B00E20C9D /* Extensions */,
 				BE193932297F5D5C00E20C9D /* SkyImageView.swift */,
 				BE00309C297F59B900A0896C /* Assets.xcassets */,
@@ -274,7 +275,6 @@
 		BE193926297F5AAB00E20C9D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				BE6F11A62984A53F001A0C4D /* SpriteFiles */,
 				BE19392F297F5CCA00E20C9D /* PhotoDetailView */,
 				BE19392E297F5BDC00E20C9D /* ContactUsView */,
 				BE19392D297F5BB600E20C9D /* PhotoGalleryView */,

@@ -172,9 +172,10 @@ struct WeatherDetailView: View {
           }
         })
       })
-      .task {
+      .onAppear {
         Task {
-          await self.vm.fetchWeather()
+          vm.isLocationButtonTapped.toggle()
+          locationManager.requestLocation()
         }
       }
     }

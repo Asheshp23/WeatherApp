@@ -28,8 +28,7 @@ class WeatherDetailVM: ObservableObject {
   @MainActor
   func fetchWeather() async {
     self.isLoading = true
-    if let weatherData = await self.weatherService.getWeather(city: self.selectedCity,
-                                                              tempUnit: self.tempUnit.rawValue) {
+    if let weatherData = await self.weatherService.getWeather(city: self.selectedCity) {
       self.weather = weatherData
       self.isLoading = false
     }

@@ -6,14 +6,8 @@ class WeatherViewModelTests: XCTestCase {
     func testNotNilData() {
         let viewModel = WeatherDetailVM()
       Task {
-        await viewModel.fetchWeather(by: "Toronto", unit: TemperatureUnit.celcius)
+        await viewModel.fetchWeather()
       }
         XCTAssertNotNil(viewModel.weather)
-    }
-    //test get city code function using mock data....
-    func testViewModelFunction(){
-        let viewModel = WeatherDetailVM()
-        let city =  viewModel.getCityNameAssosiatedWithCityCode(city: "Toronto")
-        XCTAssertEqual("CAON0696", city)
     }
 }

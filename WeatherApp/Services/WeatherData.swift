@@ -5,14 +5,13 @@ import os
 
 open class WeatherData: ObservableObject {
   public static let shared = WeatherData()
-  private let service = WeatherService.shared
 
   @Published private var currentWeathers = [CurrentWeather]()
   @Published private var dailyForecasts = [ Forecast<DayWeather>]()
   @Published private var hourlyForecasts = [Forecast<HourWeather>]()
 
   //api call
-  func getWeather(city: String, tempUnit: String) async -> WeatherModel? {
+  func getWeather(city: String) async -> WeatherModel? {
     let aqi = "no"
     let key = Helper.getApiKey()
     let cityName = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -33,45 +32,4 @@ open class WeatherData: ObservableObject {
     return nil
   }
 
-  @discardableResult
-  func weather(for location: CLLocation) async -> CurrentWeather? {
-    let currentWeather = await Task.detached(priority: .userInitiated) {
-      let forcast = try? await self.service.weather(
-        for: location,
-        including: .current)
-      return forcast
-    }.value
-    if let currentWeather = currentWeather {
-      currentWeathers.append(currentWeather)
-    }
-    return currentWeather
-  }
-
-  @discardableResult
-  func dailyForecast(for location: CLLocation) async -> Forecast<DayWeather>? {
-    let dayWeather = await Task.detached(priority: .userInitiated) {
-      let forcast = try? await self.service.weather(
-        for: location,
-        including: .daily)
-      return forcast
-    }.value
-    if let dayWeather = dayWeather {
-      dailyForecasts.append(dayWeather)
-    }
-    return dayWeather
-  }
-
-  @discardableResult
-  func hourlyForecast(for location: CLLocation) async -> Forecast<HourWeather>? {
-    let hourWeather = await Task.detached(priority: .userInitiated) {
-      let forcast = try? await self.service.weather(
-        for: location,
-        including: .hourly)
-      return forcast
-    }.value
-    if let hourWeather = hourWeather {
-      hourlyForecasts.append(hourWeather)
-    }
-    return hourWeather
-  }
 }
