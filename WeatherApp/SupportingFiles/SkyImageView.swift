@@ -9,15 +9,15 @@ struct SkyImageView: View {
       Image("SKY")
       if weatherCondition == .overcast || weatherCondition == .cloudy
          || weatherCondition == .partlyCloudy {
-        SpriteView(scene: CloudScene(), options: [.allowsTransparency])
+        SpriteView(scene: CloudScene(size: CGSize(width: 100, height: 100), weatherCondition: weatherCondition), options: [.allowsTransparency])
           .ignoresSafeArea()
       } else if weatherCondition == .heavySnow || weatherCondition == .lightSnow ||
                   weatherCondition == .freezingDrizzle {
-        SpriteView(scene: SnowFallScene(), options: [.allowsTransparency])
+        SpriteView(scene: SnowFallScene(size: CGSize(width: 100, height: 100), weatherCondition: weatherCondition), options: [.allowsTransparency])
           .ignoresSafeArea()
       } else if weatherCondition == .heavyRain || weatherCondition == .lightRain
                || weatherCondition == .lightRainShower {
-        SpriteView(scene: RainFallScene(), options: [.allowsTransparency])
+        SpriteView(scene: RainFallScene(size: CGSize(width: 100, height: 100), weatherCondition: weatherCondition), options: [.allowsTransparency])
           .ignoresSafeArea()
       }
 
