@@ -44,10 +44,10 @@ jobs:
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
     - name: Build and archive iOS app
       run: |
-        xcodebuild clean archive -project YourProject.xcodeproj \
-                                 -scheme YourScheme \
-                                 -destination generic/platform=iOS \
-                                 -archivePath build/YourProject.xcarchive
-        xcodebuild -exportArchive -archivePath build/YourProject.xcarchive \
+                                  xcodebuild clean archive -project YourProject.xcodeproj \
+                                  -scheme YourScheme \
+                                  -destination generic/platform=iOS \
+                                  -archivePath build/YourProject.xcarchive
+                                  xcodebuild -exportArchive -archivePath build/YourProject.xcarchive \
                                   -exportOptionsPlist exportOptions.plist \
                                   -exportPath build
