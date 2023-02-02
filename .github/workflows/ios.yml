@@ -18,10 +18,10 @@ jobs:
         xcode-version: 14.2
 
     - name: Build app
-      run: xcodebuild -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 11' build
+      run: xcodebuild -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 14' build
 
     - name: Test app
-      run: xcodebuild -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 11' test
+      run: xcodebuild -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 14' test
 
     - name: Validate archive
-      run: xcodebuild -scheme YourScheme -destination 'generic/platform=iOS' -archivePath build/YourApp.xcarchive archive
+      run: xcodebuild -scheme YourScheme -destination 'generic/platform=iOS' -archivePath build/WeatherApp.xcarchive archive
