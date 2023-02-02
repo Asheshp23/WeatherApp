@@ -15,7 +15,7 @@ jobs:
     - name: Set up Xcode
       uses: actions/setup-xcode@v3
       with:
-        xcode-version: 12.4
+        xcode-version: 14.2
 
     - name: Build app
       run: xcodebuild -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 11' build
