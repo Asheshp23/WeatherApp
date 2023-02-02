@@ -28,14 +28,3 @@ jobs:
                                   -exportOptionsPlist exportOptions.plist \
                                   -exportPath build
 
-    - name: Upload to GitHub Releases
-      id: upload
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: build/WeatherApp.ipa
-        asset_name: WeatherApp.ipa
-        asset_content_type: application/octet-stream
-
-env:
-  UPLOAD_URL: ${{ steps.upload.outputs.upload_url }}
