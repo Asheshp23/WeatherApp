@@ -13,7 +13,6 @@
 		BE0030A0297F59B900A0896C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE00309F297F59B900A0896C /* Preview Assets.xcassets */; };
 		BE0030AA297F59BA00A0896C /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0030A9297F59BA00A0896C /* WeatherAppTests.swift */; };
 		BE0030B4297F59BA00A0896C /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0030B3297F59BA00A0896C /* WeatherAppUITests.swift */; };
-		BE0030B6297F59BA00A0896C /* WeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0030B5297F59BA00A0896C /* WeatherAppUITestsLaunchTests.swift */; };
 		BE19392A297F5B4E00E20C9D /* WeatherDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193929297F5B4E00E20C9D /* WeatherDetailVM.swift */; };
 		BE19392C297F5B7900E20C9D /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19392B297F5B7900E20C9D /* WeatherDetailView.swift */; };
 		BE193933297F5D5C00E20C9D /* SkyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193932297F5D5C00E20C9D /* SkyImageView.swift */; };
@@ -105,7 +104,6 @@
 		BE0030A9297F59BA00A0896C /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		BE0030AF297F59BA00A0896C /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0030B3297F59BA00A0896C /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
-		BE0030B5297F59BA00A0896C /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE193929297F5B4E00E20C9D /* WeatherDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailVM.swift; sourceTree = "<group>"; };
 		BE19392B297F5B7900E20C9D /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		BE193932297F5D5C00E20C9D /* SkyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyImageView.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				BE0030B3297F59BA00A0896C /* WeatherAppUITests.swift */,
-				BE0030B5297F59BA00A0896C /* WeatherAppUITestsLaunchTests.swift */,
 			);
 			path = WeatherAppUITests;
 			sourceTree = "<group>";
@@ -644,7 +641,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0030B4297F59BA00A0896C /* WeatherAppUITests.swift in Sources */,
-				BE0030B6297F59BA00A0896C /* WeatherAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
