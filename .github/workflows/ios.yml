@@ -42,24 +42,12 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-
- - name: archive
+    - name: Build and archive iOS app
       run: |
-        xcodebuild clean archive -project WeatherApp.xcodeproj \
-                                 -scheme WeatherApp \
+        xcodebuild clean archive -project YourProject.xcodeproj \
+                                 -scheme YourScheme \
                                  -destination generic/platform=iOS \
-                                 -archivePath build/WeatherApp.xcarchive
-        xcodebuild -exportArchive -archivePath build/WeatherApp.xcarchive \
+                                 -archivePath build/YourProject.xcarchive
+        xcodebuild -exportArchive -archivePath build/YourProject.xcarchive \
                                   -exportOptionsPlist exportOptions.plist \
                                   -exportPath build
-
-    - name: Upload to GitHub Releases
-      uses: actions/upload-release-asset@v3
-      with:
-        upload_url: ${{ env.UPLOAD_URL }}
-        asset_path: build/WeatherApp.ipa
-        asset_name: YourProject.ipa
-        asset_content_type: application/octet-stream
-
-env:
-  UPLOAD_URL: ${{ steps.create_release.outputs.upload_url }}
