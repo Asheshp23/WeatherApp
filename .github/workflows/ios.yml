@@ -38,4 +38,4 @@ jobs:
         asset_content_type: application/octet-stream
 
 env:
-  UPLOAD_URL: ${{ steps.create_release.outputs.upload_url }}
+  UPLOAD_URL: ${{ steps.upload.outputs.upload_url }}
