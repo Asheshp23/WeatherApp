@@ -79,20 +79,6 @@
 			remoteGlobalIDString = BE19395F297F6ED600E20C9D;
 			remoteInfo = WeatherWidgetExtension;
 		};
-		BE694BD5298B899B005C1169 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE00308D297F59B700A0896C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE0030A4297F59BA00A0896C;
-			remoteInfo = WeatherAppTests;
-		};
-		BE694BD7298B89A2005C1169 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE00308D297F59B700A0896C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE0030AE297F59BA00A0896C;
-			remoteInfo = WeatherAppUITests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -461,8 +447,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BE694BD8298B89A2005C1169 /* PBXTargetDependency */,
-				BE694BD6298B899B005C1169 /* PBXTargetDependency */,
 				BE193974297F6ED800E20C9D /* PBXTargetDependency */,
 			);
 			name = WeatherApp;
@@ -692,16 +676,6 @@
 			isa = PBXTargetDependency;
 			target = BE19395F297F6ED600E20C9D /* WeatherWidgetExtension */;
 			targetProxy = BE193973297F6ED800E20C9D /* PBXContainerItemProxy */;
-		};
-		BE694BD6298B899B005C1169 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE0030A4297F59BA00A0896C /* WeatherAppTests */;
-			targetProxy = BE694BD5298B899B005C1169 /* PBXContainerItemProxy */;
-		};
-		BE694BD8298B89A2005C1169 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE0030AE297F59BA00A0896C /* WeatherAppUITests */;
-			targetProxy = BE694BD7298B89A2005C1169 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
