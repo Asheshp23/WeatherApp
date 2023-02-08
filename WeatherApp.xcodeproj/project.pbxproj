@@ -46,6 +46,9 @@
 		BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
 		BEA91C932984E47300A7A939 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEA91C922984E47300A7A939 /* config.plist */; };
 		BEA91C952984E79100A7A939 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA91C942984E79100A7A939 /* Helper.swift */; };
+		BECD310729932929003BAC67 /* DrawingKitVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD310629932929003BAC67 /* DrawingKitVM.swift */; };
+		BECD3109299329E4003BAC67 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD3108299329E4003BAC67 /* CanvasView.swift */; };
+		BECD310B29933143003BAC67 /* CustomTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD310A29933143003BAC67 /* CustomTextBox.swift */; };
 		BED490D029848C1600C2BB49 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490CF29848C1600C2BB49 /* LocationModel.swift */; };
 		BED490D229848EDE00C2BB49 /* ConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490D129848EDE00C2BB49 /* ConditionModel.swift */; };
 		BED490D429848F7200C2BB49 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490D329848F7200C2BB49 /* CurrentWeatherModel.swift */; };
@@ -137,6 +140,9 @@
 		BE86AE962980F04600652BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BEA91C922984E47300A7A939 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		BEA91C942984E79100A7A939 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		BECD310629932929003BAC67 /* DrawingKitVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingKitVM.swift; sourceTree = "<group>"; };
+		BECD3108299329E4003BAC67 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		BECD310A29933143003BAC67 /* CustomTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextBox.swift; sourceTree = "<group>"; };
 		BED490CF29848C1600C2BB49 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		BED490D129848EDE00C2BB49 /* ConditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionModel.swift; sourceTree = "<group>"; };
 		BED490D329848F7200C2BB49 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
@@ -311,6 +317,9 @@
 			isa = PBXGroup;
 			children = (
 				BE19394C297F649E00E20C9D /* PhotoDetailView.swift */,
+				BECD310629932929003BAC67 /* DrawingKitVM.swift */,
+				BECD3108299329E4003BAC67 /* CanvasView.swift */,
+				BECD310A29933143003BAC67 /* CustomTextBox.swift */,
 			);
 			path = PhotoDetailView;
 			sourceTree = "<group>";
@@ -606,13 +615,16 @@
 				BE193943297F627300E20C9D /* ListOfCitiesView.swift in Sources */,
 				BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */,
 				BE19393D297F618900E20C9D /* Int+Extension.swift in Sources */,
+				BECD310B29933143003BAC67 /* CustomTextBox.swift in Sources */,
 				BED490D029848C1600C2BB49 /* LocationModel.swift in Sources */,
 				BE193947297F634800E20C9D /* ContactUsView.swift in Sources */,
 				BEEB4C222986066A006C207A /* CloudScene.swift in Sources */,
 				BE19392C297F5B7900E20C9D /* WeatherDetailView.swift in Sources */,
 				BEEB4C26298606F4006C207A /* RainFallScene.swift in Sources */,
 				BE19394D297F649E00E20C9D /* PhotoDetailView.swift in Sources */,
+				BECD3109299329E4003BAC67 /* CanvasView.swift in Sources */,
 				BE19393B297F616100E20C9D /* Date+Extension.swift in Sources */,
+				BECD310729932929003BAC67 /* DrawingKitVM.swift in Sources */,
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
