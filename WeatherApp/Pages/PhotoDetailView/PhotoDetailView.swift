@@ -26,6 +26,8 @@ struct PhotoDetailView: View {
             Text(vm.textBoxes[vm.currentIndex].id == tb.id && vm.addNewBox ? "" :  tb.text)
               .font(.system(size: 30, weight: vm.textBoxes[vm.currentIndex].isBold ? .bold : .regular ))
               .foregroundColor(tb.textColor)
+              .italic(vm.textBoxes[vm.currentIndex].isItalic)
+              .underline(vm.textBoxes[vm.currentIndex].isUnderlined)
               .offset(tb.offset)
               .gesture(DragGesture().onChanged({ value in
                 let current =  value.translation
@@ -51,6 +53,8 @@ struct PhotoDetailView: View {
               .ignoresSafeArea()
             TextField("Type here", text: $vm.textBoxes[vm.currentIndex].text)
               .font(.system(size: 35.0))
+              .italic(vm.textBoxes[vm.currentIndex].isItalic)
+              .underline(vm.textBoxes[vm.currentIndex].isUnderlined)
               .colorScheme(.dark)
               .padding()
               .foregroundColor(vm.textBoxes[vm.currentIndex].textColor)
@@ -85,14 +89,36 @@ struct PhotoDetailView: View {
               })
             }
             .overlay(
-              HStack {
-                ColorPicker("", selection: $vm.textBoxes[vm.currentIndex].textColor)
-                  .labelsHidden()
-                Button(action: {vm.textBoxes[vm.currentIndex].isBold.toggle()}, label: {
-                  Text(vm.textBoxes[vm.currentIndex].isBold ? "Normal" : "Bold")
-                    .fontWeight(.bold)
+              VStack {
+                HStack {
+                  ColorPicker("", selection: $vm.textBoxes[vm.currentIndex].textColor)
+                    .labelsHidden()
+
+                  Text("B")
+                    .bold()
+                    .padding()
+                    .onTapGesture {
+                      vm.textBoxes[vm.currentIndex].isBold.toggle()
+                    }
                     .foregroundColor(.white)
-                })
+                  Divider()
+                  Text("I")
+                    .italic()
+                    .padding()
+                    .onTapGesture {
+                      vm.textBoxes[vm.currentIndex].isItalic.toggle()
+                    }
+                    .foregroundColor(.white)
+                  Divider()
+                  Text("U")
+                    .underline()
+                    .padding()
+                    .onTapGesture {
+                      vm.textBoxes[vm.currentIndex].isUnderlined.toggle()
+                    }
+                    .foregroundColor(.white)
+                }
+
               }
             )
             .frame(maxHeight: .infinity,alignment: .top)
@@ -113,16 +139,21 @@ struct PhotoDetailView: View {
         })
       }
       ToolbarItem (placement: .navigationBarLeading) {
-        Button(action: {
-          withAnimation {
-            vm.textBoxes.append(CustomTextBox())
-            vm.currentIndex = vm.textBoxes.count - 1
-            vm.addNewBox = true
-            vm.toolPicker.setVisible(false, forFirstResponder:  vm.canvas)
-            vm.canvas.resignFirstResponder()
+        HStack {
+          Button(action: {
+            withAnimation {
+              vm.textBoxes.append(CustomTextBox())
+              vm.currentIndex = vm.textBoxes.count - 1
+              vm.addNewBox = true
+              vm.toolPicker.setVisible(false, forFirstResponder:  vm.canvas)
+              vm.canvas.resignFirstResponder()
+            }
+          }) {
+            Image(systemName: "plus")
           }
-        }) {
-          Image(systemName: "plus")
+          Button(action: { vm.canvas.undoManager?.undo()}, label:{ Image(systemName: "arrow.uturn.backward")})
+          Button(action: { vm.canvas.undoManager?.redo()}, label:{ Image(systemName: "arrow.uturn.forward")})
+
         }
       }
     }

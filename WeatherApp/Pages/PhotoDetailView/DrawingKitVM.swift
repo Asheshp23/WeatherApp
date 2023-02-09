@@ -20,7 +20,10 @@ class DrawingKitVM: ObservableObject {
     let SWIFTUIVIEWS = ZStack {
       ForEach(self.textBoxes) { tb in
         Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" :  tb.text)
-          .font(.system(size: 30, weight: self.textBoxes[self.currentIndex].isBold ? .bold : .regular ))          .foregroundColor(tb.textColor)
+          .font(.system(size: 30, weight: self.textBoxes[self.currentIndex].isBold ? .bold : .regular ))
+          .italic(self.textBoxes[self.currentIndex].isItalic)
+          .underline(self.textBoxes[self.currentIndex].isUnderlined)
+          .foregroundColor(tb.textColor)
           .offset(tb.offset)
       }
     }
