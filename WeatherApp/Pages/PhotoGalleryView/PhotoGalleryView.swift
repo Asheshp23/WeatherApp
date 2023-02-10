@@ -10,7 +10,7 @@ struct PhotoGalleryView: View {
     ScrollView{
       LazyVGrid(columns: columnGrid ,spacing: 1) {
         ForEach((0..<images.count),id: \.self){ i in
-          NavigationLink(destination: PhotoDetailView(image: $imageName)){
+          NavigationLink(destination: PhotoDetailView(imageName: $imageName)){
             Image(images[i])
               .resizable()
               .frame(width: (UIScreen.main.bounds.width / 3 ) - 1, height: (UIScreen.main.bounds.width / 3 ) - 1)
