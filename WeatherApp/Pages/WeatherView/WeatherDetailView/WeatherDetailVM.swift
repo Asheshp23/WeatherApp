@@ -11,6 +11,8 @@ class WeatherDetailVM: ObservableObject {
   @Published var showSettings = false
   @Published var tempUnit : TemperatureUnit = .celcius
   @Published var isLocationButtonTapped = false
+  @Published var cityName: String = ""
+  @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
 
   var temperature: String {
     return Helper.formatTemperature(tempUnit == .celcius ? self.weather.current.tempC : self.weather.current.tempF, unit: tempUnit)

@@ -57,6 +57,7 @@
 		BEEB4C222986066A006C207A /* CloudScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB4C212986066A006C207A /* CloudScene.swift */; };
 		BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB4C23298606BB006C207A /* SnowFallScene.swift */; };
 		BEEB4C26298606F4006C207A /* RainFallScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB4C25298606F4006C207A /* RainFallScene.swift */; };
+		BEF1F2BE299C6099007661E5 /* WeatherMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1F2BD299C6099007661E5 /* WeatherMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		BEEB4C212986066A006C207A /* CloudScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudScene.swift; sourceTree = "<group>"; };
 		BEEB4C23298606BB006C207A /* SnowFallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowFallScene.swift; sourceTree = "<group>"; };
 		BEEB4C25298606F4006C207A /* RainFallScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainFallScene.swift; sourceTree = "<group>"; };
+		BEF1F2BD299C6099007661E5 /* WeatherMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 		BE193928297F5B2A00E20C9D /* WeatherView */ = {
 			isa = PBXGroup;
 			children = (
+				BEF1F2BC299C6081007661E5 /* WeatherMapView */,
 				BE193941297F624300E20C9D /* CityListView */,
 				BE193930297F5CE400E20C9D /* SettingsView */,
 				BE193931297F5D2000E20C9D /* WeatherDetailView */,
@@ -436,6 +439,14 @@
 				BEEB4C212986066A006C207A /* CloudScene.swift */,
 			);
 			path = Cloud;
+			sourceTree = "<group>";
+		};
+		BEF1F2BC299C6081007661E5 /* WeatherMapView */ = {
+			isa = PBXGroup;
+			children = (
+				BEF1F2BD299C6099007661E5 /* WeatherMapView.swift */,
+			);
+			path = WeatherMapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,6 +640,7 @@
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
+				BEF1F2BE299C6099007661E5 /* WeatherMapView.swift in Sources */,
 				BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
 				BE19392A297F5B4E00E20C9D /* WeatherDetailVM.swift in Sources */,
 				BE193949297F639E00E20C9D /* ContactUsVM.swift in Sources */,

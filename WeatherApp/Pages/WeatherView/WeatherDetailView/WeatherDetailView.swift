@@ -146,6 +146,9 @@ struct WeatherDetailView: View {
         temperatureDetailView
         lastUpdatedTimeView
         Spacer()
+        NavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation)) {
+          Text("View it on the map ")
+        }
         photoGalleryView
         contactUsView
       }
@@ -161,6 +164,7 @@ struct WeatherDetailView: View {
         }
       })
       .onChange(of: locationManager.location, perform: { newValue in
+        vm.userLocation = newValue.coordinate
         CLGeocoder().reverseGeocodeLocation(newValue, completionHandler: {(placemarks, error) -> Void in
           if error != nil {
             return
