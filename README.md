@@ -1,10 +1,16 @@
 # WeatherApp
 
-- Simple weather iOS app built with SwiftUI and the latest technologies.
-- Provides temperature information for a selected city.
-- Option to change the temperature unit to the user's preference.
-- Convenient contact us form for quick and easy communication.
-- Simple and sleek photo gallery view.
-- Image editing features using PencilKit, including drawing and doodling.
-- Basic filters like contrast, brightness, and saturation to enhance photos.
-- Edited images can be saved to the user's device.
+WeatherApp is a cutting-edge iOS app crafted using SwiftUI and the latest technologies, delivering real-time temperature information for any city of your choice. With a user-friendly interface, it allows you to switch temperature units seamlessly according to your preference.
+
+Key Features:
+
+- Real-time Weather Updates: Get accurate temperature information for any selected city with just a tap.
+- Temperature Unit Preference: Personalize the app by choosing between Celsius, Fahrenheit, or Kelvin.
+- Contact Us Form: Reach out to us effortlessly through the convenient "Contact Us" form for any inquiries or feedback.
+- Stunning Photo Gallery: Discover a sleek and captivating photo gallery showcasing beautiful images from various sources.
+- Creative Image Editing: Unleash your artistic side using PencilKit to draw and doodle on images, giving them a personal touch.
+- Photo Enhancement: Apply basic filters like contrast, brightness, and saturation to transform your images into stunning works of art.
+- Save Edited Images: Store your edited masterpieces directly to your device for quick sharing on social media or with friends.
+- WeatherApp Widget: Stay updated with a compact widget that displays weather information right on your home screen.
+
+
