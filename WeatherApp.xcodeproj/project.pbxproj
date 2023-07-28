@@ -43,6 +43,19 @@
 		BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193969297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift */; };
 		BE6F11AA2984A5BF001A0C4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11A82984A5BF001A0C4D /* Assets.xcassets */; };
 		BE6F11AC2984AB57001A0C4D /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = BE6F11AB2984AB57001A0C4D /* SnowFall.sks */; };
+		BE7838DA2A738AC900A90BE0 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19393F297F61F300E20C9D /* WeatherData.swift */; };
+		BE7838DB2A738B3200A90BE0 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193935297F5F6D00E20C9D /* WeatherModel.swift */; };
+		BE7838DC2A738B3700A90BE0 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490CF29848C1600C2BB49 /* LocationModel.swift */; };
+		BE7838DD2A738B3A00A90BE0 /* ConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490D129848EDE00C2BB49 /* ConditionModel.swift */; };
+		BE7838DE2A738B3D00A90BE0 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED490D329848F7200C2BB49 /* CurrentWeatherModel.swift */; };
+		BE7838E12A738BC000A90BE0 /* WeatherWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7838DF2A738BB700A90BE0 /* WeatherWidgetEntryView.swift */; };
+		BE7838E42A738C3D00A90BE0 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7838E22A738C3D00A90BE0 /* Provider.swift */; };
+		BE7838E62A738CBC00A90BE0 /* TimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7838E52A738CBC00A90BE0 /* TimelineEntry.swift */; };
+		BE7838E72A738D1500A90BE0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA91C942984E79100A7A939 /* Helper.swift */; };
+		BE7838E82A738D2A00A90BE0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19393A297F616100E20C9D /* Date+Extension.swift */; };
+		BE7838E92A738D3400A90BE0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19393C297F618900E20C9D /* Int+Extension.swift */; };
+		BE7838EA2A738F7D00A90BE0 /* WeatherDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193929297F5B4E00E20C9D /* WeatherDetailVM.swift */; };
+		BE7838EE2A73952F00A90BE0 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEA91C922984E47300A7A939 /* config.plist */; };
 		BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
 		BEA91C932984E47300A7A939 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEA91C922984E47300A7A939 /* config.plist */; };
 		BEA91C952984E79100A7A939 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA91C942984E79100A7A939 /* Helper.swift */; };
@@ -137,6 +150,9 @@
 		BE193970297F6ED800E20C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE6F11A82984A5BF001A0C4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE6F11AB2984AB57001A0C4D /* SnowFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall.sks; sourceTree = "<group>"; };
+		BE7838DF2A738BB700A90BE0 /* WeatherWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWidgetEntryView.swift; sourceTree = "<group>"; };
+		BE7838E22A738C3D00A90BE0 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		BE7838E52A738CBC00A90BE0 /* TimelineEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineEntry.swift; sourceTree = "<group>"; };
 		BE86AE942980E8B200652BB5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BE86AE962980F04600652BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BEA91C922984E47300A7A939 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
@@ -393,12 +409,15 @@
 		BE193966297F6ED600E20C9D /* WeatherWidget */ = {
 			isa = PBXGroup;
 			children = (
+				BE7838DF2A738BB700A90BE0 /* WeatherWidgetEntryView.swift */,
 				BE193967297F6ED600E20C9D /* WeatherWidgetBundle.swift */,
 				BE193969297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift */,
+				BE7838E22A738C3D00A90BE0 /* Provider.swift */,
 				BE19396B297F6ED600E20C9D /* WeatherWidget.swift */,
 				BE19396D297F6ED600E20C9D /* WeatherWidget.intentdefinition */,
 				BE19396E297F6ED800E20C9D /* Assets.xcassets */,
 				BE193970297F6ED800E20C9D /* Info.plist */,
+				BE7838E52A738CBC00A90BE0 /* TimelineEntry.swift */,
 			);
 			path = WeatherWidget;
 			sourceTree = "<group>";
@@ -532,7 +551,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					BE003094297F59B700A0896C = {
 						CreatedOnToolsVersion = 14.2;
@@ -604,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7838EE2A73952F00A90BE0 /* config.plist in Resources */,
 				BE19396F297F6ED800E20C9D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,10 +692,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7838E92A738D3400A90BE0 /* Int+Extension.swift in Sources */,
 				BE193968297F6ED600E20C9D /* WeatherWidgetBundle.swift in Sources */,
+				BE7838DA2A738AC900A90BE0 /* WeatherData.swift in Sources */,
 				BE19396A297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
+				BE7838E62A738CBC00A90BE0 /* TimelineEntry.swift in Sources */,
 				BE19396C297F6ED600E20C9D /* WeatherWidget.swift in Sources */,
+				BE7838EA2A738F7D00A90BE0 /* WeatherDetailVM.swift in Sources */,
+				BE7838DB2A738B3200A90BE0 /* WeatherModel.swift in Sources */,
+				BE7838DC2A738B3700A90BE0 /* LocationModel.swift in Sources */,
 				BE193971297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */,
+				BE7838E42A738C3D00A90BE0 /* Provider.swift in Sources */,
+				BE7838DD2A738B3A00A90BE0 /* ConditionModel.swift in Sources */,
+				BE7838E72A738D1500A90BE0 /* Helper.swift in Sources */,
+				BE7838E82A738D2A00A90BE0 /* Date+Extension.swift in Sources */,
+				BE7838E12A738BC000A90BE0 /* WeatherWidgetEntryView.swift in Sources */,
+				BE7838DE2A738B3D00A90BE0 /* CurrentWeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +768,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -796,6 +829,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -979,6 +1013,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1007,6 +1042,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (

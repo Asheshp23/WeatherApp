@@ -1,12 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject var vm: WeatherDetailVM = WeatherDetailVM()
   
   var body: some View {
     NavigationStack {
       WeatherDetailView()
-        .environmentObject(vm)
     }
   }
 }
