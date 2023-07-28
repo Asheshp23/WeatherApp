@@ -54,7 +54,6 @@ struct WeatherMapView: UIViewRepresentable {
       let annotation = MKPointAnnotation()
       annotation.coordinate = coordinate
       parent.weatherMapView.addAnnotation(annotation)
-
     }
 
 
@@ -88,7 +87,6 @@ struct WeatherMapView: UIViewRepresentable {
         let identifier = "marker"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-
         annotationView?.markerTintColor = .white
         getCityName(from: annotation.coordinate) { cityName in
           if let cityName = cityName {

@@ -128,13 +128,6 @@ struct WeatherDetailView: View {
         .foregroundColor(.white)
     }
     .accessibilityIdentifier("showSettings")
-    .sheet(isPresented: $vm.showSettings,
-           content: {
-      SettingsView(tempUnit: $vm.tempUnit,
-                   showSettings: $vm.showSettings)
-      .presentationDetents([.height(250.0)])
-    }
-    )
   }
   
   var viewItOnMapView: some View {
@@ -174,6 +167,13 @@ struct WeatherDetailView: View {
                          showCityList: $vm.showCityList)
         .presentationDetents([.medium, .large])
       }
+      .sheet(isPresented: $vm.showSettings,
+             content: {
+        SettingsView(tempUnit: $vm.tempUnit,
+                     showSettings: $vm.showSettings)
+        .presentationDetents([.height(250.0)])
+      }
+      )
       .toolbar { settingsView }
       .onChange(of: vm.selectedCity, perform: { newValue  in
         Task {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0F18C72A7441A600EA2216 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
 		BE003099297F59B700A0896C /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE003098297F59B700A0896C /* WeatherAppApp.swift */; };
 		BE00309B297F59B700A0896C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE00309A297F59B700A0896C /* ContentView.swift */; };
 		BE00309D297F59B900A0896C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE00309C297F59B900A0896C /* Assets.xcassets */; };
@@ -693,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE7838E92A738D3400A90BE0 /* Int+Extension.swift in Sources */,
+				0F0F18C72A7441A600EA2216 /* LocationManager.swift in Sources */,
 				BE193968297F6ED600E20C9D /* WeatherWidgetBundle.swift in Sources */,
 				BE7838DA2A738AC900A90BE0 /* WeatherData.swift in Sources */,
 				BE19396A297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,

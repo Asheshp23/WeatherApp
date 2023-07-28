@@ -19,11 +19,11 @@ class CloudScene: SKScene {
     anchorPoint = CGPoint(x: 0.5, y: 0.5)
     let node = SKEmitterNode(fileNamed: "Cloud.sks")!
     node.particlePositionRange.dx = UIScreen.main.bounds.width
-    node.position = CGPoint(x: self.size.width / 2, y: self.size.height)
+    node.position = CGPoint(x: self.size.width / 3, y: self.size.height)
     if weatherCondition == .partlyCloudy {
-      node.particleBirthRate = 15
-      node.particleLifetime = 12
-      node.particleSpeed = 20
+        node.particleBirthRate = 2
+        node.particleLifetime = 25
+        node.particleSpeed = 4
     } else if weatherCondition == .overcast {
       node.particleBirthRate = 0.15
       node.particleLifetime = 25

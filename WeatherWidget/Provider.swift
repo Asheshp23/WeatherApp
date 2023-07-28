@@ -4,9 +4,10 @@ import SwiftUI
 
 class Provider: IntentTimelineProvider {
   private let weatherService = WeatherData.shared
+ @StateObject var locationManager = LocationManager()
 
   func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil)
+    return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil)
   }
   
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -14,14 +15,13 @@ class Provider: IntentTimelineProvider {
     completion(entry)
   }
   
-  func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
-   
-      Task {
-        if let weatherData = await self.weatherService.getWeather(city: "Toronto") {
-          let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
-          let timeline = Timeline(entries: [entry], policy: .never)
-          completion(timeline)
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
+        Task {
+            if let weatherData = await self.weatherService.getWeather(city: "Brampton") {
+                let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
+                let timeline = Timeline(entries: [entry], policy: .never)
+                completion(timeline)
+            }
         }
-      }
     }
 }
