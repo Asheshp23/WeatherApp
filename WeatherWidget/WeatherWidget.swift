@@ -18,7 +18,7 @@ struct Provider: IntentTimelineProvider {
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            let entryDate = Calendar.current.date(byAdding: .minute, value: hourOffset, to: currentDate)!
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
@@ -35,13 +35,24 @@ struct SimpleEntry: TimelineEntry {
 
 struct WeatherWidgetEntryView : View {
     var entry: Provider.Entry
-  
+ 
     var body: some View {
       ZStack {
-        Color.indigo
-        Text(entry.date, style: .time)
-          .foregroundColor(.white)
-          .italic()
+        ContainerRelativeShape()
+          .fill(Color.indigo.gradient)
+        VStack {
+          Text(entry.date.formatted(.dateTime.weekday(.wide)))
+            .foregroundColor(.white)
+            .italic().bold()
+          Text(entry.date.formatted(.dateTime.day(.twoDigits)))
+            .font(.largeTitle.bold())
+            .foregroundColor(.white)
+            .italic()
+          Text(entry.date.formatted(.dateTime.month(.wide)))
+            .font(.title.bold())
+            .foregroundColor(.white)
+            .italic()
+        }
       }
     }
 }
@@ -55,6 +66,7 @@ struct WeatherWidget: Widget {
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
+        .supportedFamilies([.systemSmall])
     }
 }
 

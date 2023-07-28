@@ -56,7 +56,7 @@ class DrawingKitVM: ObservableObject {
       } else {
         try! PHPhotoLibrary.shared().performChangesAndWait {
           let createAlbumRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: "Custom Album Name")
-          let placeHolder = createAlbumRequest.placeholderForCreatedAssetCollection
+          _ = createAlbumRequest.placeholderForCreatedAssetCollection
         }
       }
 

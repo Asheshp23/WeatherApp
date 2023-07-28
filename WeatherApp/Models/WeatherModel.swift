@@ -19,5 +19,4 @@ struct WeatherModel: Codable {
     self.location = location
     self.current = current
   }
-
 }

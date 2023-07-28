@@ -3,7 +3,7 @@ import CoreLocation
 import CoreLocationUI
 
 struct WeatherDetailView: View {
-  @StateObject var vm: WeatherDetailVM = WeatherDetailVM()
+  @EnvironmentObject var vm: WeatherDetailVM
   @StateObject var locationManager = LocationManager()
 
   var progressView: some View {
@@ -80,36 +80,42 @@ struct WeatherDetailView: View {
         .fontWeight(.light)
         .foregroundColor(.white)
         .padding(.trailing, 8.0)
-        .shadow( radius: 5)
+        .shadow(radius: 5)
     }
   }
 
   var photoGalleryView: some View {
     NavigationLink(destination: PhotoGalleryView()) {
-      HStack{
-        Image(systemName: "photo.on.rectangle.angled")
-          .foregroundColor(.white)
-        Text("Photo gallery")
-          .font(.title)
-          .fontWeight(.bold)
-          .padding()
-          .foregroundColor(.white)
-          .accessibilityIdentifier("goToPhotos")
+      VStack(alignment: .center) {
+        HStack {
+          Image(systemName: "photo.on.rectangle.angled")
+            .foregroundColor(.white)
+            .font(.title.bold())
+          Text("Photo gallery")
+            .font(.title)
+            .fontWeight(.bold)
+            .padding()
+            .foregroundColor(.white)
+            .accessibilityIdentifier("goToPhotos")
+        }
       }
     }
   }
 
   var contactUsView: some View {
     NavigationLink(destination: ContactUsView()) {
-      HStack{
-        Image(systemName: "envelope.fill")
-          .foregroundColor(.white)
-        Text("Contact us")
-          .font(.title)
-          .fontWeight(.bold)
-          .padding()
-          .foregroundColor(.white)
-          .accessibilityIdentifier("goToContactUs")
+      VStack(alignment: .center) {
+        HStack {
+          Image(systemName: "envelope.fill")
+            .foregroundColor(.white)
+            .font(.title.bold())
+          Text("Contact us")
+            .font(.title)
+            .fontWeight(.bold)
+            .padding()
+            .foregroundColor(.white)
+            .accessibilityIdentifier("goToContactUs")
+        }
       }
     }
   }
@@ -130,6 +136,19 @@ struct WeatherDetailView: View {
     }
     )
   }
+  
+  var viewItOnMapView: some View {
+    NavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation)) {
+      HStack {
+        Image(systemName: "map")
+          .foregroundColor(.white)
+          .font(.title.bold())
+        Text("View it on the map ")
+          .foregroundColor(.white)
+          .font(.title.bold())
+      }
+    }
+  }
 
   var body: some View {
     ZStack {
@@ -146,9 +165,7 @@ struct WeatherDetailView: View {
         temperatureDetailView
         lastUpdatedTimeView
         Spacer()
-        NavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation)) {
-          Text("View it on the map ")
-        }
+        viewItOnMapView
         photoGalleryView
         contactUsView
       }
