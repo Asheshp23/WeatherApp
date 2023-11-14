@@ -31,5 +31,4 @@ open class WeatherData: ObservableObject {
     }
     return nil
   }
-
 }

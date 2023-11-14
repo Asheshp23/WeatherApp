@@ -185,7 +185,7 @@ struct PhotoDetailView: View {
             self.customAlbum = self.getOrCreateAlbum(named: "Custom Album Name")
         }
         .alert(isPresented: $vm.showAlert, content: {
-            Alert(title: Text(vm.message), dismissButton: .destructive(Text("OkAY")))
+            Alert(title: Text(vm.message), dismissButton: .destructive(Text("ok")))
         })
         .toolbar {
             if vm.startEditing {

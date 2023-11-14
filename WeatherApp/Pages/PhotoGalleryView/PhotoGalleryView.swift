@@ -20,7 +20,8 @@ struct PhotoGalleryView: View {
                         }
                     }
                     .simultaneousGesture(
-                        TapGesture().onEnded { _ in
+                        TapGesture()
+                          .onEnded { _ in
                             selectedImageName = imageName
                         }
                     )
@@ -44,7 +45,6 @@ struct AsyncImageView<Content: View>: View {
         if let uiImage = UIImage(named: imageName) {
             return Image(uiImage: uiImage)
         } else {
-            // Return a placeholder image or handle the absence of the image gracefully.
             return Image(systemName: "photo")
         }
     }
