@@ -8,9 +8,7 @@ class WeatherNetwrokTechAssessmentTests: XCTestCase {
     let photoGallery = PhotoGalleryView()
     XCTAssertNotNil(photoGallery.images)
     XCTAssertEqual(photoGallery.images.count , 10)
-    photoGallery.imageName = "IMG1"
-    photoGallery.goToDetailView = false
-    XCTAssertFalse(photoGallery.goToDetailView)
+    photoGallery.selectedImageName = "IMG1"
   }
 
 }

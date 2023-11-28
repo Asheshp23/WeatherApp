@@ -3,13 +3,8 @@ import WeatherKit
 import CoreLocation
 import os
 
-open class WeatherData: ObservableObject {
+struct WeatherData {
   public static let shared = WeatherData()
-
-  @Published private var currentWeathers = [CurrentWeather]()
-  @Published private var dailyForecasts = [ Forecast<DayWeather>]()
-  @Published private var hourlyForecasts = [Forecast<HourWeather>]()
-
   //api call
   func getWeather(city: String) async -> WeatherModel? {
     let aqi = "no"

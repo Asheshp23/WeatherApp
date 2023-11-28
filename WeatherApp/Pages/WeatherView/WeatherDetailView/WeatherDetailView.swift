@@ -193,11 +193,9 @@ struct WeatherDetailView: View {
           }
         })
       })
-      .onAppear {
-        Task {
-          vm.isLocationButtonTapped.toggle()
-          locationManager.requestLocation()
-        }
+      .task {
+        vm.isLocationButtonTapped.toggle()
+        locationManager.requestLocation()
       }
     }
   }

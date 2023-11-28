@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PhotoGalleryView: View {
     var images: [String] = ["IMG1", "IMG2", "IMG3", "IMG4", "IMG5", "IMG6", "IMG7", "IMG8", "IMG9", "IMG10"]
-    @State private var selectedImageName: String?
+    @State var selectedImageName: String?
     var columnGrid: [GridItem] = Array(repeating: .init(.flexible(), spacing: 1), count: 3)
 
     var body: some View {
