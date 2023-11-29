@@ -35,4 +35,42 @@ class WeatherDetailVM: ObservableObject {
       self.isLoading = false
     }
   }
+  
+  func reverseGeocodeLocationAsync(_ location: CLLocation) async throws -> String {
+    do {
+      let placemarks = try await CLGeocoder().reverseGeocodeLocation(location)
+      
+      guard let city = placemarks.first?.locality else {
+        throw LocationError.noCityFound
+      }
+      
+      return city
+    } catch {
+      throw error
+    }
+  }
+  
+  @MainActor
+  func handleLocationUpdate(newValue: CLLocation) async {
+    do {
+      let city = try await reverseGeocodeLocationAsync(newValue)
+      self.selectedCity = city
+      await fetchWeather()
+    } catch {
+      if let locationError = error as? LocationError {
+        switch locationError {
+        case .noCityFound:
+          // Handle the case when no city is found
+          print("No city found")
+        }
+      } else {
+        // Handle other errors
+        print("Error: \(error)")
+      }
+    }
+  }
+}
+
+enum LocationError: Error {
+    case noCityFound
 }

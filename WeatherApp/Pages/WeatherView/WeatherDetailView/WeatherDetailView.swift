@@ -5,13 +5,13 @@ import CoreLocationUI
 struct WeatherDetailView: View {
   @EnvironmentObject var vm: WeatherDetailVM
   @StateObject var locationManager = LocationManager()
-
+  
   var progressView: some View {
     ProgressView()
       .tint(.white)
       .accessibilityIdentifier("loadingView")
   }
-
+  
   var cityNameView: some View {
     HStack(alignment: .center) {
       Button(action: {
@@ -30,7 +30,7 @@ struct WeatherDetailView: View {
         .foregroundColor(.white)
         .shadow(radius: 5)
         .fontWeight(.bold)
-
+      
       Button(action: {
         if vm.isLocationButtonTapped {
           vm.isLocationButtonTapped.toggle()
@@ -47,7 +47,7 @@ struct WeatherDetailView: View {
       .accessibilityIdentifier("goToCityList")
     }
   }
-
+  
   var temperatureDetailView: some View {
     VStack {
       HStack(alignment: .top) {
@@ -71,7 +71,7 @@ struct WeatherDetailView: View {
         .shadow(radius: 5)
     }
   }
-
+  
   var lastUpdatedTimeView: some View {
     HStack {
       Spacer()
@@ -83,7 +83,7 @@ struct WeatherDetailView: View {
         .shadow(radius: 5)
     }
   }
-
+  
   var photoGalleryView: some View {
     NavigationLink(destination: PhotoGalleryView()) {
       VStack(alignment: .center) {
@@ -101,7 +101,7 @@ struct WeatherDetailView: View {
       }
     }
   }
-
+  
   var contactUsView: some View {
     NavigationLink(destination: ContactUsView()) {
       VStack(alignment: .center) {
@@ -119,7 +119,7 @@ struct WeatherDetailView: View {
       }
     }
   }
-
+  
   var settingsView: some View {
     Button(action: {
       vm.showSettings.toggle()
@@ -142,7 +142,7 @@ struct WeatherDetailView: View {
       }
     }
   }
-
+  
   var body: some View {
     ZStack {
       GeometryReader { _ in
@@ -182,16 +182,9 @@ struct WeatherDetailView: View {
       })
       .onChange(of: locationManager.location, perform: { newValue in
         vm.userLocation = newValue.coordinate
-        CLGeocoder().reverseGeocodeLocation(newValue, completionHandler: {(placemarks, error) -> Void in
-          if error != nil {
-            return
-          } else if let city = placemarks?.first?.locality {
-            self.vm.selectedCity = city
-            Task {
-              await self.vm.fetchWeather()
-            }
-          }
-        })
+        Task {
+          await vm.handleLocationUpdate(newValue: newValue)
+        }
       })
       .task {
         vm.isLocationButtonTapped.toggle()
