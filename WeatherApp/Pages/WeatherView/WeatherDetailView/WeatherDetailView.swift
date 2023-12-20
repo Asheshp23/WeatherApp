@@ -3,7 +3,7 @@ import CoreLocation
 import CoreLocationUI
 
 struct WeatherDetailView: View {
-  @EnvironmentObject var vm: WeatherDetailVM
+  @StateObject var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
   @StateObject var locationManager = LocationManager()
   
   var progressView: some View {

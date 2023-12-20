@@ -2,8 +2,8 @@ import Foundation
 import CoreLocation
 
 class WeatherDetailVM: ObservableObject {
-  private let weatherService = WeatherData.shared
-
+  private let weatherService: WeatherDataServiceProtocol
+  
   @Published var weather = WeatherModel()
   @Published var isLoading = false
   @Published var selectedCity = "Toronto"
@@ -13,26 +13,34 @@ class WeatherDetailVM: ObservableObject {
   @Published var isLocationButtonTapped = false
   @Published var cityName: String = ""
   @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
-
+  
   var temperature: String {
     return Helper.formatTemperature(tempUnit == .celcius ? self.weather.current.tempC : self.weather.current.tempF, unit: tempUnit)
   }
-
+  
   var feelslike: String {
     return Helper.formatTemperature(tempUnit == .celcius ? self.weather.current.feelslikeC : self.weather.current.feelslikeF, unit: tempUnit)
   }
-
+  
   var lastUpdatedAt: String {
-   return Helper.decodeDate(dateAsString: self.weather.current.lastUpdated) ?? "Not available"
+    return Helper.decodeDate(dateAsString: self.weather.current.lastUpdated) ?? "Not available"
   }
-
+  
+  init(weatherService: WeatherDataServiceProtocol) {
+    self.weatherService = weatherService
+  }
+  
   // fetch weather data
   @MainActor
   func fetchWeather() async {
-    self.isLoading = true
-    if let weatherData = await self.weatherService.getWeather(city: self.selectedCity) {
-      self.weather = weatherData
-      self.isLoading = false
+    let response = await self.weatherService.getWeather(city: self.selectedCity)
+    switch response {
+    case .success(let weatherData):
+      if let weatherData = weatherData {
+        self.weather = weatherData
+      }
+    case .failure(let error):
+      print(error.localizedDescription)
     }
   }
   
@@ -69,8 +77,4 @@ class WeatherDetailVM: ObservableObject {
       }
     }
   }
-}
-
-enum LocationError: Error {
-    case noCityFound
 }

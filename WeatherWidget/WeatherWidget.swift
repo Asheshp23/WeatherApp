@@ -6,7 +6,7 @@ struct WeatherWidget: Widget {
     let kind: String = "WeatherWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+      IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(weatherService: WeatherDataService())) { entry in
             WeatherWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")

@@ -1,8 +1,10 @@
-//
-//  CustomErrors.swift
-//  WeatherApp
-//
-//  Created by Ashesh Patel on 2023-12-19.
-//
-
 import Foundation
+
+enum LocationError: Error {
+  case noCityFound
+}
+
+enum NetworkError: Error {
+  case invalidURL
+  case invalidResponse
+}

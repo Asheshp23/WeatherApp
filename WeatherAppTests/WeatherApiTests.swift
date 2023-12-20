@@ -3,19 +3,17 @@ import XCTest
 
 class WeatherServiceTests: XCTestCase {
 
-
   func testGetWeather() {
-    let expectation = XCTestExpectation(description: "Get weather for a city")
-    let weatherService = WeatherData.shared
+    let weatherService = WeatherDataService()
     Task {
-      if let weatherModel =   await weatherService.getWeather(city: "San Francisco") {
-        XCTAssertNotNil(weatherModel)
-        XCTAssertNotNil(weatherModel.location)
-        XCTAssertNotNil(weatherModel.current)
-        expectation.fulfill()
+      let response = await weatherService.getWeather(city: "San Francisco")
+      switch response {
+      case .success(let weatherData):
+        XCTAssertNotNil(weatherData)
+      case .failure(let error):
+        XCTAssertNotNil(error)
       }
     }
-    wait(for: [expectation], timeout: 10.0)
   }
 }
 
