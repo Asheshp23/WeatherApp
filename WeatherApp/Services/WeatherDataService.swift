@@ -1,10 +1,12 @@
 import Foundation
 import WeatherKit
 import CoreLocation
-import os
 
-struct WeatherData {
-  public static let shared = WeatherData()
+
+
+
+class WeatherDataService {
+  public static let shared = WeatherDataService()
   //api call
   func getWeather(city: String) async -> WeatherModel? {
     let aqi = "no"
