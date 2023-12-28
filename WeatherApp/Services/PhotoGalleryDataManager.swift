@@ -1,25 +1,9 @@
-//
-//  PhotoManager.swift
-//  WeatherApp
-//
-//  Created by Ashesh Patel on 2023-12-28.
-//
-
 import Foundation
 import UIKit
 
-class PhotoGalleryDataManager {
-  func fetchImagesWithAsyncLet() async throws -> [UIImage] {
-    async let fetchImage1 = fetchImage(urlString: "https://picsum.photos/300")
-    async let fetchImage2 = fetchImage(urlString: "https://picsum.photos/300")
-    async let fetchImage3 = fetchImage(urlString: "https://picsum.photos/300")
-    async let fetchImage4 = fetchImage(urlString: "https://picsum.photos/300")
-    
-    let (image1, image2, image3, image4) = await (try fetchImage1, try fetchImage2, try fetchImage3, try fetchImage4)
-    return [image1, image2, image3, image4]
-  }
+struct PhotoGalleryDataManager {
   
-  func fetchImagesWithTaskGroup() async throws -> [UIImage] {
+  func fetchImages() async throws -> [UIImage] {
     let urlStrings = [
       "https://picsum.photos/300",
       "https://picsum.photos/300",

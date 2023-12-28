@@ -3,31 +3,28 @@ import MapKit
 import CoreLocation
 
 struct WeatherMapView: UIViewRepresentable {
-  typealias UIViewType = MKMapView
+  typealias mapView = MKMapView
   let weatherMapView = MKMapView()
   @Binding var cityName: String
   var temperature: String
   var userLocation: CLLocationCoordinate2D
   @State private var annotations: [MKPointAnnotation] = []
+  var center:CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: userLocation.latitude,
+                                         longitude: userLocation.longitude) }
+  var span:MKCoordinateSpan { MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005) }
+  var region:MKCoordinateRegion { MKCoordinateRegion(center: center, span: span) }
 
-
-  func makeUIView(context: Context) -> MKMapView {
+  func makeUIView(context: Context) -> mapView {
     weatherMapView.delegate = context.coordinator
     weatherMapView.showsScale = true
     weatherMapView.showsCompass = true
     weatherMapView.showsUserLocation = true
     weatherMapView.userTrackingMode = .followWithHeading
     weatherMapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: .flat)
-    let center = CLLocationCoordinate2D(latitude: userLocation.latitude,
-                                        longitude: userLocation.longitude)
-    let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-    let region = MKCoordinateRegion(center: center, span: span)
     weatherMapView.setRegion(region, animated: true)
 
     let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.addAnnotation(_:)))
     weatherMapView.addGestureRecognizer(longPressGesture)
-
-
 
     return weatherMapView
   }
@@ -44,7 +41,6 @@ struct WeatherMapView: UIViewRepresentable {
 
     init(_ parent: WeatherMapView) {
       self.parent = parent
-      
     }
 
     @objc func addAnnotation(_ gestureRecognizer: UILongPressGestureRecognizer) {
