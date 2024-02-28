@@ -15,6 +15,7 @@ struct WeatherDetailView: View {
   var cityNameView: some View {
     HStack(alignment: .center) {
       Button(action: {
+          vm.selectedCity = ""
         vm.isLocationButtonTapped.toggle()
         locationManager.requestLocation()
       }){
@@ -64,7 +65,7 @@ struct WeatherDetailView: View {
         .font(.title2)
         .foregroundColor(.white)
         .shadow(radius: 5)
-      Text(self.vm.weather.current.condition.text)
+      Text(self.vm.weather?.current.condition.text ?? "Not available")
         .font(.title2)
         .fontWeight(.heavy)
         .foregroundColor(.white)
@@ -145,10 +146,8 @@ struct WeatherDetailView: View {
   
   var body: some View {
     ZStack {
-      GeometryReader { _ in
-        SkyImageView(weatherCondition: vm.weather.current.condition.weatherCondition)
-      }
-      .ignoresSafeArea()
+        SkyImageView(weatherCondition: WeatherCondition(rawValue: ((vm.weather?.current.condition.weatherCondition) ?? .cloudy).rawValue) ?? .cloudy)
+            .ignoresSafeArea()
       if vm.isLoading {
         progressView
       }
@@ -180,11 +179,15 @@ struct WeatherDetailView: View {
           await self.vm.fetchWeather()
         }
       })
-      .onChange(of: locationManager.location, perform: { newValue in
-        vm.userLocation = newValue.coordinate
-        Task {
-          await vm.handleLocationUpdate(newValue: newValue)
-        }
+      .onChange(of: locationManager.location, perform: { newLocation in
+          if let newLocation = newLocation, vm.selectedCity.isEmpty {
+              vm.userLocation = newLocation.coordinate
+              Task {
+                await vm.handleLocationUpdate(newValue: newLocation)
+              }
+          } else {
+              
+          }
       })
       .task {
         vm.isLocationButtonTapped.toggle()

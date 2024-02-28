@@ -32,15 +32,4 @@ struct LocationModel: Codable {
     self.localtimeEpoch = try container.decode(Int.self, forKey: .localtimeEpoch)
     self.localtime = try container.decode(String.self, forKey: .localtime)
   }
-
-  init(){
-    self.name = "default_name"
-    self.region = "default_region"
-    self.country = "default_country"
-    self.lat = 0.0
-    self.lon = 0.0
-    self.tzId = "default_tzId"
-    self.localtimeEpoch = 0
-    self.localtime = "default_localtime"
-  }
 }

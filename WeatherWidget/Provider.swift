@@ -21,19 +21,16 @@ class Provider: IntentTimelineProvider {
   
   func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
     Task {
-      let response = await self.weatherService.getWeather(city: "Brampton")
-      switch response {
-      case .success(let weatherData):
-        if let weatherData {
-          let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
-          let timeline = Timeline(entries: [entry], policy: .never)
-          completion(timeline)
+        do {
+            let weatherData: WeatherModel = try await self.weatherService.fetchData(city: "Brampton")
+            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
+            let timeline = Timeline(entries: [entry], policy: .never)
+            completion(timeline)
+        } catch {
+            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil)
+            let timeline = Timeline(entries: [entry], policy: .never)
+            completion(timeline)
         }
-      case .failure(_):
-        let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil)
-        let timeline = Timeline(entries: [entry], policy: .never)
-        completion(timeline)
-      }
     }
   }
 }
