@@ -12,13 +12,20 @@ struct WeatherDetailView: View {
       .accessibilityIdentifier("loadingView")
   }
   
-  var cityNameView: some View {
-    HStack(alignment: .center) {
-      Button(action: {
-          vm.selectedCity = ""
+    fileprivate func handleLocatonButtonTap() {
+        vm.selectedCity = ""
         vm.isLocationButtonTapped.toggle()
         locationManager.requestLocation()
-      }){
+    }
+    
+    fileprivate func handleShowCityListButtonTap() {
+        vm.isLocationButtonTapped = false
+        vm.showCityList.toggle()
+    }
+    
+    var cityNameView: some View {
+    HStack(alignment: .center) {
+      Button(action: handleLocatonButtonTap){
         Image(systemName: vm.isLocationButtonTapped ? "location.fill" :"location")
           .resizable()
           .foregroundColor(.white)
@@ -32,12 +39,7 @@ struct WeatherDetailView: View {
         .shadow(radius: 5)
         .fontWeight(.bold)
       
-      Button(action: {
-        if vm.isLocationButtonTapped {
-          vm.isLocationButtonTapped.toggle()
-        }
-        vm.showCityList.toggle()
-      }){
+      Button(action: handleShowCityListButtonTap){
         HStack {
           Image(systemName: "chevron.down")
             .foregroundColor(.white)
@@ -185,12 +187,9 @@ struct WeatherDetailView: View {
               Task {
                 await vm.handleLocationUpdate(newValue: newLocation)
               }
-          } else {
-              
           }
       })
       .task {
-        vm.isLocationButtonTapped.toggle()
         locationManager.requestLocation()
       }
     }

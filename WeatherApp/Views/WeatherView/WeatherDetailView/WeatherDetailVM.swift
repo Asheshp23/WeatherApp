@@ -10,7 +10,7 @@ class WeatherDetailVM: ObservableObject {
     @Published var showCityList = false
     @Published var showSettings = false
     @Published var tempUnit : TemperatureUnit = .celcius
-    @Published var isLocationButtonTapped = false
+    @Published var isLocationButtonTapped = true
     @Published var cityName: String = ""
     @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
     
@@ -68,7 +68,6 @@ class WeatherDetailVM: ObservableObject {
         do {
             let city = try await reverseGeocodeLocationAsync(newValue)
             self.selectedCity = city
-            await fetchWeather()
         } catch {
             if let locationError = error as? LocationError {
                 switch locationError {
