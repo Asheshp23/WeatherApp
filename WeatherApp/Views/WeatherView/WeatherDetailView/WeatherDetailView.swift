@@ -6,12 +6,6 @@ struct WeatherDetailView: View {
   @StateObject var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
   @StateObject var locationManager = LocationManager()
   
-  var progressView: some View {
-    ProgressView()
-      .tint(.white)
-      .accessibilityIdentifier("loadingView")
-  }
-  
     fileprivate func handleLocatonButtonTap() {
         vm.selectedCity = ""
         vm.isLocationButtonTapped.toggle()
@@ -123,16 +117,6 @@ struct WeatherDetailView: View {
     }
   }
   
-  var settingsView: some View {
-    Button(action: {
-      vm.showSettings.toggle()
-    }){
-      Image(systemName: "gearshape")
-        .foregroundColor(.white)
-    }
-    .accessibilityIdentifier("showSettings")
-  }
-  
   var viewItOnMapView: some View {
     NavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation)) {
       HStack {
@@ -151,7 +135,7 @@ struct WeatherDetailView: View {
         SkyImageView(weatherCondition: WeatherCondition(rawValue: ((vm.weather?.current.condition.weatherCondition) ?? .cloudy).rawValue) ?? .cloudy)
             .ignoresSafeArea()
       if vm.isLoading {
-        progressView
+        ProgressView()
       }
       VStack(alignment: .center) {
         cityNameView
@@ -175,7 +159,7 @@ struct WeatherDetailView: View {
         .presentationDetents([.height(250.0)])
       }
       )
-      .toolbar { settingsView }
+      .toolbar { SettingsButtonView(showSettings: $vm.showSettings) }
       .onChange(of: vm.selectedCity, perform: { newValue  in
         Task {
           await self.vm.fetchWeather()

@@ -77,4 +77,30 @@ struct CurrentWeatherModel: Codable {
         gustMph = try values.decode(Double.self, forKey: .gustMph)
         gustKph = try values.decode(Double.self, forKey: .gustKph)
     }
+    
+    init(lastUpdatedEpoch: Int, lastUpdated: String, tempC: Double, tempF: Double, isDay: Int, condition: ConditionModel, windMph: Double, windKph: Double, windDegree: Int, windDir: String, pressureMb: Double, pressureIn: Double, precipMm: Double, precipIn: Double, humidity: Int, cloud: Int, feelslikeC: Double, feelslikeF: Double, visKm: Double, visMiles: Double, uv: Double, gustMph: Double, gustKph: Double) {
+        self.lastUpdatedEpoch = lastUpdatedEpoch
+        self.lastUpdated = lastUpdated
+        self.tempC = tempC
+        self.tempF = tempF
+        self.isDay = isDay
+        self.condition = condition
+        self.windMph = windMph
+        self.windKph = windKph
+        self.windDegree = windDegree
+        self.windDir = windDir
+        self.pressureMb = pressureMb
+        self.pressureIn = pressureIn
+        self.precipMm = precipMm
+        self.precipIn = precipIn
+        self.humidity = humidity
+        self.cloud = cloud
+        self.feelslikeC = feelslikeC
+        self.feelslikeF = feelslikeF
+        self.visKm = visKm
+        self.visMiles = visMiles
+        self.uv = uv
+        self.gustMph = gustMph
+        self.gustKph = gustKph
+    }
 }

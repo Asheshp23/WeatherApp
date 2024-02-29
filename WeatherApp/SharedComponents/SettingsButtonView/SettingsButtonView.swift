@@ -1,18 +1,18 @@
-//
-//  SettingsButtonView.swift
-//  WeatherApp
-//
-//  Created by Ashesh Patel on 2024-02-29.
-//
-
 import SwiftUI
 
 struct SettingsButtonView: View {
+    @Binding var showSettings: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            self.showSettings.toggle()
+        }){
+            Image(systemName: "gearshape")
+                .foregroundColor(.white)
+        }
+        .accessibilityIdentifier("showSettings")
     }
 }
 
 #Preview {
-    SettingsButtonView()
+    SettingsButtonView(showSettings: .constant(false))
 }
