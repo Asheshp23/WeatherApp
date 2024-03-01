@@ -2,19 +2,13 @@ import Foundation
 import UIKit
 
 class PhotoGalleryViewModel: ObservableObject {
-  
-  @Published var images: [UIImage] = []
-  let dataManager: PhotoGalleryDataManager
-  
-  init(dataManager: PhotoGalleryDataManager) {
-    self.dataManager = dataManager
-  }
-  
+  @Published var images: [UIImage]?
+  private let dataManager: PhotoGalleryDataManager = PhotoGalleryDataManager()
+
   @MainActor
   func loadImages() async {
     do {
-      let fetchedImages = try await dataManager.fetchImages()
-      self.images.append(contentsOf: fetchedImages)
+        self.images = try await dataManager.fetchImages()
     } catch {
       // Handle the error, e.g., display an alert
       print("Error loading images: \(error)")
