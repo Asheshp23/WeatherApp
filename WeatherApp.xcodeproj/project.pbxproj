@@ -12,6 +12,14 @@
 		0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */; };
 		0F8408572B910FD1003CEA19 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8408562B910FD1003CEA19 /* ProgressView.swift */; };
 		0F84085B2B91107B003CEA19 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */; };
+		0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */; };
+		0F853F442B928C2400A2A275 /* TextInputOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F432B928C2400A2A275 /* TextInputOverlay.swift */; };
+		0F853F462B928CA700A2A275 /* TextStylingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F452B928CA700A2A275 /* TextStylingBarView.swift */; };
+		0F853F482B928F6900A2A275 /* ToolBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F472B928F6900A2A275 /* ToolBarContentView.swift */; };
+		0F853F4A2B92992100A2A275 /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F492B92992100A2A275 /* InitialImageView.swift */; };
+		0F853F4C2B9299C700A2A275 /* FilteredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */; };
+		0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4D2B929A0D00A2A275 /* SliderRow.swift */; };
+		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610C2B3283E900D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -124,6 +132,14 @@
 		0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewModel.swift; sourceTree = "<group>"; };
 		0F8408562B910FD1003CEA19 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
+		0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnnotationOverlayView.swift; sourceTree = "<group>"; };
+		0F853F432B928C2400A2A275 /* TextInputOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputOverlay.swift; sourceTree = "<group>"; };
+		0F853F452B928CA700A2A275 /* TextStylingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylingBarView.swift; sourceTree = "<group>"; };
+		0F853F472B928F6900A2A275 /* ToolBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarContentView.swift; sourceTree = "<group>"; };
+		0F853F492B92992100A2A275 /* InitialImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialImageView.swift; sourceTree = "<group>"; };
+		0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageView.swift; sourceTree = "<group>"; };
+		0F853F4D2B929A0D00A2A275 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRow.swift; sourceTree = "<group>"; };
+		0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentView.swift; sourceTree = "<group>"; };
 		0FAF61092B3283AD00D8E59F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		BE003095297F59B700A0896C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE003098297F59B700A0896C /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
@@ -378,7 +394,14 @@
 				BE19394C297F649E00E20C9D /* PhotoDetailView.swift */,
 				BECD310629932929003BAC67 /* PhotoDetailVM.swift */,
 				BECD3108299329E4003BAC67 /* CanvasView.swift */,
-				BECD310A29933143003BAC67 /* CustomTextBox.swift */,
+				0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */,
+				0F853F432B928C2400A2A275 /* TextInputOverlay.swift */,
+				0F853F452B928CA700A2A275 /* TextStylingBarView.swift */,
+				0F853F472B928F6900A2A275 /* ToolBarContentView.swift */,
+				0F853F492B92992100A2A275 /* InitialImageView.swift */,
+				0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */,
+				0F853F4D2B929A0D00A2A275 /* SliderRow.swift */,
+				0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */,
 			);
 			path = PhotoDetailView;
 			sourceTree = "<group>";
@@ -408,6 +431,7 @@
 				BED490D129848EDE00C2BB49 /* ConditionModel.swift */,
 				BED490D329848F7200C2BB49 /* CurrentWeatherModel.swift */,
 				0FAF61092B3283AD00D8E59F /* CustomErrors.swift */,
+				BECD310A29933143003BAC67 /* CustomTextBox.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -681,14 +705,19 @@
 				0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */,
 				BE193972297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */,
 				BED490D429848F7200C2BB49 /* CurrentWeatherModel.swift in Sources */,
+				0F853F462B928CA700A2A275 /* TextStylingBarView.swift in Sources */,
+				0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */,
+				0F853F4A2B92992100A2A275 /* InitialImageView.swift in Sources */,
 				BE193933297F5D5C00E20C9D /* SkyImageView.swift in Sources */,
 				0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */,
 				BED490D229848EDE00C2BB49 /* ConditionModel.swift in Sources */,
 				BE00309B297F59B700A0896C /* ContentView.swift in Sources */,
+				0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */,
 				BEA91C952984E79100A7A939 /* Helper.swift in Sources */,
 				BE003099297F59B700A0896C /* WeatherAppApp.swift in Sources */,
 				BE193943297F627300E20C9D /* ListOfCitiesView.swift in Sources */,
 				0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */,
+				0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */,
 				BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */,
 				BE19393D297F618900E20C9D /* Int+Extension.swift in Sources */,
 				BECD310B29933143003BAC67 /* CustomTextBox.swift in Sources */,
@@ -700,9 +729,12 @@
 				BE19394D297F649E00E20C9D /* PhotoDetailView.swift in Sources */,
 				BECD3109299329E4003BAC67 /* CanvasView.swift in Sources */,
 				BE19393B297F616100E20C9D /* Date+Extension.swift in Sources */,
+				0F853F442B928C2400A2A275 /* TextInputOverlay.swift in Sources */,
+				0F853F482B928F6900A2A275 /* ToolBarContentView.swift in Sources */,
 				0F84085B2B91107B003CEA19 /* SettingsButtonView.swift in Sources */,
 				BECD310729932929003BAC67 /* PhotoDetailVM.swift in Sources */,
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
+				0F853F4C2B9299C700A2A275 /* FilteredImageView.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,

@@ -11,7 +11,7 @@ struct PhotoGalleryView: View {
                 ScrollView {
                     LazyVGrid(columns: columnGrid, spacing: 1) {
                         ForEach(images, id: \.self) { image in
-                            NavigationLink(destination: PhotoDetailView(vm: PhotoDetailVM( photo: image))) {
+                            NavigationLink(destination: PhotoDetailView(viewModel: PhotoDetailVM( photo: image))) {
                                 Image(uiImage: image)
                                     .resizable()
                                     .scaledToFit()

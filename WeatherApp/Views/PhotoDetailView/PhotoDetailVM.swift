@@ -30,6 +30,107 @@ class PhotoDetailVM: ObservableObject {
         self.photo = photo
     }
     
+    func handleLongPress(tb: CustomTextBox) {
+        toolPicker.setVisible(false, forFirstResponder: canvas)
+        canvas.resignFirstResponder()
+        currentIndex = getIndex(tb: tb)
+        withAnimation {
+            addNewBox = true
+        }
+    }
+    
+    func handleDragGesture(value: DragGesture.Value, tb: CustomTextBox) {
+        let current =  value.translation
+        let new = CGSize(width: tb.lastOffset.width + current.width , height: tb.lastOffset.height + current.height)
+        
+        textBoxes[getIndex(tb: tb)].offset = new
+    }
+    
+    func handleDragGestureEnd(value: DragGesture.Value, tb: CustomTextBox) {
+        textBoxes[getIndex(tb: tb)].lastOffset = value.translation
+    }
+    
+    func handleCancelButtonTap() {
+        withAnimation {
+            if textBoxes[currentIndex].isAdded {
+                textBoxes.removeLast()
+            }
+            addNewBox = false
+            toolPicker.setVisible(true, forFirstResponder: canvas)
+            canvas.becomeFirstResponder()
+        }
+    }
+    
+    func handleAddButtonTap() {
+        toolPicker.setVisible(true, forFirstResponder: canvas)
+        canvas.becomeFirstResponder()
+        withAnimation {
+            addNewBox = false
+        }
+    }
+    
+    func addNewTextBox() {
+        withAnimation {
+            textBoxes.append(CustomTextBox())
+            currentIndex = textBoxes.count - 1
+            addNewBox = true
+            toolPicker.setVisible(false, forFirstResponder: canvas)
+            canvas.resignFirstResponder()
+        }
+    }
+    
+    func redoCanvasAction() {
+        canvas.undoManager?.redo()
+    }
+    
+    func undoCanvasAction() {
+        canvas.undoManager?.undo()
+    }
+    
+    func undoAllCanvasAction() {
+        guard let undoManager = canvas.undoManager else {
+            return
+        }
+        
+        // Perform undo until the undo manager has no more actions
+        while undoManager.canUndo {
+            undoManager.undo()
+        }
+    }
+    
+    func toggleAnnotatingMode() {
+        startAnnotating.toggle()
+    }
+    
+    func toggleEditingMode() {
+        startEditing.toggle()
+        self.brightness = 0
+        self.contrast = 1
+        self.contrast = 1
+    }
+    
+    func toggleAnnotatingOrEditing() {
+        if startAnnotating {
+            toggleAnnotatingMode()
+            undoAllCanvasAction()
+        } else {
+            toggleEditingMode()
+        }
+    }
+    
+    func handleSaveAction() {
+        if let image = savingCanvas(), startAnnotating {
+            editedPhoto = image
+            startAnnotating = false
+        } else {
+            if let editedPhoto = editedPhoto {
+                save(image: editedPhoto)
+            } else {
+                save(image: photo)
+            }
+        }
+    }
+    
     func savingCanvas() -> UIImage? {
         // Generate image from canvas
         guard let generatedImage = generateImage() else {
@@ -38,31 +139,30 @@ class PhotoDetailVM: ObservableObject {
         }
         
         return generatedImage
-      
+        
     }
     
     // Generate image from canvas
     private func generateImage() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
-
+        
         let SWIFTUIVIEWS = ZStack {
-          ForEach(self.textBoxes) { tb in
-            Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" :  tb.text)
-              .font(.system(size: 30, weight: self.textBoxes[self.currentIndex].isBold ? .bold : .regular ))
-              .italic(self.textBoxes[self.currentIndex].isItalic)
-              .underline(self.textBoxes[self.currentIndex].isUnderlined)
-              .foregroundColor(tb.textColor)
-              .offset(tb.offset)
-          }
+            ForEach(self.textBoxes) { tb in
+                Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" :  tb.text)
+                    .font(.system(size: 30, weight: self.textBoxes[self.currentIndex].isBold ? .bold : .regular ))
+                    .italic(self.textBoxes[self.currentIndex].isItalic)
+                    .underline(self.textBoxes[self.currentIndex].isUnderlined)
+                    .foregroundColor(tb.textColor)
+                    .offset(tb.offset)
+            }
         }
-
+        
         let controller = UIHostingController (rootView: SWIFTUIVIEWS).view!
         controller.frame = rect
         controller.backgroundColor = .clear
         canvas.backgroundColor = .clear
         controller.drawHierarchy (in: CGRect (origin: .zero, size: rect.size), afterScreenUpdates: true)
-        let generatedImage = UIGraphicsGetImageFromCurrentImageContext()
         defer { UIGraphicsEndImageContext() }
         canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
         return UIGraphicsGetImageFromCurrentImageContext()
@@ -95,26 +195,31 @@ class PhotoDetailVM: ObservableObject {
     }
     
     func applyFilter(to image: UIImage) -> UIImage? {
+        guard let inputImage = CIImage(image: image) else {
+            print("Failed to create CIImage from input image")
+            return nil
+        }
+        
+        guard let filter = CIFilter(name: "CIColorControls") else {
+            print("Failed to create CIFilter")
+            return nil
+        }
+        
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        filter.setValue(self.brightness, forKey: kCIInputBrightnessKey)
+        filter.setValue(self.contrast, forKey: kCIInputContrastKey)
+        filter.setValue(self.saturation, forKey: kCIInputSaturationKey)
+        
+        guard let outputImage = filter.outputImage else {
+            print("Failed to get output image from filter")
+            return nil
+        }
+        
         let context = CIContext()
-        guard let inputImage = CIImage(image: image) else { return nil }
-        
-        let filter = CIFilter(name: "CIColorControls")
-        filter?.setValue(inputImage, forKey: kCIInputImageKey)
-        if self.isBrightnessChanged {
-            filter?.setValue(self.brightness, forKey: kCIInputBrightnessKey)
-            self.isBrightnessChanged.toggle()
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else {
+            print("Failed to create CGImage from output image")
+            return nil
         }
-        if self.isContrastChanged {
-            filter?.setValue(self.contrast, forKey: kCIInputContrastKey)
-            self.isContrastChanged = false
-        }
-        if self.isSaturationChanged {
-            filter?.setValue(self.saturation, forKey: kCIInputSaturationKey)
-            self.isSaturationChanged.toggle()
-        }
-        
-        guard let outputImage = filter?.outputImage,
-              let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
         
         return UIImage(cgImage: cgImage)
     }
@@ -126,7 +231,14 @@ class PhotoDetailVM: ObservableObject {
                 return
             }
             
-            guard let imageData = image.pngData() else {
+            guard let filteredImage = self.applyFilter(to: image)  else {
+                print("doesnt have the filterd image")
+                return
+            }
+            Task { @MainActor in
+                self.editedPhoto = filteredImage
+            }
+            guard let imageData = filteredImage.pngData() else {
                 print("Failed to convert filtered image to PNG data.")
                 DispatchQueue.main.async {
                     self.showAlert.toggle()
@@ -157,7 +269,7 @@ class PhotoDetailVM: ObservableObject {
             do {
                 // Save image to custom album
                 try PHPhotoLibrary.shared().performChangesAndWait ({
-                    let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: image)
+                    let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: filteredImage)
                     let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
                     let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum)
                     let enumeration: NSArray = [assetPlaceholder!]
