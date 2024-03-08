@@ -10,6 +10,7 @@
 		0F0F18C72A7441A600EA2216 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
 		0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */; };
 		0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */; };
+		0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */; };
 		0F8408572B910FD1003CEA19 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8408562B910FD1003CEA19 /* ProgressView.swift */; };
 		0F84085B2B91107B003CEA19 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */; };
 		0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */; };
@@ -130,6 +131,7 @@
 /* Begin PBXFileReference section */
 		0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryDataManager.swift; sourceTree = "<group>"; };
 		0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewModel.swift; sourceTree = "<group>"; };
+		0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledNavigationLink.swift; sourceTree = "<group>"; };
 		0F8408562B910FD1003CEA19 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnnotationOverlayView.swift; sourceTree = "<group>"; };
@@ -234,9 +236,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4465262B9AC7FC0071AC84 /* StyledNavigationLink */ = {
+			isa = PBXGroup;
+			children = (
+				0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */,
+			);
+			path = StyledNavigationLink;
+			sourceTree = "<group>";
+		};
 		0F8408552B910FB6003CEA19 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
+				0F4465262B9AC7FC0071AC84 /* StyledNavigationLink */,
 				0F8408592B911050003CEA19 /* SettingsButtonView */,
 				0F8408582B91101D003CEA19 /* ProgressView */,
 			);
@@ -738,6 +749,7 @@
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
+				0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */,
 				BEF1F2BE299C6099007661E5 /* WeatherMapView.swift in Sources */,
 				BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
 				BE19392A297F5B4E00E20C9D /* WeatherDetailVM.swift in Sources */,

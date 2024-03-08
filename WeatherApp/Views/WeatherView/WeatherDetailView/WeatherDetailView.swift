@@ -1,30 +1,16 @@
 import SwiftUI
-import CoreLocation
-import CoreLocationUI
 
 struct WeatherDetailView: View {
   @StateObject var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
   @StateObject var locationManager = LocationManager()
   
-    fileprivate func handleLocatonButtonTap() {
-        vm.selectedCity = ""
-        vm.isLocationButtonTapped.toggle()
-        locationManager.requestLocation()
-    }
-    
-    fileprivate func handleShowCityListButtonTap() {
-        vm.isLocationButtonTapped = false
-        vm.showCityList.toggle()
-    }
-    
-    var cityNameView: some View {
-    HStack(alignment: .center) {
-      Button(action: handleLocatonButtonTap){
-        Image(systemName: vm.isLocationButtonTapped ? "location.fill" :"location")
+  var cityNameView: some View {
+    HStack {
+      Button(action: handleLocatonButtonTap) {
+        Image(systemName: vm.isLocationButtonTapped ? "location.fill" : "location")
           .resizable()
+          .frame(width: 24, height: 24)
           .foregroundColor(.white)
-          .frame(width: 24.0, height: 24.0)
-          .font(.headline)
           .padding(.leading)
       }
       Text(vm.selectedCity)
@@ -32,36 +18,29 @@ struct WeatherDetailView: View {
         .foregroundColor(.white)
         .shadow(radius: 5)
         .fontWeight(.bold)
-      
-      Button(action: handleShowCityListButtonTap){
-        HStack {
-          Image(systemName: "chevron.down")
-            .foregroundColor(.white)
-            .font(.headline)
-            .padding([.top, .bottom, .trailing])
-        }
+      Button(action: vm.handleShowCityListButtonTap) {
+        Image(systemName: "chevron.down")
+          .foregroundColor(.white)
+          .font(.headline)
+          .padding(.trailing)
       }
       .accessibilityIdentifier("goToCityList")
     }
+    .padding(.bottom, -12.0)
   }
   
   var temperatureDetailView: some View {
-    VStack {
-      HStack(alignment: .top) {
-        Text("\(vm.temperature)")
-          .font(.system(size : 45))
-          .fontWeight(.black)
-          .foregroundColor(.white)
-          .shadow( radius: 5)
-        Text(vm.tempUnit == .celcius ? "°C" : "°F")
-          .foregroundColor(.white)
-          .shadow(radius: 5)
-      }
+    VStack(alignment: .leading) {
+      Text("\(vm.temperature)\(vm.tempUnit == .celcius ? "° C" : "° F")")
+        .font(.system(size: 45))
+        .fontWeight(.black)
+        .foregroundColor(.white)
+        .shadow(radius: 5)
       Text("Feels like \(vm.feelslike)")
         .font(.title2)
         .foregroundColor(.white)
         .shadow(radius: 5)
-      Text(self.vm.weather?.current.condition.text ?? "Not available")
+      Text(vm.weather?.current.condition.text ?? "Not available")
         .font(.title2)
         .fontWeight(.heavy)
         .foregroundColor(.white)
@@ -72,111 +51,67 @@ struct WeatherDetailView: View {
   var lastUpdatedTimeView: some View {
     HStack {
       Spacer()
-      Text("Updated \(self.vm.lastUpdatedAt)")
+      Text("Updated \(vm.lastUpdatedAt)")
         .font(.caption)
-        .fontWeight(.light)
         .foregroundColor(.white)
+        .fontWeight(.light)
         .padding(.trailing, 8.0)
         .shadow(radius: 5)
     }
   }
   
-  var photoGalleryView: some View {
-    NavigationLink(destination: PhotoGalleryView()) {
-      VStack(alignment: .center) {
-        HStack {
-          Image(systemName: "photo.on.rectangle.angled")
-            .foregroundColor(.white)
-            .font(.title.bold())
-          Text("Photo gallery")
-            .font(.title)
-            .fontWeight(.bold)
-            .padding()
-            .foregroundColor(.white)
-            .accessibilityIdentifier("goToPhotos")
-        }
-      }
-    }
-  }
-  
-  var contactUsView: some View {
-    NavigationLink(destination: ContactUsView()) {
-      VStack(alignment: .center) {
-        HStack {
-          Image(systemName: "envelope.fill")
-            .foregroundColor(.white)
-            .font(.title.bold())
-          Text("Contact us")
-            .font(.title)
-            .fontWeight(.bold)
-            .padding()
-            .foregroundColor(.white)
-            .accessibilityIdentifier("goToContactUs")
-        }
-      }
-    }
-  }
-  
-  var viewItOnMapView: some View {
-    NavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation)) {
-      HStack {
-        Image(systemName: "map")
-          .foregroundColor(.white)
-          .font(.title.bold())
-        Text("View it on the map ")
-          .foregroundColor(.white)
-          .font(.title.bold())
-      }
-    }
-  }
-  
   var body: some View {
     ZStack {
-        SkyImageView(weatherCondition: WeatherCondition(rawValue: ((vm.weather?.current.condition.weatherCondition) ?? .cloudy).rawValue) ?? .cloudy)
-            .ignoresSafeArea()
+      SkyImageView(weatherCondition: WeatherCondition(rawValue: ((vm.weather?.current.condition.weatherCondition) ?? .cloudy).rawValue) ?? .cloudy)
+        .ignoresSafeArea()
+      
       if vm.isLoading {
         ProgressView()
       }
-      VStack(alignment: .center) {
+      
+      VStack {
         cityNameView
-          .padding(.bottom, -12.0)
         temperatureDetailView
         lastUpdatedTimeView
         Spacer()
-        viewItOnMapView
-        photoGalleryView
-        contactUsView
+        StyledNavigationLink(destination: PhotoGalleryView(), label: "Photo Gallery", imageName: "photo.on.rectangle.angled", accessibilityIdentifier: "goToPhotos")
+        StyledNavigationLink(destination: ContactUsView(), label: "Contact Us", imageName: "envelope.fill", accessibilityIdentifier: "goToContactUs")
+        StyledNavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation), label: "View it on the Map", imageName: "map", accessibilityIdentifier: "goToMapView")
       }
+      .padding()
       .sheet(isPresented: $vm.showCityList) {
-        ListOfCitiesView(selectedCity: $vm.selectedCity,
-                         showCityList: $vm.showCityList)
-        .presentationDetents([.medium, .large])
+        ListOfCitiesView(selectedCity: $vm.selectedCity, showCityList: $vm.showCityList)
+          .presentationDetents([.medium, .large])
       }
-      .sheet(isPresented: $vm.showSettings,
-             content: {
-        SettingsView(tempUnit: $vm.tempUnit,
-                     showSettings: $vm.showSettings)
-        .presentationDetents([.height(250.0)])
+      .sheet(isPresented: $vm.showSettings) {
+        SettingsView(tempUnit: $vm.tempUnit, showSettings: $vm.showSettings)
+          .presentationDetents([.height(250.0)])
       }
-      )
-      .toolbar { SettingsButtonView(showSettings: $vm.showSettings) }
-      .onChange(of: vm.selectedCity, perform: { newValue  in
+      .toolbar {
+        SettingsButtonView(showSettings: $vm.showSettings)
+      }
+      .onChange(of: vm.selectedCity) { newValue in
         Task {
-          await self.vm.fetchWeather()
+          await vm.fetchWeather()
         }
-      })
-      .onChange(of: locationManager.location, perform: { newLocation in
-          if let newLocation = newLocation, vm.selectedCity.isEmpty {
-              vm.userLocation = newLocation.coordinate
-              Task {
-                await vm.handleLocationUpdate(newValue: newLocation)
-              }
+      }
+      .onChange(of: locationManager.location) { newLocation in
+        if let newLocation = newLocation, vm.selectedCity.isEmpty {
+          vm.userLocation = newLocation.coordinate
+          Task {
+            await vm.handleLocationUpdate(newValue: newLocation)
           }
-      })
+        }
+      }
       .task {
         locationManager.requestLocation()
       }
     }
+  }
+  
+  fileprivate func handleLocatonButtonTap() {
+    vm.handleLocatonButtonTap()
+    locationManager.requestLocation()
   }
 }
 
