@@ -20,6 +20,7 @@ struct ContactUsView: View {
             TextField("Email",text: $vm.email)
               .accessibilityIdentifier("userEmail")
               .keyboardType(.emailAddress)
+              .textInputAutocapitalization(.never)
             if vm.isEmailValid() == false{
               Text("* only letters (a-z), numbers (0-9) and periods(.) are allowed.")
                 .foregroundColor(.red)
