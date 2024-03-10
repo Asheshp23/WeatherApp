@@ -13,8 +13,6 @@ Key Features:
 - Save Edited Images: Store your edited masterpieces directly to your device for quick sharing on social media or with friends.
 - WeatherApp Widget: Stay updated with a compact widget that displays weather information right on your home screen.
 
-![Simulator Screenshot - iPhone 15 Pro - 2024-03-09 at 19 59 19](https://github.com/Asheshp23/WeatherApp/assets/22404192/320dbaf0-07ca-42ee-a86f-2421d701048a)
 
-
-https://github.com/Asheshp23/WeatherApp/assets/22404192/8769dd7b-602b-41e4-8be3-d3ae57d5c5ca
+ https://github.com/Asheshp23/WeatherApp/assets/22404192/8769dd7b-602b-41e4-8be3-d3ae57d5c5ca 
 
