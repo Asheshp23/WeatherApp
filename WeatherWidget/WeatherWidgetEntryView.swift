@@ -8,11 +8,11 @@ struct WeatherWidgetEntryView: View {
   var body: some View {
     ZStack {
       ContainerRelativeShape()
-        .fill(Color.blue.gradient)
+        .fill(Gradient(colors: [.yellow, .orange.opacity(0.5)]))
       VStack {
         if let weatherData = entry.weatherData {
           Text("\(weatherData.location.name)")
-            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/.bold())
+            .font(.title3.bold())
             .foregroundColor(.white)
           Text("\(weatherData.current.feelslikeC, specifier: "%.0f")°C")
             .font(.title2.bold())
