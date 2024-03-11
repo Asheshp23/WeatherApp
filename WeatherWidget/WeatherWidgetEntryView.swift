@@ -14,11 +14,32 @@ struct WeatherWidgetEntryView: View {
           Text("\(weatherData.location.name)")
             .font(.title3.bold())
             .foregroundColor(.white)
-          Text("\(weatherData.current.feelslikeC, specifier: "%.0f")°C")
+          Text("\(weatherData.current.tempC, specifier: "%.0f")°C")
             .font(.title2.bold())
             .foregroundColor(.white)
+          Text("\(weatherData.current.condition.text)")
+            .font(.callout.bold())
+            .foregroundColor(.white)
+        } else {
+          Text("Loading...")
+            .font(.title3.bold())
+            .foregroundColor(.white)
+            .padding(.top, 20)
         }
       }
+    }
+    .widgetBackground(entry.backgroundColor)
+  }
+}
+
+extension View {
+  func widgetBackground(_ backgroundView: some View) -> some View {
+    if #available(iOSApplicationExtension 17.0, *) {
+      return containerBackground(for: .widget) {
+        backgroundView
+      }
+    } else {
+      return background(backgroundView)
     }
   }
 }

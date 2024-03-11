@@ -1,100 +1,30 @@
 import SwiftUI
-import MapKit
 import CoreLocation
+import MapKit
 
-struct WeatherMapView: UIViewRepresentable {
-  typealias mapView = MKMapView
-  let weatherMapView = MKMapView()
+struct WeatherMapView: View {
   @Binding var cityName: String
   var temperature: String
   var userLocation: CLLocationCoordinate2D
-  @State private var annotations: [MKPointAnnotation] = []
-  var center:CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: userLocation.latitude,
-                                         longitude: userLocation.longitude) }
-  var span:MKCoordinateSpan { MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005) }
-  var region:MKCoordinateRegion { MKCoordinateRegion(center: center, span: span) }
 
-  func makeUIView(context: Context) -> mapView {
-    weatherMapView.delegate = context.coordinator
-    weatherMapView.showsScale = true
-    weatherMapView.showsCompass = true
-    weatherMapView.showsUserLocation = true
-    weatherMapView.userTrackingMode = .followWithHeading
-    weatherMapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: .flat)
-    weatherMapView.setRegion(region, animated: true)
-
-    let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.addAnnotation(_:)))
-    weatherMapView.addGestureRecognizer(longPressGesture)
-
-    return weatherMapView
-  }
-
-  func updateUIView(_ uiView: MKMapView, context: Context) {
-  }
-
-  func makeCoordinator() -> Coordinator {
-    return Coordinator(self)
-  }
-
-  class Coordinator: NSObject, MKMapViewDelegate {
-    var parent: WeatherMapView
-
-    init(_ parent: WeatherMapView) {
-      self.parent = parent
-    }
-
-    @objc func addAnnotation(_ gestureRecognizer: UILongPressGestureRecognizer) {
-      // Create a new annotation at the long press location and add it to the array of annotations
-      let location = gestureRecognizer.location(in: gestureRecognizer.view)
-      let coordinate = parent.weatherMapView.convert(location, toCoordinateFrom: parent.weatherMapView)
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = coordinate
-      parent.weatherMapView.addAnnotation(annotation)
-    }
-
-
-    func getCityName(from coordinate: CLLocationCoordinate2D, completion: @escaping (String?) -> Void) {
-      let geocoder = CLGeocoder()
-      let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
-      geocoder.reverseGeocodeLocation(location) { placemarks, error in
-        guard let placemark = placemarks?.first, error == nil else {
-          completion(nil)
-          return
+  var body: some View {
+    Map() {
+      Annotation(cityName, coordinate: userLocation) {
+        ZStack {
+          RoundedRectangle(cornerRadius: 5)
+            .fill(Color.teal)
+          Text(temperature)
+            .padding(5)
+            .foregroundStyle(.white)
         }
-
-        let city = placemark.locality
-        completion(city)
       }
     }
-
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-      if annotation is MKUserLocation {
-        let identifier = "marker"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
-        annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        annotationView?.glyphText = "\(parent.temperature)"
-        annotationView?.canShowCallout = true
-        annotationView?.markerTintColor = .white
-
-        return annotationView
-      } else if annotation is MKPointAnnotation {
-        let identifier = "marker"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
-        annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        annotationView?.markerTintColor = .white
-        getCityName(from: annotation.coordinate) { cityName in
-          if let cityName = cityName {
-            annotationView?.glyphText = cityName
-          }
-        }
-        annotationView?.isDraggable = true
-
-        return annotationView
-      }
-      return nil
+    .mapStyle(.hybrid(elevation: .realistic))
+    .mapControls {
+      MapUserLocationButton()
+      MapCompass()
+      MapScaleView()
     }
+    .navigationTitle("Weather map view")
   }
 }
-

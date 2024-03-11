@@ -13,6 +13,7 @@ class WeatherDetailVM: ObservableObject {
   @Published var isLocationButtonTapped = true
   @Published var cityName: String = ""
   @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
+  @Published var selectedCityLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
   
   var temperature: String {
     guard let weather = weather else { return localizedString("not_available") }
@@ -51,7 +52,7 @@ class WeatherDetailVM: ObservableObject {
     }
   }
   
-  func reverseGeocodeLocationAsync(_ location: CLLocation) async throws -> String {
+  func getCityNameFrom(_ location: CLLocation) async throws -> String {
     do {
       let placemarks = try await CLGeocoder().reverseGeocodeLocation(location)
       
@@ -65,10 +66,23 @@ class WeatherDetailVM: ObservableObject {
     }
   }
   
+  func getLocationFromCityName() {
+    let geocoder = CLGeocoder()
+    geocoder.geocodeAddressString(selectedCity) { placemarks, error in
+      guard let placemark = placemarks?.first, error == nil else {
+        return
+      }
+      
+      if let location = placemark.location?.coordinate {
+        self.selectedCityLocation = location
+      }
+    }
+  }
+  
   @MainActor
   func handleLocationUpdate(newValue: CLLocation) async {
     do {
-      let city = try await reverseGeocodeLocationAsync(newValue)
+      let city = try await getCityNameFrom(newValue)
       self.selectedCity = city
     } catch {
       if let locationError = error as? LocationError {

@@ -76,7 +76,14 @@ struct WeatherDetailView: View {
         Spacer()
         StyledNavigationLink(destination: PhotoGalleryView(), label: "Photo Gallery", imageName: "photo.on.rectangle.angled", accessibilityIdentifier: "goToPhotos")
         StyledNavigationLink(destination: ContactUsView(), label: "Contact Us", imageName: "envelope.fill", accessibilityIdentifier: "goToContactUs")
-        StyledNavigationLink(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.userLocation), label: "View it on the Map", imageName: "map", accessibilityIdentifier: "goToMapView")
+        StyledNavigationLink(destination:
+                              WeatherMapView(cityName: $vm.selectedCity,
+                                             temperature: vm.temperature,
+                                             userLocation: vm.isLocationButtonTapped ?
+                                             vm.userLocation : vm.selectedCityLocation),
+                             label: "View it on the Map",
+                             imageName: "map",
+                             accessibilityIdentifier: "goToMapView")
       }
       .padding()
       .sheet(isPresented: $vm.showCityList) {
@@ -90,12 +97,13 @@ struct WeatherDetailView: View {
       .toolbar {
         SettingsButtonView(showSettings: $vm.showSettings)
       }
-      .onChange(of: vm.selectedCity) { newValue in
+      .onChange(of: vm.selectedCity) { oldValue, newValue  in
         Task {
+          vm.getLocationFromCityName()
           await vm.fetchWeather()
         }
       }
-      .onChange(of: locationManager.location) { newLocation in
+      .onChange(of: locationManager.location) { oldValue, newLocation in
         if let newLocation = newLocation, vm.selectedCity.isEmpty {
           vm.userLocation = newLocation.coordinate
           Task {
