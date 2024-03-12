@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FilteredImageView: View {
-    @ObservedObject var viewModel: PhotoDetailVM
+    @Bindable var viewModel: PhotoDetailVM
     
     var body: some View {
         VStack {

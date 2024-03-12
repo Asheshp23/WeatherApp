@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoGalleryView: View {
-    @StateObject private var vm = PhotoGalleryViewModel()
+    @State private var vm = PhotoGalleryViewModel()
     var columnGrid: [GridItem] = Array(repeating: .init(.flexible(), spacing: 1), count: 3)
     @State private var task: Task<Void, Never>?
     

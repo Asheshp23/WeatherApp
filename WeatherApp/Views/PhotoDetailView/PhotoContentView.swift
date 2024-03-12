@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoContentView: View {
-    @ObservedObject var viewModel: PhotoDetailVM
+    @Bindable var viewModel: PhotoDetailVM
     let size: CGSize
     
     var body: some View {

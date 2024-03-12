@@ -1,19 +1,20 @@
 import Foundation
 import CoreLocation
 
-class WeatherDetailVM: ObservableObject {
+@Observable
+class WeatherDetailVM {
   private let weatherService: WeatherDataServiceProtocol
   
-  @Published var weather: WeatherModel?
-  @Published var isLoading = false
-  @Published var selectedCity = ""
-  @Published var showCityList = false
-  @Published var showSettings = false
-  @Published var tempUnit : TemperatureUnit = .celcius
-  @Published var isLocationButtonTapped = true
-  @Published var cityName: String = ""
-  @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
-  @Published var selectedCityLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
+  var weather: WeatherModel?
+  var isLoading = false
+  var selectedCity = ""
+  var showCityList = false
+  var showSettings = false
+  var tempUnit : TemperatureUnit = .celcius
+  var isLocationButtonTapped = true
+  var cityName: String = ""
+  var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
+  var selectedCityLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
   
   var temperature: String {
     guard let weather = weather else { return localizedString("not_available") }

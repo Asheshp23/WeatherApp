@@ -1,8 +1,9 @@
 import Foundation
 import UIKit
 
-class PhotoGalleryViewModel: ObservableObject {
-  @Published var images: [UIImage]?
+@Observable
+class PhotoGalleryViewModel {
+  var images: [UIImage]?
   private let dataManager: PhotoGalleryDataManager = PhotoGalleryDataManager()
 
   @MainActor

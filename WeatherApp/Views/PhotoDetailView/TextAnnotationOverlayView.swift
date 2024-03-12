@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TextAnnotationOverlayView: View {
-    @ObservedObject var viewModel: PhotoDetailVM
+    @Bindable var viewModel: PhotoDetailVM
     
     var body: some View {
         ForEach(viewModel.textBoxes) { textBox in

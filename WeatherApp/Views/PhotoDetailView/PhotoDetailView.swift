@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoDetailView: View {
-    @StateObject var viewModel: PhotoDetailVM
+    @State var viewModel: PhotoDetailVM
     
     var body: some View {
         ZStack {

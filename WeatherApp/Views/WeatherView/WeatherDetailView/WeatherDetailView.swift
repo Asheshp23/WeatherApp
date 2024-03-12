@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct WeatherDetailView: View {
-  @StateObject var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
-  @StateObject var locationManager = LocationManager()
+  @State var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
+  @State var locationManager = LocationManager()
   
   var cityNameView: some View {
     HStack {
@@ -30,7 +30,7 @@ struct WeatherDetailView: View {
   }
   
   var temperatureDetailView: some View {
-    VStack(alignment: .leading) {
+    VStack(alignment: .center) {
       Text("\(vm.temperature)\(vm.tempUnit == .celcius ? "° C" : "° F")")
         .font(.system(size: 45))
         .fontWeight(.black)

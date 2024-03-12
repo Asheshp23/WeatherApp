@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TextStylingBarView: View {
-    @ObservedObject var viewModel: PhotoDetailVM
+    @Bindable var viewModel: PhotoDetailVM
 
     var textStylingBarView: some View {
         VStack {

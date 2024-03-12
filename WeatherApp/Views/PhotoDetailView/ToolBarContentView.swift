@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ToolBarContentView: ToolbarContent {
-    @ObservedObject var viewModel: PhotoDetailVM
+    @Bindable var viewModel: PhotoDetailVM
     
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .navigationBarTrailing) {

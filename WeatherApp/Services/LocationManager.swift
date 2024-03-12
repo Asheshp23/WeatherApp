@@ -1,9 +1,10 @@
 import CoreLocation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+@Observable
+class LocationManager: NSObject, CLLocationManagerDelegate {
   private let manager = CLLocationManager()
   
-  @Published var location: CLLocation?
+  var location: CLLocation?
   
   override init() {
     super.init()
