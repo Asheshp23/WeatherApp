@@ -34,5 +34,6 @@ class CloudScene: SKScene {
     node.particleBirthRate = birthRate
     node.particleLifetime = lifetime
     node.particleSpeed = speed
+    node.particleScale = 0.01
   }
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct SettingsView: View {
   @Binding var tempUnit: TemperatureUnit
   @Binding var showSettings: Bool
-
+  
   var body: some View {
     ZStack {
       SkyImageView()

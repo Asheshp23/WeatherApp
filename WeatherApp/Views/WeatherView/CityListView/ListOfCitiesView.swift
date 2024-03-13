@@ -5,7 +5,7 @@ struct ListOfCitiesView: View {
   @Binding var showCityList : Bool
   
   let cityNames = ["London", "Paris", "New York City", "Tokyo", "Rome", "Sydney", "Bangkok", "Istanbul", "Dubai", "Hong Kong", "Barcelona", "Madrid", "Moscow", "Beijing", "Los Angeles", "Chicago", "Shanghai", "Toronto", "Singapore", "Berlin"]
-
+  
   var body: some View {
     VStack(alignment: .center) {
       List {
@@ -25,11 +25,11 @@ struct ListOfCitiesView: View {
             }
             .font(.title3.bold())
             .foregroundStyle(
-                .linearGradient(
-                    colors: [.gray, .black],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+              .linearGradient(
+                colors: [.gray, .black],
+                startPoint: .top,
+                endPoint: .bottom
+              )
             )
           })
         }
