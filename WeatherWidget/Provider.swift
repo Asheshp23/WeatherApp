@@ -26,23 +26,18 @@ class Provider: IntentTimelineProvider {
            let cityName = try await getCityNameFrom(location) {
           if !cityName.isEmpty {
             let weatherData: WeatherModel = try await weatherService.fetchData(city: cityName)
-           
-            
-            let updateInterval = Calendar.current.date(byAdding: .minute, value: 1, to: Date())!
+                       
+            let updateInterval = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
             let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData, backgroundColor: Color.random)
             let timeline = Timeline(entries: [entry], policy: .after(updateInterval))
             
             completion(timeline)
           } else {
-            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil,  backgroundColor: .green)
-            let timeline = Timeline(entries: [entry], policy: .never)
-            completion(timeline)
+            return
           }
         }
       } catch {
-        let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil, backgroundColor: .gray)
-        let timeline = Timeline(entries: [entry], policy: .never)
-        completion(timeline)
+        return
       }
     }
   }

@@ -15,10 +15,27 @@ class WidgetLocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     manager.stopUpdatingLocation()
   }
   
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    switch manager.authorizationStatus {
+    case .authorizedAlways, .authorizedWhenInUse:
+      setupLocationManager()
+    case .notDetermined:
+      manager.requestWhenInUseAuthorization()
+    case .denied:
+      print("access denied")
+    default:
+      setupLocationManager()
+    }
+  }
+  
   private func setupLocationManager() {
-    manager.delegate = self
-    manager.requestAlwaysAuthorization()
-    manager.requestLocation()
+    if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse {
+      manager.delegate = self
+      manager.requestAlwaysAuthorization()
+      manager.requestLocation()
+    } else {
+      manager.requestAlwaysAuthorization()
+    }
   }
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

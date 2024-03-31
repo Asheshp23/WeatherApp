@@ -2,7 +2,7 @@ import CoreLocation
 
 @Observable
 class LocationManager: NSObject, CLLocationManagerDelegate {
-  private let manager = CLLocationManager()
+  @ObservationIgnored let manager = CLLocationManager()
   
   var location: CLLocation?
   
