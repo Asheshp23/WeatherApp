@@ -10,17 +10,14 @@ struct WeatherDetailView: View {
         Image(systemName: vm.isLocationButtonTapped ? "location.fill" : "location")
           .resizable()
           .frame(width: 24, height: 24)
-          .foregroundColor(.white)
           .padding(.leading)
       }
       Text(vm.selectedCity)
         .font(.largeTitle)
-        .foregroundColor(.white)
         .shadow(radius: 5)
         .fontWeight(.bold)
       Button(action: vm.handleShowCityListButtonTap) {
         Image(systemName: "chevron.down")
-          .foregroundColor(.white)
           .font(.headline)
           .padding(.trailing)
       }
@@ -34,16 +31,13 @@ struct WeatherDetailView: View {
       Text("\(vm.temperature)\(vm.tempUnit == .celcius ? "° C" : "° F")")
         .font(.system(size: 45))
         .fontWeight(.black)
-        .foregroundColor(.white)
         .shadow(radius: 5)
       Text("Feels like \(vm.feelslike)")
         .font(.title2)
-        .foregroundColor(.white)
         .shadow(radius: 5)
       Text(vm.weather?.current.condition.text ?? "Not available")
         .font(.title2)
         .fontWeight(.heavy)
-        .foregroundColor(.white)
         .shadow(radius: 5)
     }
   }
@@ -53,7 +47,6 @@ struct WeatherDetailView: View {
       Spacer()
       Text("Updated \(vm.lastUpdatedAt)")
         .font(.caption)
-        .foregroundColor(.white)
         .fontWeight(.light)
         .padding(.trailing, 8.0)
         .shadow(radius: 5)
@@ -85,6 +78,9 @@ struct WeatherDetailView: View {
                              imageName: "map",
                              accessibilityIdentifier: "goToMapView")
       }
+      .foregroundStyle(
+        .white.adaptedTextColor()
+      )
       .padding()
       .sheet(isPresented: $vm.showCityList) {
         ListOfCitiesView(selectedCity: $vm.selectedCity, showCityList: $vm.showCityList)
@@ -126,5 +122,33 @@ struct WeatherDetailView: View {
 struct WeatherDetailView_Previews: PreviewProvider {
   static var previews: some View {
     WeatherDetailView()
+  }
+}
+
+extension Color {
+  func luminance() -> Double {
+    // 1. Convert SwiftUI Color to UIColor
+    let uiColor = UIColor(self)
+    
+    // 2. Extract RGB values
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
+    uiColor.getRed(&red, green: &green, blue: &blue, alpha: nil)
+    
+    // 3. Compute luminance.
+    return 0.2126 * Double(red) + 0.7152 * Double(green) + 0.0722 * Double(blue)
+  }
+}
+
+extension Color {
+  func isLight() -> Bool {
+    return luminance() > 0.5
+  }
+}
+
+extension Color {
+  func adaptedTextColor() -> Color {
+    return isLight() ? Color.black : Color.white
   }
 }

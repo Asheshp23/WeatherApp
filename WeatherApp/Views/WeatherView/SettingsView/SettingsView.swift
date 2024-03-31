@@ -24,7 +24,6 @@ struct SettingsView: View {
         .padding(.all)
         Spacer()
       }
-      .foregroundColor(.white)
       .onChange(of: tempUnit) { oldValue, newValue in
         DispatchQueue.main.async {
           showSettings.toggle()
