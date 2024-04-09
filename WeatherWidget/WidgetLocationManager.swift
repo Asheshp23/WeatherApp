@@ -1,7 +1,7 @@
 import CoreLocation
 import WidgetKit
 
-class WidgetLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class WidgetLocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
   private let manager = CLLocationManager()
   
   var location: CLLocation?

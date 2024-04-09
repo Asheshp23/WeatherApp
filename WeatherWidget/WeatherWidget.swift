@@ -17,7 +17,7 @@ struct WeatherWidget: Widget {
 
 struct WeatherWidget_Previews: PreviewProvider {
     static var previews: some View {
-      WeatherWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil, backgroundColor: .gray))
+      WeatherWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

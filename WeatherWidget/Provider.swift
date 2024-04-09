@@ -11,11 +11,11 @@ class Provider: IntentTimelineProvider {
   }
   
   func placeholder(in context: Context) -> SimpleEntry {
-    return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil, backgroundColor: .white)
+    return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil)
   }
   
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-    let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil, backgroundColor: .white)
+    let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil)
     completion(entry)
   }
   
@@ -28,7 +28,7 @@ class Provider: IntentTimelineProvider {
             let weatherData: WeatherModel = try await weatherService.fetchData(city: cityName)
                        
             let updateInterval = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
-            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData, backgroundColor: Color.random)
+            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
             let timeline = Timeline(entries: [entry], policy: .after(updateInterval))
             
             completion(timeline)

@@ -8,27 +8,32 @@ struct WeatherWidgetEntryView: View {
   var body: some View {
     ZStack {
       ContainerRelativeShape()
-        .fill(Gradient(colors: [.yellow, .orange.opacity(0.5)]))
+        .fill(Color.indigo.opacity(0.5))
       VStack {
         if let weatherData = entry.weatherData {
           Text("\(weatherData.location.name)")
             .font(.title3.bold())
-            .foregroundColor(.white)
+            .foregroundColor(.white.adaptedTextColor())
           Text("\(weatherData.current.tempC, specifier: "%.0f")°C")
             .font(.title2.bold())
-            .foregroundColor(.white)
+            .foregroundColor(.white.adaptedTextColor())
           Text("\(weatherData.current.condition.text)")
             .font(.callout.bold())
-            .foregroundColor(.white)
+            .foregroundColor(.white.adaptedTextColor())
         } else {
-          Text("Loading...")
+          Text("Toronto")
             .font(.title3.bold())
-            .foregroundColor(.white)
-            .padding(.top, 20)
+            .foregroundColor(.white.adaptedTextColor())
+          Text("\(12.0, specifier: "%.0f")°C")
+            .font(.title2.bold())
+            .foregroundColor(.white.adaptedTextColor())
+          Text("Sunny")
+            .font(.callout.bold())
+            .foregroundColor(.white.adaptedTextColor())
         }
       }
     }
-    .widgetBackground(entry.backgroundColor)
+    .widgetBackground(Color.indigo.opacity(0.5))
   }
 }
 
