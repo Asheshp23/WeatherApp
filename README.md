@@ -14,5 +14,9 @@ Key Features:
 - WeatherApp Widget: Stay updated with a compact widget that displays weather information right on your home screen.
 
 
- https://github.com/Asheshp23/WeatherApp/assets/22404192/8769dd7b-602b-41e4-8be3-d3ae57d5c5ca 
 
+## App
+https://github.com/Asheshp23/WeatherApp/assets/22404192/e643c07c-be7e-45f6-a0de-19dff10cec5c
+
+## Widget
+![Weather Widget](https://github.com/Asheshp23/WeatherApp/assets/22404192/f565c016-eab2-434c-9c8b-03417a9c2dc9)
