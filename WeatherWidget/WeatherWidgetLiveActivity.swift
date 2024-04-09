@@ -1,10 +1,3 @@
-//
-//  WeatherWidgetLiveActivity.swift
-//  WeatherWidget
-//
-//  Created by Apdev on 2023-01-23.
-//
-
 import ActivityKit
 import WidgetKit
 import SwiftUI

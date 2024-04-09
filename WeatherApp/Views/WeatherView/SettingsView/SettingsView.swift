@@ -3,7 +3,7 @@ import SwiftUI
 struct SettingsView: View {
   @Binding var tempUnit: TemperatureUnit
   @Binding var showSettings: Bool
-
+  
   var body: some View {
     ZStack {
       SkyImageView()
@@ -24,8 +24,7 @@ struct SettingsView: View {
         .padding(.all)
         Spacer()
       }
-      .foregroundColor(.white)
-      .onChange(of: tempUnit) { newValue in
+      .onChange(of: tempUnit) { oldValue, newValue in
         DispatchQueue.main.async {
           showSettings.toggle()
         }

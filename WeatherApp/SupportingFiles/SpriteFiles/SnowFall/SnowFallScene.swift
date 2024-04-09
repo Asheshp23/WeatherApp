@@ -21,5 +21,19 @@ class SnowFallScene: SKScene {
     let node = SKEmitterNode(fileNamed: "SnowFall.sks")!
     addChild(node)
     node.particlePositionRange.dx = UIScreen.main.bounds.width
+    if weatherCondition == .heavySnow {
+      node.particleBirthRate = 15
+      node.particleLifetime = 12
+    } else if weatherCondition == .lightSnow {
+      node.particleBirthRate = 2
+      node.particleLifetime = 15
+    } else if weatherCondition == .moderateSnow {
+      node.particleBirthRate = 4
+      node.particleLifetime = 20
+    } else if weatherCondition == .lightSnowShowers {
+      node.particleBirthRate = 3
+      node.particleLifetime = 25
+    }
+    node.particleSpeed = 25
   }
 }
