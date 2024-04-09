@@ -7,11 +7,11 @@ import PhotosUI
 class PhotoDetailVM {
   var photo: UIImage
   
-  var canvas = PKCanvasView()
+  @MainActor var canvas = PKCanvasView()
   var toolPicker = PKToolPicker()
   var textBoxes: [CustomTextBox] = []
   var addNewBox = false
-  var currentIndex: Int = 0
+  @MainActor var currentIndex: Int = 0
   var rect: CGRect = .zero
   var startEditing = false
   var startAnnotating = false
@@ -31,6 +31,22 @@ class PhotoDetailVM {
     self.photo = photo
   }
   
+  @MainActor
+  func toggleBold() {
+    textBoxes[currentIndex].isBold.toggle()
+  }
+  
+  @MainActor
+  func toggleItalic() {
+    textBoxes[currentIndex].isItalic.toggle()
+  }
+  
+  @MainActor
+  func toggleUnderline() {
+    textBoxes[currentIndex].isUnderlined.toggle()
+  }
+   
+  @MainActor
   func handleLongPress(tb: CustomTextBox) {
     toolPicker.setVisible(false, forFirstResponder: canvas)
     canvas.resignFirstResponder()
@@ -51,6 +67,7 @@ class PhotoDetailVM {
     textBoxes[getIndex(tb: tb)].lastOffset = value.translation
   }
   
+  @MainActor
   func handleCancelButtonTap() {
     withAnimation {
       if textBoxes[currentIndex].isAdded {
@@ -62,6 +79,7 @@ class PhotoDetailVM {
     }
   }
   
+  @MainActor
   func handleAddButtonTap() {
     toolPicker.setVisible(true, forFirstResponder: canvas)
     canvas.becomeFirstResponder()
@@ -70,6 +88,7 @@ class PhotoDetailVM {
     }
   }
   
+  @MainActor
   func addNewTextBox() {
     withAnimation {
       textBoxes.append(CustomTextBox())
@@ -80,14 +99,17 @@ class PhotoDetailVM {
     }
   }
   
+  @MainActor
   func redoCanvasAction() {
     canvas.undoManager?.redo()
   }
   
+  @MainActor
   func undoCanvasAction() {
     canvas.undoManager?.undo()
   }
   
+  @MainActor
   func undoAllCanvasAction() {
     guard let undoManager = canvas.undoManager else {
       return
@@ -110,6 +132,7 @@ class PhotoDetailVM {
     self.contrast = 1
   }
   
+  @MainActor
   func toggleAnnotatingOrEditing() {
     if startAnnotating {
       toggleAnnotatingMode()
@@ -119,7 +142,7 @@ class PhotoDetailVM {
     }
   }
   
-  func handleSaveAction() {
+  @MainActor func handleSaveAction() {
     if let image = savingCanvas(), startAnnotating {
       editedPhoto = image
       startAnnotating = false
@@ -132,7 +155,7 @@ class PhotoDetailVM {
     }
   }
   
-  func savingCanvas() -> UIImage? {
+  @MainActor func savingCanvas() -> UIImage? {
     // Generate image from canvas
     guard let generatedImage = generateImage() else {
       print("Failed to generate image.")
@@ -144,7 +167,7 @@ class PhotoDetailVM {
   }
   
   // Generate image from canvas
-  private func generateImage() -> UIImage? {
+  @MainActor private func generateImage() -> UIImage? {
     UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
     canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
     
@@ -225,6 +248,7 @@ class PhotoDetailVM {
     return UIImage(cgImage: cgImage)
   }
   
+  @MainActor
   func save(image: UIImage) {
     PHPhotoLibrary.requestAuthorization { status in
       guard status == .authorized else {
@@ -255,7 +279,7 @@ class PhotoDetailVM {
         try imageData.write(to: URL(fileURLWithPath: path))
       } catch {
         print("Failed to write image data to file: \(error)")
-        DispatchQueue.main.async {
+        Task {
           self.showAlert.toggle()
           self.message = "Failed to save image"
         }
@@ -275,10 +299,10 @@ class PhotoDetailVM {
           let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum)
           let enumeration: NSArray = [assetPlaceholder!]
           albumChangeRequest!.addAssets(enumeration)
-          DispatchQueue.main.async {
-            self.showAlert.toggle()
-            self.message = "Saved successfully"
-            self.startEditing = false
+          Task { [weak self] in
+            self?.showAlert.toggle()
+            self?.message = "Saved successfully"
+            self?.startEditing = false
           }
           do {
             try fileManager.removeItem(atPath: path)
@@ -288,7 +312,7 @@ class PhotoDetailVM {
         })
       } catch {
         print("Failed to write image data to file: \(error)")
-        DispatchQueue.main.async {
+       Task {
           self.showAlert.toggle()
           self.message = "Failed to save image"
         }

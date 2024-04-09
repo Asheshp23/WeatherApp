@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct TextStylingBarView: View {
   @Bindable var viewModel: PhotoDetailVM
   
@@ -12,7 +13,7 @@ struct TextStylingBarView: View {
           .bold()
           .padding()
           .onTapGesture {
-            viewModel.textBoxes[viewModel.currentIndex].isBold.toggle()
+            viewModel.toggleBold()
           }
           .foregroundColor(.white)
         Divider()
@@ -20,7 +21,7 @@ struct TextStylingBarView: View {
           .italic()
           .padding()
           .onTapGesture {
-            viewModel.textBoxes[viewModel.currentIndex].isItalic.toggle()
+            viewModel.toggleItalic()
           }
           .foregroundColor(.white)
         Divider()
@@ -28,7 +29,7 @@ struct TextStylingBarView: View {
           .underline()
           .padding()
           .onTapGesture {
-            viewModel.textBoxes[viewModel.currentIndex].isUnderlined.toggle()
+            viewModel.toggleUnderline()
           }
           .foregroundColor(.white)
       }
