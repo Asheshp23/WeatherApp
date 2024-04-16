@@ -57,10 +57,10 @@ class PhotoDetailVM {
   }
   
   func handleDragGesture(value: DragGesture.Value, tb: CustomTextBox) {
-    let current =  value.translation
-    let new = CGSize(width: tb.lastOffset.width + current.width , height: tb.lastOffset.height + current.height)
+    let current = value.translation
+    let newOffset = CGSize(width: tb.lastOffset.width + current.width , height: tb.lastOffset.height + current.height)
     
-    textBoxes[getIndex(tb: tb)].offset = new
+    textBoxes[getIndex(tb: tb)].offset = newOffset
   }
   
   func handleDragGestureEnd(value: DragGesture.Value, tb: CustomTextBox) {
@@ -182,10 +182,11 @@ class PhotoDetailVM {
       }
     }
     
-    let controller = UIHostingController (rootView: SWIFTUIVIEWS).view!
+    guard let controller = UIHostingController (rootView: SWIFTUIVIEWS).view else { return nil }
     controller.frame = rect
     controller.backgroundColor = .clear
     canvas.backgroundColor = .clear
+    canvas.drawingPolicy = .anyInput
     controller.drawHierarchy (in: CGRect (origin: .zero, size: rect.size), afterScreenUpdates: true)
     defer { UIGraphicsEndImageContext() }
     canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)

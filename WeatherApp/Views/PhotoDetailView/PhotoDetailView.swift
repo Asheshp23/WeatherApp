@@ -6,10 +6,10 @@ struct PhotoDetailView: View {
   var body: some View {
     ZStack {
       GeometryReader {  proxy -> AnyView in
-        let size = proxy.frame(in: .global).size
+        let size = proxy.frame(in: .local).size
         Task { @MainActor in
           if viewModel.rect == .zero {
-            viewModel.rect = proxy.frame(in: .global)
+            viewModel.rect = proxy.frame(in: .local)
           }
         }
         return AnyView(PhotoContentView(viewModel: viewModel, size: size))

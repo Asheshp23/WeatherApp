@@ -10,6 +10,6 @@ struct SliderRow: View {
       Text(text)
       Slider(value: $value, in: inRange, step: 0.1)
     }
-    .padding()
+    .padding(.horizontal)
   }
 }
