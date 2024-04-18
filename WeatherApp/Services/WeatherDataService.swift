@@ -4,7 +4,7 @@ protocol WeatherDataServiceProtocol {
     func fetchData<T: Decodable>(city: String) async throws -> T
 }
 
-class WeatherDataService: WeatherDataServiceProtocol {
+actor WeatherDataService: WeatherDataServiceProtocol {
     func fetchData<T: Decodable>(city: String) async throws -> T {
         let aqi = "no"
         let key = Helper.getApiKey()

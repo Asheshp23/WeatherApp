@@ -102,7 +102,7 @@ class WeatherDetailVM {
     return NSLocalizedString(key, comment: "")
   }
   
-  func handleLocatonButtonTap() {
+  func handleLocationButtonTap() {
     if !isLocationButtonTapped {
       selectedCity = ""
       isLocationButtonTapped = true

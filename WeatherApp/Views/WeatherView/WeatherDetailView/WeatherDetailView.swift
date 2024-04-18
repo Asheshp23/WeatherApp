@@ -6,7 +6,7 @@ struct WeatherDetailView: View {
   
   var cityNameView: some View {
     HStack {
-      Button(action: handleLocatonButtonTap) {
+      Button(action: handleLocationButtonTap) {
         Image(systemName: vm.isLocationButtonTapped ? "location.fill" : "location")
           .resizable()
           .frame(width: 24, height: 24)
@@ -95,32 +95,35 @@ struct WeatherDetailView: View {
       }
       .onChange(of: vm.selectedCity) { oldValue, newValue  in
         Task {
-          vm.getLocationFromCityName()
-          await vm.fetchWeather()
+          if vm.selectedCity != "" {
+            vm.getLocationFromCityName()
+            await vm.fetchWeather()
+          }
         }
       }
       .onChange(of: locationManager.location) { oldValue, newLocation in
-        if let newLocation = newLocation, vm.selectedCity.isEmpty {
+        if let newLocation = newLocation, vm.isLocationButtonTapped {
           vm.userLocation = newLocation.coordinate
           Task {
             await vm.handleLocationUpdate(newValue: newLocation)
           }
+        } else {
+          return
         }
       }
-      .task {
+      .onAppear {
         locationManager.requestLocation()
       }
     }
   }
   
-  fileprivate func handleLocatonButtonTap() {
-    vm.handleLocatonButtonTap()
-    locationManager.requestLocation()
+  fileprivate func handleLocationButtonTap() {
+    vm.handleLocationButtonTap()
   }
 }
 
 struct WeatherDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    WeatherDetailView()
+    WeatherDetailView(locationManager: LocationManager())
   }
 }

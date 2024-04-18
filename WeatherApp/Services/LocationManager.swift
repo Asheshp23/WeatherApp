@@ -2,13 +2,15 @@ import CoreLocation
 
 @Observable
 class LocationManager: NSObject, CLLocationManagerDelegate {
-  @ObservationIgnored let manager = CLLocationManager()
+  let manager = CLLocationManager()
   
   var location: CLLocation?
   
   override init() {
     super.init()
-    setupLocationManager()
+    manager.delegate = self
+    manager.requestWhenInUseAuthorization()
+    manager.allowsBackgroundLocationUpdates = true
   }
   
   deinit {
@@ -16,13 +18,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
   
   func requestLocation() {
-    manager.startUpdatingLocation()
-  }
-  
-  private func setupLocationManager() {
-    manager.delegate = self
-    manager.requestAlwaysAuthorization()
-    manager.allowsBackgroundLocationUpdates = true
     manager.startUpdatingLocation()
   }
   
@@ -35,6 +30,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("Location update failed: \(error.localizedDescription)")
+    print(String(describing: error))
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -42,8 +38,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     case .denied, .restricted:
       print("Location access denied or restricted.")
       // You may want to show an alert or handle this case accordingly
-    default:
-      break
+    case .authorizedWhenInUse, .authorizedAlways:
+      manager.startUpdatingLocation() // Start updating location once authorized
+    case .notDetermined:
+      print("Location authorization status not determined.")
+    @unknown default:
+      fatalError("Unhandled case when checking location authorization status.")
     }
   }
 }

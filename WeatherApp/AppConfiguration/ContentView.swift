@@ -4,7 +4,7 @@ struct ContentView: View {
   
   var body: some View {
     NavigationStack {
-      WeatherDetailView()
+      WeatherDetailView(locationManager: LocationManager())
     }
   }
 }

@@ -11,14 +11,15 @@ class Provider: IntentTimelineProvider {
   }
   
   func placeholder(in context: Context) -> SimpleEntry {
-    return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil)
+    return SimpleEntry(date: Date(), configuration: ConfigurationIntent(), weatherData: nil, conditionImage: nil)
   }
   
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-    let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil)
+    let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: nil, conditionImage: nil)
     completion(entry)
   }
   
+  @MainActor
   func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
     Task {
       do {
@@ -26,11 +27,11 @@ class Provider: IntentTimelineProvider {
            let cityName = try await getCityNameFrom(location) {
           if !cityName.isEmpty {
             let weatherData: WeatherModel = try await weatherService.fetchData(city: cityName)
-                       
             let updateInterval = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
-            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData)
+            let image =  await loadImageFromURL(imageUrlString: "https:" + weatherData.current.condition.icon)
+            let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData, conditionImage: image)
             let timeline = Timeline(entries: [entry], policy: .after(updateInterval))
-            
+           
             completion(timeline)
           } else {
             return
@@ -39,6 +40,19 @@ class Provider: IntentTimelineProvider {
       } catch {
         return
       }
+    }
+  }
+  
+  private func loadImageFromURL(imageUrlString: String) async -> Image? {
+      guard let url = URL(string: imageUrlString) else { return nil }
+    do {
+      let(data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
+      if let image = UIImage(data: data) {
+        return Image(uiImage: image)
+      }
+      return nil
+    } catch {
+      return nil
     }
   }
   

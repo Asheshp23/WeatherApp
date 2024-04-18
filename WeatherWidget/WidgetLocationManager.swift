@@ -31,10 +31,10 @@ final class WidgetLocationManager: NSObject, ObservableObject, CLLocationManager
   private func setupLocationManager() {
     if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse {
       manager.delegate = self
-      manager.requestAlwaysAuthorization()
+      manager.requestWhenInUseAuthorization()
       manager.requestLocation()
     } else {
-      manager.requestAlwaysAuthorization()
+      manager.requestWhenInUseAuthorization()
     }
   }
   
@@ -58,6 +58,8 @@ final class WidgetLocationManager: NSObject, ObservableObject, CLLocationManager
     case .denied, .restricted:
       print("Location access denied or restricted.")
       // You may want to show an alert or handle this case accordingly
+    case .notDetermined:
+      manager.requestWhenInUseAuthorization()
     default:
       break
     }
