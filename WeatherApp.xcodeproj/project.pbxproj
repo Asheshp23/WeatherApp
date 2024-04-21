@@ -17,11 +17,11 @@
 		0F853F442B928C2400A2A275 /* TextInputOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F432B928C2400A2A275 /* TextInputOverlay.swift */; };
 		0F853F462B928CA700A2A275 /* TextStylingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F452B928CA700A2A275 /* TextStylingBarView.swift */; };
 		0F853F482B928F6900A2A275 /* ToolBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F472B928F6900A2A275 /* ToolBarContentView.swift */; };
-		0F853F4A2B92992100A2A275 /* InitialImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F492B92992100A2A275 /* InitialImageView.swift */; };
-		0F853F4C2B9299C700A2A275 /* FilteredImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */; };
+		0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */; };
 		0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4D2B929A0D00A2A275 /* SliderRow.swift */; };
 		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
 		0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */; };
+		0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 0F9927482BD47F7E0002F9D9 /* ViewInspector */; };
 		0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -142,8 +142,7 @@
 		0F853F432B928C2400A2A275 /* TextInputOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputOverlay.swift; sourceTree = "<group>"; };
 		0F853F452B928CA700A2A275 /* TextStylingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylingBarView.swift; sourceTree = "<group>"; };
 		0F853F472B928F6900A2A275 /* ToolBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarContentView.swift; sourceTree = "<group>"; };
-		0F853F492B92992100A2A275 /* InitialImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialImageView.swift; sourceTree = "<group>"; };
-		0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageView.swift; sourceTree = "<group>"; };
+		0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustablePhotoView.swift; sourceTree = "<group>"; };
 		0F853F4D2B929A0D00A2A275 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRow.swift; sourceTree = "<group>"; };
 		0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentView.swift; sourceTree = "<group>"; };
 		0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -228,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,8 +425,7 @@
 				0F853F432B928C2400A2A275 /* TextInputOverlay.swift */,
 				0F853F452B928CA700A2A275 /* TextStylingBarView.swift */,
 				0F853F472B928F6900A2A275 /* ToolBarContentView.swift */,
-				0F853F492B92992100A2A275 /* InitialImageView.swift */,
-				0F853F4B2B9299C700A2A275 /* FilteredImageView.swift */,
+				0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */,
 				0F853F4D2B929A0D00A2A275 /* SliderRow.swift */,
 				0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */,
 			);
@@ -617,6 +616,9 @@
 				BE0030B1297F59BA00A0896C /* PBXTargetDependency */,
 			);
 			name = WeatherAppUITests;
+			packageProductDependencies = (
+				0F9927482BD47F7E0002F9D9 /* ViewInspector */,
+			);
 			productName = WeatherAppUITests;
 			productReference = BE0030AF297F59BA00A0896C /* WeatherAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -673,6 +675,9 @@
 				Base,
 			);
 			mainGroup = BE00308C297F59B700A0896C;
+			packageReferences = (
+				0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
 			productRefGroup = BE003096297F59B700A0896C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -737,7 +742,6 @@
 				BED490D429848F7200C2BB49 /* CurrentWeatherModel.swift in Sources */,
 				0F853F462B928CA700A2A275 /* TextStylingBarView.swift in Sources */,
 				0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */,
-				0F853F4A2B92992100A2A275 /* InitialImageView.swift in Sources */,
 				BE193933297F5D5C00E20C9D /* SkyImageView.swift in Sources */,
 				0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */,
 				BED490D229848EDE00C2BB49 /* ConditionModel.swift in Sources */,
@@ -765,7 +769,7 @@
 				0FBB0FA22BC53139004BA19C /* Color+Extension.swift in Sources */,
 				BECD310729932929003BAC67 /* PhotoDetailVM.swift in Sources */,
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
-				0F853F4C2B9299C700A2A275 /* FilteredImageView.swift in Sources */,
+				0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
@@ -1257,6 +1261,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F9927482BD47F7E0002F9D9 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE00308D297F59B700A0896C /* Project object */;
 }

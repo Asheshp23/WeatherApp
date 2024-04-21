@@ -47,20 +47,21 @@ class PhotoDetailVM {
   }
    
   @MainActor
-  func handleLongPress(tb: CustomTextBox) {
+  func handleLongPress(textBox: CustomTextBox) {
     toolPicker.setVisible(false, forFirstResponder: canvas)
     canvas.resignFirstResponder()
-    currentIndex = getIndex(tb: tb)
+    currentIndex = getIndex(tb: textBox)
+    textBoxes[currentIndex].isEditing = true
     withAnimation {
       addNewBox = true
     }
   }
   
-  func handleDragGesture(value: DragGesture.Value, tb: CustomTextBox) {
+  func handleDragGesture(value: DragGesture.Value, textBox: CustomTextBox) {
     let current = value.translation
-    let newOffset = CGSize(width: tb.lastOffset.width + current.width , height: tb.lastOffset.height + current.height)
+    let newOffset = CGSize(width: textBox.lastOffset.width + current.width , height: textBox.lastOffset.height + current.height)
     
-    textBoxes[getIndex(tb: tb)].offset = newOffset
+    textBoxes[getIndex(tb: textBox)].offset = newOffset
   }
   
   func handleDragGestureEnd(value: DragGesture.Value, tb: CustomTextBox) {
@@ -70,12 +71,15 @@ class PhotoDetailVM {
   @MainActor
   func handleCancelButtonTap() {
     withAnimation {
-      if textBoxes[currentIndex].isAdded {
-        textBoxes.removeLast()
+      if !textBoxes.isEmpty {
+        if textBoxes[currentIndex].isAdded && !textBoxes[currentIndex].isEditing {
+          textBoxes.removeLast()
+          currentIndex = textBoxes.count - 1
+        }
+        addNewBox = false
+        toolPicker.setVisible(true, forFirstResponder: canvas)
+        canvas.becomeFirstResponder()
       }
-      addNewBox = false
-      toolPicker.setVisible(true, forFirstResponder: canvas)
-      canvas.becomeFirstResponder()
     }
   }
   
@@ -146,6 +150,7 @@ class PhotoDetailVM {
     if let image = savingCanvas(), startAnnotating {
       editedPhoto = image
       startAnnotating = false
+      addNewBox = false
     } else {
       if let editedPhoto = editedPhoto {
         save(image: editedPhoto)

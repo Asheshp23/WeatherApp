@@ -13,10 +13,12 @@ struct PhotoContentView: View {
                      image: viewModel.applyFilter(to: viewModel.editedPhoto ?? viewModel.photo) ?? viewModel.photo,
                      rect: size)
         } else {
-          FilteredImageView(viewModel: viewModel)
+          AdjustablePhotoView(viewModel: viewModel)
         }
       } else {
-        InitialImageView(image: viewModel.editedPhoto ?? viewModel.photo)
+        Image(uiImage: viewModel.editedPhoto ?? viewModel.photo)
+          .resizable()
+          .aspectRatio(contentMode: .fit)
       }
       TextAnnotationOverlayView(viewModel: viewModel)
       if viewModel.addNewBox {

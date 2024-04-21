@@ -1,11 +1,13 @@
 import SwiftUI
 
-struct FilteredImageView: View {
+struct AdjustablePhotoView: View {
   @Bindable var viewModel: PhotoDetailVM
   
   var body: some View {
     ZStack {
-      InitialImageView(image: viewModel.editedPhoto ?? viewModel.photo)
+      Image(uiImage: viewModel.editedPhoto ?? viewModel.photo)
+        .resizable()
+        .scaledToFit()
         .brightness(viewModel.brightness)
         .saturation(viewModel.saturation)
         .contrast(viewModel.contrast)

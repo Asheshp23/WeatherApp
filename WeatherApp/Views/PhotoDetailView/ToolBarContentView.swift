@@ -7,8 +7,10 @@ struct ToolBarContentView: ToolbarContent {
   var body: some ToolbarContent {
     ToolbarItemGroup(placement: .navigationBarTrailing) {
       if viewModel.startEditing {
-        Button(action: viewModel.handleSaveAction) {
-          Text(viewModel.startAnnotating ? "Done" : "Save")
+        if !viewModel.addNewBox {
+          Button(action: viewModel.handleSaveAction) {
+            Text(viewModel.startAnnotating ? "Done" : "Save")
+          }
         }
       } else {
         Button(action: viewModel.toggleEditingMode) {
@@ -18,30 +20,29 @@ struct ToolBarContentView: ToolbarContent {
     }
     
     if viewModel.startEditing {
-      ToolbarItem(placement: .navigationBarLeading) {
-        HStack {
-          Button(action: viewModel.toggleAnnotatingOrEditing) {
-            Text("Cancel")
-          }
-          
-          
-          if !viewModel.startAnnotating {
-            Button(action: viewModel.toggleAnnotatingMode) {
-              Image(systemName: "pencil.tip.crop.circle")
-            }
-          }
-          
-          if viewModel.startAnnotating {
-            Button(action: viewModel.undoCanvasAction) {
-              Image(systemName: "arrow.uturn.backward")
+      if !viewModel.addNewBox {
+        ToolbarItem(placement: .navigationBarLeading) {
+          HStack {
+            Button(action: viewModel.toggleAnnotatingOrEditing) {
+              Text("Cancel")
             }
             
-            Button(action: viewModel.redoCanvasAction) {
-              Image(systemName: "arrow.uturn.forward")
-            }
-            
-            Button(action: viewModel.addNewTextBox) {
-              Image(systemName: "plus")
+            if viewModel.startAnnotating {
+              Button(action: viewModel.undoCanvasAction) {
+                Image(systemName: "arrow.uturn.backward")
+              }
+              
+              Button(action: viewModel.redoCanvasAction) {
+                Image(systemName: "arrow.uturn.forward")
+              }
+              
+              Button(action: viewModel.addNewTextBox) {
+                Image(systemName: "plus")
+              }
+            } else {
+              Button(action: viewModel.toggleAnnotatingMode) {
+                Image(systemName: "pencil.tip.crop.circle")
+              }
             }
           }
         }

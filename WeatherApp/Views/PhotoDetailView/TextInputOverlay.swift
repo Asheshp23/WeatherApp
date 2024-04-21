@@ -8,14 +8,15 @@ struct TextInputOverlay: View {
       Color.black.opacity(0.75)
         .ignoresSafeArea()
       
-      TextField("Type here", text: $viewModel.textBoxes[viewModel.currentIndex].text)
-        .font(.system(size: 35.0))
-        .italic(viewModel.textBoxes[viewModel.currentIndex].isItalic)
-        .underline(viewModel.textBoxes[viewModel.currentIndex].isUnderlined)
-        .colorScheme(.dark)
-        .padding()
-        .foregroundColor(viewModel.textBoxes[viewModel.currentIndex].textColor)
-      
+      if !viewModel.textBoxes.isEmpty {
+        TextField("Type here", text: $viewModel.textBoxes[viewModel.currentIndex].text)
+          .font(.system(size: 35.0))
+          .italic(viewModel.textBoxes[viewModel.currentIndex].isItalic)
+          .underline(viewModel.textBoxes[viewModel.currentIndex].isUnderlined)
+          .colorScheme(.dark)
+          .padding()
+          .foregroundColor(viewModel.textBoxes[viewModel.currentIndex].textColor)
+      }
       HStack {
         Button(action: viewModel.handleAddButtonTap) {
           Text("Add")
@@ -26,7 +27,9 @@ struct TextInputOverlay: View {
         
         Spacer()
         
-        Button(action: viewModel.handleCancelButtonTap) {
+        Button(action: {
+          viewModel.handleCancelButtonTap()
+        }) {
           Text("Cancel")
             .fontWeight(.heavy)
             .foregroundColor(.white)

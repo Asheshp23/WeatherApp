@@ -1,7 +1,9 @@
 import XCTest
+import ViewInspector
 
 @testable import WeatherApp
 
+@MainActor
 class WeatherNetwrokTechAssessmentUITests: XCTestCase {
   let app = XCUIApplication()
 

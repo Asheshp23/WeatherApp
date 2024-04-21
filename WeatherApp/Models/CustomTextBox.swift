@@ -13,6 +13,7 @@ struct CustomTextBox: Identifiable {
   var rotation: Double = 0.0
   var lastRotation: Double = 0.0
   var textColor: Color = .black
-  var isAdded: Bool = false
+  var isAdded: Bool = true
+  var isEditing: Bool = false
 }
 

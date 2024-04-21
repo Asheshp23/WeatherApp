@@ -6,20 +6,20 @@ struct TextAnnotationOverlayView: View {
   var body: some View {
     ForEach(viewModel.textBoxes) { textBox in
       Text(viewModel.textBoxes[viewModel.currentIndex].id == textBox.id && viewModel.addNewBox ? "" : textBox.text)
-        .font(.system(size: 30, weight: viewModel.textBoxes[viewModel.currentIndex].isBold ? .bold : .regular))
+        .font(.system(size: 30, weight: textBox.isBold ? .bold : .regular))
         .foregroundColor(textBox.textColor)
-        .italic(viewModel.textBoxes[viewModel.currentIndex].isItalic)
-        .underline(viewModel.textBoxes[viewModel.currentIndex].isUnderlined)
+        .italic(textBox.isItalic)
+        .underline(textBox.isUnderlined)
         .offset(textBox.offset)
         .gesture(
           DragGesture()
             .onChanged({ value in
-              viewModel.handleDragGesture(value: value, tb: textBox)
+              viewModel.handleDragGesture(value: value, textBox: textBox)
             })
             .onEnded({ value in
               viewModel.handleDragGestureEnd(value: value, tb: textBox)
             }))
-        .onLongPressGesture { viewModel.handleLongPress(tb: textBox) }
+        .onLongPressGesture { viewModel.handleLongPress(textBox: textBox) }
     }
   }
 }
