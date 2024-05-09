@@ -38,9 +38,10 @@ class WeatherDetailVM {
     self.weatherService = weatherService
   }
   
+  @MainActor
   func handleShowCityListButtonTap() {
     self.isLocationButtonTapped = false
-    self.showCityList.toggle()
+    self.showCityList = true
   }
   
   // fetch weather data

@@ -11,6 +11,10 @@
 		0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */; };
 		0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */; };
 		0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */; };
+		0F58BDE12BD78E3C00C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE02BD78E3C00C2368B /* ScrollUI */; };
+		0F58BDE32BD78E6600C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE22BD78E6600C2368B /* ScrollUI */; };
+		0F58BDE52BD78E6D00C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE42BD78E6D00C2368B /* ScrollUI */; };
+		0F58BDE72BD78E7400C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE62BD78E7400C2368B /* ScrollUI */; };
 		0F8408572B910FD1003CEA19 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8408562B910FD1003CEA19 /* ProgressView.swift */; };
 		0F84085B2B91107B003CEA19 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */; };
 		0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */; };
@@ -22,6 +26,7 @@
 		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
 		0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */; };
 		0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 0F9927482BD47F7E0002F9D9 /* ViewInspector */; };
+		0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */; };
 		0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -146,6 +151,7 @@
 		0F853F4D2B929A0D00A2A275 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRow.swift; sourceTree = "<group>"; };
 		0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentView.swift; sourceTree = "<group>"; };
 		0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
 		0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLocationManager.swift; sourceTree = "<group>"; };
 		0FAF61092B3283AD00D8E59F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		0FBB0FA12BC53139004BA19C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -213,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F58BDE12BD78E3C00C2368B /* ScrollUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F58BDE32BD78E6600C2368B /* ScrollUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */,
+				0F58BDE52BD78E6D00C2368B /* ScrollUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +246,7 @@
 			files = (
 				BE193965297F6ED600E20C9D /* SwiftUI.framework in Frameworks */,
 				BE193963297F6ED600E20C9D /* WidgetKit.framework in Frameworks */,
+				0F58BDE72BD78E7400C2368B /* ScrollUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +293,14 @@
 				0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		0F9927662BD5CEA10002F9D9 /* SharedComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */,
+			);
+			path = SharedComponents;
 			sourceTree = "<group>";
 		};
 		BE00308C297F59B700A0896C = {
@@ -378,6 +396,7 @@
 		BE193926297F5AAB00E20C9D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0F9927662BD5CEA10002F9D9 /* SharedComponents */,
 				BE19392F297F5CCA00E20C9D /* PhotoDetailView */,
 				BE19392E297F5BDC00E20C9D /* ContactUsView */,
 				BE19392D297F5BB600E20C9D /* PhotoGalleryView */,
@@ -580,6 +599,9 @@
 				BE193974297F6ED800E20C9D /* PBXTargetDependency */,
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				0F58BDE02BD78E3C00C2368B /* ScrollUI */,
+			);
 			productName = WeatherApp;
 			productReference = BE003095297F59B700A0896C /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -598,6 +620,9 @@
 				BE0030A7297F59BA00A0896C /* PBXTargetDependency */,
 			);
 			name = WeatherAppTests;
+			packageProductDependencies = (
+				0F58BDE22BD78E6600C2368B /* ScrollUI */,
+			);
 			productName = WeatherAppTests;
 			productReference = BE0030A5297F59BA00A0896C /* WeatherAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -618,6 +643,7 @@
 			name = WeatherAppUITests;
 			packageProductDependencies = (
 				0F9927482BD47F7E0002F9D9 /* ViewInspector */,
+				0F58BDE42BD78E6D00C2368B /* ScrollUI */,
 			);
 			productName = WeatherAppUITests;
 			productReference = BE0030AF297F59BA00A0896C /* WeatherAppUITests.xctest */;
@@ -636,6 +662,9 @@
 			dependencies = (
 			);
 			name = WeatherWidgetExtension;
+			packageProductDependencies = (
+				0F58BDE62BD78E7400C2368B /* ScrollUI */,
+			);
 			productName = WeatherWidgetExtension;
 			productReference = BE193960297F6ED600E20C9D /* WeatherWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -677,6 +706,7 @@
 			mainGroup = BE00308C297F59B700A0896C;
 			packageReferences = (
 				0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+				0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */,
 			);
 			productRefGroup = BE003096297F59B700A0896C /* Products */;
 			projectDirPath = "";
@@ -770,6 +800,7 @@
 				BECD310729932929003BAC67 /* PhotoDetailVM.swift in Sources */,
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
 				0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */,
+				0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
@@ -1263,6 +1294,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TimmysApp/ScrollViewStyle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nalexn/ViewInspector";
@@ -1274,6 +1313,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F58BDE02BD78E3C00C2368B /* ScrollUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */;
+			productName = ScrollUI;
+		};
+		0F58BDE22BD78E6600C2368B /* ScrollUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */;
+			productName = ScrollUI;
+		};
+		0F58BDE42BD78E6D00C2368B /* ScrollUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */;
+			productName = ScrollUI;
+		};
+		0F58BDE62BD78E7400C2368B /* ScrollUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */;
+			productName = ScrollUI;
+		};
 		0F9927482BD47F7E0002F9D9 /* ViewInspector */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */;

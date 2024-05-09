@@ -16,10 +16,16 @@ struct WeatherDetailView: View {
         .font(.largeTitle)
         .shadow(radius: 5)
         .fontWeight(.bold)
-      Button(action: vm.handleShowCityListButtonTap) {
+      Button(
+        action: {
+          Task { @MainActor in
+            vm.handleShowCityListButtonTap()
+          }
+        }
+      ) {
         Image(systemName: "chevron.down")
-          .font(.headline)
-          .padding(.trailing)
+          .resizable()
+          .frame(width: 20, height: 10)
       }
       .accessibilityIdentifier("goToCityList")
     }
@@ -55,7 +61,15 @@ struct WeatherDetailView: View {
   
   var body: some View {
     ZStack {
-      SkyImageView(weatherCondition: WeatherCondition(rawValue: ((vm.weather?.current.condition.weatherCondition) ?? .cloudy).rawValue) ?? .cloudy)
+      SkyImageView(
+        weatherCondition: WeatherCondition(
+          rawValue: (
+            (
+              vm.weather?.current.condition.weatherCondition
+            ) ?? .cloudy
+          ).rawValue
+        ) ?? .cloudy
+      )
         .ignoresSafeArea()
       
       if vm.isLoading {
@@ -69,14 +83,18 @@ struct WeatherDetailView: View {
         Spacer()
         StyledNavigationLink(destination: PhotoGalleryView(), label: "Photo Gallery", imageName: "photo.on.rectangle.angled", accessibilityIdentifier: "goToPhotos")
         StyledNavigationLink(destination: ContactUsView(), label: "Contact Us", imageName: "envelope.fill", accessibilityIdentifier: "goToContactUs")
-        StyledNavigationLink(destination:
-                              WeatherMapView(cityName: $vm.selectedCity,
-                                             temperature: vm.temperature,
-                                             userLocation: vm.isLocationButtonTapped ?
-                                             vm.userLocation : vm.selectedCityLocation),
-                             label: "View it on the Map",
-                             imageName: "map",
-                             accessibilityIdentifier: "goToMapView")
+        StyledNavigationLink(
+          destination:
+            WeatherMapView(
+              cityName: $vm.selectedCity,
+              temperature: vm.temperature,
+              userLocation: vm.isLocationButtonTapped ?
+              vm.userLocation : vm.selectedCityLocation
+            ),
+          label: "View it on the Map",
+          imageName: "map",
+          accessibilityIdentifier: "goToMapView"
+        )
       }
       .foregroundStyle(
         .white.adaptedTextColor()
