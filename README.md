@@ -19,4 +19,5 @@ Key Features:
 https://github.com/Asheshp23/WeatherApp/assets/22404192/e643c07c-be7e-45f6-a0de-19dff10cec5c
 
 ## Widget
-![Weather Widget](https://github.com/Asheshp23/WeatherApp/assets/22404192/f565c016-eab2-434c-9c8b-03417a9c2dc9)
+
+![Weathr Widget](https://github.com/Asheshp23/WeatherApp/assets/22404192/99ec369a-00fa-471d-9ae3-b805e84f46da)
