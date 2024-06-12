@@ -11,6 +11,9 @@
 		0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */; };
 		0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */; };
 		0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */; };
+		0F4E4A322C1A4270008FC711 /* ContactUsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193948297F639E00E20C9D /* ContactUsVM.swift */; };
+		0F4E4A352C1A4D02008FC711 /* ContactUsViewModelTests .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4A342C1A4D02008FC711 /* ContactUsViewModelTests .swift */; };
+		0F4E4A372C1A4EA7008FC711 /* WeatherApiTests 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4A362C1A4EA7008FC711 /* WeatherApiTests 2.swift */; };
 		0F58BDE12BD78E3C00C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE02BD78E3C00C2368B /* ScrollUI */; };
 		0F58BDE32BD78E6600C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE22BD78E6600C2368B /* ScrollUI */; };
 		0F58BDE52BD78E6D00C2368B /* ScrollUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0F58BDE42BD78E6D00C2368B /* ScrollUI */; };
@@ -25,7 +28,6 @@
 		0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4D2B929A0D00A2A275 /* SliderRow.swift */; };
 		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
 		0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */; };
-		0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 0F9927482BD47F7E0002F9D9 /* ViewInspector */; };
 		0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */; };
 		0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -52,7 +54,6 @@
 		BE193949297F639E00E20C9D /* ContactUsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193948297F639E00E20C9D /* ContactUsVM.swift */; };
 		BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19394A297F641500E20C9D /* PhotoGalleryView.swift */; };
 		BE19394D297F649E00E20C9D /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19394C297F649E00E20C9D /* PhotoDetailView.swift */; };
-		BE193953297F665900E20C9D /* ContactUsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19394E297F665900E20C9D /* ContactUsViewModelTests.swift */; };
 		BE193954297F665900E20C9D /* WeatherApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19394F297F665900E20C9D /* WeatherApiTests.swift */; };
 		BE193955297F665900E20C9D /* WeatherNetwrokTechAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193950297F665900E20C9D /* WeatherNetwrokTechAssessmentTests.swift */; };
 		BE193956297F665900E20C9D /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193951297F665900E20C9D /* WeatherViewModelTests.swift */; };
@@ -141,6 +142,8 @@
 		0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryDataManager.swift; sourceTree = "<group>"; };
 		0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewModel.swift; sourceTree = "<group>"; };
 		0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledNavigationLink.swift; sourceTree = "<group>"; };
+		0F4E4A342C1A4D02008FC711 /* ContactUsViewModelTests .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsViewModelTests .swift"; sourceTree = "<group>"; };
+		0F4E4A362C1A4EA7008FC711 /* WeatherApiTests 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherApiTests 2.swift"; sourceTree = "<group>"; };
 		0F8408562B910FD1003CEA19 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnnotationOverlayView.swift; sourceTree = "<group>"; };
@@ -177,7 +180,6 @@
 		BE193948297F639E00E20C9D /* ContactUsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVM.swift; sourceTree = "<group>"; };
 		BE19394A297F641500E20C9D /* PhotoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryView.swift; sourceTree = "<group>"; };
 		BE19394C297F649E00E20C9D /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
-		BE19394E297F665900E20C9D /* ContactUsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewModelTests.swift; sourceTree = "<group>"; };
 		BE19394F297F665900E20C9D /* WeatherApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherApiTests.swift; sourceTree = "<group>"; };
 		BE193950297F665900E20C9D /* WeatherNetwrokTechAssessmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherNetwrokTechAssessmentTests.swift; sourceTree = "<group>"; };
 		BE193951297F665900E20C9D /* WeatherViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTests.swift; sourceTree = "<group>"; };
@@ -235,7 +237,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F9927492BD47F7E0002F9D9 /* ViewInspector in Frameworks */,
 				0F58BDE52BD78E6D00C2368B /* ScrollUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,8 +354,9 @@
 		BE0030A8297F59BA00A0896C /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE19394E297F665900E20C9D /* ContactUsViewModelTests.swift */,
+				0F4E4A342C1A4D02008FC711 /* ContactUsViewModelTests .swift */,
 				BE19394F297F665900E20C9D /* WeatherApiTests.swift */,
+				0F4E4A362C1A4EA7008FC711 /* WeatherApiTests 2.swift */,
 				BE193952297F665900E20C9D /* WeatherModelTests.swift */,
 				BE193950297F665900E20C9D /* WeatherNetwrokTechAssessmentTests.swift */,
 				BE193951297F665900E20C9D /* WeatherViewModelTests.swift */,
@@ -642,7 +644,6 @@
 			);
 			name = WeatherAppUITests;
 			packageProductDependencies = (
-				0F9927482BD47F7E0002F9D9 /* ViewInspector */,
 				0F58BDE42BD78E6D00C2368B /* ScrollUI */,
 			);
 			productName = WeatherAppUITests;
@@ -677,7 +678,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					BE003094297F59B700A0896C = {
 						CreatedOnToolsVersion = 14.2;
@@ -705,7 +706,6 @@
 			);
 			mainGroup = BE00308C297F59B700A0896C;
 			packageReferences = (
-				0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 				0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */,
 			);
 			productRefGroup = BE003096297F59B700A0896C /* Products */;
@@ -817,13 +817,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4E4A372C1A4EA7008FC711 /* WeatherApiTests 2.swift in Sources */,
 				0FAF610C2B3283E900D8E59F /* CustomErrors.swift in Sources */,
 				BE193954297F665900E20C9D /* WeatherApiTests.swift in Sources */,
 				BE193955297F665900E20C9D /* WeatherNetwrokTechAssessmentTests.swift in Sources */,
 				BE193957297F665900E20C9D /* WeatherModelTests.swift in Sources */,
+				0F4E4A322C1A4270008FC711 /* ContactUsVM.swift in Sources */,
 				BE0030AA297F59BA00A0896C /* WeatherAppTests.swift in Sources */,
-				BE193953297F665900E20C9D /* ContactUsViewModelTests.swift in Sources */,
 				BE193956297F665900E20C9D /* WeatherViewModelTests.swift in Sources */,
+				0F4E4A352C1A4D02008FC711 /* ContactUsViewModelTests .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,7 +1006,6 @@
 		BE0030BA297F59BA00A0896C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1038,7 +1039,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1046,7 +1047,6 @@
 		BE0030BB297F59BA00A0896C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1080,7 +1080,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1088,7 +1088,6 @@
 		BE0030BD297F59BA00A0896C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1110,7 +1109,6 @@
 		BE0030BE297F59BA00A0896C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1132,7 +1130,6 @@
 		BE0030C0297F59BA00A0896C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -1153,7 +1150,6 @@
 		BE0030C1297F59BA00A0896C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -1302,14 +1298,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nalexn/ViewInspector";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.10;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1332,11 +1320,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0F58BDDF2BD78DB400C2368B /* XCRemoteSwiftPackageReference "ScrollViewStyle" */;
 			productName = ScrollUI;
-		};
-		0F9927482BD47F7E0002F9D9 /* ViewInspector */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0F9927472BD47ECC0002F9D9 /* XCRemoteSwiftPackageReference "ViewInspector" */;
-			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

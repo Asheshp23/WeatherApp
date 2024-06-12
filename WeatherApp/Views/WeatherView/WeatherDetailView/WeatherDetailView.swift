@@ -70,7 +70,7 @@ struct WeatherDetailView: View {
           ).rawValue
         ) ?? .cloudy
       )
-        .ignoresSafeArea()
+      .ignoresSafeArea()
       
       if vm.isLoading {
         ProgressView()

@@ -2,7 +2,7 @@ import WidgetKit
 import Intents
 import SwiftUI
 
-class Provider: IntentTimelineProvider {
+class Provider: @preconcurrency IntentTimelineProvider {
   private let weatherService: WeatherDataServiceProtocol
   var locationManager = WidgetLocationManager()
   
@@ -46,7 +46,7 @@ class Provider: IntentTimelineProvider {
   private func loadImageFromURL(imageUrlString: String) async -> Image? {
       guard let url = URL(string: imageUrlString) else { return nil }
     do {
-      let(data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
+      let(data, _) = try await URLSession.shared.data(for: URLRequest(url: url))
       if let image = UIImage(data: data) {
         return Image(uiImage: image)
       }

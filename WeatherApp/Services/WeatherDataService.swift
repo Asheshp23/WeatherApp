@@ -5,7 +5,8 @@ protocol WeatherDataServiceProtocol {
 }
 
 actor WeatherDataService: WeatherDataServiceProtocol {
-    func fetchData<T: Decodable>(city: String) async throws -> T {
+  nonisolated
+  func fetchData<T: Decodable>(city: String) async throws -> T {
         let aqi = "no"
         let key = Helper.getApiKey()
         let cityName = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
