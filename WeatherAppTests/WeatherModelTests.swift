@@ -1,25 +1,13 @@
-import XCTest
-
+import Testing
+import Foundation
 @testable import WeatherApp
 
-class WeatherModelTests: XCTestCase {
-
-  // updated time since  like how much time ago it is updated ...
-    func testDate() {
-        // 3 * 60 * 60 = 10,800 seconds => 3 hours
-        let date = Date(timeIntervalSinceNow: Double(-10800))
-        XCTAssertEqual(Date().time(since: date) , "3 hours ago")
-    }
-    
-  // test decode using mock data
-    func testSuccessFetchData() {
-
-        
-    }
-    
-    
-    //test weather instance by using mock data
-    func testWeatherModelInstance(){
-       
-    }
+struct WeatherModelTests {
+  @Test("times ago",
+        arguments: [(Double(-10800))])
+  func timesAgo(date: Double) {
+    // 3 * 60 * 60 = 10,800 seconds => 3 hours
+    let date = Date(timeIntervalSinceNow: date)
+    #expect(Date().time(since: date) == "3 hours ago")
+  }
 }

@@ -1,4 +1,4 @@
-import XCTest
+import Testing
 @testable import WeatherApp
 
 class MockWeatherDataService: WeatherDataServiceProtocol {
@@ -60,14 +60,13 @@ class MockWeatherDataService: WeatherDataServiceProtocol {
     }
 }
 
-class WeatherViewModelTests: XCTestCase {
+struct WeatherViewModelTests {
   //test fetch weather function by using mock data
-  func testNilData() {
+  @Test("Empty data")
+  func emptyModel() async throws {
     let mockWeatherDataService = MockWeatherDataService()
     let viewModel = WeatherDetailVM(weatherService: mockWeatherDataService)
-    Task {
-      await viewModel.fetchWeather()
-    }
-    XCTAssertNil(viewModel.weather)
+    await viewModel.fetchWeather()
+    try #require(viewModel.weather)
   }
 }
