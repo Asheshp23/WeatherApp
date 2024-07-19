@@ -14,8 +14,8 @@ struct WheelPickerView: View {
           ForEach(-100...100, id: \.self) { number in
             let remainder = number % 5
             Divider()
-              .background(remainder == 0 ? Color.primary :
-                  . gray)
+              .background(remainder == 0 ? (selectedValue >= CGFloat(number) ? .red : Color.primary) :
+                            (selectedValue >= CGFloat(number) ? .red : .gray))
               .frame(width: 0,
                      height: remainder == 0 ? 20 : 10, alignment: .center)
               .frame(maxHeight: 20, alignment:
@@ -28,7 +28,12 @@ struct WheelPickerView: View {
                     .fixedSize()
                     .fontWeight(.semibold)
                     .offset(y: 20)
+                    .foregroundStyle(selectedValue >= CGFloat(number) ? .red : .black)
                 }
+              }
+              .visualEffect { content, proxy in
+                content
+                  .hueRotation(Angle(degrees: proxy.frame(in: .global).origin.x / 10))
               }
           }
         }

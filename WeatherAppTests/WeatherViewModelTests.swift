@@ -63,10 +63,12 @@ class MockWeatherDataService: WeatherDataServiceProtocol {
 struct WeatherViewModelTests {
   //test fetch weather function by using mock data
   @Test("Empty data")
-  func emptyModel() async throws {
-    let mockWeatherDataService = MockWeatherDataService()
-    let viewModel = WeatherDetailVM(weatherService: mockWeatherDataService)
-    await viewModel.fetchWeather()
-    try #require(viewModel.weather)
+  func emptyModel() throws {
+    Task { @MainActor in
+      let mockWeatherDataService = MockWeatherDataService()
+      let viewModel = WeatherDetailVM(weatherService: mockWeatherDataService)
+      viewModel.fetchWeather()
+      let weather = try #require(viewModel.weather)
+    }
   }
 }

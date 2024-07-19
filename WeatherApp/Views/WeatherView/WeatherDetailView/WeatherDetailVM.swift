@@ -46,14 +46,17 @@ class WeatherDetailVM {
   
   // fetch weather data
   @MainActor
-  func fetchWeather() async {
-    do {
-      self.weather = try await self.weatherService.fetchData(city: self.selectedCity)
-    } catch {
-      print(error.localizedDescription)
+  func fetchWeather() {
+    Task {
+      do {
+        self.weather = try await self.weatherService.fetchData(city: self.selectedCity)
+      } catch {
+        print(error.localizedDescription)
+      }
     }
   }
   
+  @MainActor
   func getCityNameFrom(_ location: CLLocation) async throws -> String {
     do {
       let placemarks = try await CLGeocoder().reverseGeocodeLocation(location)

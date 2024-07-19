@@ -115,7 +115,7 @@ struct WeatherDetailView: View {
         Task {
           if vm.selectedCity != "" {
             vm.getLocationFromCityName()
-            await vm.fetchWeather()
+            vm.fetchWeather()
           }
         }
       }

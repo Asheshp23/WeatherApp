@@ -13,13 +13,13 @@ struct WeatherWidgetEntryView: View {
             HStack {
               Text("\(weatherData.location.name)")
                 .font(.title3.bold())
-                .foregroundColor(.white)
+              
               Image(systemName: "location.fill")
-                .foregroundColor(.white)
+              
             }
             Text("\(weatherData.current.tempC, specifier: "%.0f")°C")
               .font(.title2.bold())
-              .foregroundColor(.white)
+            
             if let image = entry.conditionImage {
               image
                 .resizable()
@@ -28,22 +28,21 @@ struct WeatherWidgetEntryView: View {
             }
             Text("\(weatherData.current.condition.text)")
               .font(.callout.bold())
-              .foregroundColor(.white)
+            
           } else {
             Text("Toronto")
               .font(.title3.bold())
-              .foregroundColor(.white)
+            
             Text("\(12.0, specifier: "%.0f")°C")
               .font(.title2.bold())
-              .foregroundColor(.white)
+            
             Text("Sunny")
               .font(.callout.bold())
-              .foregroundColor(.white)
           }
         }
       }
     }
-    .widgetBackground(Color.gray)
+    .widgetBackground(Color.white.opacity(0.5))
   }
 }
 
