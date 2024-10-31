@@ -14,7 +14,7 @@ struct ListOfCitiesView: View {
             Task { @MainActor in
               if selectedCity != city {
                 selectedCity = city
-                showCityList.toggle()
+                showCityList = false
               }
             }
           }, label: {

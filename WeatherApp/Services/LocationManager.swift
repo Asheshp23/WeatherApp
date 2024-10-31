@@ -21,11 +21,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.startUpdatingLocation()
   }
   
+  func stopLocation() {
+    manager.stopUpdatingLocation()
+  }
+  
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let lastLocation = locations.last else { return }
-    guard location == nil || lastLocation.distance(from: location!) > 5 else { return }
-    
+  
     self.location = lastLocation
+    stopLocation()
   }
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
