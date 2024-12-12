@@ -10,7 +10,7 @@ struct PhotoContentView: View {
         if viewModel.startAnnotating {
           CanvasView(canvas: $viewModel.canvas,
                      toolPicker: $viewModel.toolPicker,
-                     image: viewModel.applyFilter(to: viewModel.editedPhoto ?? viewModel.photo) ?? viewModel.photo,
+                     image: try? viewModel.applyFilter(to: viewModel.editedPhoto ?? viewModel.photo) ?? viewModel.photo,
                      rect: size)
         } else {
           AdjustablePhotoView(viewModel: viewModel)

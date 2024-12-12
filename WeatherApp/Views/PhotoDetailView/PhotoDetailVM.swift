@@ -3,15 +3,15 @@ import PencilKit
 import SwiftUI
 import PhotosUI
 
-@Observable
+@Observable @MainActor
 class PhotoDetailVM {
   var photo: UIImage
   
-  @MainActor var canvas = PKCanvasView()
+  var canvas = PKCanvasView()
   var toolPicker = PKToolPicker()
   var textBoxes: [CustomTextBox] = []
   var addNewBox = false
-  @MainActor var currentIndex: Int = 0
+  var currentIndex: Int = 0
   var rect: CGRect = .zero
   var startEditing = false
   var startAnnotating = false
@@ -31,22 +31,18 @@ class PhotoDetailVM {
     self.photo = photo
   }
   
-  @MainActor
   func toggleBold() {
     textBoxes[currentIndex].isBold.toggle()
   }
   
-  @MainActor
   func toggleItalic() {
     textBoxes[currentIndex].isItalic.toggle()
   }
   
-  @MainActor
   func toggleUnderline() {
     textBoxes[currentIndex].isUnderlined.toggle()
   }
-   
-  @MainActor
+  
   func handleLongPress(textBox: CustomTextBox) {
     toolPicker.setVisible(false, forFirstResponder: canvas)
     canvas.resignFirstResponder()
@@ -68,7 +64,6 @@ class PhotoDetailVM {
     textBoxes[getIndex(tb: tb)].lastOffset = value.translation
   }
   
-  @MainActor
   func handleCancelButtonTap() {
     withAnimation {
       if !textBoxes.isEmpty {
@@ -83,7 +78,6 @@ class PhotoDetailVM {
     }
   }
   
-  @MainActor
   func handleAddButtonTap() {
     toolPicker.setVisible(true, forFirstResponder: canvas)
     canvas.becomeFirstResponder()
@@ -92,7 +86,6 @@ class PhotoDetailVM {
     }
   }
   
-  @MainActor
   func addNewTextBox() {
     withAnimation {
       textBoxes.append(CustomTextBox())
@@ -103,17 +96,14 @@ class PhotoDetailVM {
     }
   }
   
-  @MainActor
   func redoCanvasAction() {
     canvas.undoManager?.redo()
   }
   
-  @MainActor
   func undoCanvasAction() {
     canvas.undoManager?.undo()
   }
   
-  @MainActor
   func undoAllCanvasAction() {
     guard let undoManager = canvas.undoManager else {
       return
@@ -136,7 +126,6 @@ class PhotoDetailVM {
     self.contrast = 1
   }
   
-  @MainActor
   func toggleAnnotatingOrEditing() {
     if startAnnotating {
       toggleAnnotatingMode()
@@ -146,21 +135,29 @@ class PhotoDetailVM {
     }
   }
   
-  @MainActor func handleSaveAction() {
+  func handleSaveAction() {
     if let image = savingCanvas(), startAnnotating {
       editedPhoto = image
       startAnnotating = false
       addNewBox = false
     } else {
       if let editedPhoto = editedPhoto {
-        save(image: editedPhoto)
+        do {
+        try save(image: editedPhoto)
+      } catch {
+        print(error.localizedDescription)
+      }
       } else {
-        save(image: photo)
+        do {
+          try save(image: photo)
+        } catch {
+          print(error.localizedDescription)
+        }
       }
     }
   }
   
-  @MainActor func savingCanvas() -> UIImage? {
+  func savingCanvas() -> UIImage? {
     // Generate image from canvas
     guard let generatedImage = generateImage() else {
       print("Failed to generate image.")
@@ -171,30 +168,36 @@ class PhotoDetailVM {
     
   }
   
-  // Generate image from canvas
-  @MainActor private func generateImage() -> UIImage? {
+  private func generateImage() -> UIImage? {
+    // Begin image context
     UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+    defer { UIGraphicsEndImageContext() }
+    
+    // Draw the canvas hierarchy
     canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
     
-    let SWIFTUIVIEWS = ZStack {
+    // Create SwiftUI views for text rendering
+    let swiftUIView = ZStack {
       ForEach(self.textBoxes) { tb in
-        Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" :  tb.text)
-          .font(.system(size: 30, weight: self.textBoxes[self.currentIndex].isBold ? .bold : .regular ))
-          .italic(self.textBoxes[self.currentIndex].isItalic)
-          .underline(self.textBoxes[self.currentIndex].isUnderlined)
+        Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" : tb.text)
+          .font(.system(size: 30, weight: tb.isBold ? .bold : .regular))
+          .italic(tb.isItalic)
+          .underline(tb.isUnderlined)
           .foregroundColor(tb.textColor)
           .offset(tb.offset)
       }
     }
     
-    guard let controller = UIHostingController (rootView: SWIFTUIVIEWS).view else { return nil }
-    controller.frame = rect
-    controller.backgroundColor = .clear
-    canvas.backgroundColor = .clear
-    canvas.drawingPolicy = .anyInput
-    controller.drawHierarchy (in: CGRect (origin: .zero, size: rect.size), afterScreenUpdates: true)
-    defer { UIGraphicsEndImageContext() }
-    canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
+    // Convert SwiftUI view to UIKit for rendering
+    let hostingController = UIHostingController(rootView: swiftUIView)
+    guard let hostingView = hostingController.view else { return nil }
+    hostingView.frame = CGRect(origin: .zero, size: rect.size)
+    hostingView.backgroundColor = .clear
+    
+    // Render the SwiftUI view hierarchy
+    hostingView.layer.render(in: UIGraphicsGetCurrentContext()!)
+    
+    // Get the generated image
     return UIGraphicsGetImageFromCurrentImageContext()
   }
   
@@ -204,27 +207,34 @@ class PhotoDetailVM {
     } ?? 0
   }
   
-  // Create or fetch custom album
-  private func getOrCreateCustomAlbum() -> PHAssetCollection? {
+  private func getOrCreateCustomAlbum(named albumName: String) -> PHAssetCollection? {
+    // Check if the album already exists
     let fetchOptions = PHFetchOptions()
-    fetchOptions.predicate = NSPredicate(format: "title = %@", "Custom Album Name")
-    let collection = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
-    if let album = collection.firstObject {
-      return album
-    } else {
-      do {
-        try PHPhotoLibrary.shared().performChangesAndWait {
-          PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: "Custom Album Name")
-        }
-        return collection.firstObject
-      } catch {
-        print("Error creating album: \(error)")
-        return nil
-      }
+    fetchOptions.predicate = NSPredicate(format: "title = %@", albumName)
+    let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
+    
+    if let existingAlbum = collections.firstObject {
+      return existingAlbum
     }
+    
+    // Album doesn't exist, attempt to create it
+    var createdAlbum: PHAssetCollection?
+    do {
+      try PHPhotoLibrary.shared().performChangesAndWait {
+        let creationRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: albumName)
+        let placeholder = creationRequest.placeholderForCreatedAssetCollection
+        let result = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [placeholder.localIdentifier], options: nil)
+        createdAlbum = result.firstObject
+      }
+    } catch {
+      print("Error creating album: \(error)")
+      return nil
+    }
+    
+    return createdAlbum
   }
-  
-  func applyFilter(to image: UIImage) -> UIImage? {
+
+  func applyFilter(to image: UIImage) throws -> UIImage? {
     guard let inputImage = CIImage(image: image) else {
       print("Failed to create CIImage from input image")
       return nil
@@ -254,76 +264,57 @@ class PhotoDetailVM {
     return UIImage(cgImage: cgImage)
   }
   
-  @MainActor
-  func save(image: UIImage) {
-    PHPhotoLibrary.requestAuthorization { status in
-      guard status == .authorized else {
-        print("Photo library access not authorized.")
-        return
-      }
-      
-      guard let filteredImage = self.applyFilter(to: image)  else {
-        print("doesnt have the filterd image")
-        return
-      }
-      Task { @MainActor in
-        self.editedPhoto = filteredImage
-      }
-      guard let imageData = filteredImage.pngData() else {
-        print("Failed to convert filtered image to PNG data.")
-        DispatchQueue.main.async {
-          self.showAlert.toggle()
-          self.message = "Failed to save image"
-        }
-        return
-      }
-      
-      let fileManager = FileManager.default
-      let path = (NSTemporaryDirectory() as NSString).appendingPathComponent("newImageName.png")
-      
-      do {
-        try imageData.write(to: URL(fileURLWithPath: path))
-      } catch {
-        print("Failed to write image data to file: \(error)")
-        Task {
-          self.showAlert.toggle()
-          self.message = "Failed to save image"
-        }
-        return
-      }
-      
-      guard let customAlbum = self.getOrCreateCustomAlbum() else {
-        print("Custom album not found.")
-        return
-      }
-      
-      do {
-        // Save image to custom album
-        try PHPhotoLibrary.shared().performChangesAndWait ({
-          let assetChangeRequest = PHAssetChangeRequest.creationRequestForAsset(from: filteredImage)
-          let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
-          let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum)
-          let enumeration: NSArray = [assetPlaceholder!]
-          albumChangeRequest!.addAssets(enumeration)
-          Task { [weak self] in
-            self?.showAlert.toggle()
-            self?.message = "Saved successfully"
-            self?.startEditing = false
-          }
-          do {
-            try fileManager.removeItem(atPath: path)
-          } catch {
-            print("Error deleting file: \(error)")
-          }
-        })
-      } catch {
-        print("Failed to write image data to file: \(error)")
-       Task {
-          self.showAlert.toggle()
-          self.message = "Failed to save image"
-        }
-        return
-      }
+  func save(image: UIImage) throws {
+    guard let filteredImage = try self.applyFilter(to: image) else {
+      print("Filtered image creation failed.")
+      return
     }
+    
+    guard let imageData = filteredImage.pngData() else {
+      DispatchQueue.main.async {
+        self.showAlert.toggle()
+        self.message = "Failed to convert image to PNG."
+      }
+      return
+    }
+    
+    let fileManager = FileManager.default
+    let tempPath = (NSTemporaryDirectory() as NSString).appendingPathComponent("newImageName.png")
+    
+    do {
+      try imageData.write(to: URL(fileURLWithPath: tempPath))
+    } catch {
+      DispatchQueue.main.async {
+        self.showAlert.toggle()
+        self.message = "Failed to save image file."
+      }
+      print("File write error: \(error)")
+      return
+    }
+    
+    guard let customAlbum = self.getOrCreateCustomAlbum(named: "WA") else {
+      print("Custom album not found.")
+      return
+    }
+    
+    try PHPhotoLibrary.shared().performChangesAndWait({
+      let assetRequest = PHAssetChangeRequest.creationRequestForAsset(from: filteredImage)
+      guard let assetPlaceholder = assetRequest.placeholderForCreatedAsset,
+            let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum) else {
+        print("Failed to create asset or album change request.")
+        return
+      }
+      albumChangeRequest.addAssets([assetPlaceholder] as NSArray)
+      DispatchQueue.main.async {
+        self.showAlert.toggle()
+        self.message = "Image saved successfully."
+        self.startEditing = false
+      }
+      do {
+        try fileManager.removeItem(atPath: tempPath)
+      } catch {
+        print("Failed to delete temp file: \(error)")
+      }
+    })
   }
 }
