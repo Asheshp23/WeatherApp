@@ -2,7 +2,7 @@ import SwiftUI
 import CoreLocation
 
 struct WeatherDetailView: View {
-  @State private var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
+  @StateObject private var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
   @State private var locationManager = LocationManager()
   
   var body: some View {

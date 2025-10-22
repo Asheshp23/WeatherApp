@@ -28,8 +28,6 @@
 		0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */; };
 		0F9AC2992EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
 		0F9AC29A2EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
-		0F9AC29C2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */; };
-		0F9AC29D2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */; };
 		0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -154,7 +152,6 @@
 		0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
 		0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIURLBuilder.swift; sourceTree = "<group>"; };
 		0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLocationManager.swift; sourceTree = "<group>"; };
 		0FAF61092B3283AD00D8E59F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		0FBB0FA12BC53139004BA19C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -485,7 +482,6 @@
 		BE19393E297F61DC00E20C9D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */,
 				BE19393F297F61F300E20C9D /* WeatherDataService.swift */,
 				BE86AE942980E8B200652BB5 /* LocationManager.swift */,
 				0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */,
@@ -787,7 +783,6 @@
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
 				0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */,
 				0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */,
-				0F9AC29C2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
@@ -843,7 +838,6 @@
 				BE7838E42A738C3D00A90BE0 /* Provider.swift in Sources */,
 				BE7838DD2A738B3A00A90BE0 /* ConditionModel.swift in Sources */,
 				BE7838E72A738D1500A90BE0 /* Helper.swift in Sources */,
-				0F9AC29D2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */,
 				BE7838E82A738D2A00A90BE0 /* Date+Extension.swift in Sources */,
 				BE7838E12A738BC000A90BE0 /* WeatherWidgetEntryView.swift in Sources */,
 				0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */,
@@ -1005,12 +999,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow us to fetch your photo library to provide you edited photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1046,12 +1039,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow us to fetch your photo library to provide you edited photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

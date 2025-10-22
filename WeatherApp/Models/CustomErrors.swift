@@ -6,5 +6,6 @@ enum LocationError: Error {
 
 enum NetworkError: Error {
   case invalidURL
+  case invalidBaseURL
   case invalidResponse
 }
