@@ -3,10 +3,10 @@ import Intents
 import SwiftUI
 
 class Provider: @preconcurrency IntentTimelineProvider {
-  private let weatherService: WeatherDataServiceProtocol
+  private let weatherService: WeatherServiceProtocol
   var locationManager = WidgetLocationManager()
   
-  init(weatherService: WeatherDataServiceProtocol) {
+  init(weatherService: WeatherServiceProtocol) {
     self.weatherService = weatherService
   }
   
@@ -26,7 +26,7 @@ class Provider: @preconcurrency IntentTimelineProvider {
         if let location = locationManager.location,
            let cityName = try await getCityNameFrom(location) {
           if !cityName.isEmpty {
-            let weatherData: WeatherModel = try await weatherService.fetchData(city: cityName)
+            let weatherData: WeatherModel = try await weatherService.fetchCurrentWeather(for: cityName)
             let updateInterval = Calendar.current.date(byAdding: .minute, value: 15, to: Date())!
             let image =  await loadImageFromURL(imageUrlString: "https:" + weatherData.current.condition.icon)
             let entry = SimpleEntry(date: Date(), configuration: configuration, weatherData: weatherData, conditionImage: image)

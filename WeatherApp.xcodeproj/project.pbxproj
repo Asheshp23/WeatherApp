@@ -26,6 +26,10 @@
 		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
 		0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */; };
 		0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */; };
+		0F9AC2992EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
+		0F9AC29A2EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
+		0F9AC29C2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */; };
+		0F9AC29D2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */; };
 		0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */; };
 		0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
 		0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF61092B3283AD00D8E59F /* CustomErrors.swift */; };
@@ -149,6 +153,8 @@
 		0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentView.swift; sourceTree = "<group>"; };
 		0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
+		0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIURLBuilder.swift; sourceTree = "<group>"; };
 		0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLocationManager.swift; sourceTree = "<group>"; };
 		0FAF61092B3283AD00D8E59F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		0FBB0FA12BC53139004BA19C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -479,9 +485,11 @@
 		BE19393E297F61DC00E20C9D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				0F9AC29B2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift */,
 				BE19393F297F61F300E20C9D /* WeatherDataService.swift */,
 				BE86AE942980E8B200652BB5 /* LocationManager.swift */,
 				0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */,
+				0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -657,7 +665,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					BE003094297F59B700A0896C = {
 						CreatedOnToolsVersion = 14.2;
@@ -779,11 +787,13 @@
 				BE193945297F630500E20C9D /* SettingsView.swift in Sources */,
 				0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */,
 				0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */,
+				0F9AC29C2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
 				0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */,
 				BEF1F2BE299C6099007661E5 /* WeatherMapView.swift in Sources */,
+				0F9AC2992EA7FFB500A4DCF1 /* NetworkService.swift in Sources */,
 				BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
 				BE19392A297F5B4E00E20C9D /* WeatherDetailVM.swift in Sources */,
 				BE193949297F639E00E20C9D /* ContactUsVM.swift in Sources */,
@@ -829,9 +839,11 @@
 				BE7838DC2A738B3700A90BE0 /* LocationModel.swift in Sources */,
 				0FBB0FA32BC53139004BA19C /* Color+Extension.swift in Sources */,
 				BE193971297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */,
+				0F9AC29A2EA7FFB500A4DCF1 /* NetworkService.swift in Sources */,
 				BE7838E42A738C3D00A90BE0 /* Provider.swift in Sources */,
 				BE7838DD2A738B3A00A90BE0 /* ConditionModel.swift in Sources */,
 				BE7838E72A738D1500A90BE0 /* Helper.swift in Sources */,
+				0F9AC29D2EA8597D00A4DCF1 /* WeatherAPIURLBuilder.swift in Sources */,
 				BE7838E82A738D2A00A90BE0 /* Date+Extension.swift in Sources */,
 				BE7838E12A738BC000A90BE0 /* WeatherWidgetEntryView.swift in Sources */,
 				0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */,
@@ -917,6 +929,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -972,6 +985,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;

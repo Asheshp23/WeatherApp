@@ -3,7 +3,7 @@ import CoreLocation
 
 @Observable
 class WeatherDetailVM {
-  private let weatherService: WeatherDataServiceProtocol
+  private let weatherService: WeatherServiceProtocol
   
   var weather: WeatherModel?
   var isLoading = false
@@ -34,7 +34,7 @@ class WeatherDetailVM {
     return Helper.timeAgoSince(lastUpdatedDate)
   }
   
-  init(weatherService: WeatherDataServiceProtocol) {
+  init(weatherService: WeatherServiceProtocol) {
     self.weatherService = weatherService
   }
   
@@ -49,7 +49,7 @@ class WeatherDetailVM {
   func fetchWeather() {
     Task {
       do {
-        self.weather = try await self.weatherService.fetchData(city: self.selectedCity)
+        self.weather = try await self.weatherService.fetchCurrentWeather(for: selectedCity)
       } catch {
         print(error.localizedDescription)
       }

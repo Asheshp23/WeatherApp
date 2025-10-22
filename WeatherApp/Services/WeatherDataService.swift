@@ -1,25 +1,29 @@
 import Foundation
 
-protocol WeatherDataServiceProtocol {
-  func fetchData<T: Decodable>(city: String) async throws -> T
+protocol WeatherServiceProtocol {
+  func fetchCurrentWeather(for city: String) async throws -> WeatherModel
 }
 
-struct WeatherDataService: WeatherDataServiceProtocol {
+
+struct WeatherDataService: WeatherServiceProtocol {
+  private let network: NetworkServiceProtocol
+  private let urlBuilder: URLBuilderProtocol
+  private let decoder: JSONDecoder
   
-  func fetchData<T: Decodable>(city: String) async throws -> T {
-    let aqi = "no"
-    let key = Helper.getApiKey()
-    let cityName = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-    let endpoint = "http://api.weatherapi.com/v1/current.json?key=\(key)&q=\(cityName)&aqi=\(aqi)"
-    guard let url = URL(string: endpoint) else {
-      throw NetworkError.invalidURL
-    }
-    let (data, response) = try await URLSession.shared.data(from: url)
-    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-      throw NetworkError.invalidResponse
-    }
-    let decoder = JSONDecoder()
-    let result = try decoder.decode(T.self, from: data)
-    return result
+  init(network: NetworkServiceProtocol = NetworkService(),
+       urlBuilder: URLBuilderProtocol = WeatherAPIURLBuilder(),
+       decoder: JSONDecoder = JSONDecoder()) {
+    self.network = network
+    self.urlBuilder = urlBuilder
+    self.decoder = decoder
+  }
+  
+  func fetchCurrentWeather(for city: String) async throws -> WeatherModel {
+    let url = try urlBuilder.buildURL(for: city)
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    request.setValue("application/json", forHTTPHeaderField: "Accept")
+    
+    return try await network.request(request, decoder: decoder)
   }
 }
