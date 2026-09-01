@@ -18,6 +18,14 @@ struct PhotoDetailView: View {
     .alert(isPresented: $viewModel.showAlert) {
       Alert(title: Text(viewModel.message), dismissButton: .destructive(Text("OK")))
     }
+    .sheet(isPresented: $viewModel.showStickerPicker) {
+      StickerPickerView(viewModel: viewModel)
+    }
+    .sheet(isPresented: $viewModel.showShareSheet) {
+      if let shareImage = viewModel.shareImage {
+        ShareSheet(items: [shareImage])
+      }
+    }
     .navigationBarBackButtonHidden(viewModel.startEditing)
     .toolbar { ToolBarContentView(viewModel: viewModel) }
   }

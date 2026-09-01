@@ -4,13 +4,7 @@ import UIKit
 struct PhotoGalleryDataManager {
   
   func fetchImages() async throws -> [UIImage] {
-    let urlStrings = [
-      "https://picsum.photos/300",
-      "https://picsum.photos/300",
-      "https://picsum.photos/300",
-      "https://picsum.photos/300",
-      "https://picsum.photos/300",
-    ]
+    let urlStrings = (1...5).map { "https://loremflickr.com/300/300?random=\($0)" }
     return try await withThrowingTaskGroup(of: UIImage?.self) { group in
       var images: [UIImage] = []
       images.reserveCapacity(urlStrings.count)

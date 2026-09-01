@@ -1,6 +1,6 @@
 import Foundation
 
-protocol NetworkServiceProtocol {
+protocol NetworkServiceProtocol: Sendable {
   func request<T: Decodable>(_ request: URLRequest, decoder: JSONDecoder) async throws -> T
 }
 

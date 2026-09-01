@@ -12,7 +12,11 @@ struct CustomTextBox: Identifiable {
   var lastOffset: CGSize = .zero
   var rotation: Double = 0.0
   var lastRotation: Double = 0.0
+  var scale: CGFloat = 1.0
+  var lastScale: CGFloat = 1.0
   var textColor: Color = .black
+  var fontName: String = AppFont.system.rawValue
+  var fontSize: CGFloat = 30
   var isAdded: Bool = true
   var isEditing: Bool = false
 }

@@ -3,86 +3,80 @@ import SwiftUI
 @MainActor
 struct TextStylingBarView: View {
   @Bindable var viewModel: PhotoDetailVM
-  
-  var textStylingBarView: some View {
-    VStack {
-      if !viewModel.textBoxes.isEmpty {
-        HStack {
+
+  var body: some View {
+    if !viewModel.textBoxes.isEmpty {
+      VStack(spacing: 10) {
+        fontPicker
+
+        HStack(spacing: 14) {
           ColorPicker("", selection: $viewModel.textBoxes[viewModel.currentIndex].textColor)
             .labelsHidden()
-            .padding()
-            .background(
-              neumorphicBackground(isActive: false)
-                .frame(width: 45, height: 45)
-            )
-          
-          TextStyleButton(label: "B", systemImageName: "bold", isActive: viewModel.textBoxes[viewModel.currentIndex].isBold) {
+            .frame(width: 28, height: 28)
+
+          Divider().frame(height: 20)
+
+          TextStyleButton(systemImageName: "bold", isActive: viewModel.textBoxes[viewModel.currentIndex].isBold) {
             viewModel.toggleBold()
           }
-          
-          Divider()
-          
-          TextStyleButton(label: "I", systemImageName: "italic", isActive: viewModel.textBoxes[viewModel.currentIndex].isItalic) {
+
+          TextStyleButton(systemImageName: "italic", isActive: viewModel.textBoxes[viewModel.currentIndex].isItalic) {
             viewModel.toggleItalic()
           }
-          
-          Divider()
-          
-          TextStyleButton(label: "U", systemImageName: "underline", isActive: viewModel.textBoxes[viewModel.currentIndex].isUnderlined) {
+
+          TextStyleButton(systemImageName: "underline", isActive: viewModel.textBoxes[viewModel.currentIndex].isUnderlined) {
             viewModel.toggleUnderline()
+          }
+
+          Divider().frame(height: 20)
+
+          Image(systemName: "textformat.size")
+            .font(.caption)
+            .foregroundStyle(.secondary)
+          Slider(value: $viewModel.textBoxes[viewModel.currentIndex].fontSize, in: 16...72)
+            .frame(width: 90)
+        }
+      }
+      .padding(.horizontal, 16)
+      .padding(.vertical, 10)
+      .background(.white, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+    }
+  }
+
+  private var fontPicker: some View {
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(spacing: 10) {
+        ForEach(AppFont.allCases) { font in
+          Button {
+            viewModel.textBoxes[viewModel.currentIndex].fontName = font.rawValue
+          } label: {
+            Text("Aa")
+              .font(font.font(size: 18))
+              .foregroundColor(viewModel.textBoxes[viewModel.currentIndex].fontName == font.rawValue ? .white : .black)
+              .frame(width: 40, height: 32)
+              .background(
+                viewModel.textBoxes[viewModel.currentIndex].fontName == font.rawValue ? Color.accentColor : Color.black.opacity(0.06),
+                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+              )
           }
         }
       }
     }
   }
-  
-  func neumorphicBackground(isActive: Bool) -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 12.0)
-        .fill(.black)
-        .overlay(
-          RoundedRectangle(cornerRadius: 12.0)
-            .stroke(Color.gray.opacity(0.4), lineWidth: 1)
-        )
-        .shadow(color: isActive ? Color.blue : Color.gray.opacity(0.5), radius: 3, x: 2, y: 2)
-        .shadow(color: isActive ? Color.blue : Color.white.opacity(0.9), radius: 3, x: -2, y: -2)
-    }
-  }
-  
-  var body: some View {
-    textStylingBarView
-  }
 }
 
-struct TextStyleButton: View {
-  let label: String
+private struct TextStyleButton: View {
   let systemImageName: String
   let isActive: Bool
   let action: () -> Void
-  
-  func neumorphicBackground(isActive: Bool) -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 12.0)
-        .fill(.black)
-        .overlay(
-          RoundedRectangle(cornerRadius: 12.0)
-            .stroke(Color.gray.opacity(0.4), lineWidth: 1)
-        )
-        .shadow(color: isActive ? Color.blue : Color.gray.opacity(0.5), radius: 3, x: 2, y: 2)
-        .shadow(color: isActive ? Color.blue : Color.white.opacity(0.9), radius: 3, x: -2, y: -2)
-    }
-  }
-  
+
   var body: some View {
     Button(action: action) {
-      VStack {
-        Image(systemName: systemImageName)
-          .foregroundColor(isActive ? .blue : .white)
-      }
-      .padding()
-      .background(
-        neumorphicBackground(isActive: isActive)
-      )
+      Image(systemName: systemImageName)
+        .font(.subheadline.weight(.semibold))
+        .foregroundColor(isActive ? .white : .black)
+        .frame(width: 32, height: 32)
+        .background(isActive ? Color.accentColor : Color.clear, in: Circle())
     }
   }
 }

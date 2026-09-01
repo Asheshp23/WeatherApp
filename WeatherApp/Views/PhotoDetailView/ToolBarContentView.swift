@@ -9,40 +9,38 @@ struct ToolBarContentView: ToolbarContent {
       if viewModel.startEditing {
         if !viewModel.addNewBox {
           Button(action: viewModel.handleSaveAction) {
-            Text(viewModel.startAnnotating ? "Done" : "Save")
+            Label(viewModel.startAnnotating ? "Done" : "Save", systemImage: "checkmark")
           }
+          .fontWeight(.semibold)
         }
       } else {
+        Button(action: viewModel.presentShareSheet) {
+          Image(systemName: "square.and.arrow.up")
+        }
         Button(action: viewModel.toggleEditingMode) {
-          Text("Edit")
+          Label("Edit", systemImage: "slider.horizontal.3")
         }
       }
     }
-    
-    if viewModel.startEditing {
-      if !viewModel.addNewBox {
-        ToolbarItem(placement: .navigationBarLeading) {
-          HStack {
-            Button(action: viewModel.toggleAnnotatingOrEditing) {
-              Text("Cancel")
+
+    if viewModel.startEditing && !viewModel.addNewBox {
+      ToolbarItem(placement: .navigationBarLeading) {
+        HStack(spacing: 18) {
+          Button(action: viewModel.handleToolbarCancel) {
+            Image(systemName: "xmark")
+          }
+
+          if viewModel.startAnnotating {
+            Button(action: viewModel.undoCanvasAction) {
+              Image(systemName: "arrow.uturn.backward")
             }
-            
-            if viewModel.startAnnotating {
-              Button(action: viewModel.undoCanvasAction) {
-                Image(systemName: "arrow.uturn.backward")
-              }
-              
-              Button(action: viewModel.redoCanvasAction) {
-                Image(systemName: "arrow.uturn.forward")
-              }
-              
-              Button(action: viewModel.addNewTextBox) {
-                Image(systemName: "plus")
-              }
-            } else {
-              Button(action: viewModel.toggleAnnotatingMode) {
-                Image(systemName: "pencil.tip.crop.circle")
-              }
+
+            Button(action: viewModel.redoCanvasAction) {
+              Image(systemName: "arrow.uturn.forward")
+            }
+
+            Button(action: viewModel.addNewTextBox) {
+              Image(systemName: "textformat")
             }
           }
         }

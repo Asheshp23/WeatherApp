@@ -1,6 +1,6 @@
 import Foundation
 
-protocol WeatherServiceProtocol {
+protocol WeatherServiceProtocol: Sendable {
   func fetchCurrentWeather(for city: String) async throws -> WeatherModel
 }
 

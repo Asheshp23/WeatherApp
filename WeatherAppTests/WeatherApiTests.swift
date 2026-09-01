@@ -6,8 +6,8 @@ struct WeatherDataServiceSwiftTests {
         arguments: [("London")])
   func fetchDataSuccess(city: String) async throws {
     let service = MockWeatherDataService()
-    let weather: WeatherModel = try await service.fetchData(city: city)
-    #expect(weather != nil)
+    let weather: WeatherModel = try await service.fetchCurrentWeather(for: city)
+    #expect(weather.location.name == "London")
   }
 }
 

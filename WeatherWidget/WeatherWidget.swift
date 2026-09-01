@@ -9,8 +9,8 @@ struct WeatherWidget: Widget {
       IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider(weatherService: WeatherDataService())) { entry in
             WeatherWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Weatherly Weather")
+        .description("Glance at the current conditions for your selected city.")
         .supportedFamilies([.systemSmall])
     }
 }

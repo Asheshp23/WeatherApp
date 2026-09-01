@@ -2,7 +2,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class WeatherDetailVM: ObservableObject {
+final class WeatherDetailVM: ObservableObject {
   let weatherService: WeatherServiceProtocol
   
   @Published var weather: WeatherModel?

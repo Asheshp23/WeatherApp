@@ -6,10 +6,13 @@ struct TextAnnotationOverlayView: View {
   var body: some View {
     ForEach(viewModel.textBoxes) { textBox in
       Text(viewModel.textBoxes[viewModel.currentIndex].id == textBox.id && viewModel.addNewBox ? "" : textBox.text)
-        .font(.system(size: 30, weight: textBox.isBold ? .bold : .regular))
+        .font((AppFont(rawValue: textBox.fontName) ?? .system).font(size: textBox.fontSize))
+        .fontWeight(textBox.isBold ? .bold : .regular)
         .foregroundColor(textBox.textColor)
         .italic(textBox.isItalic)
         .underline(textBox.isUnderlined)
+        .scaleEffect(textBox.scale)
+        .rotationEffect(.degrees(textBox.rotation))
         .offset(textBox.offset)
         .gesture(
           DragGesture()
@@ -18,7 +21,18 @@ struct TextAnnotationOverlayView: View {
             })
             .onEnded({ value in
               viewModel.handleDragGestureEnd(value: value, tb: textBox)
-            }))
+            })
+            .simultaneously(with:
+              MagnificationGesture()
+                .onChanged { value in viewModel.handleTextMagnification(value: value, textBox: textBox) }
+                .onEnded { _ in viewModel.handleTextMagnificationEnd(textBox: textBox) }
+            )
+            .simultaneously(with:
+              RotationGesture()
+                .onChanged { value in viewModel.handleTextRotation(value: value, textBox: textBox) }
+                .onEnded { _ in viewModel.handleTextRotationEnd(textBox: textBox) }
+            )
+        )
         .onLongPressGesture { viewModel.handleLongPress(textBox: textBox) }
     }
   }

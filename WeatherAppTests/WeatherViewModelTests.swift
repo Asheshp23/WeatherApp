@@ -1,7 +1,7 @@
 import Testing
 @testable import WeatherApp
 
-class MockWeatherDataService: WeatherDataServiceProtocol {
+class MockWeatherDataService: WeatherServiceProtocol {
     // Define a property to hold the mock weather model
     let mockWeatherModel: WeatherModel
     
@@ -50,13 +50,9 @@ class MockWeatherDataService: WeatherDataServiceProtocol {
         )
     }
     
-    // Implement the fetchData method of the WeatherDataServiceProtocol
-    func fetchData<T>(city: String) async throws -> T where T : Decodable {
-        // Cast and return the mock weather model as T
-        guard let result = mockWeatherModel as? T else {
-            throw NetworkError.invalidResponse
-        }
-        return result
+    // Implement the fetchCurrentWeather method of the WeatherServiceProtocol
+    func fetchCurrentWeather(for city: String) async throws -> WeatherModel {
+        return mockWeatherModel
     }
 }
 

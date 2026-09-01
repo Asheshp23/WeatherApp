@@ -2,11 +2,12 @@ import Foundation
 import PencilKit
 import SwiftUI
 import PhotosUI
+import AVFoundation
 
 @Observable @MainActor
 class PhotoDetailVM {
   var photo: UIImage
-  
+
   var canvas = PKCanvasView()
   var toolPicker = PKToolPicker()
   var textBoxes: [CustomTextBox] = []
@@ -14,7 +15,7 @@ class PhotoDetailVM {
   var currentIndex: Int = 0
   var rect: CGRect = .zero
   var startEditing = false
-  var startAnnotating = false
+  var activeTool: EditingTool = .adjust
   var showAlert = false
   var message = ""
   var editedPhoto: UIImage?
@@ -26,23 +27,71 @@ class PhotoDetailVM {
   var isContrastChanged: Bool = false
   var customAlbum: PHAssetCollection?
   var previousSaturation: Double = 1.0
-  
+
+  // Filters
+  var selectedFilter: FilterPreset = .none
+  @ObservationIgnored private var cachedFilterThumbnailSource: UIImage?
+
+  // Crop
+  var cropRect: CGRect = .zero
+  var cropContainerSize: CGSize = .zero
+
+  // Stickers
+  var stickers: [StickerItem] = []
+  var showStickerPicker = false
+
+  // Share
+  var showShareSheet = false
+  var shareImage: UIImage?
+
+  var startAnnotating: Bool { activeTool == .annotate }
+
+  var filterThumbnailSource: UIImage {
+    if let cached = cachedFilterThumbnailSource { return cached }
+    let generated = Self.downscaled(photo, maxDimension: 120)
+    cachedFilterThumbnailSource = generated
+    return generated
+  }
+
   init(photo: UIImage) {
     self.photo = photo
   }
-  
+
   func toggleBold() {
     textBoxes[currentIndex].isBold.toggle()
   }
-  
+
   func toggleItalic() {
     textBoxes[currentIndex].isItalic.toggle()
   }
-  
+
   func toggleUnderline() {
     textBoxes[currentIndex].isUnderlined.toggle()
   }
-  
+
+  func deleteCurrentTextBox() {
+    guard !textBoxes.isEmpty else { return }
+    withAnimation {
+      textBoxes.remove(at: currentIndex)
+      currentIndex = max(0, textBoxes.count - 1)
+      addNewBox = false
+      toolPicker.setVisible(true, forFirstResponder: canvas)
+      canvas.becomeFirstResponder()
+    }
+  }
+
+  func duplicateCurrentTextBox() {
+    guard !textBoxes.isEmpty else { return }
+    var copy = textBoxes[currentIndex]
+    copy.id = UUID().uuidString
+    copy.offset = CGSize(width: copy.offset.width + 24, height: copy.offset.height + 24)
+    copy.lastOffset = copy.offset
+    withAnimation {
+      textBoxes.append(copy)
+      currentIndex = textBoxes.count - 1
+    }
+  }
+
   func handleLongPress(textBox: CustomTextBox) {
     toolPicker.setVisible(false, forFirstResponder: canvas)
     canvas.resignFirstResponder()
@@ -52,18 +101,39 @@ class PhotoDetailVM {
       addNewBox = true
     }
   }
-  
+
   func handleDragGesture(value: DragGesture.Value, textBox: CustomTextBox) {
     let current = value.translation
     let newOffset = CGSize(width: textBox.lastOffset.width + current.width , height: textBox.lastOffset.height + current.height)
-    
+
     textBoxes[getIndex(tb: textBox)].offset = newOffset
   }
-  
+
   func handleDragGestureEnd(value: DragGesture.Value, tb: CustomTextBox) {
-    textBoxes[getIndex(tb: tb)].lastOffset = value.translation
+    let idx = getIndex(tb: tb)
+    textBoxes[idx].lastOffset = textBoxes[idx].offset
   }
-  
+
+  func handleTextMagnification(value: CGFloat, textBox: CustomTextBox) {
+    let idx = getIndex(tb: textBox)
+    textBoxes[idx].scale = textBoxes[idx].lastScale * value
+  }
+
+  func handleTextMagnificationEnd(textBox: CustomTextBox) {
+    let idx = getIndex(tb: textBox)
+    textBoxes[idx].lastScale = textBoxes[idx].scale
+  }
+
+  func handleTextRotation(value: Angle, textBox: CustomTextBox) {
+    let idx = getIndex(tb: textBox)
+    textBoxes[idx].rotation = textBoxes[idx].lastRotation + value.degrees
+  }
+
+  func handleTextRotationEnd(textBox: CustomTextBox) {
+    let idx = getIndex(tb: textBox)
+    textBoxes[idx].lastRotation = textBoxes[idx].rotation
+  }
+
   func handleCancelButtonTap() {
     withAnimation {
       if !textBoxes.isEmpty {
@@ -77,7 +147,7 @@ class PhotoDetailVM {
       }
     }
   }
-  
+
   func handleAddButtonTap() {
     toolPicker.setVisible(true, forFirstResponder: canvas)
     canvas.becomeFirstResponder()
@@ -85,7 +155,7 @@ class PhotoDetailVM {
       addNewBox = false
     }
   }
-  
+
   func addNewTextBox() {
     withAnimation {
       textBoxes.append(CustomTextBox())
@@ -95,50 +165,194 @@ class PhotoDetailVM {
       canvas.resignFirstResponder()
     }
   }
-  
+
+  // Stickers
+  func addSticker(_ emoji: String) {
+    withAnimation(.spring()) {
+      stickers.append(StickerItem(emoji: emoji))
+    }
+    showStickerPicker = false
+  }
+
+  func deleteSticker(_ sticker: StickerItem) {
+    withAnimation {
+      stickers.removeAll { $0.id == sticker.id }
+    }
+  }
+
+  private func stickerIndex(_ sticker: StickerItem) -> Int? {
+    stickers.firstIndex { $0.id == sticker.id }
+  }
+
+  func handleStickerDrag(value: DragGesture.Value, sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    let current = value.translation
+    stickers[idx].offset = CGSize(width: stickers[idx].lastOffset.width + current.width,
+                                   height: stickers[idx].lastOffset.height + current.height)
+  }
+
+  func handleStickerDragEnd(sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    stickers[idx].lastOffset = stickers[idx].offset
+  }
+
+  func handleStickerMagnification(value: CGFloat, sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    stickers[idx].scale = stickers[idx].lastScale * value
+  }
+
+  func handleStickerMagnificationEnd(sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    stickers[idx].lastScale = stickers[idx].scale
+  }
+
+  func handleStickerRotation(value: Angle, sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    stickers[idx].rotation = stickers[idx].lastRotation + value
+  }
+
+  func handleStickerRotationEnd(sticker: StickerItem) {
+    guard let idx = stickerIndex(sticker) else { return }
+    stickers[idx].lastRotation = stickers[idx].rotation
+  }
+
+  // Filters
+  func applyFilterPreset(_ filter: FilterPreset) {
+    selectedFilter = filter
+    guard filter != .none else { return }
+    let base = editedPhoto ?? photo
+    editedPhoto = filter.apply(to: base)
+  }
+
+  // Crop & rotate
+  func rotateEditedPhoto(by degrees: CGFloat) {
+    let base = editedPhoto ?? photo
+    editedPhoto = Self.rotated(base, by: degrees)
+    cropRect = .zero
+  }
+
+  func flipEditedPhotoHorizontally() {
+    let base = editedPhoto ?? photo
+    editedPhoto = Self.flippedHorizontally(base)
+    cropRect = .zero
+  }
+
+  func applyCrop() {
+    let base = editedPhoto ?? photo
+    guard cropContainerSize.width > 0, cropContainerSize.height > 0 else { return }
+    let imageFrame = AVMakeRect(aspectRatio: base.size, insideRect: CGRect(origin: .zero, size: cropContainerSize))
+    guard imageFrame.width > 0, imageFrame.height > 0 else { return }
+
+    let scaleX = base.size.width / imageFrame.width
+    let scaleY = base.size.height / imageFrame.height
+
+    let cropZone = CGRect(
+      x: (cropRect.minX - imageFrame.minX) * scaleX,
+      y: (cropRect.minY - imageFrame.minY) * scaleY,
+      width: cropRect.width * scaleX,
+      height: cropRect.height * scaleY
+    ).intersection(CGRect(origin: .zero, size: base.size))
+
+    guard cropZone.width > 0, cropZone.height > 0, let cgImage = base.cgImage?.cropping(to: cropZone) else { return }
+    editedPhoto = UIImage(cgImage: cgImage, scale: base.scale, orientation: base.imageOrientation)
+    cropRect = .zero
+    selectTool(.adjust)
+  }
+
+  private static func rotated(_ image: UIImage, by degrees: CGFloat) -> UIImage {
+    let radians = degrees * .pi / 180
+    let newSize = CGSize(width: image.size.height, height: image.size.width)
+    UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
+    defer { UIGraphicsEndImageContext() }
+    guard let context = UIGraphicsGetCurrentContext() else { return image }
+    context.translateBy(x: newSize.width / 2, y: newSize.height / 2)
+    context.rotate(by: radians)
+    image.draw(in: CGRect(x: -image.size.width / 2, y: -image.size.height / 2, width: image.size.width, height: image.size.height))
+    return UIGraphicsGetImageFromCurrentImageContext() ?? image
+  }
+
+  private static func flippedHorizontally(_ image: UIImage) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+    defer { UIGraphicsEndImageContext() }
+    guard let context = UIGraphicsGetCurrentContext() else { return image }
+    context.translateBy(x: image.size.width, y: 0)
+    context.scaleBy(x: -1, y: 1)
+    image.draw(in: CGRect(origin: .zero, size: image.size))
+    return UIGraphicsGetImageFromCurrentImageContext() ?? image
+  }
+
+  private static func downscaled(_ image: UIImage, maxDimension: CGFloat) -> UIImage {
+    let scale = min(1, maxDimension / max(image.size.width, image.size.height))
+    guard scale < 1 else { return image }
+    let newSize = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+    let renderer = UIGraphicsImageRenderer(size: newSize)
+    return renderer.image { _ in image.draw(in: CGRect(origin: .zero, size: newSize)) }
+  }
+
+  // Share
+  func presentShareSheet() {
+    shareImage = editedPhoto ?? photo
+    showShareSheet = true
+  }
+
   func redoCanvasAction() {
     canvas.undoManager?.redo()
   }
-  
+
   func undoCanvasAction() {
     canvas.undoManager?.undo()
   }
-  
+
   func undoAllCanvasAction() {
     guard let undoManager = canvas.undoManager else {
       return
     }
-    
+
     // Perform undo until the undo manager has no more actions
     while undoManager.canUndo {
       undoManager.undo()
     }
   }
-  
-  func toggleAnnotatingMode() {
-    startAnnotating.toggle()
-  }
-  
-  func toggleEditingMode() {
-    startEditing.toggle()
-    self.brightness = 0
-    self.contrast = 1
-    self.contrast = 1
-  }
-  
-  func toggleAnnotatingOrEditing() {
-    if startAnnotating {
-      toggleAnnotatingMode()
+
+  func selectTool(_ tool: EditingTool) {
+    if activeTool == .annotate && tool != .annotate {
       undoAllCanvasAction()
-    } else {
-      toggleEditingMode()
+    }
+    withAnimation {
+      activeTool = tool
     }
   }
-  
+
+  func toggleEditingMode() {
+    if startEditing {
+      exitEditingSession()
+    } else {
+      startEditing = true
+      activeTool = .adjust
+    }
+  }
+
+  private func exitEditingSession() {
+    startEditing = false
+    activeTool = .adjust
+    brightness = 0
+    contrast = 1
+    saturation = 1
+    selectedFilter = .none
+  }
+
+  func handleToolbarCancel() {
+    if activeTool == .annotate {
+      selectTool(.adjust)
+    } else {
+      exitEditingSession()
+    }
+  }
+
   func handleSaveAction() {
-    if let image = savingCanvas(), startAnnotating {
+    if activeTool == .annotate, let image = savingCanvas() {
       editedPhoto = image
-      startAnnotating = false
+      selectTool(.adjust)
       addNewBox = false
     } else {
       if let editedPhoto = editedPhoto {
@@ -176,15 +390,25 @@ class PhotoDetailVM {
     // Draw the canvas hierarchy
     canvas.drawHierarchy(in: CGRect(origin: .zero, size: rect.size), afterScreenUpdates: true)
     
-    // Create SwiftUI views for text rendering
+    // Create SwiftUI views for text and sticker rendering
     let swiftUIView = ZStack {
       ForEach(self.textBoxes) { tb in
         Text(self.textBoxes[self.currentIndex].id == tb.id && self.addNewBox ? "" : tb.text)
-          .font(.system(size: 30, weight: tb.isBold ? .bold : .regular))
+          .font((AppFont(rawValue: tb.fontName) ?? .system).font(size: tb.fontSize))
+          .fontWeight(tb.isBold ? .bold : .regular)
           .italic(tb.isItalic)
           .underline(tb.isUnderlined)
           .foregroundColor(tb.textColor)
+          .scaleEffect(tb.scale)
+          .rotationEffect(.degrees(tb.rotation))
           .offset(tb.offset)
+      }
+      ForEach(self.stickers) { sticker in
+        Text(sticker.emoji)
+          .font(.system(size: 60))
+          .scaleEffect(sticker.scale)
+          .rotationEffect(sticker.rotation)
+          .offset(sticker.offset)
       }
     }
     

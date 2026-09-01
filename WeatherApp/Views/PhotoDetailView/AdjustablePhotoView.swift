@@ -1,23 +1,53 @@
 import SwiftUI
 
-struct AdjustablePhotoView: View {
+struct AdjustmentPanel: View {
   @Bindable var viewModel: PhotoDetailVM
-  
+
   var body: some View {
-    ZStack {
-      Image(uiImage: viewModel.editedPhoto ?? viewModel.photo)
-        .resizable()
-        .scaledToFit()
-        .brightness(viewModel.brightness)
-        .saturation(viewModel.saturation)
-        .contrast(viewModel.contrast)
-        .background(.clear)
-      VStack {
+    VStack(spacing: 12) {
+      HStack {
+        Text("Adjust")
+          .font(.headline)
         Spacer()
-        SliderRow(text: "Brightness", value: $viewModel.brightness, inRange: -1...1)
-        SliderRow(text: "Contrast", value: $viewModel.contrast, inRange: 0...2)
-        SliderRow(text: "Saturation", value: $viewModel.saturation, inRange: 0...2)
+        Button {
+          viewModel.brightness = 0
+          viewModel.contrast = 1
+          viewModel.saturation = 1
+        } label: {
+          Label("Reset", systemImage: "arrow.counterclockwise")
+            .font(.subheadline)
+        }
+      }
+      SliderRow(text: "Brightness", systemImage: "sun.max", value: $viewModel.brightness, inRange: -1...1)
+      SliderRow(text: "Contrast", systemImage: "circle.lefthalf.filled", value: $viewModel.contrast, inRange: 0...2)
+      SliderRow(text: "Saturation", systemImage: "drop.fill", value: $viewModel.saturation, inRange: 0...2)
+    }
+    .padding(16)
+    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+    .padding(.horizontal)
+    .padding(.bottom, 12)
+  }
+}
+
+struct StickersPanel: View {
+  @Bindable var viewModel: PhotoDetailVM
+
+  var body: some View {
+    HStack {
+      Text("Tap + to add a sticker. Drag to move, pinch to resize, long-press to delete.")
+        .font(.caption)
+        .foregroundStyle(.secondary)
+      Spacer()
+      Button {
+        viewModel.showStickerPicker = true
+      } label: {
+        Image(systemName: "plus.circle.fill")
+          .font(.title2)
       }
     }
+    .padding(16)
+    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+    .padding(.horizontal)
+    .padding(.bottom, 12)
   }
 }

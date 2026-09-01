@@ -9,12 +9,28 @@
 /* Begin PBXBuildFile section */
 		0F0507252C1C0C3600D988E5 /* WeatherViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0507242C1C0C3600D988E5 /* WeatherViewModelTests.swift */; };
 		0F0F18C72A7441A600EA2216 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86AE942980E8B200652BB5 /* LocationManager.swift */; };
+		0F1A0AAD304631530079F828 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AAC304631530079F828 /* AppFont.swift */; };
+		0F1A0AAE304631530079F828 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AAC304631530079F828 /* AppFont.swift */; };
+		0F1A0AB0304631550079F828 /* StickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AAF304631550079F828 /* StickerItem.swift */; };
+		0F1A0AB1304631550079F828 /* StickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AAF304631550079F828 /* StickerItem.swift */; };
+		0F1A0AB3304631570079F828 /* EditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AB2304631570079F828 /* EditingTool.swift */; };
+		0F1A0AB4304631570079F828 /* EditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AB2304631570079F828 /* EditingTool.swift */; };
+		0F1A0AB63046315C0079F828 /* FilterPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AB53046315C0079F828 /* FilterPreset.swift */; };
+		0F1A0AB73046315C0079F828 /* FilterPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AB53046315C0079F828 /* FilterPreset.swift */; };
+		0F1A0AB9304631680079F828 /* CropRotateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AB8304631680079F828 /* CropRotateView.swift */; };
+		0F1A0ABB3046316C0079F828 /* FilterPresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0ABA3046316C0079F828 /* FilterPresetsView.swift */; };
+		0F1A0ABD3046316F0079F828 /* StickerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0ABC3046316F0079F828 /* StickerOverlayView.swift */; };
+		0F1A0ABF304631730079F828 /* StickerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0ABE304631730079F828 /* StickerPickerView.swift */; };
+		0F1A0AC1304631750079F828 /* ToolSwitcherBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AC0304631750079F828 /* ToolSwitcherBar.swift */; };
+		0F1A0AC3304631760079F828 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A0AC2304631760079F828 /* ShareSheet.swift */; };
 		0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */; };
 		0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */; };
 		0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */; };
 		0F4E4A322C1A4270008FC711 /* ContactUsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE193948297F639E00E20C9D /* ContactUsVM.swift */; };
 		0F4E4A352C1A4D02008FC711 /* ContactUsViewModelTests .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4A342C1A4D02008FC711 /* ContactUsViewModelTests .swift */; };
 		0F4E4A372C1A4EA7008FC711 /* WeatherApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E4A362C1A4EA7008FC711 /* WeatherApiTests.swift */; };
+		0F601A3030465816005CF7A6 /* LaunchAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F601A2F30465816005CF7A6 /* LaunchAnimationView.swift */; };
+		0F601A32304658E1005CF7A6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F601A31304658E1005CF7A6 /* Launch Screen.storyboard */; };
 		0F8408572B910FD1003CEA19 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8408562B910FD1003CEA19 /* ProgressView.swift */; };
 		0F84085B2B91107B003CEA19 /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */; };
 		0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */; };
@@ -24,7 +40,6 @@
 		0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */; };
 		0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4D2B929A0D00A2A275 /* SliderRow.swift */; };
 		0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */; };
-		0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */; };
 		0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */; };
 		0F9AC2992EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
 		0F9AC29A2EA7FFB500A4DCF1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */; };
@@ -135,11 +150,23 @@
 
 /* Begin PBXFileReference section */
 		0F0507242C1C0C3600D988E5 /* WeatherViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTests.swift; sourceTree = "<group>"; };
+		0F1A0AAC304631530079F828 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		0F1A0AAF304631550079F828 /* StickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerItem.swift; sourceTree = "<group>"; };
+		0F1A0AB2304631570079F828 /* EditingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTool.swift; sourceTree = "<group>"; };
+		0F1A0AB53046315C0079F828 /* FilterPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPreset.swift; sourceTree = "<group>"; };
+		0F1A0AB8304631680079F828 /* CropRotateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropRotateView.swift; sourceTree = "<group>"; };
+		0F1A0ABA3046316C0079F828 /* FilterPresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresetsView.swift; sourceTree = "<group>"; };
+		0F1A0ABC3046316F0079F828 /* StickerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerOverlayView.swift; sourceTree = "<group>"; };
+		0F1A0ABE304631730079F828 /* StickerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPickerView.swift; sourceTree = "<group>"; };
+		0F1A0AC0304631750079F828 /* ToolSwitcherBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolSwitcherBar.swift; sourceTree = "<group>"; };
+		0F1A0AC2304631760079F828 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		0F2AC1AE2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryDataManager.swift; sourceTree = "<group>"; };
 		0F2AC1B02B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewModel.swift; sourceTree = "<group>"; };
 		0F4465272B9AC80F0071AC84 /* StyledNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledNavigationLink.swift; sourceTree = "<group>"; };
 		0F4E4A342C1A4D02008FC711 /* ContactUsViewModelTests .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsViewModelTests .swift"; sourceTree = "<group>"; };
 		0F4E4A362C1A4EA7008FC711 /* WeatherApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiTests.swift; sourceTree = "<group>"; };
+		0F601A2F30465816005CF7A6 /* LaunchAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAnimationView.swift; sourceTree = "<group>"; };
+		0F601A31304658E1005CF7A6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0F8408562B910FD1003CEA19 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		0F84085A2B91107B003CEA19 /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		0F853F412B928B1C00A2A275 /* TextAnnotationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnnotationOverlayView.swift; sourceTree = "<group>"; };
@@ -149,7 +176,6 @@
 		0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustablePhotoView.swift; sourceTree = "<group>"; };
 		0F853F4D2B929A0D00A2A275 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderRow.swift; sourceTree = "<group>"; };
 		0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContentView.swift; sourceTree = "<group>"; };
-		0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0F9927672BD5CEBA0002F9D9 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
 		0F9AC2982EA7FFB500A4DCF1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0FA4A05D2B9E48BF00699175 /* WidgetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLocationManager.swift; sourceTree = "<group>"; };
@@ -251,6 +277,14 @@
 			path = StyledNavigationLink;
 			sourceTree = "<group>";
 		};
+		0F601A2E30465816005CF7A6 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F601A2F30465816005CF7A6 /* LaunchAnimationView.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		0F8408552B910FB6003CEA19 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,7 +314,7 @@
 		0F881CE12B9D37FA00A2B3C0 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0F881CE22B9D380800A2B3C0 /* Launch Screen.storyboard */,
+				0F601A31304658E1005CF7A6 /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -389,6 +423,7 @@
 				BE19392E297F5BDC00E20C9D /* ContactUsView */,
 				BE19392D297F5BB600E20C9D /* PhotoGalleryView */,
 				BE193928297F5B2A00E20C9D /* WeatherView */,
+				0F601A2E30465816005CF7A6 /* LaunchScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +470,12 @@
 				0F853F4B2B9299C700A2A275 /* AdjustablePhotoView.swift */,
 				0F853F4D2B929A0D00A2A275 /* SliderRow.swift */,
 				0F853F4F2B929A5700A2A275 /* PhotoContentView.swift */,
+				0F1A0AB8304631680079F828 /* CropRotateView.swift */,
+				0F1A0ABA3046316C0079F828 /* FilterPresetsView.swift */,
+				0F1A0ABC3046316F0079F828 /* StickerOverlayView.swift */,
+				0F1A0ABE304631730079F828 /* StickerPickerView.swift */,
+				0F1A0AC0304631750079F828 /* ToolSwitcherBar.swift */,
+				0F1A0AC2304631760079F828 /* ShareSheet.swift */,
 			);
 			path = PhotoDetailView;
 			sourceTree = "<group>";
@@ -465,6 +506,10 @@
 				BED490D329848F7200C2BB49 /* CurrentWeatherModel.swift */,
 				0FAF61092B3283AD00D8E59F /* CustomErrors.swift */,
 				BECD310A29933143003BAC67 /* CustomTextBox.swift */,
+				0F1A0AAC304631530079F828 /* AppFont.swift */,
+				0F1A0AAF304631550079F828 /* StickerItem.swift */,
+				0F1A0AB2304631570079F828 /* EditingTool.swift */,
+				0F1A0AB53046315C0079F828 /* FilterPreset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -709,7 +754,7 @@
 			files = (
 				BEA91C932984E47300A7A939 /* config.plist in Resources */,
 				BE6F11AC2984AB57001A0C4D /* SnowFall.sks in Resources */,
-				0F881CE32B9D380800A2B3C0 /* Launch Screen.storyboard in Resources */,
+				0F601A32304658E1005CF7A6 /* Launch Screen.storyboard in Resources */,
 				BEEB4C1D2985D188006C207A /* Cloud.sks in Resources */,
 				BE0030A0297F59B900A0896C /* Preview Assets.xcassets in Resources */,
 				BE00309D297F59B900A0896C /* Assets.xcassets in Resources */,
@@ -749,14 +794,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE193940297F61F300E20C9D /* WeatherDataService.swift in Sources */,
+				0F1A0ABD3046316F0079F828 /* StickerOverlayView.swift in Sources */,
+				0F1A0AB9304631680079F828 /* CropRotateView.swift in Sources */,
 				0FAF610A2B3283AD00D8E59F /* CustomErrors.swift in Sources */,
+				0F1A0AAE304631530079F828 /* AppFont.swift in Sources */,
 				BE193972297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */,
 				BED490D429848F7200C2BB49 /* CurrentWeatherModel.swift in Sources */,
 				0F853F462B928CA700A2A275 /* TextStylingBarView.swift in Sources */,
 				0F853F502B929A5700A2A275 /* PhotoContentView.swift in Sources */,
+				0F1A0AB63046315C0079F828 /* FilterPreset.swift in Sources */,
 				BE193933297F5D5C00E20C9D /* SkyImageView.swift in Sources */,
 				0F2AC1B12B3DFEBF00C4E92D /* PhotoGalleryViewModel.swift in Sources */,
 				BED490D229848EDE00C2BB49 /* ConditionModel.swift in Sources */,
+				0F1A0AB0304631550079F828 /* StickerItem.swift in Sources */,
 				BE00309B297F59B700A0896C /* ContentView.swift in Sources */,
 				0F853F4E2B929A0D00A2A275 /* SliderRow.swift in Sources */,
 				BEA91C952984E79100A7A939 /* Helper.swift in Sources */,
@@ -764,6 +814,7 @@
 				BE193943297F627300E20C9D /* ListOfCitiesView.swift in Sources */,
 				0F2AC1AF2B3DFE4600C4E92D /* PhotoGalleryDataManager.swift in Sources */,
 				0F853F422B928B1C00A2A275 /* TextAnnotationOverlayView.swift in Sources */,
+				0F1A0AC3304631760079F828 /* ShareSheet.swift in Sources */,
 				BE86AE952980E8B200652BB5 /* LocationManager.swift in Sources */,
 				BE19393D297F618900E20C9D /* Int+Extension.swift in Sources */,
 				BECD310B29933143003BAC67 /* CustomTextBox.swift in Sources */,
@@ -784,14 +835,19 @@
 				0F853F4C2B9299C700A2A275 /* AdjustablePhotoView.swift in Sources */,
 				0F9927682BD5CEBA0002F9D9 /* WheelPickerView.swift in Sources */,
 				BEEB4C24298606BB006C207A /* SnowFallScene.swift in Sources */,
+				0F1A0ABF304631730079F828 /* StickerPickerView.swift in Sources */,
 				BE193936297F5F6D00E20C9D /* WeatherModel.swift in Sources */,
 				BE19394B297F641500E20C9D /* PhotoGalleryView.swift in Sources */,
 				0F4465282B9AC80F0071AC84 /* StyledNavigationLink.swift in Sources */,
 				BEF1F2BE299C6099007661E5 /* WeatherMapView.swift in Sources */,
+				0F1A0AC1304631750079F828 /* ToolSwitcherBar.swift in Sources */,
 				0F9AC2992EA7FFB500A4DCF1 /* NetworkService.swift in Sources */,
 				BE19397C297F95D300E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
+				0F601A3030465816005CF7A6 /* LaunchAnimationView.swift in Sources */,
 				BE19392A297F5B4E00E20C9D /* WeatherDetailVM.swift in Sources */,
 				BE193949297F639E00E20C9D /* ContactUsVM.swift in Sources */,
+				0F1A0ABB3046316C0079F828 /* FilterPresetsView.swift in Sources */,
+				0F1A0AB3304631570079F828 /* EditingTool.swift in Sources */,
 				0F8408572B910FD1003CEA19 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -825,14 +881,17 @@
 				0FAF610B2B3283E400D8E59F /* CustomErrors.swift in Sources */,
 				0F0F18C72A7441A600EA2216 /* LocationManager.swift in Sources */,
 				BE193968297F6ED600E20C9D /* WeatherWidgetBundle.swift in Sources */,
+				0F1A0AAD304631530079F828 /* AppFont.swift in Sources */,
 				BE7838DA2A738AC900A90BE0 /* WeatherDataService.swift in Sources */,
 				BE19396A297F6ED600E20C9D /* WeatherWidgetLiveActivity.swift in Sources */,
 				BE7838E62A738CBC00A90BE0 /* TimelineEntry.swift in Sources */,
 				BE19396C297F6ED600E20C9D /* WeatherWidget.swift in Sources */,
 				BE7838EA2A738F7D00A90BE0 /* WeatherDetailVM.swift in Sources */,
+				0F1A0AB1304631550079F828 /* StickerItem.swift in Sources */,
 				BE7838DB2A738B3200A90BE0 /* WeatherModel.swift in Sources */,
 				BE7838DC2A738B3700A90BE0 /* LocationModel.swift in Sources */,
 				0FBB0FA32BC53139004BA19C /* Color+Extension.swift in Sources */,
+				0F1A0AB73046315C0079F828 /* FilterPreset.swift in Sources */,
 				BE193971297F6ED800E20C9D /* WeatherWidget.intentdefinition in Sources */,
 				0F9AC29A2EA7FFB500A4DCF1 /* NetworkService.swift in Sources */,
 				BE7838E42A738C3D00A90BE0 /* Provider.swift in Sources */,
@@ -841,6 +900,7 @@
 				BE7838E82A738D2A00A90BE0 /* Date+Extension.swift in Sources */,
 				BE7838E12A738BC000A90BE0 /* WeatherWidgetEntryView.swift in Sources */,
 				0FA4A05E2B9E48BF00699175 /* WidgetLocationManager.swift in Sources */,
+				0F1A0AB4304631570079F828 /* EditingTool.swift in Sources */,
 				BE7838DE2A738B3D00A90BE0 /* CurrentWeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -999,6 +1059,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Studio";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
@@ -1006,7 +1067,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow us to fetch your photo library to provide you edited photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1039,6 +1099,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Studio";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
@@ -1046,7 +1107,6 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow us to fetch your photo library to provide you edited photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1159,7 +1219,7 @@
 				DEVELOPMENT_TEAM = S5C52P9PGP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Studio";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
@@ -1195,7 +1255,7 @@
 				DEVELOPMENT_TEAM = S5C52P9PGP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Weatherly Studio";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Allow us to fetch your location to provide you your citi's weather.";
