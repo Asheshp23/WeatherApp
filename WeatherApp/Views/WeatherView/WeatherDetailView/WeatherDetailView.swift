@@ -2,15 +2,25 @@ import SwiftUI
 import CoreLocation
 
 struct WeatherDetailView: View {
-  @StateObject private var vm: WeatherDetailVM = WeatherDetailVM(weatherService: WeatherDataService())
-  @State private var locationManager = LocationManager()
-  
+  @StateObject private var vm: WeatherDetailVM
+  @State private var locationManager: LocationManager
+
+  init(locationManager: LocationManager = LocationManager(), prefetchedCity: String? = nil, prefetchedWeather: WeatherModel? = nil) {
+    _locationManager = State(wrappedValue: locationManager)
+    _vm = StateObject(wrappedValue: WeatherDetailVM(weatherService: WeatherDataService(), initialCity: prefetchedCity, initialWeather: prefetchedWeather))
+  }
+
   var body: some View {
     ZStack {
       backgroundView
       content
     }
-    .onAppear { locationManager.requestLocation() }
+    .onAppear {
+      locationManager.requestLocation()
+      if vm.weather == nil && !vm.selectedCity.isEmpty {
+        vm.fetchWeather()
+      }
+    }
     .onChange(of: vm.selectedCity, { oldValue, newValue in
       handleCityChange(oldValue: oldValue, newValue: newValue)
     })

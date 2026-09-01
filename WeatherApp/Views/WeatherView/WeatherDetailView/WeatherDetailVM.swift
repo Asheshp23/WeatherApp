@@ -34,8 +34,12 @@ final class WeatherDetailVM: ObservableObject {
     return Helper.timeAgoSince(lastUpdatedDate)
   }
   
-  init(weatherService: WeatherServiceProtocol) {
+  init(weatherService: WeatherServiceProtocol, initialCity: String? = nil, initialWeather: WeatherModel? = nil) {
     self.weatherService = weatherService
+    if let initialCity {
+      self.selectedCity = initialCity
+    }
+    self.weather = initialWeather
   }
   
   @MainActor
@@ -50,6 +54,7 @@ final class WeatherDetailVM: ObservableObject {
     Task {
       do {
         self.weather = try await self.weatherService.fetchCurrentWeather(for: selectedCity)
+        UserDefaults.standard.set(selectedCity, forKey: "lastSelectedCity")
       } catch {
         print(error.localizedDescription)
       }

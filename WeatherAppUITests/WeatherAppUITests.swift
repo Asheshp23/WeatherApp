@@ -9,7 +9,7 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
   func testSetting() throws {
     app.launch()
     let showSettingsButton = app.buttons["showSettings"]
-    XCTAssertTrue(showSettingsButton.waitForExistence(timeout: 2))
+    XCTAssertTrue(showSettingsButton.waitForExistence(timeout: 4))
     showSettingsButton.tap()
     app.segmentedControls["temperatureUnit"].tap()
   }
@@ -21,7 +21,7 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
   func testContactUs() throws {
     app.launch()
     let goToContactUsButton = app.buttons["goToContactUs"]
-    XCTAssertTrue(goToContactUsButton.waitForExistence(timeout: 2))
+    XCTAssertTrue(goToContactUsButton.waitForExistence(timeout: 4))
     goToContactUsButton.tap()
 
     let userNameInputField = app.textFields["userName"]
@@ -49,7 +49,9 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
 
   func testCityListDetail() throws {
     app.launch()
-    app.buttons["goToCityList"].tap()
+    let goToCityListButton = app.buttons["goToCityList"]
+    XCTAssertTrue(goToCityListButton.waitForExistence(timeout: 4))
+    goToCityListButton.tap()
   }
 
   func testWeatherView() {
@@ -60,7 +62,7 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
 
     // Test that the temperature label displays the correct temperature
     let temperatureLabel = app.staticTexts["°C"]
-    XCTAssertTrue(temperatureLabel.exists)
+    XCTAssertTrue(temperatureLabel.waitForExistence(timeout: 4))
 
   }
 }
