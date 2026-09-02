@@ -4,9 +4,11 @@ import Testing
 class MockWeatherDataService: WeatherServiceProtocol {
     // Define a property to hold the mock weather model
     let mockWeatherModel: WeatherModel
-    
+    let mockSearchResults: [CitySearchResult]
+
     // Initialize the mock weather model with mock data
-    init() {
+    init(searchResults: [CitySearchResult] = CitySearchResult.previewFixtures) {
+        self.mockSearchResults = searchResults
         self.mockWeatherModel = WeatherModel(
             location: LocationModel(
                 name: "London",
@@ -52,6 +54,14 @@ class MockWeatherDataService: WeatherServiceProtocol {
     
     // Implement the fetchCurrentWeather method of the WeatherServiceProtocol
     func fetchCurrentWeather(for city: String) async throws -> WeatherModel {
+        return mockWeatherModel
+    }
+
+    func searchCities(matching query: String) async throws -> [CitySearchResult] {
+        mockSearchResults.filter { $0.name.localizedCaseInsensitiveContains(query) }
+    }
+
+    func fetchForecast(for city: String, days: Int) async throws -> WeatherModel {
         return mockWeatherModel
     }
 }

@@ -5,6 +5,13 @@ WeatherApp is a cutting-edge iOS app crafted using SwiftUI and the latest techno
 Key Features:
 
 - Real-time Weather Updates: Get accurate temperature information for any selected city with just a tap.
+- Condition-Aware Sky: The background scene (clear, clouds, fog, rain, snow) and particle effects adapt to the current weather condition, day or night.
+- Weather Details at a Glance: Humidity, wind, UV index, visibility, and pressure are all shown alongside the current conditions.
+- Live City Search: A frosted-glass bottom sheet with debounced, real-time city autocomplete (backed by WeatherAPI) and popular-city quick-select chips.
+- Animated Temperature Unit Toggle: Switch between Celsius and Fahrenheit with an animated pill toggle and haptic feedback — instantly re-converts every unit shown in the app.
+- Hourly & Daily Forecast: Today's hour-by-hour outlook and a multi-day forecast, both glass-styled and condition-icon driven.
+- Weather Alerts: Active weather alerts for the selected location, when issued.
+- Saved Cities: Search for and save cities for quick access, with one tap to switch the active location.
 - Temperature Unit Preference: Personalize the app by choosing between Celsius, Fahrenheit, or Kelvin.
 - Contact Us Form: Reach out to us effortlessly through the convenient "Contact Us" form for any inquiries or feedback.
 - Stunning Photo Gallery: Discover a sleek and captivating photo gallery showcasing beautiful images from various sources.

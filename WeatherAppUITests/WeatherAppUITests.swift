@@ -11,7 +11,9 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
     let showSettingsButton = app.buttons["showSettings"]
     XCTAssertTrue(showSettingsButton.waitForExistence(timeout: 4))
     showSettingsButton.tap()
-    app.segmentedControls["temperatureUnit"].tap()
+    let temperatureUnitButton = app.buttons["temperatureUnit"]
+    XCTAssertTrue(temperatureUnitButton.waitForExistence(timeout: 2))
+    temperatureUnitButton.tap()
   }
 
   func testPhotos() throws {

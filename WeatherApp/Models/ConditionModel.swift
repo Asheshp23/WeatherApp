@@ -68,4 +68,38 @@ enum WeatherCondition: Int {
   case moderateOrHeavySnowWithThunder = 1282
 }
 
-
+extension WeatherCondition {
+  /// SF Symbol representing this condition, adjusted for day/night where applicable.
+  func symbolName(isDay: Bool) -> String {
+    switch self {
+    case .sunny:
+      return isDay ? "sun.max.fill" : "moon.stars.fill"
+    case .partlyCloudy:
+      return isDay ? "cloud.sun.fill" : "cloud.moon.fill"
+    case .cloudy, .overcast:
+      return "cloud.fill"
+    case .mist, .fog, .freezingFog:
+      return "cloud.fog.fill"
+    case .patchyRainPossible, .patchyFreezingDrizzlePossible, .patchyLightDrizzle,
+        .lightDrizzle, .freezingDrizzle, .heavyFreezingDrizzle, .patchyLightRain, .lightRain:
+      return "cloud.drizzle.fill"
+    case .moderateRainAtTimes, .moderateRain, .heavyRainAtTimes, .heavyRain,
+        .lightFreezingRain, .moderateOrHeavyFreezingRain, .lightRainShower,
+        .moderateOrHeavyRainShower, .torrentialRainShower:
+      return "cloud.heavyrain.fill"
+    case .thunderyOutbreaksPossible, .patchyLightRainWithThunder, .moderateOrHeavyRainWithThunder:
+      return "cloud.bolt.rain.fill"
+    case .patchySnowPossible, .blowingSnow, .blizzard, .patchyLightSnow, .lightSnow,
+        .patchyModerateSnow, .moderateSnow, .patchyHeavySnow, .heavySnow,
+        .lightSnowShowers, .moderateOrHeavySnowShowers:
+      return "cloud.snow.fill"
+    case .patchySleetPossible, .lightSleet, .moderateOrHeavySleet,
+        .lightSleetShowers, .moderateOrHeavySleetShowers:
+      return "cloud.sleet.fill"
+    case .icePellets, .lightShowersOfIcePellets, .moderateOrHeavyShowersOfIcePellets:
+      return "cloud.hail.fill"
+    case .patchyLightSnowWithThunder, .moderateOrHeavySnowWithThunder:
+      return "cloud.bolt.fill"
+    }
+  }
+}

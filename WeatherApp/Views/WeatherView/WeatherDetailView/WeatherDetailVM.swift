@@ -7,6 +7,9 @@ final class WeatherDetailVM: ObservableObject {
   
   @Published var weather: WeatherModel?
   @Published var isLoading = false
+  @Published var forecast: WeatherModel?
+  @Published var isForecastLoading = false
+  @Published var forecastFailed = false
   @Published var selectedCity = ""
   @Published var showCityList = false
   @Published var showSettings = false
@@ -34,6 +37,58 @@ final class WeatherDetailVM: ObservableObject {
     return Helper.timeAgoSince(lastUpdatedDate)
   }
   
+  var temperatureUnitSymbol: String {
+    tempUnit == .celcius ? "C" : "F"
+  }
+  
+  var conditionSymbolName: String {
+    guard let weather = weather else { return "cloud.fill" }
+    return weather.current.condition.weatherCondition.symbolName(isDay: weather.current.isDay == 1)
+  }
+  
+  var windText: String {
+    guard let weather = weather else { return localizedString("not_available") }
+    let speed = tempUnit == .celcius ? weather.current.windKph : weather.current.windMph
+    let unit = tempUnit == .celcius ? "km/h" : "mph"
+    return "\(Int(speed.rounded())) \(unit) \(weather.current.windDir)"
+  }
+  
+  var humidityText: String {
+    guard let weather = weather else { return localizedString("not_available") }
+    return "\(weather.current.humidity)%"
+  }
+  
+  var uvIndexText: String {
+    guard let weather = weather else { return localizedString("not_available") }
+    return "\(Int(weather.current.uv.rounded()))"
+  }
+  
+  var uvDescription: String {
+    guard let weather = weather else { return "" }
+    switch weather.current.uv {
+    case ..<3: return "Low"
+    case 3..<6: return "Moderate"
+    case 6..<8: return "High"
+    case 8..<11: return "Very High"
+    default: return "Extreme"
+    }
+  }
+  
+  var visibilityText: String {
+    guard let weather = weather else { return localizedString("not_available") }
+    let distance = tempUnit == .celcius ? weather.current.visKm : weather.current.visMiles
+    let unit = tempUnit == .celcius ? "km" : "mi"
+    return "\(Int(distance.rounded())) \(unit)"
+  }
+  
+  var pressureText: String {
+    guard let weather = weather else { return localizedString("not_available") }
+    if tempUnit == .celcius {
+      return "\(Int(weather.current.pressureMb.rounded())) hPa"
+    }
+    return String(format: "%.2f inHg", weather.current.pressureIn)
+  }
+  
   init(weatherService: WeatherServiceProtocol, initialCity: String? = nil, initialWeather: WeatherModel? = nil) {
     self.weatherService = weatherService
     if let initialCity {
@@ -51,7 +106,9 @@ final class WeatherDetailVM: ObservableObject {
   // fetch weather data
   @MainActor
   func fetchWeather() {
+    isLoading = true
     Task {
+      defer { isLoading = false }
       do {
         self.weather = try await self.weatherService.fetchCurrentWeather(for: selectedCity)
         UserDefaults.standard.set(selectedCity, forKey: "lastSelectedCity")
@@ -61,6 +118,23 @@ final class WeatherDetailVM: ObservableObject {
     }
   }
   
+  // fetch forecast + alerts, once per city, shared by Hourly/Daily/Alerts screens
+  @MainActor
+  func loadForecastIfNeeded() {
+    guard forecast == nil, !isForecastLoading else { return }
+    isForecastLoading = true
+    forecastFailed = false
+    Task {
+      defer { isForecastLoading = false }
+      do {
+        self.forecast = try await self.weatherService.fetchForecast(for: selectedCity, days: 7)
+      } catch {
+        print(error.localizedDescription)
+        forecastFailed = true
+      }
+    }
+  }
+
   @MainActor
   func getCityNameFrom(_ location: CLLocation) async throws -> String {
     do {
