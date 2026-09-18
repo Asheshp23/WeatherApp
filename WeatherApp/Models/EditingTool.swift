@@ -11,11 +11,11 @@ enum EditingTool: String, CaseIterable, Identifiable {
 
   var title: String {
     switch self {
-    case .adjust: return "Adjust"
-    case .filters: return "Filters"
-    case .crop: return "Crop"
-    case .stickers: return "Stickers"
-    case .annotate: return "Draw"
+    case .adjust: return String(localized: "tool_adjust", defaultValue: "Adjust")
+    case .filters: return String(localized: "tool_filters", defaultValue: "Filters")
+    case .crop: return String(localized: "tool_crop", defaultValue: "Crop")
+    case .stickers: return String(localized: "tool_stickers", defaultValue: "Stickers")
+    case .annotate: return String(localized: "tool_draw", defaultValue: "Draw")
     }
   }
 

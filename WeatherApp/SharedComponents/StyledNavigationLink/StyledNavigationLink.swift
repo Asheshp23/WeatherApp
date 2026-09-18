@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StyledNavigationLink<Destination: View>: View {
   let destination: Destination
-  let label: String
+  let label: LocalizedStringKey
   let imageName: String
   let accessibilityIdentifier: String
   

@@ -24,6 +24,7 @@ struct CurrentWeatherModel: Codable {
     let uv: Double
     let gustMph: Double
     let gustKph: Double
+    let airQuality: AirQualityModel?
     
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
@@ -49,6 +50,7 @@ struct CurrentWeatherModel: Codable {
         case uv = "uv"
         case gustMph = "gust_mph"
         case gustKph = "gust_kph"
+        case airQuality = "air_quality"
     }
     
     init(from decoder: Decoder) throws {
@@ -76,9 +78,10 @@ struct CurrentWeatherModel: Codable {
         uv = try values.decode(Double.self, forKey: .uv)
         gustMph = try values.decode(Double.self, forKey: .gustMph)
         gustKph = try values.decode(Double.self, forKey: .gustKph)
+        airQuality = try values.decodeIfPresent(AirQualityModel.self, forKey: .airQuality)
     }
     
-    init(lastUpdatedEpoch: Int, lastUpdated: String, tempC: Double, tempF: Double, isDay: Int, condition: ConditionModel, windMph: Double, windKph: Double, windDegree: Int, windDir: String, pressureMb: Double, pressureIn: Double, precipMm: Double, precipIn: Double, humidity: Int, cloud: Int, feelslikeC: Double, feelslikeF: Double, visKm: Double, visMiles: Double, uv: Double, gustMph: Double, gustKph: Double) {
+    init(lastUpdatedEpoch: Int, lastUpdated: String, tempC: Double, tempF: Double, isDay: Int, condition: ConditionModel, windMph: Double, windKph: Double, windDegree: Int, windDir: String, pressureMb: Double, pressureIn: Double, precipMm: Double, precipIn: Double, humidity: Int, cloud: Int, feelslikeC: Double, feelslikeF: Double, visKm: Double, visMiles: Double, uv: Double, gustMph: Double, gustKph: Double, airQuality: AirQualityModel? = nil) {
         self.lastUpdatedEpoch = lastUpdatedEpoch
         self.lastUpdated = lastUpdated
         self.tempC = tempC
@@ -102,5 +105,50 @@ struct CurrentWeatherModel: Codable {
         self.uv = uv
         self.gustMph = gustMph
         self.gustKph = gustKph
+        self.airQuality = airQuality
+    }
+}
+
+struct AirQualityModel: Codable, Sendable {
+    let co: Double
+    let no2: Double
+    let o3: Double
+    let so2: Double
+    let pm2_5: Double
+    let pm10: Double
+    let usEpaIndex: Int
+
+    enum CodingKeys: String, CodingKey {
+        case co
+        case no2
+        case o3
+        case so2
+        case pm2_5
+        case pm10
+        case usEpaIndex = "us-epa-index"
+    }
+}
+
+extension AirQualityModel {
+    /// Human-readable category for the US EPA air quality index (1-6).
+    var usEpaCategory: String {
+        switch usEpaIndex {
+        case 1: return String(localized: "aqi_good", defaultValue: "Good")
+        case 2: return String(localized: "aqi_moderate", defaultValue: "Moderate")
+        case 3: return String(localized: "aqi_unhealthy_sensitive", defaultValue: "Unhealthy for Sensitive Groups")
+        case 4: return String(localized: "aqi_unhealthy", defaultValue: "Unhealthy")
+        case 5: return String(localized: "aqi_very_unhealthy", defaultValue: "Very Unhealthy")
+        case 6: return String(localized: "aqi_hazardous", defaultValue: "Hazardous")
+        default: return String(localized: "aqi_unknown", defaultValue: "Unknown")
+        }
+    }
+
+    /// SF Symbol representing this AQI severity band.
+    var symbolName: String {
+        switch usEpaIndex {
+        case 1, 2: return "aqi.low"
+        case 3, 4: return "aqi.medium"
+        default: return "aqi.high"
+        }
     }
 }

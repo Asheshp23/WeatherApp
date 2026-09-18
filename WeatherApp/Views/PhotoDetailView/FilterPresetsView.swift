@@ -20,7 +20,7 @@ struct FilterPresetsView: View {
                   RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .stroke(viewModel.selectedFilter == filter ? Color.accentColor : Color.clear, lineWidth: 2)
                 )
-              Text(filter.rawValue)
+              Text(filter.displayName)
                 .font(.caption2)
                 .foregroundStyle(viewModel.selectedFilter == filter ? Color.accentColor : .secondary)
             }

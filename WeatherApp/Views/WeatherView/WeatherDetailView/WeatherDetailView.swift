@@ -19,6 +19,9 @@ struct WeatherDetailView: View {
       locationManager.requestLocation()
       if vm.weather == nil && !vm.selectedCity.isEmpty {
         vm.fetchWeather()
+      } else {
+        vm.loadForecastIfNeeded()
+        vm.generateQuoteIfNeeded()
       }
     }
     .onChange(of: vm.selectedCity, { oldValue, newValue in
@@ -45,7 +48,9 @@ struct WeatherDetailView: View {
       VStack(spacing: 28) {
         cityNameView
         currentConditionView
+        quoteView
         weatherDetailsGrid
+        astroDetailsGrid
         lastUpdatedTimeView
         exploreSection
       }
@@ -121,6 +126,35 @@ struct WeatherDetailView: View {
     }
   }
   
+  // Sunrise/sunset, moon phase and day-of-year at a glance
+  private var astroDetailsGrid: some View {
+    Group {
+      if vm.weather != nil {
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+          WeatherDetailCard(icon: "sunrise.fill", title: "Sunrise", value: vm.sunriseText)
+          WeatherDetailCard(icon: "sunset.fill", title: "Sunset", value: vm.sunsetText)
+          WeatherDetailCard(icon: vm.moonPhaseSymbolName, title: "Moon Phase", value: vm.moonPhaseText)
+          WeatherDetailCard(icon: "calendar.circle.fill", title: "Day of Year", value: vm.dayOfYearText)
+        }
+      }
+    }
+  }
+  
+  // A short Apple Intelligence-generated quote about the current weather
+  @ViewBuilder
+  private var quoteView: some View {
+    if !vm.weatherQuote.isEmpty {
+      Text("\u{201C}\(vm.weatherQuote)\u{201D}")
+        .font(.footnote)
+        .italic()
+        .multilineTextAlignment(.center)
+        .opacity(0.85)
+        .padding(.horizontal, 24)
+        .shadow(radius: 3)
+        .transition(.opacity)
+    }
+  }
+  
   private var lastUpdatedTimeView: some View {
     Text("Updated \(vm.lastUpdatedAt)")
       .font(.caption)
@@ -138,7 +172,7 @@ struct WeatherDetailView: View {
 
       exploreGroup(title: "Forecast") {
         ExploreTile(destination: HourlyForecastView(vm: vm), label: "Hourly", imageName: "clock.fill", accessibilityIdentifier: "goToHourlyForecast")
-        ExploreTile(destination: DailyForecastView(vm: vm), label: "7-Day", imageName: "calendar", accessibilityIdentifier: "goToDailyForecast")
+        ExploreTile(destination: DailyForecastView(vm: vm), label: "Daily", imageName: "calendar", accessibilityIdentifier: "goToDailyForecast")
         ExploreTile(destination: WeatherAlertsView(vm: vm), label: "Alerts", imageName: "exclamationmark.triangle.fill", accessibilityIdentifier: "goToAlerts")
       }
 
@@ -147,12 +181,13 @@ struct WeatherDetailView: View {
         ExploreTile(destination: PhotoGalleryView(), label: "Photo Gallery", imageName: "photo.on.rectangle.angled", accessibilityIdentifier: "goToPhotos")
         ExploreTile(destination: ContactUsView(), label: "Contact Us", imageName: "envelope.fill", accessibilityIdentifier: "goToContactUs")
         ExploreTile(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.isLocationButtonTapped ? vm.userLocation : vm.selectedCityLocation), label: "Map", imageName: "map", accessibilityIdentifier: "goToMapView")
+        ExploreTile(destination: AirQualityView(vm: vm), label: "Air Quality", imageName: "aqi.medium", accessibilityIdentifier: "goToAirQuality")
       }
     }
     .frame(maxWidth: .infinity, alignment: .leading)
   }
 
-  private func exploreGroup(title: String, @ViewBuilder tiles: () -> some View) -> some View {
+  private func exploreGroup(title: LocalizedStringKey, @ViewBuilder tiles: () -> some View) -> some View {
     VStack(alignment: .leading, spacing: 8) {
       Text(title)
         .font(.subheadline.weight(.semibold))
@@ -194,9 +229,10 @@ struct WeatherDetailView: View {
     Task {
       if !newValue.isEmpty {
         vm.getLocationFromCityName()
-        vm.fetchWeather()
         vm.forecast = nil
         vm.forecastFailed = false
+        vm.weatherQuote = ""
+        vm.fetchWeather()
       }
     }
   }
@@ -212,7 +248,7 @@ struct WeatherDetailView: View {
 // A single stat card used in the weather details grid
 private struct WeatherDetailCard: View {
   let icon: String
-  let title: String
+  let title: LocalizedStringKey
   let value: String
 
   var body: some View {
@@ -245,7 +281,7 @@ private struct WeatherDetailCard: View {
 // itself (not an inner Text) so it stays a reliable app.buttons[...] target.
 private struct ExploreTile<Destination: View>: View {
   let destination: Destination
-  let label: String
+  let label: LocalizedStringKey
   let imageName: String
   let accessibilityIdentifier: String
 

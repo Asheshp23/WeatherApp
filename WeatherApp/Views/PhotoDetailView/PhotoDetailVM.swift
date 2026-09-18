@@ -497,7 +497,7 @@ class PhotoDetailVM {
     guard let imageData = filteredImage.pngData() else {
       DispatchQueue.main.async {
         self.showAlert.toggle()
-        self.message = "Failed to convert image to PNG."
+        self.message = String(localized: "photo_save_png_failed", defaultValue: "Failed to convert image to PNG.")
       }
       return
     }
@@ -510,7 +510,7 @@ class PhotoDetailVM {
     } catch {
       DispatchQueue.main.async {
         self.showAlert.toggle()
-        self.message = "Failed to save image file."
+        self.message = String(localized: "photo_save_file_failed", defaultValue: "Failed to save image file.")
       }
       print("File write error: \(error)")
       return
@@ -531,7 +531,7 @@ class PhotoDetailVM {
       albumChangeRequest.addAssets([assetPlaceholder] as NSArray)
       DispatchQueue.main.async {
         self.showAlert.toggle()
-        self.message = "Image saved successfully."
+        self.message = String(localized: "photo_save_success", defaultValue: "Image saved successfully.")
         self.startEditing = false
       }
       do {

@@ -20,10 +20,10 @@ struct HourlyForecastView: View {
   @ViewBuilder
   private var content: some View {
     if let hours = vm.forecast?.forecast?.forecastday.first?.hour {
-      ScrollView(.horizontal) {
-        LazyHStack(spacing: 12) {
+      ScrollView {
+        LazyVStack(spacing: 8) {
           ForEach(hours) { hour in
-            HourCard(hour: hour, tempUnit: vm.tempUnit)
+            HourRow(hour: hour, tempUnit: vm.tempUnit)
           }
         }
         .padding()
@@ -44,7 +44,7 @@ struct HourlyForecastView: View {
   }
 }
 
-private struct HourCard: View {
+private struct HourRow: View {
   let hour: HourModel
   let tempUnit: TemperatureUnit
 
@@ -62,6 +62,7 @@ private struct HourCard: View {
 
   private var timeLabel: String {
     guard let date = Self.inputFormatter.date(from: hour.time) else { return hour.time }
+    if Calendar.current.isDate(date, equalTo: Date(), toGranularity: .hour) { return "Now" }
     return Self.displayFormatter.string(from: date)
   }
 
@@ -70,20 +71,34 @@ private struct HourCard: View {
     return "\(Int(value.rounded()))°"
   }
 
+  private var precipitationChance: Int {
+    max(hour.chanceOfRain, hour.chanceOfSnow)
+  }
+
   var body: some View {
-    VStack(spacing: 8) {
+    HStack(spacing: 12) {
       Text(timeLabel)
-        .font(.caption)
-        .fontWeight(.medium)
+        .font(.body.weight(.semibold))
+        .frame(width: 60, alignment: .leading)
       Image(systemName: hour.condition.weatherCondition.symbolName(isDay: hour.isDay == 1))
         .symbolRenderingMode(.multicolor)
-        .font(.title2)
+        .frame(width: 30)
+      if precipitationChance > 0 {
+        HStack(spacing: 2) {
+          Image(systemName: "drop.fill")
+            .font(.caption2)
+          Text("\(precipitationChance)%")
+            .font(.caption)
+        }
+        .foregroundStyle(.cyan)
+      }
+      Spacer()
       Text(temperature)
         .font(.headline)
+        .fontWeight(.semibold)
     }
-    .padding(.vertical, 12)
-    .padding(.horizontal, 10)
-    .glassSurface(cornerRadius: Radius.control)
+    .padding(12)
+    .glassSurface(cornerRadius: Radius.card)
   }
 }
 

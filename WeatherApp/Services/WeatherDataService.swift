@@ -21,7 +21,8 @@ struct WeatherDataService: WeatherServiceProtocol {
     try await get(path: "current.json", parameters: [
       "key": Helper.getApiKey(),
       "q": city,
-      "aqi": "no"
+      "aqi": "yes",
+      "lang": Self.weatherApiLanguageCode
     ])
   }
   
@@ -38,8 +39,15 @@ struct WeatherDataService: WeatherServiceProtocol {
       "q": city,
       "days": "\(days)",
       "alerts": "yes",
-      "aqi": "no"
+      "aqi": "no",
+      "lang": Self.weatherApiLanguageCode
     ])
+  }
+  
+  // weatherapi.com translates `condition.text` server-side when given a supported
+  // language code. Unsupported codes are ignored by the API and fall back to English.
+  private static var weatherApiLanguageCode: String {
+    Locale.current.language.languageCode?.identifier ?? "en"
   }
   
   private func get<T: Decodable>(path: String, parameters: [String: String]) async throws -> T {

@@ -12,6 +12,17 @@ enum FilterPreset: String, CaseIterable, Identifiable {
 
   var id: String { rawValue }
 
+  var displayName: String {
+    switch self {
+    case .none: return String(localized: "filter_original", defaultValue: "Original")
+    case .mono: return String(localized: "filter_mono", defaultValue: "Mono")
+    case .sepia: return String(localized: "filter_sepia", defaultValue: "Sepia")
+    case .vivid: return String(localized: "filter_vivid", defaultValue: "Vivid")
+    case .cool: return String(localized: "filter_cool", defaultValue: "Cool")
+    case .warm: return String(localized: "filter_warm", defaultValue: "Warm")
+    }
+  }
+
   private static let context = CIContext()
 
   func apply(to image: UIImage) -> UIImage {

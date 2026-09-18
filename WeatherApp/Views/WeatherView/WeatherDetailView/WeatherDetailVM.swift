@@ -4,6 +4,7 @@ import CoreLocation
 
 final class WeatherDetailVM: ObservableObject {
   let weatherService: WeatherServiceProtocol
+  let quoteService: WeatherQuoteServiceProtocol
   
   @Published var weather: WeatherModel?
   @Published var isLoading = false
@@ -18,21 +19,23 @@ final class WeatherDetailVM: ObservableObject {
   @Published var cityName: String = ""
   @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
   @Published var selectedCityLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(20.0, -30.0)
+  @Published var weatherQuote: String = ""
+  @Published var isGeneratingQuote = false
   
   var temperature: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     let temperatureValue = tempUnit == .celcius ? weather.current.tempC : weather.current.tempF
     return Helper.formatTemperature(temperatureValue, unit: tempUnit)
   }
   
   var feelslike: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     let feelslikeValue = tempUnit == .celcius ? weather.current.feelslikeC : weather.current.feelslikeF
     return Helper.formatTemperature(feelslikeValue, unit: tempUnit)
   }
   
   var lastUpdatedAt: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     let lastUpdatedDate = Date(timeIntervalSince1970: TimeInterval(weather.current.lastUpdatedEpoch))
     return Helper.timeAgoSince(lastUpdatedDate)
   }
@@ -47,50 +50,90 @@ final class WeatherDetailVM: ObservableObject {
   }
   
   var windText: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     let speed = tempUnit == .celcius ? weather.current.windKph : weather.current.windMph
     let unit = tempUnit == .celcius ? "km/h" : "mph"
     return "\(Int(speed.rounded())) \(unit) \(weather.current.windDir)"
   }
   
   var humidityText: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     return "\(weather.current.humidity)%"
   }
   
   var uvIndexText: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     return "\(Int(weather.current.uv.rounded()))"
   }
   
   var uvDescription: String {
     guard let weather = weather else { return "" }
     switch weather.current.uv {
-    case ..<3: return "Low"
-    case 3..<6: return "Moderate"
-    case 6..<8: return "High"
-    case 8..<11: return "Very High"
-    default: return "Extreme"
+    case ..<3: return String(localized: "uv_low", defaultValue: "Low")
+    case 3..<6: return String(localized: "uv_moderate", defaultValue: "Moderate")
+    case 6..<8: return String(localized: "uv_high", defaultValue: "High")
+    case 8..<11: return String(localized: "uv_very_high", defaultValue: "Very High")
+    default: return String(localized: "uv_extreme", defaultValue: "Extreme")
     }
   }
   
   var visibilityText: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     let distance = tempUnit == .celcius ? weather.current.visKm : weather.current.visMiles
     let unit = tempUnit == .celcius ? "km" : "mi"
     return "\(Int(distance.rounded())) \(unit)"
   }
   
   var pressureText: String {
-    guard let weather = weather else { return localizedString("not_available") }
+    guard let weather = weather else { return notAvailableText }
     if tempUnit == .celcius {
       return "\(Int(weather.current.pressureMb.rounded())) hPa"
     }
     return String(format: "%.2f inHg", weather.current.pressureIn)
   }
   
-  init(weatherService: WeatherServiceProtocol, initialCity: String? = nil, initialWeather: WeatherModel? = nil) {
+  // Today's astro data (sunrise/sunset/moon), sourced from the 7-day forecast.
+  var todayAstro: AstroModel? {
+    forecast?.forecast?.forecastday.first?.astro
+  }
+  
+  var sunriseText: String {
+    todayAstro?.sunrise ?? notAvailableText
+  }
+  
+  var sunsetText: String {
+    todayAstro?.sunset ?? notAvailableText
+  }
+  
+  var moonPhaseText: String {
+    guard let astro = todayAstro else { return notAvailableText }
+    return "\(astro.localizedMoonPhase) · \(Int(astro.moonIllumination.rounded()))%"
+  }
+  
+  var moonPhaseSymbolName: String {
+    todayAstro?.moonPhaseSymbolName ?? "moonphase.full.moon"
+  }
+  
+  var dayOfYearText: String {
+    let today = Date()
+    return "Day \(today.dayOfYear) of \(today.daysInYear)"
+  }
+  
+  var airQuality: AirQualityModel? {
+    weather?.current.airQuality
+  }
+  
+  var aqiCategoryText: String {
+    airQuality?.usEpaCategory ?? notAvailableText
+  }
+  
+  var aqiSymbolName: String {
+    airQuality?.symbolName ?? "aqi.medium"
+  }
+  
+  init(weatherService: WeatherServiceProtocol, quoteService: WeatherQuoteServiceProtocol = WeatherQuoteService(), initialCity: String? = nil, initialWeather: WeatherModel? = nil) {
     self.weatherService = weatherService
+    self.quoteService = quoteService
     if let initialCity {
       self.selectedCity = initialCity
     }
@@ -112,9 +155,26 @@ final class WeatherDetailVM: ObservableObject {
       do {
         self.weather = try await self.weatherService.fetchCurrentWeather(for: selectedCity)
         UserDefaults.standard.set(selectedCity, forKey: "lastSelectedCity")
+        loadForecastIfNeeded()
+        generateQuoteIfNeeded()
       } catch {
         print(error.localizedDescription)
       }
+    }
+  }
+  
+  // generate a short Apple Intelligence quote about the current weather, once per city
+  @MainActor
+  func generateQuoteIfNeeded() {
+    guard !isGeneratingQuote, let weather = weather else { return }
+    isGeneratingQuote = true
+    Task {
+      defer { isGeneratingQuote = false }
+      weatherQuote = await quoteService.generateQuote(
+        cityName: weather.location.name,
+        condition: weather.current.condition.text,
+        temperature: tempUnit == .celcius ? "\(Int(weather.current.tempC.rounded()))" : "\(Int(weather.current.tempF.rounded()))"
+      )
     }
   }
   
@@ -180,9 +240,8 @@ final class WeatherDetailVM: ObservableObject {
     }
   }
   
-  private func localizedString(_ key: String) -> String {
-    // Localize string based on the current locale
-    return NSLocalizedString(key, comment: "")
+  private var notAvailableText: String {
+    String(localized: "not_available", defaultValue: "Not available")
   }
   
   @MainActor

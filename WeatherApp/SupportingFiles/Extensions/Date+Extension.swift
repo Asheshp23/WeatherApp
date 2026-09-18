@@ -1,6 +1,16 @@
 import Foundation
 
 extension Date {
+  /// 1-based day-of-year, e.g. 260 for Sept 17th.
+  var dayOfYear: Int {
+    Calendar.current.ordinality(of: .day, in: .year, for: self) ?? 0
+  }
+
+  /// Total number of days in the year this date falls in (365 or 366).
+  var daysInYear: Int {
+    Calendar.current.range(of: .day, in: .year, for: self)?.count ?? 365
+  }
+
   func time(since fromDate: Date) -> String {
     let earliest = self < fromDate ? self : fromDate
     let latest = (earliest == self) ? fromDate : self

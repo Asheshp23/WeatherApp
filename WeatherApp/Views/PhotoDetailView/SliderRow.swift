@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SliderRow: View {
-  let text: String
+  let text: LocalizedStringKey
   let systemImage: String
   @Binding var value: Double
   let inRange: ClosedRange<Double>
