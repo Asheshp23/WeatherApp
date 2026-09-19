@@ -22,7 +22,7 @@ struct PhotoGalleryView: View {
                 .aspectRatio(1, contentMode: .fit)
               }
               .buttonStyle(GalleryThumbnailButtonStyle())
-              .accessibilityLabel("Photo \(index + 1)")
+              .accessibilityLabel("Photo \(index + 1) of \(images.count)")
             }
           }
           .padding(12)
@@ -48,7 +48,7 @@ struct PhotoGalleryView: View {
       ProgressView()
       Text("Loading photos…")
         .font(.subheadline)
-        .foregroundStyle(.secondary)
+        .foregroundStyle(.primary)
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
   }
@@ -58,11 +58,12 @@ struct PhotoGalleryView: View {
       Image(systemName: "photo.on.rectangle.angled")
         .font(.system(size: 44))
         .foregroundStyle(.secondary)
+        .accessibilityHidden(true)
       Text("Couldn't load photos")
         .font(.headline)
       Text("Check your connection and try again.")
         .font(.subheadline)
-        .foregroundStyle(.secondary)
+        .foregroundStyle(.primary)
       Button {
         task = Task { await vm.loadImages() }
       } label: {

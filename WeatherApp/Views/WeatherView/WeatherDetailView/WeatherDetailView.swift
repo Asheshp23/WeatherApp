@@ -4,6 +4,7 @@ import CoreLocation
 struct WeatherDetailView: View {
   @StateObject private var vm: WeatherDetailVM
   @State private var locationManager: LocationManager
+  @ScaledMetric(relativeTo: .largeTitle) private var temperatureFontSize: CGFloat = 64
 
   init(locationManager: LocationManager = LocationManager(), prefetchedCity: String? = nil, prefetchedWeather: WeatherModel? = nil) {
     _locationManager = State(wrappedValue: locationManager)
@@ -97,7 +98,7 @@ struct WeatherDetailView: View {
         .font(.system(size: 56))
         .shadow(radius: 6)
       Text("\(vm.temperature)°\(vm.temperatureUnitSymbol)")
-        .font(.system(size: 64, weight: .thin))
+        .font(.system(size: temperatureFontSize, weight: .thin))
         .shadow(radius: 5)
       Text(vm.weather?.current.condition.text ?? "Not available")
         .font(.title3)
@@ -168,6 +169,8 @@ struct WeatherDetailView: View {
     VStack(alignment: .leading, spacing: 16) {
       Text("Explore")
         .font(.headline)
+        .shadow(radius: 4)
+        .accessibilityAddTraits(.isHeader)
         .padding(.leading, 4)
 
       exploreGroup(title: "Forecast") {
@@ -192,6 +195,8 @@ struct WeatherDetailView: View {
       Text(title)
         .font(.subheadline.weight(.semibold))
         .opacity(0.85)
+        .shadow(radius: 3)
+        .accessibilityAddTraits(.isHeader)
         .padding(.leading, 4)
       LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
         tiles()
@@ -206,6 +211,7 @@ struct WeatherDetailView: View {
         .resizable()
         .frame(width: 24, height: 24)
         .padding(.leading)
+        .shadow(radius: 3)
     }
     .accessibilityLabel("Use current location")
   }
@@ -214,6 +220,7 @@ struct WeatherDetailView: View {
     Button(action: vm.handleShowCityListButtonTap) {
       Image(systemName: "chevron.down")
         .font(Font.system(size: 26))
+        .shadow(radius: 3)
     }
     .accessibilityIdentifier("goToCityList")
     .accessibilityLabel("Choose a city")

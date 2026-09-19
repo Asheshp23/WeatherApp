@@ -15,6 +15,7 @@ struct StyledNavigationLink<Destination: View>: View {
             .aspectRatio(contentMode: .fit)
             .frame(width: 30, height: 30)
             .padding(.leading, 8.0)
+            .accessibilityHidden(true)
           Text(label)
             .font(.headline)
             .padding()
@@ -22,6 +23,7 @@ struct StyledNavigationLink<Destination: View>: View {
             .padding(.trailing, 8.0)
           Spacer()
         }
+        .foregroundStyle(.white)
         .frame(maxWidth: .infinity)
         .background(
           RoundedRectangle(cornerRadius: 8.0)

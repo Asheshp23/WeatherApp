@@ -14,8 +14,10 @@ struct ContactUsView: View {
             if vm.isNameValid() == false{
               Text("* only letters (a-z) are allowed.")
                 .foregroundColor(.red)
+                .bold()
             }
           }
+          .accessibilityElement(children: .combine)
           VStack(alignment: .leading){
             TextField("Email",text: $vm.email)
               .accessibilityIdentifier("userEmail")
@@ -24,8 +26,10 @@ struct ContactUsView: View {
             if vm.isEmailValid() == false{
               Text("* only letters (a-z), numbers (0-9) and periods(.) are allowed.")
                 .foregroundColor(.red)
+                .bold()
             }
           }
+          .accessibilityElement(children: .combine)
           VStack(alignment: .leading){
             TextField("Phone Number",text: $vm.phoneNumber)
               .accessibilityIdentifier("userPhoneNumber")
@@ -33,8 +37,10 @@ struct ContactUsView: View {
             if vm.isPhoneNumberValid() == false {
               Text("* only numbers (0-9) are allowed.")
                 .foregroundColor(.red)
+                .bold()
             }
           }
+          .accessibilityElement(children: .combine)
         }
 
         Section{
@@ -51,6 +57,7 @@ struct ContactUsView: View {
               }
             }
             .accessibilityIdentifier("sendButton")
+            .accessibilityHint(vm.isDataComplete ? "Sends your contact information to customer support" : "Complete all fields correctly to enable sending")
             Spacer()
           }
         }.disabled(!vm.isDataComplete)

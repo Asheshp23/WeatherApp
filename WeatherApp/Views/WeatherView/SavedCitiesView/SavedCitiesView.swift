@@ -39,6 +39,7 @@ struct SavedCitiesView: View {
     HStack(spacing: 8) {
       Image(systemName: "magnifyingglass")
         .foregroundStyle(.secondary)
+        .accessibilityHidden(true)
       TextField("Search to add a city", text: $query)
         .accessibilityIdentifier("savedCitiesSearchField")
         .submitLabel(.search)
@@ -106,6 +107,7 @@ struct SavedCitiesView: View {
         HStack {
           Image(systemName: "star.fill")
             .foregroundStyle(.yellow)
+            .accessibilityHidden(true)
           VStack(alignment: .leading, spacing: 2) {
             Text(city.name)
               .font(.body.weight(.semibold))
@@ -118,6 +120,7 @@ struct SavedCitiesView: View {
           Spacer()
         }
       }
+      .accessibilityLabel(city.subtitle.isEmpty ? city.name : "\(city.name), \(city.subtitle)")
       Button {
         store.remove(city)
       } label: {
@@ -144,6 +147,7 @@ struct SavedCitiesView: View {
                   .foregroundStyle(.secondary)
               }
             }
+            .accessibilityElement(children: .combine)
             Spacer()
             Button {
               store.add(city)
@@ -153,6 +157,7 @@ struct SavedCitiesView: View {
                 .foregroundStyle(store.contains(id: city.id) ? .green : .white)
             }
             .disabled(store.contains(id: city.id))
+            .accessibilityLabel(store.contains(id: city.id) ? "\(city.name) added" : "Add \(city.name)")
           }
           .padding(12)
           .glassSurface(cornerRadius: Radius.card)

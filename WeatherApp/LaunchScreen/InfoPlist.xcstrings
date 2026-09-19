@@ -22,6 +22,24 @@
             "state" : "machine_translated",
             "value" : "Weatherly Studio"
           }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
         }
       }
     },
@@ -42,6 +60,24 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherApp"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherApp"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherApp"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "WeatherApp"
@@ -70,6 +106,24 @@
             "state" : "machine_translated",
             "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
           }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
+          }
         }
       }
     },
@@ -93,6 +147,24 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
           }
         }
       }
@@ -118,6 +190,24 @@
             "state" : "machine_translated",
             "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
           }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
+          }
         }
       }
     },
@@ -142,6 +232,24 @@
             "state" : "machine_translated",
             "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
           }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
+          }
         }
       }
     },
@@ -165,6 +273,24 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Autorisez-nous à accéder à votre photothèque pour vous montrer vos photos modifiées."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સંપાદિત ફોટા બતાવવા માટે અમને તમારી ફોટો લાઇબ્રેરી ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संपादित फ़ोटो दिखाने के लिए हमें अपनी फ़ोटो लाइब्रेरी एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੰਪਾਦਿਤ ਫ਼ੋਟੋਆਂ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਫ਼ੋਟੋ ਲਾਇਬ੍ਰੇਰੀ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
           }
         }
       }

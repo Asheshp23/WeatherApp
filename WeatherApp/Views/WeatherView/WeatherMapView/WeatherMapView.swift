@@ -12,7 +12,7 @@ struct WeatherMapView: View {
       Annotation(cityName, coordinate: userLocation) {
         ZStack {
           RoundedRectangle(cornerRadius: 5)
-            .fill(Color.teal.opacity(0.7))
+            .fill(Color(red: 0.0, green: 0.35, blue: 0.4))
           Text(temperature)
             .bold()
             .padding(12.0)

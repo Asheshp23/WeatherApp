@@ -16,6 +16,30 @@
             "state" : "machine_translated",
             "value" : "Weatherly Studio"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
         }
       }
     },
@@ -30,6 +54,30 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherWidgetExtension"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherWidgetExtension"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherWidgetExtension"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherWidgetExtension"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "WeatherWidgetExtension"
@@ -52,6 +100,30 @@
             "state" : "machine_translated",
             "value" : ""
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
         }
       }
     },
@@ -69,6 +141,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Permítenos acceder a tu ubicación para mostrarte el clima de tu ciudad."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
           }
         }
       }
@@ -88,6 +184,30 @@
             "state" : "machine_translated",
             "value" : "Permítenos localizarte."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Autorisez-nous à vous localiser"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમને તમારું સ્થાન જાણવા દો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हमें आपका स्थान जानने दें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਜਾਣਨ ਦਿਓ"
+          }
         }
       }
     },
@@ -106,6 +226,30 @@
             "state" : "machine_translated",
             "value" : "Permítenos acceder a tu ubicación para mostrarte el clima de tu ciudad."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Autorisez-nous à accéder à votre position pour vous indiquer la météo de votre ville."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા શહેરનું હવામાન બતાવવા માટે અમને તમારું સ્થાન ઍક્સેસ કરવાની મંજૂરી આપો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने शहर का मौसम दिखाने के लिए हमें अपना स्थान एक्सेस करने की अनुमति दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੇ ਸ਼ਹਿਰ ਦਾ ਮੌਸਮ ਦਿਖਾਉਣ ਲਈ ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਵਰਤਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।"
+          }
         }
       }
     },
@@ -123,6 +267,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Permítenos localizarte."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "autorisez-nous à vous localiser."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમને તમારું સ્થાન જાણવા દો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हमें आपका स्थान जानने दें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਨੂੰ ਤੁਹਾਡੀ ਟਿਕਾਣਾ ਜਾਣਨ ਦਿਓ।"
           }
         }
       }

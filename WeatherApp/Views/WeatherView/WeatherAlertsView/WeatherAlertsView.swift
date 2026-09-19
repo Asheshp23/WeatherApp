@@ -65,8 +65,10 @@ private struct AlertCard: View {
       HStack {
         Image(systemName: "exclamationmark.triangle.fill")
           .foregroundStyle(severityColor)
+          .accessibilityLabel("\(alert.severity.capitalized) severity")
         Text(alert.event.isEmpty ? alert.headline : alert.event)
           .font(.headline)
+          .accessibilityAddTraits(.isHeader)
         Spacer()
       }
       if !alert.effective.isEmpty || !alert.expires.isEmpty {
@@ -87,6 +89,7 @@ private struct AlertCard: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(12)
     .glassSurface(cornerRadius: Radius.card)
+    .accessibilityElement(children: .combine)
   }
 }
 

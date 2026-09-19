@@ -15,7 +15,7 @@ struct SliderRow: View {
         .font(.subheadline)
         .frame(width: 78, alignment: .leading)
       Slider(value: $value, in: inRange, step: 0.1)
-      Text(String(format: "%.1f", value))
+      Text(Helper.localizedNumber(value, fractionDigits: 1))
         .font(.caption)
         .foregroundStyle(.secondary)
         .monospacedDigit()

@@ -68,7 +68,7 @@ private struct HourRow: View {
 
   private var temperature: String {
     let value = tempUnit == .celcius ? hour.tempC : hour.tempF
-    return "\(Int(value.rounded()))°"
+    return "\(Helper.localizedNumber(Int(value.rounded())))°"
   }
 
   private var precipitationChance: Int {
@@ -83,12 +83,15 @@ private struct HourRow: View {
       Image(systemName: hour.condition.weatherCondition.symbolName(isDay: hour.isDay == 1))
         .symbolRenderingMode(.multicolor)
         .frame(width: 30)
+        .accessibilityLabel(hour.condition.text)
       if precipitationChance > 0 {
         HStack(spacing: 2) {
           Image(systemName: "drop.fill")
             .font(.caption2)
-          Text("\(precipitationChance)%")
+            .accessibilityHidden(true)
+          Text("\(Helper.localizedNumber(precipitationChance))%")
             .font(.caption)
+            .accessibilityLabel("\(precipitationChance)% chance of precipitation")
         }
         .foregroundStyle(.cyan)
       }
@@ -99,6 +102,7 @@ private struct HourRow: View {
     }
     .padding(12)
     .glassSurface(cornerRadius: Radius.card)
+    .accessibilityElement(children: .combine)
   }
 }
 

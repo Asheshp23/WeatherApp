@@ -8,11 +8,66 @@
             "state" : "machine_translated",
             "value" : ""
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
         }
       }
     },
     "“%@”" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "« %@ »"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@”"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@”"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "“%@”"
+          }
+        }
+      }
     },
     "* only letters (a-z) are allowed." : {
       "localizations" : {
@@ -20,6 +75,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "* Solo se permiten letras (a-z)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* Seules les lettres (a-z) sont autorisées."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ફક્ત અક્ષરો (a-z) જ માન્ય છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* केवल अक्षर (a-z) मान्य हैं।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ਸਿਰਫ਼ ਅੱਖਰ (a-z) ਹੀ ਮਨਜ਼ੂਰ ਹਨ।"
           }
         }
       }
@@ -31,6 +110,30 @@
             "state" : "machine_translated",
             "value" : "* Solo se permiten letras (a-z), números (0-9) y puntos (.)."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* Seules les lettres (a-z), les chiffres (0-9) et les points (.) sont autorisés."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ફક્ત અક્ષરો (a-z), અંકો (0-9) અને પૂર્ણવિરામ (.) જ માન્ય છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* केवल अक्षर (a-z), अंक (0-9) और बिंदु (.) मान्य हैं।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ਸਿਰਫ਼ ਅੱਖਰ (a-z), ਅੰਕ (0-9) ਅਤੇ ਬਿੰਦੀਆਂ (.) ਹੀ ਮਨਜ਼ੂਰ ਹਨ।"
+          }
         }
       }
     },
@@ -40,6 +143,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "* Solo se permiten números (0-9)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* Seuls les chiffres (0-9) sont autorisés."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ફક્ત અંકો (0-9) જ માન્ય છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* केवल अंक (0-9) मान्य हैं।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "* ਸਿਰਫ਼ ਅੰਕ (0-9) ਹੀ ਮਨਜ਼ੂਰ ਹਨ।"
           }
         }
       }
@@ -51,12 +178,60 @@
             "state" : "machine_translated",
             "value" : "%.0f°C"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%.0f °C"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%.0f°C"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%.0f°C"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%.0f°C"
+          }
         }
       }
     },
     "%@" : {
       "localizations" : {
         "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "%@"
@@ -77,6 +252,132 @@
             "state" : "machine_translated",
             "value" : "%1$@ – %2$@"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ – %2$@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ – %@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ – %@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ – %@"
+          }
+        }
+      }
+    },
+    "%@ added" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ añadida"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ajoutée"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ઉમેરાયું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ जोड़ा गया"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਜੋੜਿਆ ਗਿਆ"
+          }
+        }
+      }
+    },
+    "%@ severity" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gravedad: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gravité : %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ગંભીરતા: %@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "गंभीरता: %@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਗੰਭੀਰਤਾ: %@"
+          }
+        }
+      }
+    },
+    "%@%%" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@%%"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@%%"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@%%"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@%%"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@%%"
+          }
         }
       }
     },
@@ -93,12 +394,60 @@
             "state" : "machine_translated",
             "value" : "%1$@°%2$@"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@°%2$@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@°%@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@°%@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@°%@"
+          }
         }
       }
     },
     "%lld" : {
       "localizations" : {
         "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "%lld"
@@ -155,12 +504,73 @@
               }
             }
           }
+        },
+        "fr" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Prévisions sur %lld jour"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "machine_translated",
+                  "value" : "Prévisions sur %lld jours"
+                }
+              }
+            }
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld-દિવસનું પૂર્વાનુમાન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld-दिन का पूर्वानुमान"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld-ਦਿਨਾਂ ਦਾ ਪੂਰਵ ਅਨੁਮਾਨ"
+          }
         }
       }
     },
     "%lld%%" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%%"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%%"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%%"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%%"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "%lld%%"
@@ -168,8 +578,73 @@
         }
       }
     },
+    "%lld%% chance of precipitation" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%% de probabilidad de precipitación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%% de probabilité de précipitations"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "વરસાદની %lld%% શક્યતા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%% वर्षा की संभावना"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%% ਵਰਖਾ ਦੀ ਸੰਭਾਵਨਾ"
+          }
+        }
+      }
+    },
     "°%@" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "°%@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "°%@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "°%@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "°%@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "°%@"
+          }
+        }
+      }
     },
     "Aa" : {
       "localizations" : {
@@ -177,6 +652,64 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Aa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aa"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aa"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aa"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aa"
+          }
+        }
+      }
+    },
+    "Add %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Añadir %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ajouter %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ઉમેરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ जोड़ें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਜੋੜੋ"
           }
         }
       }
@@ -188,6 +721,30 @@
             "state" : "machine_translated",
             "value" : "Añadir pegatina"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ajouter un autocollant"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્ટીકર ઉમેરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्टिकर जोड़ें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਟਿੱਕਰ ਜੋੜੋ"
+          }
         }
       }
     },
@@ -197,6 +754,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réglages"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ગોઠવણ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "समायोजन"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਮਾਯੋਜਨ"
           }
         }
       }
@@ -208,6 +789,30 @@
             "state" : "machine_translated",
             "value" : "Calidad del aire"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Qualité de l'air"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવાની ગુણવત્તા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "वायु गुणवत्ता"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਵਾ ਦੀ ਗੁਣਵੱਤਾ"
+          }
         }
       }
     },
@@ -217,6 +822,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Calidad del aire no disponible"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Qualité de l’air non disponible"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવાની ગુણવત્તા ઉપલબ્ધ નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "वायु गुणवत्ता उपलब्ध नहीं है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਵਾ ਦੀ ਗੁਣਵੱਤਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"
           }
         }
       }
@@ -228,6 +857,30 @@
             "state" : "machine_translated",
             "value" : "Alertas"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alertes"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ચેતવણીઓ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चेतावनियाँ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚੇਤਾਵਨੀਆਂ"
+          }
         }
       }
     },
@@ -237,6 +890,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Alertas no disponibles"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alertes non disponibles"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ચેતવણીઓ ઉપલબ્ધ નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चेतावनियाँ उपलब्ध नहीं हैं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚੇਤਾਵਨੀਆਂ ਉਪਲਬਧ ਨਹੀਂ ਹਨ"
           }
         }
       }
@@ -248,6 +925,30 @@
             "state" : "machine_translated",
             "value" : "También cambia las unidades de viento, visibilidad y presión."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Change également les unités de vent, de visibilité et de pression."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આ પવન, દૃશ્યતા અને દબાણના એકમો પણ બદલી નાખે છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यह हवा, दृश्यता और दबाव की इकाइयाँ भी बदल देता है।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਇਹ ਹਵਾ, ਦਿੱਖ ਅਤੇ ਦਬਾਅ ਦੀਆਂ ਇਕਾਈਆਂ ਵੀ ਬਦਲ ਦਿੰਦਾ ਹੈ।"
+          }
         }
       }
     },
@@ -257,6 +958,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Aplicar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Appliquer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લાગુ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लागू करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਲਾਗੂ ਕਰੋ"
           }
         }
       }
@@ -275,6 +1000,30 @@
             "state" : "machine_translated",
             "value" : "Buena"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bonne"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સારી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अच्छी"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚੰਗੀ"
+          }
         }
       }
     },
@@ -291,6 +1040,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Peligrosa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dangereuse"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "જોખમી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खतरनाक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਖ਼ਤਰਨਾਕ"
           }
         }
       }
@@ -309,6 +1082,30 @@
             "state" : "machine_translated",
             "value" : "Moderada"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Modérée"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મધ્યમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मध्यम"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦਰਮਿਆਨੀ"
+          }
         }
       }
     },
@@ -325,6 +1122,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Dañina a la salud"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mauvaise pour la santé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અસ્વસ્થ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अस्वस्थ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਗੈਰ-ਸਿਹਤਮੰਦ"
           }
         }
       }
@@ -343,6 +1164,30 @@
             "state" : "machine_translated",
             "value" : "Dañina a la salud de los grupos sensibles"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mauvaise pour les groupes sensibles"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સંવેદનશીલ જૂથો માટે અસ્વસ્થ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संवेदनशील समूहों के लिए अस्वस्थ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੰਵੇਦਨਸ਼ੀਲ ਸਮੂਹਾਂ ਲਈ ਗੈਰ-ਸਿਹਤਮੰਦ"
+          }
         }
       }
     },
@@ -359,6 +1204,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Desconocida"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Inconnue"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અજ્ઞાત"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अज्ञात"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਣਜਾਣ"
           }
         }
       }
@@ -377,6 +1246,30 @@
             "state" : "machine_translated",
             "value" : "Muy dañina a la salud"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Très mauvaise pour la santé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ખૂબ અસ્વસ્થ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बहुत अस्वस्थ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਬਹੁਤ ਗੈਰ-ਸਿਹਤਮੰਦ"
+          }
         }
       }
     },
@@ -386,6 +1279,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Inferior"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bas"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "નીચે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "नीचे"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹੇਠਾਂ"
           }
         }
       }
@@ -397,6 +1314,30 @@
             "state" : "machine_translated",
             "value" : "Brillo"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Luminosité"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તેજ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चमक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚਮਕ"
+          }
         }
       }
     },
@@ -406,6 +1347,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Celsius"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Celsius"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સેલ્સિયસ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सेल्सियस"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੈਲਸੀਅਸ"
           }
         }
       }
@@ -417,6 +1382,30 @@
             "state" : "machine_translated",
             "value" : "Comprueba tu conexión e inténtalo de nuevo."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vérifiez votre connexion et réessayez."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારું જોડાણ તપાસો અને ફરી પ્રયાસ કરો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपना कनेक्शन जांचें और फिर से प्रयास करें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+          }
         }
       }
     },
@@ -426,6 +1415,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Elegir una ciudad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Choisir une ville"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શહેર પસંદ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "शहर चुनें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸ਼ਹਿਰ ਚੁਣੋ"
           }
         }
       }
@@ -437,6 +1450,30 @@
             "state" : "machine_translated",
             "value" : "Borrar búsqueda"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Effacer la recherche"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શોધ સાફ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोज साफ़ करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਖੋਜ ਸਾਫ਼ ਕਰੋ"
+          }
         }
       }
     },
@@ -446,6 +1483,64 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Cerrar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Fermer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "બંધ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बंद करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਬੰਦ ਕਰੋ"
+          }
+        }
+      }
+    },
+    "Complete all fields correctly to enable sending" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Completa todos los campos correctamente para poder enviar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Remplissez correctement tous les champs pour pouvoir envoyer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મોકલવા માટે બધા ફીલ્ડ યોગ્ય રીતે ભરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "भेजने के लिए सभी फ़ील्ड सही ढंग से भरें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਭੇਜਣ ਲਈ ਸਾਰੇ ਖੇਤਰ ਸਹੀ ਢੰਗ ਨਾਲ ਭਰੋ"
           }
         }
       }
@@ -457,6 +1552,30 @@
             "state" : "machine_translated",
             "value" : "Contáctanos"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactez-nous"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમારો સંપર્ક કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संपर्क करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
+          }
         }
       }
     },
@@ -466,6 +1585,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Contáctanos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contactez-nous"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમારો સંપર્ક કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संपर्क करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
           }
         }
       }
@@ -477,6 +1620,30 @@
             "state" : "machine_translated",
             "value" : "Contraste"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contraste"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કોન્ટ્રાસ્ટ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कंट्रास्ट"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੰਟ੍ਰਾਸਟ"
+          }
         }
       }
     },
@@ -486,6 +1653,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "No se han podido cargar las fotos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impossible de charger les photos"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટા લોડ થઈ શક્યા નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो लोड नहीं हो सकीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋਆਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ"
           }
         }
       }
@@ -497,6 +1688,30 @@
             "state" : "machine_translated",
             "value" : "Diario"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Quotidien"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દૈનિક"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दैनिक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਰੋਜ਼ਾਨਾ"
+          }
         }
       }
     },
@@ -506,6 +1721,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Pronóstico diario"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prévisions quotidiennes"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દૈનિક પૂર્વાનુમાન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दैनिक पूर्वानुमान"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਰੋਜ਼ਾਨਾ ਪੂਰਵ ਅਨੁਮਾਨ"
           }
         }
       }
@@ -517,6 +1756,71 @@
             "state" : "machine_translated",
             "value" : "Día del año"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jour de l’année"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "વર્ષનો દિવસ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "वर्ष का दिन"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਲ ਦਾ ਦਿਨ"
+          }
+        }
+      }
+    },
+    "day_of_year_value" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Day %1$@ of %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Día %@ de %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jour %@ sur %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દિવસ %@, કુલ %@ માંથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दिन %@, कुल %@ में से"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦਿਨ %@, ਕੁੱਲ %@ ਵਿੱਚੋਂ"
+          }
         }
       }
     },
@@ -526,6 +1830,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Listo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Terminé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "થઈ ગયું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हो गया"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹੋ ਗਿਆ"
           }
         }
       }
@@ -537,6 +1865,30 @@
             "state" : "machine_translated",
             "value" : "Toca dos veces para cambiar entre Celsius y Fahrenheit"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Appuyez deux fois pour basculer entre Celsius et Fahrenheit."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સેલ્સિયસ અને ફેરનહીટ વચ્ચે બદલવા માટે બે વાર ટેપ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सेल्सियस और फ़ारेनहाइट के बीच बदलने के लिए दो बार टैप करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੈਲਸੀਅਸ ਅਤੇ ਫਾਰਨਹੀਟ ਵਿਚਕਾਰ ਬਦਲਣ ਲਈ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ"
+          }
         }
       }
     },
@@ -546,6 +1898,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Editar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Modifier"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સંપાદિત કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संपादित करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੰਪਾਦਿਤ ਕਰੋ"
           }
         }
       }
@@ -557,6 +1933,30 @@
             "state" : "machine_translated",
             "value" : "Correo electrónico"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "E-mail"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઈમેલ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ईमेल"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਈਮੇਲ"
+          }
         }
       }
     },
@@ -566,6 +1966,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Explorar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Explorer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અન્વેષણ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "एक्सप्लोर करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਖੋਜੋ"
           }
         }
       }
@@ -577,6 +2001,30 @@
             "state" : "machine_translated",
             "value" : "Fahrenheit"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Fahrenheit"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફેરનહીટ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ारेनहाइट"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫਾਰਨਹੀਟ"
+          }
         }
       }
     },
@@ -586,6 +2034,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Sensación térmica de %@°"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ressenti de %@°"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@° જેવું લાગે છે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@° जैसा महसूस होता है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@° ਵਰਗਾ ਮਹਿਸੂਸ ਹੁੰਦਾ ਹੈ"
           }
         }
       }
@@ -604,6 +2076,30 @@
             "state" : "machine_translated",
             "value" : "Frío"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Froid"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઠંડુ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ठंडा"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਠੰਢਾ"
+          }
         }
       }
     },
@@ -620,6 +2116,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Monocromo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Monochrome"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મોનો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मोनो"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੋਨੋ"
           }
         }
       }
@@ -638,6 +2158,30 @@
             "state" : "machine_translated",
             "value" : "Original"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Original"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મૂળ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मूल"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੂਲ"
+          }
         }
       }
     },
@@ -654,6 +2198,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Sepia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sépia"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સેપિયા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सीपिया"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੀਪੀਆ"
           }
         }
       }
@@ -672,6 +2240,30 @@
             "state" : "machine_translated",
             "value" : "Vivo"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vif"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "જીવંત"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "जीवंत"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਜੀਵੰਤ"
+          }
         }
       }
     },
@@ -689,6 +2281,30 @@
             "state" : "machine_translated",
             "value" : "Cálido"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chaud"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ગરમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "गर्म"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਗਰਮ"
+          }
         }
       }
     },
@@ -698,6 +2314,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Pronóstico"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prévisions"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પૂર્વાનુમાન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पूर्वानुमान"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪੂਰਵ ਅਨੁਮਾਨ"
           }
         }
       }
@@ -709,6 +2349,30 @@
             "state" : "machine_translated",
             "value" : "Pronóstico no disponible"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prévisions non disponibles"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પૂર્વાનુમાન ઉપલબ્ધ નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पूर्वानुमान उपलब्ध नहीं है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪੂਰਵ ਅਨੁਮਾਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"
+          }
         }
       }
     },
@@ -718,6 +2382,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Consulta las condiciones actuales de la ciudad seleccionada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Consultez les conditions actuelles de la ville sélectionnée."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારા પસંદ કરેલા શહેરની હાલની સ્થિતિ જુઓ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपने चुने हुए शहर की मौजूदा स्थिति देखें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਆਪਣੇ ਚੁਣੇ ਹੋਏ ਸ਼ਹਿਰ ਦੀ ਮੌਜੂਦਾ ਸਥਿਤੀ 'ਤੇ ਨਜ਼ਰ ਮਾਰੋ।"
           }
         }
       }
@@ -729,6 +2417,64 @@
             "state" : "machine_translated",
             "value" : "Hola"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bonjour"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "નમસ્તે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "नमस्ते"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਤ ਸ੍ਰੀ ਅਕਾਲ"
+          }
+        }
+      }
+    },
+    "High %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Máxima %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maximale %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મહત્તમ %@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अधिकतम %@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਵੱਧ ਤੋਂ ਵੱਧ %@"
+          }
         }
       }
     },
@@ -738,6 +2484,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Por horas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Horaire"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કલાકદીઠ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रति घंटा"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪ੍ਰਤੀ ਘੰਟਾ"
           }
         }
       }
@@ -749,6 +2519,30 @@
             "state" : "machine_translated",
             "value" : "Pronóstico por horas"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prévisions horaires"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કલાકદીઠ પૂર્વાનુમાન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रति घंटा पूर्वानुमान"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪ੍ਰਤੀ ਘੰਟਾ ਪੂਰਵ ਅਨੁਮਾਨ"
+          }
         }
       }
     },
@@ -758,6 +2552,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Humedad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Humidité"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ભેજ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "नमी"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਨਮੀ"
           }
         }
       }
@@ -769,6 +2587,30 @@
             "state" : "machine_translated",
             "value" : "I"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "D"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅ"
+          }
         }
       }
     },
@@ -778,6 +2620,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Inicial"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Début"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આગળ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आगे"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅੱਗੇ"
           }
         }
       }
@@ -789,6 +2655,64 @@
             "state" : "machine_translated",
             "value" : "Cargando fotos…"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chargement des photos…"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટા લોડ થઈ રહ્યા છે…"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो लोड हो रही हैं…"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋਆਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ…"
+          }
+        }
+      }
+    },
+    "Low %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mínima %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Minimale %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લઘુત્તમ %@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "न्यूनतम %@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਘੱਟੋ-ਘੱਟ %@"
+          }
         }
       }
     },
@@ -798,6 +2722,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Mapa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Carte"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "નકશો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मानचित्र"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਨਕਸ਼ਾ"
           }
         }
       }
@@ -809,6 +2757,30 @@
             "state" : "machine_translated",
             "value" : "Mín"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Min"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ન્યૂનતમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "न्यून"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਘੱਟੋ-ਘੱਟ"
+          }
         }
       }
     },
@@ -818,6 +2790,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Fase lunar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Phase lunaire"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ચંદ્ર કળા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चंद्र कला"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚੰਦਰ ਕਲਾ"
           }
         }
       }
@@ -836,6 +2832,30 @@
             "state" : "machine_translated",
             "value" : "Cuarto creciente"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Premier quartier"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પ્રથમ ચતુર્થાંશ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रथम चतुर्थांश"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪਹਿਲੀ ਤਿਮਾਹੀ"
+          }
         }
       }
     },
@@ -852,6 +2872,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Luna llena"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pleine lune"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પૂનમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पूर्णिमा"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪੂਰਨਮਾਸ਼ੀ"
           }
         }
       }
@@ -870,6 +2914,30 @@
             "state" : "machine_translated",
             "value" : "Cuarto menguante"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dernier quartier"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "છેલ્લું ચતુર્થાંશ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अंतिम चतुर्थांश"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਆਖਰੀ ਤਿਮਾਹੀ"
+          }
         }
       }
     },
@@ -886,6 +2954,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Luna nueva"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nouvelle lune"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમાસ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अमावस्या"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੱਸਿਆ"
           }
         }
       }
@@ -904,6 +2996,30 @@
             "state" : "machine_translated",
             "value" : "Luna menguante"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dernier croissant"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઘટતો અર્ધચંદ્ર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "घटता अर्धचंद्र"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਘਟਦਾ ਅਰਧ ਚੰਦ"
+          }
         }
       }
     },
@@ -920,6 +3036,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Luna gibosa menguante"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gibbeuse décroissante"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઘટતો ઉપચંદ્ર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "घटता उपचंद्र"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਘਟਦਾ ਉੱਪ ਚੰਦ"
           }
         }
       }
@@ -938,6 +3078,30 @@
             "state" : "machine_translated",
             "value" : "Luna creciente"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Premier croissant"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "વધતો અર્ધચંદ્ર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बढ़ता अर्धचंद्र"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਵਧਦਾ ਅਰਧ ਚੰਦ"
+          }
         }
       }
     },
@@ -955,6 +3119,30 @@
             "state" : "machine_translated",
             "value" : "Luna gibosa creciente"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gibbeuse croissante"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "વધતો ઉપચંદ્ર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बढ़ता उपचंद्र"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਵਧਦਾ ਉੱਪ ਚੰਦ"
+          }
         }
       }
     },
@@ -964,6 +3152,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Más"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Plus"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "વધુ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अधिक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹੋਰ"
           }
         }
       }
@@ -975,6 +3187,30 @@
             "state" : "machine_translated",
             "value" : "Nombre"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nom"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "નામ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "नाम"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਨਾਮ"
+          }
         }
       }
     },
@@ -984,6 +3220,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "No hay alertas activas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucune alerte active"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કોઈ સક્રિય ચેતવણી નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कोई सक्रिय चेतावनी नहीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੋਈ ਸਰਗਰਮ ਚੇਤਾਵਨੀ ਨਹੀਂ"
           }
         }
       }
@@ -995,6 +3255,30 @@
             "state" : "machine_translated",
             "value" : "No hay datos de pronóstico"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucune donnée de prévision"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પૂર્વાનુમાન ડેટા નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कोई पूर्वानुमान डेटा नहीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੋਈ ਪੂਰਵ ਅਨੁਮਾਨ ਡਾਟਾ ਨਹੀਂ"
+          }
         }
       }
     },
@@ -1005,6 +3289,30 @@
             "state" : "machine_translated",
             "value" : "No hay datos por horas"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucune donnée horaire"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કલાકદીઠ ડેટા નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कोई प्रति घंटा डेटा नहीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੋਈ ਪ੍ਰਤੀ ਘੰਟਾ ਡਾਟਾ ਨਹੀਂ"
+          }
         }
       }
     },
@@ -1014,6 +3322,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "No hay ciudades guardadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucune ville enregistrée"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કોઈ સાચવેલું શહેર નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कोई सहेजा हुआ शहर नहीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੋਈ ਸੁਰੱਖਿਅਤ ਸ਼ਹਿਰ ਨਹੀਂ"
           }
         }
       }
@@ -1032,6 +3364,30 @@
             "state" : "machine_translated",
             "value" : "No disponible"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Non disponible"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઉપલબ્ધ નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उपलब्ध नहीं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਉਪਲਬਧ ਨਹੀਂ"
+          }
         }
       }
     },
@@ -1041,6 +3397,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Aceptar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "OK"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઠીક છે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ठीक है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਠੀਕ ਹੈ"
           }
         }
       }
@@ -1052,15 +3432,104 @@
             "state" : "machine_translated",
             "value" : "Número de teléfono"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Numéro de téléphone"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોન નંબર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोन नंबर"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਨ ਨੰਬਰ"
+          }
         }
       }
     },
     "Photo %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Foto %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Photo %lld"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટો %lld"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो %lld"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋ %lld"
+          }
+        }
+      }
+    },
+    "Photo %lld of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Photo %1$lld of %2$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Foto %lld de %lld"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Photo %lld sur %lld"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટો %lld, કુલ %lld માંથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो %lld, कुल %lld में से"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋ %lld, ਕੁੱਲ %lld ਵਿੱਚੋਂ"
           }
         }
       }
@@ -1071,6 +3540,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Galería de fotos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Galerie photo"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટો ગેલેરી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो गैलरी"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋ ਗੈਲਰੀ"
           }
         }
       }
@@ -1089,6 +3582,30 @@
             "state" : "machine_translated",
             "value" : "No se ha podido guardar el archivo de imagen."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Échec de l'enregistrement du fichier image."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઇમેજ ફાઇલ સાચવવામાં નિષ્ફળ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "इमेज फ़ाइल सहेजने में विफल।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਇਮੇਜ ਫਾਈਲ ਸੰਭਾਲਣ ਵਿੱਚ ਅਸਫਲ।"
+          }
         }
       }
     },
@@ -1105,6 +3622,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "No se ha podido convertir la imagen a PNG."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Échec de la conversion de l'image en PNG."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઇમેજને PNG માં રૂપાંતરિત કરવામાં નિષ્ફળ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "इमेज को PNG में बदलने में विफल।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਇਮੇਜ ਨੂੰ PNG ਵਿੱਚ ਬਦਲਣ ਵਿੱਚ ਅਸਫਲ।"
           }
         }
       }
@@ -1123,6 +3664,30 @@
             "state" : "machine_translated",
             "value" : "Imagen guardada correctamente."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Image enregistrée avec succès."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઇમેજ સફળતાપૂર્વક સાચવવામાં આવી."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "इमेज सफलतापूर्वक सहेजी गई।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਇਮੇਜ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲੀ ਗਈ।"
+          }
         }
       }
     },
@@ -1132,6 +3697,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Fotos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Photos"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફોટા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़ोटो"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫ਼ੋਟੋਆਂ"
           }
         }
       }
@@ -1143,6 +3732,30 @@
             "state" : "machine_translated",
             "value" : "Presión"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pression"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દબાણ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दबाव"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦਬਾਅ"
+          }
         }
       }
     },
@@ -1152,6 +3765,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Desliza hacia abajo para actualizar en la pantalla principal e inténtalo de nuevo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tirez vers le bas pour actualiser l'écran principal, puis réessayez."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મુખ્ય સ્ક્રીન પર રિફ્રેશ કરવા માટે નીચે ખેંચો અને ફરી પ્રયાસ કરો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मुख्य स्क्रीन पर रीफ़्रेश करने के लिए नीचे खींचें और फिर से प्रयास करें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੁੱਖ ਸਕ੍ਰੀਨ 'ਤੇ ਤਾਜ਼ਾ ਕਰਨ ਲਈ ਹੇਠਾਂ ਖਿੱਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
           }
         }
       }
@@ -1163,6 +3800,30 @@
             "state" : "machine_translated",
             "value" : "Eliminar %@"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Supprimer %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ દૂર કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ हटाएं"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਹਟਾਓ"
+          }
         }
       }
     },
@@ -1172,6 +3833,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Restablecer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réinitialiser"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "રીસેટ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "रीसेट करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਰੀਸੈੱਟ ਕਰੋ"
           }
         }
       }
@@ -1183,6 +3868,30 @@
             "state" : "machine_translated",
             "value" : "Reintentar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réessayer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફરી પ્રયાસ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फिर से प्रयास करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+          }
         }
       }
     },
@@ -1192,6 +3901,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Saturación"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Saturation"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સંતૃપ્તિ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "संतृप्ति"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੰਤ੍ਰਿਪਤਤਾ"
           }
         }
       }
@@ -1203,6 +3936,30 @@
             "state" : "machine_translated",
             "value" : "Guardar"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સાચવો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सहेजें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੰਭਾਲੋ"
+          }
         }
       }
     },
@@ -1212,6 +3969,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Ciudades guardadas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Villes enregistrées"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સાચવેલા શહેરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सहेजे गए शहर"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੁਰੱਖਿਅਤ ਸ਼ਹਿਰ"
           }
         }
       }
@@ -1223,6 +4004,30 @@
             "state" : "machine_translated",
             "value" : "Busca arriba para añadir una ciudad a la que quieras tener acceso rápido."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Recherchez ci-dessus pour ajouter une ville à laquelle vous voulez accéder rapidement."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમે જે શહેરમાં ઝડપી ઍક્સેસ મેળવવા માંગો છો તેને ઉમેરવા માટે ઉપર શોધો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "जिस शहर तक आप जल्दी पहुंचना चाहते हैं, उसे जोड़ने के लिए ऊपर खोजें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਜਿਸ ਸ਼ਹਿਰ ਤੱਕ ਤੁਸੀਂ ਜਲਦੀ ਪਹੁੰਚ ਚਾਹੁੰਦੇ ਹੋ, ਉਸਨੂੰ ਜੋੜਨ ਲਈ ਉੱਪਰ ਖੋਜੋ।"
+          }
         }
       }
     },
@@ -1232,6 +4037,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Buscar una ciudad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Rechercher une ville"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શહેર શોધો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "शहर खोजें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸ਼ਹਿਰ ਖੋਜੋ"
           }
         }
       }
@@ -1243,6 +4072,30 @@
             "state" : "machine_translated",
             "value" : "Buscar para añadir una ciudad"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Rechercher pour ajouter une ville"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શહેર ઉમેરવા માટે શોધો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "शहर जोड़ने के लिए खोजें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸ਼ਹਿਰ ਜੋੜਨ ਲਈ ਖੋਜੋ"
+          }
         }
       }
     },
@@ -1252,6 +4105,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Búsqueda no disponible"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Recherche indisponible"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શોધ ઉપલબ્ધ નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोज उपलब्ध नहीं है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਖੋਜ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"
           }
         }
       }
@@ -1263,6 +4140,30 @@
             "state" : "machine_translated",
             "value" : "Buscando…"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Recherche en cours…"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "શોધી રહ્યા છીએ…"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "खोजा जा रहा है…"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਖੋਜ ਹੋ ਰਹੀ ਹੈ…"
+          }
         }
       }
     },
@@ -1272,6 +4173,98 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Enviar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Envoyer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મોકલો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "भेजें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਭੇਜੋ"
+          }
+        }
+      }
+    },
+    "Sends your contact information to customer support" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Envía tu información de contacto al servicio de atención al cliente"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Envoie vos coordonnées au service client"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારી સંપર્ક માહિતી ગ્રાહક સહાયને મોકલે છે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आपकी संपर्क जानकारी ग्राहक सहायता को भेजता है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡੀ ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਗਾਹਕ ਸਹਾਇਤਾ ਨੂੰ ਭੇਜਦਾ ਹੈ"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réglages"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સેટિંગ્સ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सेटिंग्स"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੈਟਿੰਗਾਂ"
           }
         }
       }
@@ -1283,6 +4276,30 @@
             "state" : "machine_translated",
             "value" : "Soleado"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ensoleillé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તડકો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "साफ़ धूप"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਧੁੱਪ"
+          }
         }
       }
     },
@@ -1292,6 +4309,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Amanecer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lever du soleil"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સૂર્યોદય"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सूर्योदय"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੂਰਜ ਚੜ੍ਹਨਾ"
           }
         }
       }
@@ -1303,6 +4344,30 @@
             "state" : "machine_translated",
             "value" : "Atardecer"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Coucher du soleil"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સૂર્યાસ્ત"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सूर्यास्त"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੂਰਜ ਡੁੱਬਣਾ"
+          }
         }
       }
     },
@@ -1312,6 +4377,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "F"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "F"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पी"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪਿ"
           }
         }
       }
@@ -1323,6 +4412,30 @@
             "state" : "machine_translated",
             "value" : "Toca + para añadir una pegatina. Arrástrala para moverla, pellizca para cambiar su tamaño y mantén pulsado para eliminarla."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Appuyez sur + pour ajouter un autocollant. Faites glisser pour déplacer, pincez pour redimensionner, appuyez longuement pour supprimer."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્ટીકર ઉમેરવા માટે + પર ટેપ કરો. ખસેડવા માટે ખેંચો, કદ બદલવા માટે પિંચ કરો, કાઢી નાખવા માટે લાંબા સમય સુધી દબાવો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्टिकर जोड़ने के लिए + पर टैप करें। स्थानांतरित करने के लिए खींचें, आकार बदलने के लिए पिंच करें, हटाने के लिए देर तक दबाएं।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਟਿੱਕਰ ਜੋੜਨ ਲਈ + 'ਤੇ ਟੈਪ ਕਰੋ। ਹਿਲਾਉਣ ਲਈ ਖਿੱਚੋ, ਆਕਾਰ ਬਦਲਣ ਲਈ ਪਿੰਚ ਕਰੋ, ਹਟਾਉਣ ਲਈ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਦਬਾਓ।"
+          }
         }
       }
     },
@@ -1332,6 +4445,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Unidad de temperatura"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Unité de température"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તાપમાન એકમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तापमान इकाई"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤਾਪਮਾਨ ਇਕਾਈ"
           }
         }
       }
@@ -1343,6 +4480,30 @@
             "state" : "machine_translated",
             "value" : "Unidad de temperatura"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Unité de température"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તાપમાન એકમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तापमान इकाई"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤਾਪਮਾਨ ਇਕਾਈ"
+          }
         }
       }
     },
@@ -1352,6 +4513,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Gracias por compartir tus datos de contacto con nosotros. Alguien de atención al cliente se pondrá en contacto contigo pronto."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Merci de nous avoir communiqué vos coordonnées. Un membre du service client vous contactera bientôt."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારી સંપર્ક વિગતો અમારી સાથે શેર કરવા બદલ આભાર. ગ્રાહક સહાયનો કોઈ વ્યક્તિ ટૂંક સમયમાં તમારો સંપર્ક કરશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अपना संपर्क विवरण हमारे साथ साझा करने के लिए धन्यवाद। ग्राहक सहायता से कोई व्यक्ति शीघ्र ही आपसे संपर्क करेगा।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਾਡੇ ਨਾਲ ਆਪਣੇ ਸੰਪਰਕ ਵੇਰਵੇ ਸਾਂਝੇ ਕਰਨ ਲਈ ਧੰਨਵਾਦ। ਗਾਹਕ ਸਹਾਇਤਾ ਤੋਂ ਕੋਈ ਵਿਅਕਤੀ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੇਗਾ।"
           }
         }
       }
@@ -1364,6 +4549,36 @@
             "state" : "new",
             "value" : "Adjust"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réglages"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ગોઠવણ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "समायोजन"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਮਾਯੋਜਨ"
+          }
         }
       }
     },
@@ -1374,6 +4589,36 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Crop"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Recorte"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Recadrage"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ક્રોપ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "क्रॉप"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕਰੌਪ"
           }
         }
       }
@@ -1386,6 +4631,36 @@
             "state" : "new",
             "value" : "Draw"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dibujo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dessin"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ડ્રો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ड्रॉ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਡਰਾਅ"
+          }
         }
       }
     },
@@ -1396,6 +4671,36 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Filters"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Filtros"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Filtres"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફિલ્ટર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फ़िल्टर"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਫਿਲਟਰ"
           }
         }
       }
@@ -1408,6 +4713,36 @@
             "state" : "new",
             "value" : "Stickers"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Stickers"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Autocollants"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્ટીકર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्टिकर"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਟਿੱਕਰ"
+          }
         }
       }
     },
@@ -1417,6 +4752,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Toronto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Toronto"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ટોરોન્ટો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "टोरंटो"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਟੋਰਾਂਟੋ"
           }
         }
       }
@@ -1428,6 +4787,30 @@
             "state" : "machine_translated",
             "value" : "Final"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Fin"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પાછળ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "पीछे"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪਿੱਛੇ"
+          }
         }
       }
     },
@@ -1437,6 +4820,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Intentar de nuevo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Réessayer"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ફરી પ્રયાસ કરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "फिर से प्रयास करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
           }
         }
       }
@@ -1448,6 +4855,30 @@
             "state" : "machine_translated",
             "value" : "Escribe aquí"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Écrivez ici"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અહીં લખો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यहां लिखें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਇੱਥੇ ਲਿਖੋ"
+          }
         }
       }
     },
@@ -1457,6 +4888,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Actualizado %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Mis à jour %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ અપડેટ થયું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ अपडेट किया गया"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ"
           }
         }
       }
@@ -1468,6 +4923,30 @@
             "state" : "machine_translated",
             "value" : "Índice de calidad del aire de la EPA de EE. UU."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Indice de qualité de l'air de l'EPA américaine"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "યુએસ EPA હવા ગુણવત્તા સૂચકાંક"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अमेरिकी EPA वायु गुणवत्ता सूचकांक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਮਰੀਕੀ EPA ਹਵਾ ਗੁਣਵੱਤਾ ਸੂਚਕਾਂਕ"
+          }
         }
       }
     },
@@ -1478,6 +4957,30 @@
             "state" : "machine_translated",
             "value" : "Usar la ubicación actual"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Utiliser la position actuelle"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હાલનું સ્થાન વાપરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौजूदा स्थान का उपयोग करें"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਜੂਦਾ ਟਿਕਾਣਾ ਵਰਤੋ"
+          }
         }
       }
     },
@@ -1487,6 +4990,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Índice UV"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Indice UV"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "યુવી ઇન્ડેક્સ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यूवी इंडेक्स"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਯੂਵੀ ਸੂਚਕਾਂਕ"
           }
         }
       }
@@ -1499,6 +5026,36 @@
             "state" : "new",
             "value" : "Extreme"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Extremo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Extrême"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અત્યંત"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अत्यधिक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਤਿਅੰਤ"
+          }
         }
       }
     },
@@ -1509,6 +5066,36 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "High"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Élevé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ઊંચું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "उच्च"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਉੱਚ"
           }
         }
       }
@@ -1527,6 +5114,30 @@
             "state" : "machine_translated",
             "value" : "Bajo"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Faible"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "નીચું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कम"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਘੱਟ"
+          }
         }
       }
     },
@@ -1543,6 +5154,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Moderado"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Modéré"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મધ્યમ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मध्यम"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦਰਮਿਆਨਾ"
           }
         }
       }
@@ -1561,6 +5196,30 @@
             "state" : "machine_translated",
             "value" : "Muy alto"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Très élevé"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ખૂબ ઊંચું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "बहुत उच्च"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਬਹੁਤ ਉੱਚ"
+          }
         }
       }
     },
@@ -1570,6 +5229,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Visibilidad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Visibilité"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દૃશ્યતા"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "दृश्यता"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਦਿੱਖ"
           }
         }
       }
@@ -1581,6 +5264,30 @@
             "state" : "machine_translated",
             "value" : "Aquí te mostraremos las alertas meteorológicas activas de %@."
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nous afficherons ici toutes les alertes météo actives pour %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "અમે અહીં %@ માટે કોઈપણ સક્રિય હવામાન ચેતવણીઓ બતાવીશું."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हम यहां %@ के लिए किसी भी सक्रिय मौसम चेतावनी को दिखाएंगे।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਸੀਂ ਇੱਥੇ %@ ਲਈ ਕੋਈ ਵੀ ਸਰਗਰਮ ਮੌਸਮ ਚੇਤਾਵਨੀਆਂ ਦਿਖਾਵਾਂਗੇ।"
+          }
         }
       }
     },
@@ -1590,6 +5297,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Alertas meteorológicas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alertes météo"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવામાન ચેતવણીઓ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौसम चेतावनियाँ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਸਮ ਚੇਤਾਵਨੀਆਂ"
           }
         }
       }
@@ -1601,12 +5332,60 @@
             "state" : "machine_translated",
             "value" : "Vista del mapa meteorológico"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vue de la carte météo"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવામાન નકશો દૃશ્ય"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौसम मानचित्र दृश्य"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਸਮ ਨਕਸ਼ਾ ਦ੍ਰਿਸ਼"
+          }
         }
       }
     },
     "Weatherly Studio" : {
       "localizations" : {
         "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Studio"
+          }
+        },
+        "pa" : {
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Weatherly Studio"
@@ -1621,6 +5400,30 @@
             "state" : "machine_translated",
             "value" : "Weatherly Weather"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Weather"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Weather"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Weather"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Weatherly Weather"
+          }
         }
       }
     },
@@ -1630,6 +5433,30 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Viento"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vent"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પવન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हवा"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਵਾ"
           }
         }
       }
@@ -1641,11 +5468,66 @@
             "state" : "machine_translated",
             "value" : "Tu cielo, bellamente pronosticado"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Votre ciel, magnifiquement prévu"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમારું આકાશ, સુંદર રીતે અનુમાનિત"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आपका आसमान, सुंदरता से पूर्वानुमानित"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਹਾਡਾ ਅਸਮਾਨ, ਸੁੰਦਰਤਾ ਨਾਲ ਅਨੁਮਾਨਿਤ"
+          }
         }
       }
     },
     "µg/m³" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "µg/m³"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "µg/m³"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "µg/m³"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "µg/m³"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "µg/m³"
+          }
+        }
+      }
     }
   },
   "version" : "1.3"

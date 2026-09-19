@@ -9,6 +9,7 @@ struct SettingsButtonView: View {
       Image(systemName: "gearshape")
     }
     .accessibilityIdentifier("showSettings")
+    .accessibilityLabel("Settings")
     .foregroundStyle(.white)
   }
 }

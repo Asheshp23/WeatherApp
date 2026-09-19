@@ -55,6 +55,7 @@ struct ListOfCitiesView: View {
     HStack(spacing: 8) {
       Image(systemName: "magnifyingglass")
         .foregroundStyle(.secondary)
+        .accessibilityHidden(true)
       TextField("Search for a city", text: $query)
         .accessibilityIdentifier("citySearchField")
         .submitLabel(.search)
@@ -111,7 +112,7 @@ struct ListOfCitiesView: View {
           } label: {
             Text(city)
               .font(.subheadline.weight(.medium))
-              .lineLimit(1)
+              .multilineTextAlignment(.center)
               .frame(maxWidth: .infinity)
               .padding(.vertical, 10)
           }
@@ -133,6 +134,7 @@ struct ListOfCitiesView: View {
             HStack {
               Image(systemName: "building.2.fill")
                 .foregroundStyle(.secondary)
+                .accessibilityHidden(true)
               VStack(alignment: .leading, spacing: 2) {
                 Text(city.name)
                   .font(.body.weight(.semibold))

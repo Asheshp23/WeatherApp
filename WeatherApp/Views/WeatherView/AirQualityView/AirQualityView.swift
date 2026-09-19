@@ -56,8 +56,8 @@ private struct AQIBadge: View {
 
   private var color: Color {
     switch airQuality.usEpaIndex {
-    case 1: return .green
-    case 2: return .yellow
+    case 1: return Color(red: 0.0, green: 0.5, blue: 0.1)
+    case 2: return Color(red: 0.55, green: 0.41, blue: 0.03)
     case 3: return .orange
     case 4: return .red
     case 5: return .purple
@@ -65,13 +65,16 @@ private struct AQIBadge: View {
     }
   }
 
+  @ScaledMetric(relativeTo: .largeTitle) private var indexFontSize: CGFloat = 40
+
   var body: some View {
     VStack(spacing: 8) {
       Image(systemName: airQuality.symbolName)
         .symbolRenderingMode(.multicolor)
         .font(.system(size: 48))
-      Text("\(airQuality.usEpaIndex)")
-        .font(.system(size: 40, weight: .bold))
+        .accessibilityHidden(true)
+      Text(Helper.localizedNumber(airQuality.usEpaIndex))
+        .font(.system(size: indexFontSize, weight: .bold))
       Text(airQuality.usEpaCategory)
         .font(.headline)
         .foregroundStyle(color)
@@ -82,6 +85,7 @@ private struct AQIBadge: View {
     .frame(maxWidth: .infinity)
     .padding(20)
     .glassSurface(cornerRadius: Radius.card)
+    .accessibilityElement(children: .combine)
   }
 }
 
@@ -95,7 +99,7 @@ private struct PollutantCard: View {
         .font(.caption)
         .fontWeight(.medium)
         .opacity(0.85)
-      Text(String(format: "%.1f", value))
+      Text(Helper.localizedNumber(value, fractionDigits: 1))
         .font(.headline)
         .fontWeight(.semibold)
       Text("µg/m³")
@@ -105,6 +109,7 @@ private struct PollutantCard: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(12)
     .glassSurface(cornerRadius: Radius.card)
+    .accessibilityElement(children: .combine)
   }
 }
 

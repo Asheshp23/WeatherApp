@@ -53,17 +53,17 @@ final class WeatherDetailVM: ObservableObject {
     guard let weather = weather else { return notAvailableText }
     let speed = tempUnit == .celcius ? weather.current.windKph : weather.current.windMph
     let unit = tempUnit == .celcius ? "km/h" : "mph"
-    return "\(Int(speed.rounded())) \(unit) \(weather.current.windDir)"
+    return "\(Helper.localizedNumber(Int(speed.rounded()))) \(unit) \(weather.current.windDir)"
   }
   
   var humidityText: String {
     guard let weather = weather else { return notAvailableText }
-    return "\(weather.current.humidity)%"
+    return "\(Helper.localizedNumber(weather.current.humidity))%"
   }
   
   var uvIndexText: String {
     guard let weather = weather else { return notAvailableText }
-    return "\(Int(weather.current.uv.rounded()))"
+    return Helper.localizedNumber(Int(weather.current.uv.rounded()))
   }
   
   var uvDescription: String {
@@ -81,15 +81,15 @@ final class WeatherDetailVM: ObservableObject {
     guard let weather = weather else { return notAvailableText }
     let distance = tempUnit == .celcius ? weather.current.visKm : weather.current.visMiles
     let unit = tempUnit == .celcius ? "km" : "mi"
-    return "\(Int(distance.rounded())) \(unit)"
+    return "\(Helper.localizedNumber(Int(distance.rounded()))) \(unit)"
   }
   
   var pressureText: String {
     guard let weather = weather else { return notAvailableText }
     if tempUnit == .celcius {
-      return "\(Int(weather.current.pressureMb.rounded())) hPa"
+      return "\(Helper.localizedNumber(Int(weather.current.pressureMb.rounded()))) hPa"
     }
-    return String(format: "%.2f inHg", weather.current.pressureIn)
+    return "\(Helper.localizedNumber(weather.current.pressureIn, fractionDigits: 2)) inHg"
   }
   
   // Today's astro data (sunrise/sunset/moon), sourced from the 7-day forecast.
@@ -98,16 +98,18 @@ final class WeatherDetailVM: ObservableObject {
   }
   
   var sunriseText: String {
-    todayAstro?.sunrise ?? notAvailableText
+    guard let sunrise = todayAstro?.sunrise else { return notAvailableText }
+    return Helper.localizedTime(sunrise)
   }
   
   var sunsetText: String {
-    todayAstro?.sunset ?? notAvailableText
+    guard let sunset = todayAstro?.sunset else { return notAvailableText }
+    return Helper.localizedTime(sunset)
   }
   
   var moonPhaseText: String {
     guard let astro = todayAstro else { return notAvailableText }
-    return "\(astro.localizedMoonPhase) · \(Int(astro.moonIllumination.rounded()))%"
+    return "\(astro.localizedMoonPhase) · \(Helper.localizedNumber(Int(astro.moonIllumination.rounded())))%"
   }
   
   var moonPhaseSymbolName: String {
@@ -116,7 +118,10 @@ final class WeatherDetailVM: ObservableObject {
   
   var dayOfYearText: String {
     let today = Date()
-    return "Day \(today.dayOfYear) of \(today.daysInYear)"
+    let dayNumber = Helper.localizedNumber(today.dayOfYear)
+    let totalDays = Helper.localizedNumber(today.daysInYear)
+    let format = String(localized: "day_of_year_value", defaultValue: "Day %@ of %@")
+    return String(format: format, dayNumber, totalDays)
   }
   
   var airQuality: AirQualityModel? {

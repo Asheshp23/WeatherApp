@@ -72,7 +72,7 @@ private struct DayRow: View {
 
   private func temperature(_ celsius: Double, _ fahrenheit: Double) -> String {
     let value = tempUnit == .celcius ? celsius : fahrenheit
-    return "\(Int(value.rounded()))°"
+    return "\(Helper.localizedNumber(Int(value.rounded())))°"
   }
 
   var body: some View {
@@ -83,14 +83,18 @@ private struct DayRow: View {
       Image(systemName: day.day.condition.weatherCondition.symbolName(isDay: true))
         .symbolRenderingMode(.multicolor)
         .frame(width: 30)
+        .accessibilityLabel(day.day.condition.text)
       Spacer()
       Text(temperature(day.day.mintempC, day.day.mintempF))
         .foregroundStyle(.secondary)
+        .accessibilityLabel("Low \(temperature(day.day.mintempC, day.day.mintempF))")
       Text(temperature(day.day.maxtempC, day.day.maxtempF))
         .fontWeight(.semibold)
+        .accessibilityLabel("High \(temperature(day.day.maxtempC, day.day.maxtempF))")
     }
     .padding(12)
     .glassSurface(cornerRadius: Radius.card)
+    .accessibilityElement(children: .combine)
   }
 }
 

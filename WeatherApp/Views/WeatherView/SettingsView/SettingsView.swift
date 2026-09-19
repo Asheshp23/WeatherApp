@@ -13,6 +13,7 @@ struct SettingsView: View {
       VStack(spacing: 6) {
         Text("Temperature Unit")
           .font(.title2.bold())
+          .accessibilityAddTraits(.isHeader)
         Text("Also switches wind, visibility and pressure units.")
           .font(.footnote)
           .foregroundStyle(.secondary)
