@@ -3793,6 +3793,211 @@
         }
       }
     },
+    "quote_fallback_1" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Every kind of weather has its own kind of beauty."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cada tipo de clima tiene su propia belleza."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chaque type de temps a sa propre beauté."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દરેક પ્રકારના હવામાનની પોતાની સુંદરતા હોય છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हर तरह के मौसम की अपनी ही सुंदरता होती है।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਰ ਤਰ੍ਹਾਂ ਦੇ ਮੌਸਮ ਦੀ ਆਪਣੀ ਹੀ ਸੁੰਦਰਤਾ ਹੁੰਦੀ ਹੈ।"
+          }
+        }
+      }
+    },
+    "quote_fallback_2" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Wherever you go, take the sky with you."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Dondequiera que vayas, lleva el cielo contigo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Où que tu ailles, emporte le ciel avec toi."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "તમે જ્યાં પણ જાઓ, આકાશને તમારી સાથે લઈ જાઓ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "जहां भी जाओ, आसमान अपने साथ ले जाओ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੁਸੀਂ ਜਿੱਥੇ ਵੀ ਜਾਓ, ਅਸਮਾਨ ਨੂੰ ਆਪਣੇ ਨਾਲ ਲੈ ਜਾਓ।"
+          }
+        }
+      }
+    },
+    "quote_fallback_3" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Some days call for sunshine, others for shelter — both are gifts."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Algunos días piden sol, otros piden refugio: ambos son regalos."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Certains jours appellent le soleil, d'autres un abri — les deux sont des cadeaux."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કેટલાક દિવસો સૂર્યપ્રકાશ માંગે છે, કેટલાક આશરો — બંને ભેટ છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कुछ दिन धूप मांगते हैं, कुछ शरण — दोनों ही उपहार हैं।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੁਝ ਦਿਨ ਧੁੱਪ ਮੰਗਦੇ ਹਨ, ਕੁਝ ਪਨਾਹ — ਦੋਵੇਂ ਹੀ ਤੋਹਫ਼ੇ ਹਨ।"
+          }
+        }
+      }
+    },
+    "quote_fallback_4" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The sky is always doing something worth noticing."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "El cielo siempre está haciendo algo digno de atención."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Le ciel fait toujours quelque chose qui mérite d'être remarqué."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આકાશ હંમેશા કંઈક એવું કરે છે જે ધ્યાન આપવા યોગ્ય હોય છે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आसमान हमेशा कुछ न कुछ ऐसा करता है जो देखने लायक होता है।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਸਮਾਨ ਹਮੇਸ਼ਾ ਕੁਝ ਅਜਿਹਾ ਕਰਦਾ ਹੈ ਜੋ ਦੇਖਣ ਯੋਗ ਹੁੰਦਾ ਹੈ।"
+          }
+        }
+      }
+    },
+    "quote_fallback_5" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No weather lasts forever, so enjoy this moment of it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ningún clima dura para siempre, así que disfruta este momento."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aucun temps ne dure pour toujours, alors profite de ce moment."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "કોઈ પણ હવામાન કાયમ રહેતું નથી, તેથી આ ક્ષણનો આનંદ લો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "कोई भी मौसम हमेशा नहीं रहता, इसलिए इस पल का आनंद लो।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਕੋਈ ਵੀ ਮੌਸਮ ਸਦਾ ਨਹੀਂ ਰਹਿੰਦਾ, ਇਸ ਲਈ ਇਸ ਪਲ ਦਾ ਆਨੰਦ ਲਓ।"
+          }
+        }
+      }
+    },
     "Remove %@" : {
       "localizations" : {
         "es" : {
