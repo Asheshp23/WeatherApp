@@ -23,7 +23,7 @@ class Helper {
     
     // Hindi/Gujarati/Punjabi default to Western digits on iOS (matching Apple's own apps),
     // but this app forces native digit shaping (Devanagari/Gujarati/Gurmukhi) as a deliberate choice.
-    private static var numberLocale: Locale {
+    static var numberLocale: Locale {
         let numberingSystems = ["hi": "deva", "gu": "gujr", "pa": "guru"]
         guard let languageCode = Locale.current.language.languageCode?.identifier,
               let system = numberingSystems[languageCode] else {
@@ -67,10 +67,40 @@ class Helper {
         return formatter.string(from: date)
     }
     
+    /// Position of an API time ("06:45 AM") within the day, from 0 (midnight) to 1.
+    static func dayFraction(fromAPITime apiTimeString: String) -> Double? {
+        guard let date = apiTimeParser.date(from: apiTimeString) else { return nil }
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = apiTimeParser.timeZone
+        let parts = calendar.dateComponents([.hour, .minute], from: date)
+        guard let hour = parts.hour, let minute = parts.minute else { return nil }
+        return (Double(hour) + Double(minute) / 60) / 24
+    }
+
+    /// Hour label ("3 PM" / "15") from an epoch, honouring the locale's 12/24-hour convention and digits.
+    /// `timeZone` should be the forecast city's, so a Tokyo forecast shows Tokyo hours.
+    static func localizedHour(_ epoch: Int, timeZone: TimeZone? = nil) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = numberLocale
+        formatter.timeZone = timeZone ?? .current
+        formatter.setLocalizedDateFormatFromTemplate("j")
+        return formatter.string(from: Date(timeIntervalSince1970: TimeInterval(epoch)))
+    }
+    
+    /// Short weekday name ("Mon") from an epoch, in the forecast city's time zone.
+    static func localizedWeekday(_ epoch: Int, timeZone: TimeZone? = nil) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = numberLocale
+        formatter.timeZone = timeZone ?? .current
+        formatter.setLocalizedDateFormatFromTemplate("EEE")
+        return formatter.string(from: Date(timeIntervalSince1970: TimeInterval(epoch)))
+    }
+    
     // Uses RelativeDateTimeFormatter so grammar/pluralization is correct in every locale,
     // instead of hand-rolling English-only "ago" strings.
     static public func timeAgoSince(_ date: Date) -> String {
         let formatter = RelativeDateTimeFormatter()
+        formatter.locale = numberLocale
         formatter.unitsStyle = .full
         return formatter.localizedString(for: date, relativeTo: Date())
     }

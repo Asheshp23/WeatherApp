@@ -5,91 +5,68 @@ private struct SearchRequest: Equatable {
   let attempt: Int
 }
 
+/// City switcher. One place for current location, saved cities, search and popular cities.
+/// Uses a standard grouped List so rows, swipe actions, Dynamic Type and VoiceOver
+/// behave like the rest of iOS.
 struct ListOfCitiesView: View {
   @Binding var selectedCity: String
+  var onUseCurrentLocation: (() -> Void)? = nil
 
   @Environment(\.dismiss) private var dismiss
-  @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   @State private var search: CitySearchModel
+  @State private var store = SavedCitiesStore()
   @State private var query = ""
   @State private var retryAttempt = 0
-  @State private var detent: PresentationDetent = .medium
-  @FocusState private var searchFocused: Bool
 
   private static let popularCities = ["London", "Paris", "New York City", "Tokyo", "Rome", "Sydney", "Bangkok", "Istanbul", "Dubai", "Hong Kong", "Barcelona", "Madrid", "Moscow", "Beijing", "Los Angeles", "Chicago", "Shanghai", "Toronto", "Singapore", "Berlin"]
 
   @MainActor
-  init(selectedCity: Binding<String>, weatherService: any WeatherServiceProtocol) {
+  init(selectedCity: Binding<String>, weatherService: any WeatherServiceProtocol, onUseCurrentLocation: (() -> Void)? = nil) {
     _selectedCity = selectedCity
+    self.onUseCurrentLocation = onUseCurrentLocation
     _search = State(wrappedValue: CitySearchModel(service: weatherService))
   }
 
   var body: some View {
-    sheetContainer
-      .task(id: SearchRequest(query: query, attempt: retryAttempt)) {
-        await search.search(query)
-      }
-      .onChange(of: searchFocused) { (_: Bool, isFocused: Bool) in
-        guard isFocused else { return }
-        withAnimation(Motion.resolve(Motion.gentle, reduceMotion: reduceMotion)) { detent = .large }
-      }
-  }
-
-  private var sheetContainer: some View {
-    VStack(spacing: 16) {
-      SheetGrabber()
-      searchField
-      content
+    NavigationStack {
+      list
+        .navigationTitle("Choose a city")
+        .navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for a city")
+        .toolbar {
+          ToolbarItem(placement: .confirmationAction) {
+            Button("Done") { dismiss() }
+          }
+        }
     }
-    .padding(.horizontal, 16)
-    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-    .presentationDetents([.medium, .large], selection: $detent)
-    .presentationBackground(.ultraThinMaterial)
-    .presentationDragIndicator(.hidden)
-    .presentationCornerRadius(Radius.sheet)
+    .task(id: SearchRequest(query: query, attempt: retryAttempt)) {
+      await search.search(query)
+    }
+    .presentationDetents([.medium, .large])
+    .presentationDragIndicator(.visible)
+    .sheetBackground()
     .accessibilityIdentifier("cityList")
   }
 
-  private var searchField: some View {
-    HStack(spacing: 8) {
-      Image(systemName: "magnifyingglass")
-        .foregroundStyle(.secondary)
-        .accessibilityHidden(true)
-      TextField("Search for a city", text: $query)
-        .accessibilityIdentifier("citySearchField")
-        .submitLabel(.search)
-        .textInputAutocapitalization(.words)
-        .autocorrectionDisabled()
-        .focused($searchFocused)
-      if !query.isEmpty {
-        Button {
-          query = ""
-        } label: {
-          Image(systemName: "xmark.circle.fill")
-            .foregroundStyle(.secondary)
-        }
-        .accessibilityLabel("Clear search")
-      }
-    }
-    .padding(12)
-    .glassSurface(cornerRadius: Radius.card)
-  }
-
   @ViewBuilder
-  private var content: some View {
+  private var list: some View {
     switch search.phase {
     case .idle:
-      popularCitiesGrid
+      idleList
     case .searching:
-      Spacer(minLength: 0)
-      ProgressView(tintColor: .primary)
-      Text("Searching…")
-        .font(.subheadline)
-        .foregroundStyle(.secondary)
-      Spacer(minLength: 0)
+      List {
+        HStack(spacing: DS.Space.s) {
+          SwiftUI.ProgressView()
+          Text("Searching…").foregroundStyle(.secondary)
+        }
+      }
     case .results(let cities):
-      resultsList(cities)
+      List {
+        ForEach(cities) { city in
+          resultRow(city)
+        }
+      }
     case .empty:
       ContentUnavailableView.search(text: query)
     case .failed:
@@ -103,61 +80,90 @@ struct ListOfCitiesView: View {
     }
   }
 
-  private var popularCitiesGrid: some View {
-    ScrollView {
-      LazyVGrid(columns: [GridItem(.adaptive(minimum: 104), spacing: 8)], spacing: 8) {
-        ForEach(Self.popularCities, id: \.self) { city in
+  private var idleList: some View {
+    List {
+      if let onUseCurrentLocation {
+        Section {
           Button {
-            select(city)
+            onUseCurrentLocation()
+            dismiss()
           } label: {
-            Text(city)
-              .font(.subheadline.weight(.medium))
-              .multilineTextAlignment(.center)
-              .frame(maxWidth: .infinity)
-              .padding(.vertical, 10)
+            Label("Use current location", systemImage: "location.fill")
+              .foregroundStyle(.primary)
           }
-          .buttonStyle(PressableButtonStyle())
-          .glassSurface(cornerRadius: Radius.control)
         }
       }
-      .padding(.vertical, 4)
+
+      Section("Saved Cities") {
+        if store.cities.isEmpty {
+          Text("Search above to add a city you want quick access to.")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+        } else {
+          ForEach(store.cities) { city in
+            cityButton(name: city.name, subtitle: city.subtitle, isSaved: true)
+              .swipeActions {
+                Button(role: .destructive) { store.remove(city) } label: {
+                  Label("Remove \(city.name)", systemImage: "trash")
+                }
+              }
+              .accessibilityAction(named: Text("Remove \(city.name)")) { store.remove(city) }
+          }
+        }
+      }
+
+      Section("Popular Cities") {
+        ForEach(Self.popularCities, id: \.self) { city in
+          cityButton(name: city, subtitle: "", isSaved: false)
+        }
+      }
     }
   }
 
-  private func resultsList(_ cities: [CitySearchResult]) -> some View {
-    ScrollView {
-      LazyVStack(spacing: 8) {
-        ForEach(cities) { city in
-          Button {
-            select(city.name)
-          } label: {
-            HStack {
-              Image(systemName: "building.2.fill")
-                .foregroundStyle(.secondary)
-                .accessibilityHidden(true)
-              VStack(alignment: .leading, spacing: 2) {
-                Text(city.name)
-                  .font(.body.weight(.semibold))
-                if !city.subtitle.isEmpty {
-                  Text(city.subtitle)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                }
-              }
-              Spacer()
-            }
-            .padding(12)
+  private func resultRow(_ city: CitySearchResult) -> some View {
+    let isSaved = store.contains(id: city.id)
+    return HStack {
+      cityButton(name: city.name, subtitle: city.subtitle, isSaved: false)
+      Button {
+        if isSaved { store.remove(city) } else { store.add(city) }
+      } label: {
+        Image(systemName: isSaved ? "star.fill" : "star")
+          .foregroundStyle(isSaved ? Color.yellow : Color.secondary)
+          .frame(minWidth: DS.Size.minTarget, minHeight: DS.Size.minTarget)
+      }
+      .buttonStyle(.borderless)
+      .accessibilityLabel(isSaved ? "Remove \(city.name)" : "Add \(city.name)")
+    }
+  }
+
+  private func cityButton(name: String, subtitle: String, isSaved: Bool) -> some View {
+    Button {
+      select(name)
+    } label: {
+      HStack {
+        VStack(alignment: .leading, spacing: DS.Space.xxs) {
+          Text(name)
+            .foregroundStyle(.primary)
+          if !subtitle.isEmpty {
+            Text(subtitle)
+              .font(.subheadline)
+              .foregroundStyle(.secondary)
           }
-          .buttonStyle(PressableButtonStyle())
-          .glassSurface(cornerRadius: Radius.card)
+        }
+        Spacer(minLength: 0)
+        if name == selectedCity {
+          Image(systemName: "checkmark")
+            .foregroundStyle(.tint)
+            .accessibilityHidden(true)
         }
       }
-      .padding(.vertical, 4)
+      .contentShape(Rectangle())
     }
+    .buttonStyle(.plain)
+    .accessibilityAddTraits(name == selectedCity ? .isSelected : [])
   }
 
   private func select(_ city: String) {
-    searchFocused = false
     if selectedCity != city {
       selectedCity = city
     }
@@ -165,8 +171,9 @@ struct ListOfCitiesView: View {
   }
 }
 
-struct ListOfCitiesView_Previews: PreviewProvider {
-  static var previews: some View {
-    ListOfCitiesView(selectedCity: .constant("Toronto"), weatherService: WeatherDataService())
-  }
+#Preview {
+  Text("Weather")
+    .sheet(isPresented: .constant(true)) {
+      ListOfCitiesView(selectedCity: .constant("Toronto"), weatherService: WeatherDataService())
+    }
 }

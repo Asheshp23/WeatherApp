@@ -1,21 +1,18 @@
 import SwiftUI
 
+/// Standalone daily forecast. The main screen shows the same list inline (the free plan only
+/// returns 3 days), so this screen exists for deep links and widget taps.
 struct DailyForecastView: View {
   @ObservedObject var vm: WeatherDetailVM
 
-  private var days: [ForecastDay] {
-    vm.forecast?.forecast?.forecastday ?? []
-  }
-
   var body: some View {
     ZStack {
-      SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy)
-        .ignoresSafeArea()
+      SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy, isDay: vm.isDay)
       content
     }
-    .foregroundColor(.white)
-    .navigationTitle(days.isEmpty ? "Daily Forecast" : "\(days.count)-Day Forecast")
+    .navigationTitle(vm.forecastDays.isEmpty ? Text("Daily Forecast") : Text("\(vm.forecastDays.count)-Day Forecast"))
     .navigationBarTitleDisplayMode(.inline)
+    .toolbarColorScheme(.dark, for: .navigationBar)
     .task {
       vm.loadForecastIfNeeded()
     }
@@ -23,85 +20,29 @@ struct DailyForecastView: View {
 
   @ViewBuilder
   private var content: some View {
-    if !days.isEmpty {
+    if !vm.forecastDays.isEmpty {
       ScrollView {
-        LazyVStack(spacing: 8) {
-          ForEach(days) { day in
-            DayRow(day: day, tempUnit: vm.tempUnit)
-          }
+        Plate {
+          DailyForecastList(days: vm.forecastDays, tempUnit: vm.tempUnit)
         }
-        .padding()
+        .padding(.horizontal, DS.Space.page)
+        .padding(.vertical, DS.Space.l)
       }
     } else if vm.isForecastLoading {
-      ProgressView(tintColor: .white)
+      SwiftUI.ProgressView().tint(DS.Palette.onSky)
     } else if vm.forecastFailed {
-      ContentUnavailableView {
-        Label("Forecast unavailable", systemImage: "wifi.slash")
-      } description: {
-        Text("Check your connection and try again.")
-      } actions: {
-        Button("Try Again") { vm.loadForecastIfNeeded() }
-      }
+      WeatherStateView(symbol: "wifi.slash",
+                       title: "Forecast unavailable",
+                       message: "Check your connection and try again.",
+                       actionTitle: "Try Again") { vm.loadForecastIfNeeded() }
     } else {
-      ContentUnavailableView("No forecast data", systemImage: "calendar")
+      WeatherStateView(symbol: "calendar", title: "No forecast data", message: "Pull to refresh on the main screen and try again.")
     }
   }
 }
 
-private struct DayRow: View {
-  let day: ForecastDay
-  let tempUnit: TemperatureUnit
-
-  private static let inputFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    return formatter
-  }()
-
-  private static let displayFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "EEEE"
-    return formatter
-  }()
-
-  private var weekdayLabel: String {
-    guard let date = Self.inputFormatter.date(from: day.date) else { return day.date }
-    if Calendar.current.isDateInToday(date) { return "Today" }
-    return Self.displayFormatter.string(from: date)
-  }
-
-  private func temperature(_ celsius: Double, _ fahrenheit: Double) -> String {
-    let value = tempUnit == .celcius ? celsius : fahrenheit
-    return "\(Helper.localizedNumber(Int(value.rounded())))°"
-  }
-
-  var body: some View {
-    HStack {
-      Text(weekdayLabel)
-        .font(.body.weight(.semibold))
-        .frame(width: 90, alignment: .leading)
-      Image(systemName: day.day.condition.weatherCondition.symbolName(isDay: true))
-        .symbolRenderingMode(.multicolor)
-        .frame(width: 30)
-        .accessibilityLabel(day.day.condition.text)
-      Spacer()
-      Text(temperature(day.day.mintempC, day.day.mintempF))
-        .foregroundStyle(.secondary)
-        .accessibilityLabel("Low \(temperature(day.day.mintempC, day.day.mintempF))")
-      Text(temperature(day.day.maxtempC, day.day.maxtempF))
-        .fontWeight(.semibold)
-        .accessibilityLabel("High \(temperature(day.day.maxtempC, day.day.maxtempF))")
-    }
-    .padding(12)
-    .glassSurface(cornerRadius: Radius.card)
-    .accessibilityElement(children: .combine)
-  }
-}
-
-struct DailyForecastView_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      DailyForecastView(vm: WeatherDetailVM(weatherService: WeatherDataService()))
-    }
+#Preview {
+  NavigationStack {
+    DailyForecastView(vm: WeatherDetailVM(weatherService: WeatherDataService(), initialCity: "Toronto"))
   }
 }

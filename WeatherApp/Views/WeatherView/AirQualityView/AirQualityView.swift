@@ -1,122 +1,118 @@
 import SwiftUI
 
+/// Air quality detail. The category is the headline (in words), position on the US EPA scale
+/// is shown by location *and* colour, and the pollutant breakdown is secondary.
 struct AirQualityView: View {
   @ObservedObject var vm: WeatherDetailVM
 
-  private var airQuality: AirQualityModel? {
-    vm.airQuality
-  }
-
   var body: some View {
     ZStack {
-      SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy)
-        .ignoresSafeArea()
+      SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy, isDay: vm.isDay)
       content
     }
-    .foregroundColor(.white)
     .navigationTitle("Air Quality")
     .navigationBarTitleDisplayMode(.inline)
+    .toolbarColorScheme(.dark, for: .navigationBar)
   }
 
   @ViewBuilder
   private var content: some View {
-    if let airQuality {
+    if let airQuality = vm.airQuality {
       ScrollView {
-        VStack(spacing: 16) {
-          AQIBadge(airQuality: airQuality)
-          pollutantGrid(airQuality)
+        VStack(alignment: .leading, spacing: DS.Space.xl) {
+          AQISummary(airQuality: airQuality)
+          Plate {
+            SectionTitle(title: "Pollutants")
+              .frame(minHeight: DS.Size.minTarget)
+            pollutantRow("PM2.5", airQuality.pm2_5)
+            PlateDivider()
+            pollutantRow("PM10", airQuality.pm10)
+            PlateDivider()
+            pollutantRow("O₃", airQuality.o3)
+            PlateDivider()
+            pollutantRow("NO₂", airQuality.no2)
+            PlateDivider()
+            pollutantRow("SO₂", airQuality.so2)
+            PlateDivider()
+            pollutantRow("CO", airQuality.co)
+          }
         }
-        .padding()
+        .padding(.horizontal, DS.Space.page)
+        .padding(.vertical, DS.Space.l)
       }
     } else if vm.isLoading {
-      ProgressView(tintColor: .white)
+      SwiftUI.ProgressView().tint(DS.Palette.onSky)
     } else {
-      ContentUnavailableView(
-        "Air quality unavailable",
-        systemImage: "aqi.medium",
-        description: Text("Pull to refresh on the main screen and try again.")
-      )
+      WeatherStateView(symbol: "aqi.medium",
+                       title: "Air quality unavailable",
+                       message: "Pull to refresh on the main screen and try again.")
     }
   }
 
-  private func pollutantGrid(_ airQuality: AirQualityModel) -> some View {
-    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-      PollutantCard(title: "CO", value: airQuality.co)
-      PollutantCard(title: "NO₂", value: airQuality.no2)
-      PollutantCard(title: "O₃", value: airQuality.o3)
-      PollutantCard(title: "SO₂", value: airQuality.so2)
-      PollutantCard(title: "PM2.5", value: airQuality.pm2_5)
-      PollutantCard(title: "PM10", value: airQuality.pm10)
+  /// Ordered by health relevance: fine particles first. Chemical symbols aren't translated.
+  private func pollutantRow(_ name: String, _ value: Double) -> some View {
+    HStack(alignment: .firstTextBaseline) {
+      Text(verbatim: name)
+        .font(DS.Typo.metricLabel)
+        .foregroundStyle(DS.Palette.onSkySecondary)
+      Spacer(minLength: DS.Space.s)
+      Text(Helper.localizedNumber(value, fractionDigits: 1))
+        .font(DS.Typo.rowValue)
+      Text("µg/m³")
+        .font(.caption)
+        .foregroundStyle(DS.Palette.onSkySecondary)
     }
+    .foregroundStyle(DS.Palette.onSky)
+    .padding(.vertical, DS.Space.m)
+    .frame(minHeight: DS.Size.minTarget)
+    .accessibilityElement(children: .combine)
   }
 }
 
-private struct AQIBadge: View {
+private struct AQISummary: View {
   let airQuality: AirQualityModel
 
-  private var color: Color {
-    switch airQuality.usEpaIndex {
-    case 1: return Color(red: 0.0, green: 0.5, blue: 0.1)
-    case 2: return Color(red: 0.55, green: 0.41, blue: 0.03)
-    case 3: return .orange
-    case 4: return .red
-    case 5: return .purple
-    default: return Color(red: 0.4, green: 0, blue: 0)
-    }
-  }
-
-  @ScaledMetric(relativeTo: .largeTitle) private var indexFontSize: CGFloat = 40
+  private static let levels = 6
 
   var body: some View {
-    VStack(spacing: 8) {
-      Image(systemName: airQuality.symbolName)
-        .symbolRenderingMode(.multicolor)
-        .font(.system(size: 48))
-        .accessibilityHidden(true)
-      Text(Helper.localizedNumber(airQuality.usEpaIndex))
-        .font(.system(size: indexFontSize, weight: .bold))
+    VStack(alignment: .leading, spacing: DS.Space.m) {
       Text(airQuality.usEpaCategory)
-        .font(.headline)
-        .foregroundStyle(color)
+        .font(.largeTitle.weight(.semibold))
+        .fixedSize(horizontal: false, vertical: true)
+        .accessibilityAddTraits(.isHeader)
+
+      Text("Level \(Helper.localizedNumber(airQuality.usEpaIndex)) of \(Helper.localizedNumber(Self.levels))")
+        .font(DS.Typo.supporting)
+        .foregroundStyle(DS.Palette.onSkySecondary)
+
+      HStack(spacing: DS.Space.xs) {
+        ForEach(1...Self.levels, id: \.self) { level in
+          let isCurrent = level == airQuality.usEpaIndex
+          Capsule()
+            .fill(DS.Palette.aqi(level).opacity(isCurrent ? 1 : 0.55))
+            .frame(height: isCurrent ? 10 : 6)
+            .overlay {
+              if isCurrent {
+                Capsule().strokeBorder(.white, lineWidth: 1.5)
+              }
+            }
+        }
+      }
+      .frame(height: 10)
+      .accessibilityHidden(true)
+
       Text("US EPA Air Quality Index")
         .font(.caption)
-        .opacity(0.75)
+        .foregroundStyle(DS.Palette.onSkySecondary)
     }
-    .frame(maxWidth: .infinity)
-    .padding(20)
-    .glassSurface(cornerRadius: Radius.card)
-    .accessibilityElement(children: .combine)
-  }
-}
-
-private struct PollutantCard: View {
-  let title: String
-  let value: Double
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 6) {
-      Text(title)
-        .font(.caption)
-        .fontWeight(.medium)
-        .opacity(0.85)
-      Text(Helper.localizedNumber(value, fractionDigits: 1))
-        .font(.headline)
-        .fontWeight(.semibold)
-      Text("µg/m³")
-        .font(.caption2)
-        .opacity(0.7)
-    }
+    .foregroundStyle(DS.Palette.onSky)
     .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(12)
-    .glassSurface(cornerRadius: Radius.card)
     .accessibilityElement(children: .combine)
   }
 }
 
-struct AirQualityView_Previews: PreviewProvider {
-  static var previews: some View {
-    NavigationStack {
-      AirQualityView(vm: WeatherDetailVM(weatherService: WeatherDataService()))
-    }
+#Preview {
+  NavigationStack {
+    AirQualityView(vm: WeatherDetailVM(weatherService: WeatherDataService(), initialCity: "Toronto"))
   }
 }

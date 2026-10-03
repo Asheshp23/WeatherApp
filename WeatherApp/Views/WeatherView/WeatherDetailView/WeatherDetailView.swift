@@ -1,10 +1,14 @@
 import SwiftUI
 import CoreLocation
 
+/// Main weather screen.
+///
+/// Order is by what people check first: city → alerts (only when present) → current temperature,
+/// condition, today's range → next hours → coming days → air quality → other conditions →
+/// sun & moon → quiet footer (updated time, day of year, quote).
 struct WeatherDetailView: View {
   @StateObject private var vm: WeatherDetailVM
   @State private var locationManager: LocationManager
-  @ScaledMetric(relativeTo: .largeTitle) private var temperatureFontSize: CGFloat = 64
 
   init(locationManager: LocationManager = LocationManager(), prefetchedCity: String? = nil, prefetchedWeather: WeatherModel? = nil) {
     _locationManager = State(wrappedValue: locationManager)
@@ -13,7 +17,7 @@ struct WeatherDetailView: View {
 
   var body: some View {
     ZStack {
-      backgroundView
+      SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy, isDay: vm.isDay)
       content
     }
     .onAppear {
@@ -25,213 +29,346 @@ struct WeatherDetailView: View {
         vm.generateQuoteIfNeeded()
       }
     }
-    .onChange(of: vm.selectedCity, { oldValue, newValue in
+    .onChange(of: vm.selectedCity) { oldValue, newValue in
       handleCityChange(oldValue: oldValue, newValue: newValue)
-    })
-    .onChange(of: locationManager.location, { oldValue, newValue in
+    }
+    .onChange(of: locationManager.location) { oldValue, newValue in
       handleLocationChange(oldValue: oldValue, newValue: newValue)
-    })
+    }
     .toolbar {
-      SettingsButtonView(showSettings: $vm.showSettings)
-    }
-  }
-  
-  // Background sky, plus a loading indicator while the first fetch is in flight
-  private var backgroundView: some View {
-    SkyImageView(weatherCondition: vm.weather?.current.condition.weatherCondition ?? .cloudy)
-      .ignoresSafeArea()
-      .overlay(loadingOverlay)
-  }
-  
-  // Main content of the view
-  private var content: some View {
-    ScrollView {
-      VStack(spacing: 28) {
-        cityNameView
-        currentConditionView
-        quoteView
-        weatherDetailsGrid
-        astroDetailsGrid
-        lastUpdatedTimeView
-        exploreSection
+      ToolbarItem(placement: .topBarLeading) { locationButton }
+      ToolbarItemGroup(placement: .topBarTrailing) {
+        mapButton
+        SettingsButtonView(showSettings: $vm.showSettings)
       }
-      .padding()
-      .padding(.top, 8)
     }
-    .refreshable {
-      vm.fetchWeather()
-    }
-    .foregroundColor(.white)
     .sheet(isPresented: $vm.showCityList) {
-      ListOfCitiesView(selectedCity: $vm.selectedCity, weatherService: vm.weatherService)
+      ListOfCitiesView(selectedCity: $vm.selectedCity, weatherService: vm.weatherService) {
+        handleLocationButtonTap()
+      }
     }
     .sheet(isPresented: $vm.showSettings) {
       SettingsView(tempUnit: $vm.tempUnit)
     }
   }
-  
-  // Loading overlay
-  private var loadingOverlay: some View {
-    Group {
-      if vm.isLoading { ProgressView() }
-    }
-  }
-  
-  // City name and navigation controls
-  private var cityNameView: some View {
-    HStack {
-      locationButton
-      Text(vm.selectedCity)
-        .font(.title2)
-        .fontWeight(.bold)
-        .lineLimit(1)
-        .shadow(radius: 5)
-      cityListButton
-    }
-  }
-  
-  // Weather icon, temperature, condition text and feels-like
-  private var currentConditionView: some View {
-    VStack(spacing: 6) {
-      Image(systemName: vm.conditionSymbolName)
-        .symbolRenderingMode(.multicolor)
-        .font(.system(size: 56))
-        .shadow(radius: 6)
-      Text("\(vm.temperature)°\(vm.temperatureUnitSymbol)")
-        .font(.system(size: temperatureFontSize, weight: .thin))
-        .shadow(radius: 5)
-      Text(vm.weather?.current.condition.text ?? "Not available")
-        .font(.title3)
-        .fontWeight(.semibold)
-        .shadow(radius: 5)
-      Text("Feels like \(vm.feelslike)°")
-        .font(.subheadline)
-        .opacity(0.85)
-        .shadow(radius: 3)
-    }
-    .accessibilityElement(children: .combine)
-  }
-  
-  // Humidity, wind, UV, visibility and pressure at a glance
-  private var weatherDetailsGrid: some View {
-    Group {
-      if vm.weather != nil {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-          WeatherDetailCard(icon: "humidity.fill", title: "Humidity", value: vm.humidityText)
-          WeatherDetailCard(icon: "wind", title: "Wind", value: vm.windText)
-          WeatherDetailCard(icon: "sun.max.fill", title: "UV Index", value: "\(vm.uvIndexText) · \(vm.uvDescription)")
-          WeatherDetailCard(icon: "eye.fill", title: "Visibility", value: vm.visibilityText)
-          WeatherDetailCard(icon: "barometer", title: "Pressure", value: vm.pressureText)
-        }
-      }
-    }
-  }
-  
-  // Sunrise/sunset, moon phase and day-of-year at a glance
-  private var astroDetailsGrid: some View {
-    Group {
-      if vm.weather != nil {
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-          WeatherDetailCard(icon: "sunrise.fill", title: "Sunrise", value: vm.sunriseText)
-          WeatherDetailCard(icon: "sunset.fill", title: "Sunset", value: vm.sunsetText)
-          WeatherDetailCard(icon: vm.moonPhaseSymbolName, title: "Moon Phase", value: vm.moonPhaseText)
-          WeatherDetailCard(icon: "calendar.circle.fill", title: "Day of Year", value: vm.dayOfYearText)
-        }
-      }
-    }
-  }
-  
-  // A short Apple Intelligence-generated quote about the current weather
+
+  // MARK: Content states
+
   @ViewBuilder
-  private var quoteView: some View {
-    if !vm.weatherQuote.isEmpty {
-      Text("\u{201C}\(vm.weatherQuote)\u{201D}")
-        .font(.footnote)
-        .italic()
-        .multilineTextAlignment(.center)
-        .opacity(0.85)
-        .padding(.horizontal, 24)
-        .shadow(radius: 3)
-        .transition(.opacity)
+  private var content: some View {
+    if vm.weather != nil {
+      loadedContent
+    } else if let issue = vm.loadIssue, !vm.isLoading {
+      ScrollView {
+        cityHeader
+          .padding(.horizontal, DS.Space.page)
+        errorState(for: issue)
+          .frame(maxWidth: .infinity)
+          .padding(.top, DS.Space.xxl)
+      }
+      .refreshable { vm.fetchWeather() }
+    } else {
+      loadingContent
     }
   }
-  
-  private var lastUpdatedTimeView: some View {
-    Text("Updated \(vm.lastUpdatedAt)")
-      .font(.caption)
-      .fontWeight(.light)
-      .opacity(0.8)
-      .shadow(radius: 5)
-  }
-  
-  // Secondary destinations, visually separated from the weather content
-  private var exploreSection: some View {
-    VStack(alignment: .leading, spacing: 16) {
-      Text("Explore")
-        .font(.headline)
-        .shadow(radius: 4)
-        .accessibilityAddTraits(.isHeader)
-        .padding(.leading, 4)
 
-      exploreGroup(title: "Forecast") {
-        ExploreTile(destination: HourlyForecastView(vm: vm), label: "Hourly", imageName: "clock.fill", accessibilityIdentifier: "goToHourlyForecast")
-        ExploreTile(destination: DailyForecastView(vm: vm), label: "Daily", imageName: "calendar", accessibilityIdentifier: "goToDailyForecast")
-        ExploreTile(destination: WeatherAlertsView(vm: vm), label: "Alerts", imageName: "exclamationmark.triangle.fill", accessibilityIdentifier: "goToAlerts")
+  private var loadingContent: some View {
+    VStack(alignment: .leading, spacing: DS.Space.xl) {
+      cityHeader
+      WeatherHero(temperature: "20°", conditionText: "Partly cloudy", conditionSymbol: "cloud.sun.fill",
+                  high: "24°", low: "15°", feelsLike: "20", precipitationChance: nil)
+        .redacted(reason: .placeholder)
+        .accessibilityHidden(true)
+      HStack(spacing: DS.Space.s) {
+        SwiftUI.ProgressView().tint(DS.Palette.onSky)
+        Text("Loading weather…")
+          .font(DS.Typo.footnote)
+          .foregroundStyle(DS.Palette.onSkySecondary)
       }
+      .accessibilityElement(children: .combine)
+      .accessibilityIdentifier("loadingView")
+      Spacer()
+    }
+    .padding(.horizontal, DS.Space.page)
+    .padding(.top, DS.Space.s)
+  }
 
-      exploreGroup(title: "More") {
-        ExploreTile(destination: SavedCitiesView(selectedCity: $vm.selectedCity, weatherService: vm.weatherService), label: "Saved Cities", imageName: "star.fill", accessibilityIdentifier: "goToSavedCities")
-        ExploreTile(destination: PhotoGalleryView(), label: "Photo Gallery", imageName: "photo.on.rectangle.angled", accessibilityIdentifier: "goToPhotos")
-        ExploreTile(destination: ContactUsView(), label: "Contact Us", imageName: "envelope.fill", accessibilityIdentifier: "goToContactUs")
-        ExploreTile(destination: WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature, userLocation: vm.isLocationButtonTapped ? vm.userLocation : vm.selectedCityLocation), label: "Map", imageName: "map", accessibilityIdentifier: "goToMapView")
-        ExploreTile(destination: AirQualityView(vm: vm), label: "Air Quality", imageName: "aqi.medium", accessibilityIdentifier: "goToAirQuality")
+  @ViewBuilder
+  private func errorState(for issue: WeatherDetailVM.LoadIssue) -> some View {
+    switch issue {
+    case .missingAPIKey:
+      WeatherStateView(symbol: "key.slash",
+                       title: "API key missing",
+                       message: "Add your WeatherAPI key to config.plist, then relaunch the app.")
+    case .rejected:
+      WeatherStateView(symbol: "magnifyingglass",
+                       title: "Can't load \(vm.selectedCity)",
+                       message: "WeatherAPI didn't recognize this city or your API key. Choose another city or check config.plist.",
+                       actionTitle: "Choose a city") { vm.handleShowCityListButtonTap() }
+    case .offline, .unknown:
+      WeatherStateView(symbol: "wifi.slash",
+                       title: "Can't load weather",
+                       message: "Check your connection and try again.",
+                       actionTitle: "Try Again") { vm.fetchWeather() }
+    }
+  }
+
+  private var loadedContent: some View {
+    ScrollView {
+      VStack(alignment: .leading, spacing: DS.Space.xl) {
+        cityHeader
+        if vm.weatherError != nil {
+          staleDataNotice
+        }
+        if !vm.alerts.isEmpty {
+          NavigationLink { WeatherAlertsView(vm: vm) } label: { AlertBanner(alerts: vm.alerts) }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("goToAlerts")
+        }
+        today
+          .padding(.bottom, DS.Space.s)
+        forecastSections
+        airQualityRow
+        conditionsSection
+        sunMoonSection
+        footer
+      }
+      .padding(.horizontal, DS.Space.page)
+      .padding(.top, DS.Space.s)
+      .padding(.bottom, DS.Space.xxl)
+    }
+    .scrollIndicators(.hidden)
+    .refreshable { vm.fetchWeather() }
+  }
+
+  // MARK: Sections
+
+  /// The signature block: a plain sentence about what's coming, then the next 24 hours as a dial.
+  /// Until the hourly forecast arrives, the plain hero shows the current conditions instead.
+  @ViewBuilder
+  private var today: some View {
+    if let dial = vm.dayDialModel {
+      VStack(alignment: .leading, spacing: DS.Space.l) {
+        if let briefing = vm.briefingText {
+          BriefingText(text: briefing, isAIGenerated: vm.isBriefingAIGenerated)
+            .animation(.default, value: briefing)
+        }
+        DayDialView(model: dial)
+        TodayFacts(high: vm.todayHighText, low: vm.todayLowText, feelsLike: vm.feelslike,
+                   precipitationChance: nil, alignment: .center)
+          .frame(maxWidth: .infinity)
+      }
+      .task(id: vm.ruleBriefing) { await vm.polishBriefing() }
+    } else {
+      WeatherHero(
+        temperature: "\(vm.temperature)°",
+        conditionText: vm.conditionText,
+        conditionSymbol: vm.conditionSymbolName,
+        high: vm.todayHighText,
+        low: vm.todayLowText,
+        feelsLike: vm.feelslike,
+        precipitationChance: vm.meaningfulPrecipitationChance
+      )
+    }
+  }
+
+  private var cityHeader: some View {
+    Button(action: vm.handleShowCityListButtonTap) {
+      HStack(spacing: DS.Space.s) {
+        Text(vm.selectedCity)
+          .font(.title2.weight(.semibold))
+          .multilineTextAlignment(.leading)
+        Image(systemName: "chevron.down")
+          .font(.subheadline.weight(.bold))
+          .accessibilityHidden(true)
+      }
+      .foregroundStyle(DS.Palette.onSky)
+      .frame(minHeight: DS.Size.minTarget)
+      .contentShape(Rectangle())
+    }
+    .buttonStyle(.plain)
+    .accessibilityIdentifier("goToCityList")
+    .accessibilityLabel(vm.selectedCity)
+    .accessibilityHint("Choose a city")
+  }
+
+  /// Shown when a refresh failed but older data is still on screen.
+  private var staleDataNotice: some View {
+    Plate(padding: DS.Space.m) {
+      HStack(spacing: DS.Space.m) {
+        Image(systemName: "exclamationmark.circle")
+          .accessibilityHidden(true)
+        Text("Check your connection and try again.")
+          .font(DS.Typo.footnote)
+        Spacer(minLength: 0)
+        Button("Try Again") { vm.fetchWeather() }
+          .font(.footnote.weight(.semibold))
+          .frame(minHeight: DS.Size.minTarget)
+      }
+      .foregroundStyle(DS.Palette.onSky)
+    }
+  }
+
+  @ViewBuilder
+  private var forecastSections: some View {
+    let hours = vm.upcomingHours(6)
+    if !hours.isEmpty {
+      Plate {
+        NavigationLink { HourlyForecastView(vm: vm) } label: {
+          SectionTitle(title: "Hourly Forecast", showsChevron: true)
+            .frame(minHeight: DS.Size.minTarget)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("goToHourlyForecast")
+        HourlyStrip(hours: hours, tempUnit: vm.tempUnit, timeZone: vm.cityTimeZone)
+          .padding(.top, DS.Space.xs)
+      }
+    } else if vm.isForecastLoading {
+      Plate {
+        HStack {
+          SwiftUI.ProgressView().tint(DS.Palette.onSky)
+          Spacer()
+        }
+        .frame(minHeight: DS.Size.minTarget)
+      }
+    } else if vm.forecastFailed {
+      Plate {
+        HStack(spacing: DS.Space.m) {
+          Text("Forecast unavailable")
+            .font(DS.Typo.rowLabel)
+          Spacer(minLength: 0)
+          Button("Try Again") { vm.loadForecastIfNeeded() }
+            .font(.body.weight(.semibold))
+            .frame(minHeight: DS.Size.minTarget)
+        }
+        .foregroundStyle(DS.Palette.onSky)
       }
     }
+
+    if !vm.forecastDays.isEmpty {
+      Plate {
+        // The free WeatherAPI plan returns 3 days; the title states the real count instead of
+        // promising a week.
+        SectionTitle(title: "\(vm.forecastDays.count)-Day Forecast")
+          .frame(minHeight: DS.Size.minTarget)
+        DailyForecastList(days: vm.forecastDays, tempUnit: vm.tempUnit)
+      }
+    }
+  }
+
+  @ViewBuilder
+  private var airQualityRow: some View {
+    if let airQuality = vm.airQuality {
+      NavigationLink { AirQualityView(vm: vm) } label: {
+        Plate(padding: DS.Space.l) {
+          HStack(spacing: DS.Space.m) {
+            Text("Air Quality")
+              .font(DS.Typo.metricLabel)
+              .foregroundStyle(DS.Palette.onSkySecondary)
+            Spacer(minLength: DS.Space.s)
+            Circle()
+              .fill(DS.Palette.aqi(airQuality.usEpaIndex))
+              .frame(width: 10, height: 10)
+              .accessibilityHidden(true)
+            Text(airQuality.usEpaCategory)
+              .font(DS.Typo.rowValue)
+              .multilineTextAlignment(.trailing)
+            Image(systemName: "chevron.right")
+              .font(.footnote.weight(.semibold))
+              .foregroundStyle(DS.Palette.onSkySecondary)
+              .accessibilityHidden(true)
+          }
+          .foregroundStyle(DS.Palette.onSky)
+          .frame(minHeight: DS.Size.minTarget)
+        }
+      }
+      .buttonStyle(.plain)
+      .accessibilityElement(children: .combine)
+      .accessibilityIdentifier("goToAirQuality")
+    }
+  }
+
+  private var conditionsSection: some View {
+    Plate {
+      SectionTitle(title: "Conditions")
+        .frame(minHeight: DS.Size.minTarget)
+      // Ordered by how often each changes what people do: UV and wind first, pressure last.
+      MetricRow(label: "UV Index", value: vm.uvIndexText, detail: vm.uvDescription)
+      PlateDivider()
+      MetricRow(label: "Wind", value: vm.windText)
+      PlateDivider()
+      MetricRow(label: "Humidity", value: vm.humidityText)
+      PlateDivider()
+      MetricRow(label: "Visibility", value: vm.visibilityText)
+      PlateDivider()
+      MetricRow(label: "Pressure", value: vm.pressureText)
+    }
+  }
+
+  @ViewBuilder
+  private var sunMoonSection: some View {
+    if vm.todayAstro != nil {
+      Plate {
+        SectionTitle(title: "Sun & Moon")
+          .frame(minHeight: DS.Size.minTarget)
+        MetricRow(label: "Sunrise", value: vm.sunriseText)
+        PlateDivider()
+        MetricRow(label: "Sunset", value: vm.sunsetText)
+        PlateDivider()
+        MetricRow(label: "Moon Phase", value: vm.moonPhaseText)
+      }
+    }
+  }
+
+  /// Decorative information lives here, deliberately quiet.
+  private var footer: some View {
+    VStack(alignment: .leading, spacing: DS.Space.s) {
+      if !vm.weatherQuote.isEmpty {
+        Text("\u{201C}\(vm.weatherQuote)\u{201D}")
+          .font(DS.Typo.footnote.italic())
+          .fixedSize(horizontal: false, vertical: true)
+          .transition(.opacity)
+      }
+      Text("Updated \(vm.lastUpdatedAt)")
+        .font(.caption)
+      Text(vm.dayOfYearText)
+        .font(.caption)
+    }
+    .foregroundStyle(DS.Palette.onSkySecondary)
     .frame(maxWidth: .infinity, alignment: .leading)
+    .padding(.horizontal, DS.Space.xs)
   }
 
-  private func exploreGroup(title: LocalizedStringKey, @ViewBuilder tiles: () -> some View) -> some View {
-    VStack(alignment: .leading, spacing: 8) {
-      Text(title)
-        .font(.subheadline.weight(.semibold))
-        .opacity(0.85)
-        .shadow(radius: 3)
-        .accessibilityAddTraits(.isHeader)
-        .padding(.leading, 4)
-      LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-        tiles()
-      }
-    }
-  }
-  
-  // Location and city list buttons
+  // MARK: Toolbar
+
   private var locationButton: some View {
     Button(action: handleLocationButtonTap) {
       Image(systemName: vm.isLocationButtonTapped ? "location.fill" : "location")
-        .resizable()
-        .frame(width: 24, height: 24)
-        .padding(.leading)
-        .shadow(radius: 3)
     }
+    .tint(DS.Palette.onSky)
     .accessibilityLabel("Use current location")
   }
-  
-  private var cityListButton: some View {
-    Button(action: vm.handleShowCityListButtonTap) {
-      Image(systemName: "chevron.down")
-        .font(Font.system(size: 26))
-        .shadow(radius: 3)
+
+  private var mapButton: some View {
+    NavigationLink {
+      WeatherMapView(cityName: $vm.selectedCity, temperature: vm.temperature,
+                     userLocation: vm.isLocationButtonTapped ? vm.userLocation : vm.selectedCityLocation)
+    } label: {
+      Image(systemName: "map")
     }
-    .accessibilityIdentifier("goToCityList")
-    .accessibilityLabel("Choose a city")
+    .tint(DS.Palette.onSky)
+    .accessibilityLabel("Map")
+    .accessibilityIdentifier("goToMapView")
   }
-  
-  // Action functions
+
+  // MARK: Actions
+
   private func handleLocationButtonTap() {
     locationManager.requestLocation()
     vm.handleLocationButtonTap()
   }
-  
+
   private func handleCityChange(oldValue: String, newValue: String) {
     Task {
       if !newValue.isEmpty {
@@ -243,7 +380,7 @@ struct WeatherDetailView: View {
       }
     }
   }
-  
+
   private func handleLocationChange(oldValue: CLLocation?, newValue: CLLocation?) {
     if let newLocation = newValue, vm.isLocationButtonTapped {
       vm.userLocation = newLocation.coordinate
@@ -252,68 +389,8 @@ struct WeatherDetailView: View {
   }
 }
 
-// A single stat card used in the weather details grid
-private struct WeatherDetailCard: View {
-  let icon: String
-  let title: LocalizedStringKey
-  let value: String
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 6) {
-      HStack(spacing: 6) {
-        Image(systemName: icon)
-          .font(.subheadline)
-        Text(title)
-          .font(.caption)
-          .fontWeight(.medium)
-      }
-      .opacity(0.85)
-      Text(value)
-        .font(.headline)
-        .fontWeight(.semibold)
-        .lineLimit(1)
-        .minimumScaleFactor(0.8)
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(12)
-    .background(
-      RoundedRectangle(cornerRadius: 12)
-        .fill(Color.white.opacity(0.25))
-    )
-    .accessibilityElement(children: .combine)
-  }
-}
-
-// A single Explore destination tile — the identifier goes on the NavigationLink
-// itself (not an inner Text) so it stays a reliable app.buttons[...] target.
-private struct ExploreTile<Destination: View>: View {
-  let destination: Destination
-  let label: LocalizedStringKey
-  let imageName: String
-  let accessibilityIdentifier: String
-
-  var body: some View {
-    NavigationLink(destination: destination) {
-      VStack(spacing: 8) {
-        Image(systemName: imageName)
-          .font(.title2)
-        Text(label)
-          .font(.caption)
-          .fontWeight(.medium)
-          .lineLimit(1)
-          .minimumScaleFactor(0.8)
-      }
-      .frame(maxWidth: .infinity)
-      .padding(.vertical, 14)
-    }
-    .buttonStyle(PressableButtonStyle())
-    .glassSurface(cornerRadius: Radius.control)
-    .accessibilityIdentifier(accessibilityIdentifier)
-  }
-}
-
-struct WeatherDetailView_Previews: PreviewProvider {
-  static var previews: some View {
-    WeatherDetailView()
+#Preview {
+  NavigationStack {
+    WeatherDetailView(prefetchedCity: "Toronto")
   }
 }

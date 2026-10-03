@@ -27,5 +27,7 @@ struct WeatherMapView: View {
       MapScaleView()
     }
     .navigationTitle("Weather map view")
+    // Hybrid imagery is dark, so keep the title light.
+    .toolbarColorScheme(.dark, for: .navigationBar)
   }
 }

@@ -19,8 +19,7 @@ struct TemperatureUnitToggle: View {
         segment(for: .fahrenheit)
       }
       .padding(4)
-      .background(Capsule(style: .continuous).fill(.thinMaterial))
-      .overlay(Capsule(style: .continuous).strokeBorder(.white.opacity(0.22), lineWidth: 1))
+      .background(Capsule(style: .continuous).fill(Color.primary.opacity(0.08)))
     }
     .buttonStyle(PressableButtonStyle(scales: false))
     .accessibilityIdentifier("temperatureUnit")
@@ -50,13 +49,13 @@ struct TemperatureUnitToggle: View {
       Text("°\(unit.rawValue.uppercased())")
         .font(.title3.weight(.semibold))
     }
-    .foregroundStyle(isSelected ? Color("BrandNavy") : Color.primary.opacity(0.7))
-    .frame(maxWidth: .infinity)
-    .padding(.vertical, 12)
+    // Neutral, high-contrast selection (inverted label/background) instead of a brand-yellow pill.
+    .foregroundStyle(isSelected ? Color(uiColor: .systemBackground) : Color.primary)
+    .frame(maxWidth: .infinity, minHeight: DS.Size.minTarget)
     .background {
       if isSelected {
         Capsule(style: .continuous)
-          .fill(Color("BrandSun"))
+          .fill(Color.primary)
           .matchedGeometryEffect(id: Self.sliderID, in: namespace)
       }
     }

@@ -22,6 +22,10 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
 
   func testContactUs() throws {
     app.launch()
+    // Contact Us moved into Settings in the redesign.
+    let showSettingsButton = app.buttons["showSettings"]
+    XCTAssertTrue(showSettingsButton.waitForExistence(timeout: 4))
+    showSettingsButton.tap()
     let goToContactUsButton = app.buttons["goToContactUs"]
     XCTAssertTrue(goToContactUsButton.waitForExistence(timeout: 4))
     goToContactUsButton.tap()
@@ -62,9 +66,9 @@ class WeatherNetwrokTechAssessmentUITests: XCTestCase {
 //    let cityLabel = app.staticTexts["Brampton"]
 //    XCTAssertTrue(cityLabel.exists)
 
-    // Test that the temperature label displays the correct temperature
-    let temperatureLabel = app.staticTexts["°C"]
-    XCTAssertTrue(temperatureLabel.waitForExistence(timeout: 4))
+    // The redesigned hero reads temperature, condition and range as one element.
+    let temperatureHero = app.descendants(matching: .any)["currentTemperature"]
+    XCTAssertTrue(temperatureHero.waitForExistence(timeout: 10))
 
   }
 }

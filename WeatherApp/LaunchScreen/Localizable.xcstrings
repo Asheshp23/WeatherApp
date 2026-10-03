@@ -172,6 +172,7 @@
       }
     },
     "%.0f°C" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -206,6 +207,7 @@
       }
     },
     "%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -279,7 +281,48 @@
         }
       }
     },
+    "%@ · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ · %2$@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
     "%@ added" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -382,6 +425,7 @@
       }
     },
     "%@°%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -748,6 +792,40 @@
         }
       }
     },
+    "Add your WeatherAPI key to config.plist, then relaunch the app." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Añade tu clave de WeatherAPI a config.plist y vuelve a abrir la app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ajoutez votre clé WeatherAPI dans config.plist, puis relancez l’app."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "config.plist માં તમારી WeatherAPI કી ઉમેરો, પછી ઍપ ફરી ખોલો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "config.plist में अपनी WeatherAPI कुंजी जोड़ें, फिर ऐप दोबारा खोलें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "config.plist ਵਿੱਚ ਆਪਣੀ WeatherAPI ਕੁੰਜੀ ਜੋੜੋ, ਫਿਰ ਐਪ ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ।"
+          }
+        }
+      }
+    },
     "Adjust" : {
       "localizations" : {
         "es" : {
@@ -851,6 +929,7 @@
       }
     },
     "Alerts" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -948,6 +1027,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਇਹ ਹਵਾ, ਦਿੱਖ ਅਤੇ ਦਬਾਅ ਦੀਆਂ ਇਕਾਈਆਂ ਵੀ ਬਦਲ ਦਿੰਦਾ ਹੈ।"
+          }
+        }
+      }
+    },
+    "API key missing" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Falta la clave de API"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Clé API manquante"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "API કી ખૂટે છે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "API कुंजी नहीं मिली"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "API ਕੁੰਜੀ ਗੁੰਮ ਹੈ"
           }
         }
       }
@@ -1307,6 +1420,744 @@
         }
       }
     },
+    "briefing_alert" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alert in effect: %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alerta activa: %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Alerte en cours : %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ચેતવણી અમલમાં: %@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "चेतावनी लागू: %@।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਚੇਤਾਵਨੀ ਲਾਗੂ: %@।"
+          }
+        }
+      }
+    },
+    "briefing_feels_like" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Feels like %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sensación térmica de %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ressenti %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ જેવું લાગશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ जैसा महसूस होगा।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਵਰਗਾ ਮਹਿਸੂਸ ਹੋਵੇਗਾ।"
+          }
+        }
+      }
+    },
+    "briefing_high_uv" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "UV is high, so wear sunscreen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "El índice UV es alto: usa protector solar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Indice UV élevé : mettez de la crème solaire."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "UV વધારે છે, સનસ્ક્રીન લગાવો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "UV अधिक है, सनस्क्रीन लगाएँ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "UV ਜ਼ਿਆਦਾ ਹੈ, ਸਨਸਕ੍ਰੀਨ ਲਗਾਓ।"
+          }
+        }
+      }
+    },
+    "briefing_rain_continuing" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rain for the next 12 hours."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lluvia durante las próximas 12 horas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pluie pendant les 12 prochaines heures."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આગામી ૧૨ કલાક વરસાદ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अगले १२ घंटे बारिश।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਗਲੇ ੧੨ ਘੰਟੇ ਮੀਂਹ।"
+          }
+        }
+      }
+    },
+    "briefing_rain_from" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rain likely from about %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Probable lluvia a partir de las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pluie probable à partir de %@ environ."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લગભગ %@ થી વરસાદની શક્યતા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लगभग %@ से बारिश की संभावना।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਲਗਭਗ %@ ਤੋਂ ਮੀਂਹ ਦੀ ਸੰਭਾਵਨਾ।"
+          }
+        }
+      }
+    },
+    "briefing_rain_until" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Rain until about %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lluvia hasta aproximadamente las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Pluie jusqu’à %@ environ."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લગભગ %@ સુધી વરસાદ."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लगभग %@ तक बारिश।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਲਗਭਗ %@ ਤੱਕ ਮੀਂਹ।"
+          }
+        }
+      }
+    },
+    "briefing_showers_chance" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A chance of showers around %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Posibles chubascos hacia las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Averses possibles vers %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ આસપાસ ઝાપટાંની શક્યતા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ के आसपास बौछारों की संभावना।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਦੇ ਆਸ-ਪਾਸ ਬੌਛਾੜਾਂ ਦੀ ਸੰਭਾਵਨਾ।"
+          }
+        }
+      }
+    },
+    "briefing_snow_chance" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A chance of snow around %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Posible nieve hacia las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Neige possible vers %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ આસપાસ હિમવર્ષાની શક્યતા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ के आसपास बर्फबारी की संभावना।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਦੇ ਆਸ-ਪਾਸ ਬਰਫ਼ਬਾਰੀ ਦੀ ਸੰਭਾਵਨਾ।"
+          }
+        }
+      }
+    },
+    "briefing_snow_continuing" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Snow for the next 12 hours."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nieve durante las próximas 12 horas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Neige pendant les 12 prochaines heures."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આગામી ૧૨ કલાક હિમવર્ષા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अगले १२ घंटे बर्फबारी।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਗਲੇ ੧੨ ਘੰਟੇ ਬਰਫ਼ਬਾਰੀ।"
+          }
+        }
+      }
+    },
+    "briefing_snow_from" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Snow likely from about %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Probable nieve a partir de las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Neige probable à partir de %@ environ."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લગભગ %@ થી હિમવર્ષાની શક્યતા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लगभग %@ से बर्फबारी की संभावना।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਲਗਭਗ %@ ਤੋਂ ਬਰਫ਼ਬਾਰੀ ਦੀ ਸੰਭਾਵਨਾ।"
+          }
+        }
+      }
+    },
+    "briefing_snow_until" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Snow until about %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nieve hasta aproximadamente las %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Neige jusqu’à %@ environ."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લગભગ %@ સુધી હિમવર્ષા."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लगभग %@ तक बर्फबारी।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਲਗਭਗ %@ ਤੱਕ ਬਰਫ਼ਬਾਰੀ।"
+          }
+        }
+      }
+    },
+    "briefing_travel_time" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Allow extra travel time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Calcula más tiempo para desplazarte."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prévoyez plus de temps pour vos trajets."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "મુસાફરી માટે વધારાનો સમય રાખો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "यात्रा के लिए अतिरिक्त समय रखें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਫ਼ਰ ਲਈ ਵਾਧੂ ਸਮਾਂ ਰੱਖੋ।"
+          }
+        }
+      }
+    },
+    "briefing_trend_cooling" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cooling to %1$@ by %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Bajando a %1$@ hacia las %2$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Baisse jusqu’à %1$@ vers %2$@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ સુધીમાં તાપમાન %1$@ સુધી ઘટશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ तक तापमान %1$@ तक गिरेगा।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ ਤੱਕ ਤਾਪਮਾਨ %1$@ ਤੱਕ ਡਿੱਗੇਗਾ।"
+          }
+        }
+      }
+    },
+    "briefing_trend_steady" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Steady around %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Estable, alrededor de %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Stable, autour de %@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્થિર, લગભગ %@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्थिर, लगभग %@।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਥਿਰ, ਲਗਭਗ %@।"
+          }
+        }
+      }
+    },
+    "briefing_trend_warming" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Warming to %1$@ by %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Subiendo a %1$@ hacia las %2$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Jusqu’à %1$@ vers %2$@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ સુધીમાં તાપમાન %1$@ સુધી પહોંચશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ तक तापमान %1$@ तक पहुँचेगा।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%2$@ ਤੱਕ ਤਾਪਮਾਨ %1$@ ਤੱਕ ਪਹੁੰਚੇਗਾ।"
+          }
+        }
+      }
+    },
+    "briefing_umbrella" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Take an umbrella."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lleva paraguas."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prenez un parapluie."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "છત્રી સાથે રાખો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "छाता साथ रखें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਛਤਰੀ ਨਾਲ ਰੱਖੋ।"
+          }
+        }
+      }
+    },
+    "briefing_unhealthy_air" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Air quality is unhealthy, so limit time outdoors."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "La calidad del aire es mala: pasa menos tiempo al aire libre."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "L’air est de mauvaise qualité : limitez le temps passé dehors."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવાની ગુણવત્તા ખરાબ છે, બહાર ઓછો સમય વિતાવો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हवा की गुणवत्ता खराब है, बाहर कम समय बिताएँ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਵਾ ਦੀ ਗੁਣਵੱਤਾ ਖ਼ਰਾਬ ਹੈ, ਬਾਹਰ ਘੱਟ ਸਮਾਂ ਬਿਤਾਓ।"
+          }
+        }
+      }
+    },
+    "briefing_windy" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Expect strong wind."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Se espera viento fuerte."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Vent fort attendu."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "જોરદાર પવન ફૂંકાશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "तेज़ हवा चलेगी।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਤੇਜ਼ ਹਵਾ ਚੱਲੇਗੀ।"
+          }
+        }
+      }
+    },
     "Brightness" : {
       "localizations" : {
         "es" : {
@@ -1337,6 +2188,74 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਚਮਕ"
+          }
+        }
+      }
+    },
+    "Can't load %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "No se puede cargar %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impossible de charger %@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ લોડ થઈ શક્યું નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ लोड नहीं हो सका"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%@ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਿਆ"
+          }
+        }
+      }
+    },
+    "Can't load weather" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "No se puede cargar el tiempo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Impossible de charger la météo"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવામાન લોડ થઈ શક્યું નથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौसम लोड नहीं हो सका"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਸਮ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਿਆ"
           }
         }
       }
@@ -1444,6 +2363,7 @@
       }
     },
     "Clear search" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -1545,7 +2465,42 @@
         }
       }
     },
+    "Conditions" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Condiciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Conditions"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્થિતિ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्थितियाँ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਾਲਾਤ"
+          }
+        }
+      }
+    },
     "Contact us" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -1682,6 +2637,7 @@
       }
     },
     "Daily" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -1750,6 +2706,7 @@
       }
     },
     "Day of Year" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -1820,6 +2777,252 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਦਿਨ %@, ਕੁੱਲ %@ ਵਿੱਚੋਂ"
+          }
+        }
+      }
+    },
+    "dial_hour" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "dial_hour_rain" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@, %3$@ chance of rain"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, %3$@ de probabilidad de lluvia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, %3$@ de risque de pluie"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, વરસાદની શક્યતા %3$@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, बारिश की संभावना %3$@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, ਮੀਂਹ ਦੀ ਸੰਭਾਵਨਾ %3$@"
+          }
+        }
+      }
+    },
+    "dial_hour_snow" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@, %3$@ chance of snow"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, %3$@ de probabilidad de nieve"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, %3$@ de risque de neige"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, હિમવર્ષાની શક્યતા %3$@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, बर्फबारी की संभावना %3$@"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%1$@, %2$@, ਬਰਫ਼ਬਾਰੀ ਦੀ ਸੰਭਾਵਨਾ %3$@"
+          }
+        }
+      }
+    },
+    "dial_summary_now" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Now %1$@, %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ahora %1$@, %2$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maintenant %1$@, %2$@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હમણાં %1$@, %2$@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अभी %1$@, %2$@।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹੁਣ %1$@, %2$@।"
+          }
+        }
+      }
+    },
+    "dial_summary_range" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Warmest %1$@ at %2$@, coolest %3$@ at %4$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Máxima de %1$@ a las %2$@, mínima de %3$@ a las %4$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maximum %1$@ à %2$@, minimum %3$@ à %4$@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સૌથી ગરમ %1$@ (%2$@), સૌથી ઠંડું %3$@ (%4$@)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सबसे गर्म %1$@ (%2$@), सबसे ठंडा %3$@ (%4$@)।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸਭ ਤੋਂ ਗਰਮ %1$@ (%2$@), ਸਭ ਤੋਂ ਠੰਢਾ %3$@ (%4$@)।"
+          }
+        }
+      }
+    },
+    "dial_summary_sun" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sunrise %1$@, sunset %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Amanecer %1$@, atardecer %2$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Lever du soleil %1$@, coucher %2$@."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સૂર્યોદય %1$@, સૂર્યાસ્ત %2$@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सूर्योदय %1$@, सूर्यास्त %2$@।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੂਰਜ ਚੜ੍ਹਨਾ %1$@, ਸੂਰਜ ਡੁੱਬਣਾ %2$@।"
           }
         }
       }
@@ -1961,6 +3164,7 @@
       }
     },
     "Explore" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -2024,6 +3228,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਫਾਰਨਹੀਟ"
+          }
+        }
+      }
+    },
+    "Feels like" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sensación térmica"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ressenti"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "જેવું લાગે છે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "महसूस होता है"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮਹਿਸੂਸ ਹੁੰਦਾ ਹੈ"
           }
         }
       }
@@ -2309,6 +3547,7 @@
       }
     },
     "Forecast" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -2479,6 +3718,7 @@
       }
     },
     "Hourly" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -2648,6 +3888,46 @@
         }
       }
     },
+    "Level %@ of %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Level %1$@ of %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Nivel %1$@ de %2$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Niveau %1$@ sur %2$@"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સ્તર %1$@, કુલ %2$@ માંથી"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "स्तर %1$@, कुल %2$@ में से"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪੱਧਰ %1$@, ਕੁੱਲ %2$@ ਵਿੱਚੋਂ"
+          }
+        }
+      }
+    },
     "Loading photos…" : {
       "localizations" : {
         "es" : {
@@ -2678,6 +3958,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਫ਼ੋਟੋਆਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ…"
+          }
+        }
+      }
+    },
+    "Loading weather…" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Cargando el tiempo…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Chargement de la météo…"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવામાન લોડ થઈ રહ્યું છે…"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौसम लोड हो रहा है…"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਸਮ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…"
           }
         }
       }
@@ -3147,6 +4461,7 @@
       }
     },
     "More" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -3210,6 +4525,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਨਾਮ"
+          }
+        }
+      }
+    },
+    "Next 24 hours" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Próximas 24 horas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Prochaines 24 heures"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આગામી ૨૪ કલાક"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अगले २४ घंटे"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅਗਲੇ ੨੪ ਘੰਟੇ"
           }
         }
       }
@@ -3317,6 +4666,7 @@
       }
     },
     "No Saved Cities" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -3387,6 +4737,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਉਪਲਬਧ ਨਹੀਂ"
+          }
+        }
+      }
+    },
+    "Now" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ahora"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Maint."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હમણાં"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "अभी"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹੁਣ"
           }
         }
       }
@@ -3535,6 +4919,7 @@
       }
     },
     "Photo Gallery" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -3721,6 +5106,74 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਫ਼ੋਟੋਆਂ"
+          }
+        }
+      }
+    },
+    "Pollutants" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Contaminantes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Polluants"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "પ્રદૂષકો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "प्रदूषक"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪ੍ਰਦੂਸ਼ਕ"
+          }
+        }
+      }
+    },
+    "Popular Cities" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Ciudades populares"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Villes populaires"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "લોકપ્રિય શહેરો"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "लोकप्रिय शहर"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਪ੍ਰਸਿੱਧ ਸ਼ਹਿਰ"
           }
         }
       }
@@ -4067,6 +5520,7 @@
       }
     },
     "Retry" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -4271,6 +5725,7 @@
       }
     },
     "Search to add a city" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -4474,7 +5929,42 @@
         }
       }
     },
+    "Sun & Moon" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Sol y luna"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Soleil et lune"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "સૂર્ય અને ચંદ્ર"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "सूर्य और चंद्रमा"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਸੂਰਜ ਅਤੇ ਚੰਦ"
+          }
+        }
+      }
+    },
     "Sunny" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -4572,6 +6062,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਸੂਰਜ ਡੁੱਬਣਾ"
+          }
+        }
+      }
+    },
+    "Swipe up or down to hear each hour." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Desliza hacia arriba o hacia abajo para oír cada hora."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Balayez vers le haut ou le bas pour entendre chaque heure."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "દરેક કલાક સાંભળવા ઉપર કે નીચે સ્વાઇપ કરો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "हर घंटा सुनने के लिए ऊपर या नीचे स्वाइप करें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਹਰ ਘੰਟਾ ਸੁਣਨ ਲਈ ਉੱਪਰ ਜਾਂ ਹੇਠਾਂ ਸਵਾਈਪ ਕਰੋ।"
           }
         }
       }
@@ -4713,6 +6237,7 @@
       }
     },
     "Thank you for sharing your contact details with us someone form customer support will contact you soon..." : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -4742,6 +6267,74 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਸਾਡੇ ਨਾਲ ਆਪਣੇ ਸੰਪਰਕ ਵੇਰਵੇ ਸਾਂਝੇ ਕਰਨ ਲਈ ਧੰਨਵਾਦ। ਗਾਹਕ ਸਹਾਇਤਾ ਤੋਂ ਕੋਈ ਵਿਅਕਤੀ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੇਗਾ।"
+          }
+        }
+      }
+    },
+    "Thanks. Customer support will contact you soon." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Gracias. El servicio de atención al cliente se pondrá en contacto contigo pronto."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Merci. Le service client vous contactera bientôt."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આભાર. ગ્રાહક સહાય ટૂંક સમયમાં તમારો સંપર્ક કરશે."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "धन्यवाद। ग्राहक सहायता जल्द ही आपसे संपर्क करेगी।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਧੰਨਵਾਦ। ਗਾਹਕ ਸਹਾਇਤਾ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੇਗੀ।"
+          }
+        }
+      }
+    },
+    "Today" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Hoy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Aujourd’hui"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "આજે"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "आज"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਅੱਜ"
           }
         }
       }
@@ -4952,6 +6545,7 @@
       }
     },
     "Toronto" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -5496,6 +7090,40 @@
         }
       }
     },
+    "Weather" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Tiempo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Météo"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "હવામાન"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "मौसम"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ਮੌਸਮ"
+          }
+        }
+      }
+    },
     "Weather Alerts" : {
       "localizations" : {
         "es" : {
@@ -5560,6 +7188,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਮੌਸਮ ਨਕਸ਼ਾ ਦ੍ਰਿਸ਼"
+          }
+        }
+      }
+    },
+    "WeatherAPI didn't recognize this city or your API key. Choose another city or check config.plist." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherAPI no reconoció esta ciudad o tu clave de API. Elige otra ciudad o revisa config.plist."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherAPI n’a pas reconnu cette ville ou votre clé API. Choisissez une autre ville ou vérifiez config.plist."
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherAPI આ શહેર અથવા તમારી API કી ઓળખી શક્યું નથી. બીજું શહેર પસંદ કરો અથવા config.plist તપાસો."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherAPI इस शहर या आपकी API कुंजी को नहीं पहचान सका। कोई दूसरा शहर चुनें या config.plist जांचें।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "WeatherAPI ਇਸ ਸ਼ਹਿਰ ਜਾਂ ਤੁਹਾਡੀ API ਕੁੰਜੀ ਨੂੰ ਨਹੀਂ ਪਛਾਣ ਸਕਿਆ। ਕੋਈ ਹੋਰ ਸ਼ਹਿਰ ਚੁਣੋ ਜਾਂ config.plist ਜਾਂਚੋ।"
           }
         }
       }
@@ -5662,6 +7324,40 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "ਹਵਾ"
+          }
+        }
+      }
+    },
+    "Worded by Apple Intelligence" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Redactado por Apple Intelligence"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Formulé par Apple Intelligence"
+          }
+        },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Apple Intelligence દ્વારા લખાયેલું"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Apple Intelligence द्वारा लिखा गया"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Apple Intelligence ਵੱਲੋਂ ਲਿਖਿਆ"
           }
         }
       }

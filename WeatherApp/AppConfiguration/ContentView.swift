@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// Two top-level areas: Weather (the product) and Photos (gallery + editor, unrelated to weather).
+/// Contact Us lives in Settings. Keeping Photos in its own tab stops it from competing with weather
+/// content while staying one tap away.
 struct ContentView: View {
   @State private var bootstrap = AppBootstrapService()
   @State private var showLaunchScreen = true
@@ -13,12 +16,21 @@ struct ContentView: View {
           .transition(launchScreenTransition)
           .zIndex(1)
       } else {
-        NavigationStack {
-          WeatherDetailView(
-            locationManager: bootstrap.locationManager,
-            prefetchedCity: bootstrap.prefetchedCity,
-            prefetchedWeather: bootstrap.prefetchedWeather
-          )
+        TabView {
+          NavigationStack {
+            WeatherDetailView(
+              locationManager: bootstrap.locationManager,
+              prefetchedCity: bootstrap.prefetchedCity,
+              prefetchedWeather: bootstrap.prefetchedWeather
+            )
+          }
+          .tabItem { Label("Weather", systemImage: "cloud.sun") }
+
+          NavigationStack {
+            PhotoGalleryView()
+          }
+          .tabItem { Label("Photos", systemImage: "photo.on.rectangle") }
+          .accessibilityIdentifier("goToPhotos")
         }
         .transition(.opacity)
       }
@@ -36,8 +48,6 @@ struct ContentView: View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+#Preview {
+  ContentView()
 }

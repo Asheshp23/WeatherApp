@@ -11,7 +11,7 @@ struct WeatherWidget: Widget {
         }
         .configurationDisplayName("Weatherly Weather")
         .description("Glance at the current conditions for your selected city.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
