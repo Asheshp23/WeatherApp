@@ -56,9 +56,3 @@ To try a language in Xcode: **Product → Scheme → Edit Scheme → Run → Opt
 - Xcode 26 or later, iOS 17+ (Apple Intelligence quote requires iOS 26 on a supported device)
 - A [WeatherAPI.com](https://www.weatherapi.com) API key in `config.plist` (`API_KEY`). The free plan returns up to 3 forecast days.
 
-## App
-https://github.com/Asheshp23/WeatherApp/assets/22404192/e643c07c-be7e-45f6-a0de-19dff10cec5c
-
-## Widget
-
-![Weathr Widget](https://github.com/Asheshp23/WeatherApp/assets/22404192/99ec369a-00fa-471d-9ae3-b805e84f46da)
